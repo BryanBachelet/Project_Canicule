@@ -14,8 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-Assets-Shared
   m_GUID: 8ed4a89d6fe1a4348b6d91c6251dd0fd
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 82845005d3e00f14cb1f4012b52b36c2
+    m_Address: Assets/Localization/LocalizationTables/StringTablesCollection Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: cad05594327d4fd4090f865d55eccb9d, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: abdc40a5a9b40844fb4add893529c682, type: 2}
+    - {fileID: 11400000, guid: 67f3c560823175a4dabe44f7a20a0412, type: 2}
+    - {fileID: 11400000, guid: aa43a94a75707f64f8fc1d452e761628, type: 2}

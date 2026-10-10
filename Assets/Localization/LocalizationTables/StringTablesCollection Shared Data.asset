@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StringTablesCollection Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: StringTablesCollection
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
+  m_TableCollectionNameGuidString: 82845005d3e00f14cb1f4012b52b36c2
   m_Entries: []
   m_Metadata:
     m_Items: []
