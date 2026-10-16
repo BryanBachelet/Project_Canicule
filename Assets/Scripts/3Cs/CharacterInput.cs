@@ -28,7 +28,7 @@ namespace Canicule
             OnMove();
         }
 
-        // Send the player's movement direction to CharacterMovement Script
+        // Update moveDirection to the current value of the Vector2 move
         public void OnMove()
         {
             moveDirection = m_moveAction.ReadValue<Vector2>();
