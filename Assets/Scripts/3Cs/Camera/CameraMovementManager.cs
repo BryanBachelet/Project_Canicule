@@ -6,6 +6,7 @@ namespace Canicule
     {
         [SerializeField] private Camera m_camera;
         [SerializeField] private GameObject m_target;
+        [SerializeField] private float m_cameraLerpSpeed = 8f;
         private CameraStateManager m_cameraStateManager;
 
 
@@ -23,13 +24,15 @@ namespace Canicule
             }
         }
 
-        // The camera's position is set to the target's position (with a lerp)
+        // The camera's position is set to the target's position with a lerp
         private void CameraFollowsTarget()
         {
-            m_camera.gameObject.transform.position = 
-                new Vector3(m_target.transform.position.x,
+            Vector3 targetPos = new Vector3(m_target.transform.position.x,
                 m_target.transform.position.y,
                 m_camera.transform.position.z);
+
+            m_camera.gameObject.transform.position = Vector3.Lerp(m_camera.gameObject.transform.position, 
+                targetPos, m_cameraLerpSpeed * Time.deltaTime);
         }
 
 

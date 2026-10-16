@@ -1479,6 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CameraMovementManager
   m_camera: {fileID: 1682770847}
   m_target: {fileID: 372883547}
+  m_cameraLerpSpeed: 8
 --- !u!114 &1427646898
 MonoBehaviour:
   m_ObjectHideFlags: 0
