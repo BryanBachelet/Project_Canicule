@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Interactible
-  - 
+  - VisualSorting
   - 
   - 
   - 
@@ -40,9 +40,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Interactible
-    uniqueID: 1885564129
     locked: 0
   m_RenderingLayers:
   - Default
