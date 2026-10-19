@@ -2098,6 +2098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b00186c130c4f4d8d093b26cc72459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterInteract
+  m_interactionDistance: 1.5
 --- !u!114 &1829872149
 MonoBehaviour:
   m_ObjectHideFlags: 0
