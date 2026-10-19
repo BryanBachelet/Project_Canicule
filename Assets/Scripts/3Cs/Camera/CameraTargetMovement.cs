@@ -38,7 +38,7 @@ namespace Canicule
         public void GetTargetDistanceRatio(Vector2 playerPos, Vector2 targetPos)
         {
             Vector2 m_playerTargetVector = targetPos - playerPos;
-            Debug.Log(m_playerTargetVector.magnitude / m_targetMaxDistance);
+            //Debug.Log(m_playerTargetVector.magnitude / m_targetMaxDistance);
         }
     }
 }
