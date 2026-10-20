@@ -1311,9 +1311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CameraTargetMovement
   m_cameraInput: {fileID: 1427646895}
+  m_cameraData: {fileID: 11400000, guid: 2f76283adc5c59d43a808afc504d7a1d, type: 2}
   m_player: {fileID: 1914827900}
-  m_targetMaxDistance: 4
-  m_targetEquilibrium: 2
 --- !u!1 &448904732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effd9571d13c43f49a65fe4f6717a5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CameraMovementManager
+  cameraData: {fileID: 11400000, guid: 2f76283adc5c59d43a808afc504d7a1d, type: 2}
+  m_exhaustionManager: {fileID: 0}
   m_camera: {fileID: 1682770847}
   m_target: {fileID: 372883547}
   m_cameraLerpSpeed: 8
@@ -2477,6 +2478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78b09f847ffc274ba5823c48771f346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterInput
+  characterData: {fileID: 11400000, guid: 14e8c5c7f8dd76b4f80e6210b55063c2, type: 2}
+  m_exhaustionManager: {fileID: 0}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   moveDirection: {x: 0, y: 0}
   m_CameraInput: {fileID: 1427646895}
@@ -2863,6 +2866,7 @@ MonoBehaviour:
   exhaustionData: {fileID: 11400000, guid: 129b6e1833282b043b989151f55eaed1, type: 2}
   nightRatio: 0.5
   roomTemperature: 28
+  exhaustionRatio: 0
   exhaustion: 0
   sleepExhaustion: 0
   hungerExhaustion: 0

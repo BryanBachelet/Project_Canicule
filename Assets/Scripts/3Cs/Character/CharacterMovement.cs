@@ -19,8 +19,9 @@ namespace Canicule
         // Update is called once per frame
         void Update()
         {
-            m_moveDirection = m_characterInput.moveDirection.normalized * m_characterMovementSpeed;
+            ComputeCharacterMovementSpeed();
 
+            m_moveDirection = m_characterInput.moveDirection.normalized * m_characterMovementSpeed;
             Move(m_moveDirection);
         }
 
@@ -28,6 +29,14 @@ namespace Canicule
         public void Move(Vector2 dir)
         {
             m_playerRigidbody2D.linearVelocity = dir;
+        }
+
+        private void ComputeCharacterMovementSpeed()
+        {
+            float start = m_characterMovementSpeed;
+            float target = m_characterInput.characterData.characterMovementSpeedOverExhaustion.Evaluate(
+                m_characterInput.m_exhaustionManager.exhaustionRatio);
+            m_characterMovementSpeed = Mathf.Lerp(start, target, m_characterInput.characterData.movementSpeedLerpSpeed);
         }
     }
 }

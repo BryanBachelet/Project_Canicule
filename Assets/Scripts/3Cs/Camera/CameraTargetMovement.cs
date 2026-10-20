@@ -4,12 +4,19 @@ namespace Canicule
 {
     public class CameraTargetMovement : MonoBehaviour
     {
-
         [SerializeField] private CameraInput m_cameraInput;
+        [SerializeField] private CameraData m_cameraData;
         [SerializeField] private GameObject m_player;
-        [SerializeField] private float m_targetMaxDistance = 3f;
-        [SerializeField] private float m_targetEquilibrium = 2f;
+        private ExhaustionManager m_exhaustionManager;
+        private float m_targetMaxDistance;
         private Vector2 mousePosition;
+        
+
+
+        private void Awake()
+        {
+            m_exhaustionManager = Object.FindAnyObjectByType<ExhaustionManager>();
+        }
 
         private void Update()
         {
@@ -18,6 +25,8 @@ namespace Canicule
 
             GetTargetDistanceRatio(m_player.transform.position, 
                 ComputesTargetPosition(m_player.transform.position, mousePosition));
+
+            ComputeTargetMaxDistance();
         }
 
 
@@ -25,7 +34,7 @@ namespace Canicule
         {
             Vector2 m_playerMouseVector = mousePos - playerPos;
             Vector2 m_targetPos = playerPos +
-                Vector2.ClampMagnitude(m_playerMouseVector / m_targetEquilibrium, m_targetMaxDistance);
+                Vector2.ClampMagnitude(m_playerMouseVector / m_cameraData.targetEquilibrium, m_targetMaxDistance);
             return m_targetPos;
         }
         // Update the position of the camera target
@@ -39,6 +48,14 @@ namespace Canicule
         {
             Vector2 m_playerTargetVector = targetPos - playerPos;
             //Debug.Log(m_playerTargetVector.magnitude / m_targetMaxDistance);
+        }
+
+        // Compute the value of target max distance against exhaustion ratio
+        private void ComputeTargetMaxDistance()
+        {
+            float start = m_targetMaxDistance;
+            float target = m_cameraData.characterTargetMaxDistanceOverExhaustion.Evaluate(m_exhaustionManager.exhaustionRatio);
+            m_targetMaxDistance = Mathf.Lerp(start, target, m_cameraData.targetLerpSpeed);
         }
     }
 }

@@ -4,7 +4,12 @@ namespace Canicule
 {
     public class CharacterInteract : MonoBehaviour
     {
-        [SerializeField] private float m_interactionDistance = 2f;
+        private CharacterInput m_characterInput;
+
+        private void Awake()
+        {
+            m_characterInput = GetComponent<CharacterInput>();
+        }
 
         // Shoots a point at the mouse's position, and if it's an interactible in the player's range, plays the Interact() function.
         public void Interact(Vector2 mousePosWorld)
@@ -23,7 +28,7 @@ namespace Canicule
                     playerPos.y = transform.position.y;
                     Vector2 direction = mousePosWorld - playerPos;
                     Vector2 normalizedDirection = direction.normalized;
-                    RaycastHit2D playerInteractibleRay = Physics2D.Raycast(playerPos, normalizedDirection, m_interactionDistance, LayerMask.GetMask("Interactible"));
+                    RaycastHit2D playerInteractibleRay = Physics2D.Raycast(playerPos, normalizedDirection, m_characterInput.characterData.interactionRange, LayerMask.GetMask("Interactible"));
                     
                     if (interactibleObject.CanInteract() && playerInteractibleRay)
                     {
