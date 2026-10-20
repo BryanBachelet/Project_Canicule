@@ -12,6 +12,8 @@ namespace Canicule
         [Range(28f, 50f)]
         public float roomTemperature = 28f; // To be replaced with the value in the Room Temp Manager
 
+        [Range(0f, 1f)]
+        public float exhaustionRatio = 0f;
         public float exhaustion;
         //[HideInInspector]
         public float sleepExhaustion;
@@ -66,6 +68,7 @@ namespace Canicule
             if (m_bCanBeExhausted)
             {
                 exhaustion = ComputeExhaustion();
+                exhaustionRatio = ComputeExhaustionRatio(exhaustionRatio, exhaustion, exhaustionData.maxExhaustion);
 
                 // Sleep
                 if (m_bCanBeSleepExhausted)
@@ -104,6 +107,13 @@ namespace Canicule
         private float ComputeExhaustion()
         {
             return sleepExhaustion + hungerExhaustion + thirstExhaustion + bodyTemperatureExhaustion;
+        }
+
+        // Computes the value of exhaustion ratio
+        private float ComputeExhaustionRatio(float exhaustionRatio, float exhaustion, float maxExhaustion)
+        {
+            exhaustionRatio = exhaustion / maxExhaustion;
+            return exhaustionRatio;
         }
 
         // Modifies the booleen values of sleep

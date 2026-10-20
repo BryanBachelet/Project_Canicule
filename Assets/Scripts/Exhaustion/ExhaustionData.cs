@@ -5,6 +5,11 @@ namespace Canicule
     [CreateAssetMenu(fileName = "ExhaustionData", menuName = "Scriptable Objects/ExhaustionData")]
     public class ExhaustionData : ScriptableObject
     {
+
+        [Header("Exhaustion")]
+        public float maxExhaustion;
+
+        [Space(15)]
         [Header("Sleep")]
         public AnimationCurve sleepIncreaseRateOverNightRatio;
         public AnimationCurve sleepDecreaseAmountOverNightRatio;

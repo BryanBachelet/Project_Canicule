@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f569f11d24c9a0c4f9fbe4c88ae2535d, type: 3}
   m_Name: ExhaustionData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ExhaustionData
+  maxExhaustion: 200
   sleepIncreaseRateOverNightRatio:
     serializedVersion: 2
     m_Curve:
