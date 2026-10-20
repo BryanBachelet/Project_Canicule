@@ -4,9 +4,7 @@ namespace Canicule.Rooms
 {
     public class Room : MonoBehaviour
     {
-        [SerializeField] private RoomData m_roomdData;
-
-               
+        [SerializeField] private RoomData m_roomdData;    
     }
 
 
