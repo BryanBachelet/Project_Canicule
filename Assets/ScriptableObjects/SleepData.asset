@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2a6606ea6e3d442a02ad9955281efb, type: 3}
   m_Name: SleepData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.SleepData
-  m_sleepChanceOverRoomTemperature:
+  sleepChanceOverRoomTemperature:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -27,4 +27,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_sleepCooldown: 2
+  sleepCooldown: 2

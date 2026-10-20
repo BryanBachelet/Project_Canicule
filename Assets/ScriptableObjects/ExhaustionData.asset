@@ -60,19 +60,55 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  hungerIncreaseRate: 0
+  hungerIncreaseRate: 1
   thirstIncreaseRateOverTemperature:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 28
+      value: 1
+      inSlope: 0
+      outSlope: 0.8636364
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 50
+      value: 20
+      inSlope: 0.8636364
+      outSlope: 0
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   bodyTemperatureOverTargetTemperature:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 28
+      value: 10
+      inSlope: 0
+      outSlope: 0.5555556
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 50
+      inSlope: 0.5555556
+      outSlope: 0
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  draftBodyTemperatureReduction: 0
-  upBodyTemperatureSpeed: 0
-  downBodyTemperatureSpeed: 0
+  draftBodyTemperatureReduction: 1
+  upBodyTemperatureSpeed: 10
+  downBodyTemperatureSpeed: 1

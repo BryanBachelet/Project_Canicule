@@ -2,18 +2,20 @@ using UnityEngine;
 
 namespace Canicule
 {
-    public class BodyTemperatureExhaustionManager : MonoBehaviour
+    public class BodyTemperatureExhaustionManager : ExhaustionElement
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public float ModifyExhaustionOverTime(float exhaustion, float target, float upSpeed, float downSpeed)
         {
-        
-        }
+            if(exhaustion <= target)
+            {
+                exhaustion += upSpeed * Time.deltaTime;
+            }
+            else
+            {
+                exhaustion -= downSpeed * Time.deltaTime;
+            }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
+            return exhaustion;
         }
     }
 }

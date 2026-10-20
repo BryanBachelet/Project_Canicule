@@ -13,6 +13,7 @@ namespace Canicule
 
         public override void Interact()
         {
+            base.Interact();
             TrySleep();
         }
 

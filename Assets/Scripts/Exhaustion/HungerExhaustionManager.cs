@@ -2,18 +2,8 @@ using UnityEngine;
 
 namespace Canicule
 {
-    public class HungerExhaustionManager : MonoBehaviour
+    public class HungerExhaustionManager : ExhaustionElement
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }
