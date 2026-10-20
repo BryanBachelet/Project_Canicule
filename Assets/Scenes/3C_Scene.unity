@@ -663,6 +663,52 @@ PolygonCollider2D:
       - {x: 2.6336803, y: -1.2117003}
       - {x: 4.2331276, y: 0.3990333}
   m_UseDelaunayMesh: 1
+--- !u!1 &250733985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250733987}
+  - component: {fileID: 250733986}
+  m_Layer: 0
+  m_Name: SleepManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &250733986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250733985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8c7090b1fd47c40b724bf2310fdf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.SleepManager
+  m_roomTemperature: 0
+  m_sleepData: {fileID: 11400000, guid: 30cbeca72f806344cbfb54205cabbe24, type: 2}
+--- !u!4 &250733987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250733985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &272606152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,9 +1852,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644228908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de797f8f0de9e74cb40c4bfd7640b5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c9c985cd91922949b79ac0edb106e9e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Canicule.InteractibleObject
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.BedInteractible
 --- !u!1 &1682770845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2313,110 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1829872144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2019900345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019900346}
+  - component: {fileID: 2019900351}
+  - component: {fileID: 2019900350}
+  - component: {fileID: 2019900349}
+  - component: {fileID: 2019900348}
+  - component: {fileID: 2019900347}
+  m_Layer: 0
+  m_Name: ExhaustionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2019900346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019900345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2019900347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019900345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37cce94c5b5e53429e34cf695497ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &2019900348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019900345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425b56cb9b2dcbc4db88012fa5b1f993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &2019900349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019900345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2b8c5315639fc4e81d70b3a9805ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &2019900350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019900345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf2db9abf388e547a082d9eac9fcb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &2019900351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019900345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ca0d676b9638c49bd05bf587f3310f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ExhaustionManager
+  exhaustionData: {fileID: 11400000, guid: 129b6e1833282b043b989151f55eaed1, type: 2}
+  nightRatio: 0.5
+  roomTemperature: 28
+  exhaustion: 0
+  sleepExhaustion: 0
+  hungerExhaustion: 0
+  thirstExhaustion: 0
+  bodyTemperatureExhaustion: 0
 --- !u!1 &2085029811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,3 +2656,5 @@ SceneRoots:
   - {fileID: 820518690}
   - {fileID: 159306694}
   - {fileID: 1427646896}
+  - {fileID: 2019900346}
+  - {fileID: 250733987}
