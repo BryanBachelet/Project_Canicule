@@ -9,5 +9,7 @@ namespace Canicule.Rooms
         
         // Correspond to the resistance of room to increase the degree in it
         public float roomHeatResistance = 1;
+
+        public float m_baseTemperature = 25;
     }
 }
