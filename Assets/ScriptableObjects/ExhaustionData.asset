@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f569f11d24c9a0c4f9fbe4c88ae2535d, type: 3}
   m_Name: ExhaustionData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ExhaustionData
-  maxExhaustion: 200
+  maxExhaustion: 1000
   sleepIncreaseRateOverNightRatio:
     serializedVersion: 2
     m_Curve:
@@ -20,15 +20,15 @@ MonoBehaviour:
       time: 0
       value: 0
       inSlope: 0
-      outSlope: 1
+      outSlope: 0.5
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 1
+      value: 0.5
+      inSlope: 0.5
       outSlope: 0
       tangentMode: 5
       weightedMode: 0
@@ -42,9 +42,9 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 100
+      value: 50
       inSlope: 0
-      outSlope: -100
+      outSlope: -50
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.33333334
@@ -52,7 +52,7 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -100
+      inSlope: -50
       outSlope: 0
       tangentMode: 5
       weightedMode: 0
@@ -61,23 +61,23 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  hungerIncreaseRate: 1
+  hungerIncreaseRate: 0.25
   thirstIncreaseRateOverTemperature:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 28
-      value: 1
+      value: 0.5
       inSlope: 0
-      outSlope: 0.8636364
+      outSlope: 0.022727273
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 50
-      value: 20
-      inSlope: 0.8636364
+      value: 1
+      inSlope: 0.022727273
       outSlope: 0
       tangentMode: 5
       weightedMode: 0
@@ -93,15 +93,15 @@ MonoBehaviour:
       time: 28
       value: 10
       inSlope: 0
-      outSlope: 0.5555556
+      outSlope: 13.181818
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 100
-      value: 50
-      inSlope: 0.5555556
+      time: 50
+      value: 300
+      inSlope: 13.181818
       outSlope: 0
       tangentMode: 5
       weightedMode: 0
