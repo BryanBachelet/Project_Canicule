@@ -9,25 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab934ed1ef3c65469a98f425e84bf0b, type: 3}
-  m_Name: CharacterData
-  m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterData
-  characterMovementSpeedOverExhaustion:
+  m_Script: {fileID: 11500000, guid: cc2a6606ea6e3d442a02ad9955281efb, type: 3}
+  m_Name: S_SleepData
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.SleepData
+  sleepChanceOverRoomTemperature:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 2
+      time: 28
+      value: 0.65
       inSlope: 0
-      outSlope: -1
+      outSlope: -0.020454545
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: -1
+      time: 50
+      value: 0.2
+      inSlope: -0.020454545
       outSlope: 0
       tangentMode: 5
       weightedMode: 0
@@ -36,5 +36,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  movementSpeedLerpSpeed: 2
-  interactionRange: 1.5
+  sleepCooldown: 180

@@ -15,13 +15,9 @@ namespace Canicule
         [Range(0f, 1f)]
         public float exhaustionRatio = 0f;
         public float exhaustion;
-        //[HideInInspector]
         public float sleepExhaustion;
-        //[HideInInspector]
         public float hungerExhaustion;
-        //[HideInInspector]
         public float thirstExhaustion;
-        //[HideInInspector]
         public float bodyTemperatureExhaustion;
 
         private bool m_bCanBeExhausted = false;
