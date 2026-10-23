@@ -26,7 +26,14 @@ namespace Canicule.Temperature
         {
             if (!m_isActive) return 0;
 
-            float m_heatScore = m_temperature - refTemperature;
+            float sign = Mathf.Sign((m_temperature - refTemperature));
+            float baseHeatScore = HeatGeneralData.GetPositifHeatScoreGain();
+            if (sign < 0)
+            {
+                baseHeatScore = HeatGeneralData.GetNegatifHeatScoreGain();
+            }
+
+            float m_heatScore = baseHeatScore + ((m_temperature - refTemperature) * HeatGeneralData.GetRatioPerDegreeGap());
             return m_heatScore;
         }
 

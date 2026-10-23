@@ -6,13 +6,10 @@ namespace Canicule.Rooms
     {
         [SerializeField] private RoomData m_roomData;
 
-        private HeatManager m_heatManager;
+        [SerializeField] private HeatManager m_heatManager = new HeatManager();
 
         #region Unity Functions
-        public void Awake()
-        {
-            m_heatManager = new HeatManager();
-        }
+
         public void Start()
         { 
             m_heatManager.InitHeatManager(m_roomData.m_baseTemperature, m_roomData.roomHeatResistance);
