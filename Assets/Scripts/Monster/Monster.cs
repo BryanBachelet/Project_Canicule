@@ -60,7 +60,7 @@ namespace Canicule
 
         public void Start()
         {
-            ChangeState(MonsterState.DISAPPEAR);
+            ChangeState(MonsterState.APPEAR);
         }
 
         public void Update()
