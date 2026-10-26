@@ -13,9 +13,9 @@ namespace Canicule
             m_exhaustionManager = Object.FindAnyObjectByType<ExhaustionManager>();
         }
 
-        public override void Interact()
+        public override void LaunchInteraction(Transform actor)
         {
-            base.Interact();
+            base.LaunchInteraction(actor);
             m_exhaustionManager.DecreaseHungerExhaustion(m_hungerDecreaseAmount);
             m_exhaustionManager.DecreaseThirstExhaustion(m_thirstDecreaseAmount);
 

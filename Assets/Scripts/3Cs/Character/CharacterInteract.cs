@@ -32,7 +32,7 @@ namespace Canicule
                     
                     if (interactibleObject.CanInteract() && playerInteractibleRay)
                     {
-                        interactibleObject.Interact();
+                        interactibleObject.LaunchInteraction(this.transform);
                     }
                 }
                 else

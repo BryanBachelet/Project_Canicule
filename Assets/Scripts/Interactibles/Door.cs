@@ -2,18 +2,33 @@ using UnityEngine;
 
 namespace Canicule
 {
-    public class Door : MonoBehaviour
+    public class Door : InteractibleObject
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        [SerializeField] private Transform m_teleportPoint;
+        [SerializeField] private Vector3 m_offsetTeleportPoint= Vector3.zero;
+
+        [Header("Debugs Options")]
+        [SerializeField] private bool m_showTeleportPoint;
+        private static readonly Color m_debugSphereColorStr = Color.rebeccaPurple;
+        private const float m_debugSphereSize = .4f;
+
+
+        protected override void Interact()
         {
-        
+            p_actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
+
+            base.Interact();
         }
 
-        // Update is called once per frame
-        void Update()
+#if UNITY_DEVELOPMENT || UNITY_EDITOR
+        private void OnDrawGizmosSelected()
         {
-        
+            if (!m_showTeleportPoint) return;
+
+            Gizmos.color = m_debugSphereColorStr;
+            Gizmos.DrawLine(transform.position, m_teleportPoint.position + m_offsetTeleportPoint);
+            Gizmos.DrawSphere(m_teleportPoint.position + m_offsetTeleportPoint, m_debugSphereSize);
         }
+#endif
     }
 }
