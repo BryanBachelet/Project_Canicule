@@ -15,7 +15,7 @@ namespace Canicule
 
         protected override void Interact()
         {
-            p_actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
+            actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
 
             base.Interact();
         }

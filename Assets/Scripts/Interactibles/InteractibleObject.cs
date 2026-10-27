@@ -6,15 +6,15 @@ namespace Canicule
 {
     public class InteractibleObject : MonoBehaviour, IPauseableObject
     {
-        [SerializeField] protected float p_interactionRange = 1;
-        [SerializeField] protected float p_interactionDuration = 5;
-        protected float p_interactionTimer = 0.0f;
+        [SerializeField] protected float interactionRange = 1;
+        [SerializeField] protected float interactionDuration = 5;
+        protected float interactionTimer = 0.0f;
         
-        protected Transform p_actorTransform;
+        protected Transform actorTransform;
 
-        protected bool p_bIsInteracting = false;
+        protected bool bIsInteracting = false;
 
-        protected bool p_bIsOnPause = false;
+        protected bool bIsOnPause = false;
 
         [HideInInspector] public UnityEvent OnInteractStart;
 
@@ -40,11 +40,11 @@ namespace Canicule
         #region Pause Functions
         public  void OnPause()
         {
-            p_bIsOnPause = true;
+            bIsOnPause = true;
         }
         public void OnPlay()
         {
-            p_bIsOnPause = false;
+            bIsOnPause = false;
         }
         #endregion
 
@@ -53,11 +53,11 @@ namespace Canicule
         /// </summary>
         protected virtual void UpdateInteraction()
         {
-            if (!p_bIsInteracting || p_bIsOnPause) return;
+            if (!bIsInteracting || bIsOnPause) return;
 
-            if(p_interactionTimer < p_interactionDuration)
+            if(interactionTimer < interactionDuration)
             {
-                p_interactionTimer += Time.deltaTime;
+                interactionTimer += Time.deltaTime;
             }
             else
             {
@@ -70,31 +70,31 @@ namespace Canicule
         /// </summary>
         public virtual void LaunchInteraction(Transform actor)
         {
-            if (p_bIsInteracting) return;
+            if (bIsInteracting) return;
 
-            p_bIsInteracting = true;
+            bIsInteracting = true;
 
-            p_interactionTimer = 0.0f;
-            p_actorTransform = actor;
+            interactionTimer = 0.0f;
+            actorTransform = actor;
 
             OnInteractStart?.Invoke();
         }
 
         protected virtual void Interact()
         {
-            p_bIsInteracting = false;
-            p_actorTransform = null;
+            bIsInteracting = false;
+            actorTransform = null;
         }
 
         public bool CanInteract()
         {
-            return !p_bIsInteracting;
+            return !bIsInteracting;
         }
 
         #region Getter Function
         public bool IsInteracting() 
         {
-            return p_bIsInteracting; 
+            return bIsInteracting; 
         }
         #endregion
     }

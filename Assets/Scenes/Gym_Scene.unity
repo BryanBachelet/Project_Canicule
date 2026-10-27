@@ -132,12 +132,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 856991775}
     - target: {fileID: -5274649397425619597, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_showTeleportPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5274649397425619597, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: p_interactionDuration
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5274649397425619597, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_offsetTeleportPoint.y
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 556141737993149148, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_Name
       value: Door_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556141737993149148, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919211946897473588, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -424,6 +436,14 @@ PrefabInstance:
       propertyPath: m_teleportPoint
       value: 
       objectReference: {fileID: 95610081}
+    - target: {fileID: -5274649397425619597, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_showTeleportPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5274649397425619597, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_offsetTeleportPoint.y
+      value: -1.59
+      objectReference: {fileID: 0}
     - target: {fileID: 556141737993149148, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_Name
       value: Door_0
