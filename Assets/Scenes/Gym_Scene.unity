@@ -191,6 +191,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2575775458943864513, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_teleportPoint
+      value: 
+      objectReference: {fileID: 856991775}
+    - target: {fileID: 2575775458943864513, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_showTeleportPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575775458943864513, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_offsetTeleportPoint.y
+      value: -1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5325401913794871034, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497269582042747294, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -466,15 +486,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919211946897473588, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919211946897473588, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919211946897473588, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919211946897473588, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -487,6 +507,18 @@ PrefabInstance:
     - target: {fileID: 919211946897473588, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575775458943864513, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_teleportPoint
+      value: 
+      objectReference: {fileID: 95610081}
+    - target: {fileID: 2575775458943864513, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_showTeleportPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575775458943864513, guid: 05ba13b1c352d44478f4a9365552ee05, type: 3}
+      propertyPath: m_offsetTeleportPoint.y
+      value: -1.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

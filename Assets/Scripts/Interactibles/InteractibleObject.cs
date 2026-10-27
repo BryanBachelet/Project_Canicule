@@ -20,7 +20,7 @@ namespace Canicule
 
         #region Unity Function
 
-        public void Start()
+        public virtual void Start()
         {
             GameManager.RegisterObject(this);
         }
