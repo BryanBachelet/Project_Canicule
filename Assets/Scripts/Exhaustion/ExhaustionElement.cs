@@ -20,7 +20,7 @@ namespace Canicule
                 exhaustion = 0;
             }
 
-            Debug.Log("Exhaustion decreased by " + modifier);
+            Debug.Log("[Exhaustion] Exhaustion decreased by " + modifier);
 
             return exhaustion;
         }

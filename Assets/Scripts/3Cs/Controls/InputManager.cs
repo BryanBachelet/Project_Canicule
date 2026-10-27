@@ -6,6 +6,10 @@ namespace Canicule
 {
     public class InputManager : MonoBehaviour
     {
+
+        private const string m_playerInputMapName = "Player";
+        private const string m_UIInputMapName = "UI";
+
         private void Start()
         {
             DisablePlayerMap();
@@ -16,22 +20,22 @@ namespace Canicule
 
         public void EnablePlayerMap()
         {
-            InputSystem.actions.FindActionMap("Player").Enable();
+            InputSystem.actions.FindActionMap(m_playerInputMapName).Enable();
         }
 
         public void DisablePlayerMap()
         {
-            InputSystem.actions.FindActionMap("Player").Disable();
+            InputSystem.actions.FindActionMap(m_playerInputMapName).Disable();
         }
 
         public void EnableUIMap()
         {
-            InputSystem.actions.FindActionMap("UI").Enable();
+            InputSystem.actions.FindActionMap(m_UIInputMapName).Enable();
         }
 
         public void DisableUIMap()
         {
-            InputSystem.actions.FindActionMap("UI").Disable();
+            InputSystem.actions.FindActionMap(m_UIInputMapName).Disable();
         }
 
     }
