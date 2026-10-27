@@ -8,17 +8,12 @@ namespace Canicule
         public InputActionAsset inputActions;
         public Vector2 mousePosition;
 
-        private InputActionMap m_playerMap;
         private InputAction m_lookAction;
 
         private void Awake()
         {
-            m_playerMap = inputActions.FindActionMap("Player");
-            m_lookAction = m_playerMap.FindAction("Look");
+            m_lookAction = InputSystem.actions.FindAction("Look");
         }
-
-        private void OnEnable() => m_playerMap.Enable();
-        private void OnDisable() => m_playerMap.Disable();
 
         private void Update()
         {

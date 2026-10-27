@@ -14,7 +14,6 @@ namespace Canicule
         [SerializeField] private CameraInput m_CameraInput;
         private CharacterInteract m_characterInteract;
 
-        private InputActionMap m_playerMap;
         private InputAction m_moveAction;
         private InputAction m_interactAction;
 
@@ -24,19 +23,16 @@ namespace Canicule
             m_characterInteract = GetComponent<CharacterInteract>();
             m_exhaustionManager = FindAnyObjectByType<ExhaustionManager>();
 
-            m_playerMap = inputActions.FindActionMap("Player", true);
-            m_moveAction = m_playerMap.FindAction("Move", true);
-            m_interactAction = m_playerMap.FindAction("Interact", true);
+            m_interactAction = InputSystem.actions.FindAction("Interact", true);
+            m_moveAction = InputSystem.actions.FindAction("Move", true);
         }
 
         private void OnEnable()
         {
-            m_playerMap.Enable();
             m_interactAction.performed += OnInteract;
         }
         private void OnDisable()
         {
-            m_playerMap.Disable();
             m_interactAction.performed -= OnInteract;
         }
 
