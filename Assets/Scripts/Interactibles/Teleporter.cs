@@ -14,6 +14,19 @@ namespace Canicule
         private static readonly Color m_debugSphereColorStr = Color.rebeccaPurple;
         private const float m_debugSphereSize = .4f;
 
+        public override void Start()
+        {
+            base.Start();
+
+            if(m_roomLink == null)
+            {
+                Debug.LogError("[Door] Door don't have the linked room");
+                return;
+            }
+
+            Rooms.RoomConnection roomConnection = new Rooms.RoomConnection(m_roomLink, this);
+            m_roomOwner.LinkRoomConnection(roomConnection);
+        }
 
         protected override void Interact()
         {
