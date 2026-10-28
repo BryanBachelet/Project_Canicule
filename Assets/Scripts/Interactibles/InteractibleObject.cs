@@ -6,6 +6,8 @@ namespace Canicule
 {
     public class InteractibleObject : MonoBehaviour, IPauseableObject
     {
+        [SerializeField] protected Rooms.Room m_roomOwner;
+        [Space]
         [SerializeField] protected float interactionRange = 1;
         [SerializeField] protected float interactionDuration = 5;
         protected float interactionTimer = 0.0f;
@@ -23,6 +25,7 @@ namespace Canicule
         public virtual void Start()
         {
             GameManager.RegisterObject(this);
+            m_roomOwner = GetComponentInParent<Rooms.Room>();
         }
 
         public void OnDestroy()

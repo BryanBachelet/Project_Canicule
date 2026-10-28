@@ -4,6 +4,8 @@ namespace Canicule
 {
     public class Teleporter : InteractibleObject
     {
+        [SerializeField] private Rooms.Room m_roomLink;
+        [Space]
         [SerializeField] private Transform m_teleportPoint;
         [SerializeField] private Vector3 m_offsetTeleportPoint= Vector3.zero;
 
@@ -15,8 +17,10 @@ namespace Canicule
 
         protected override void Interact()
         {
+            m_roomLink.ActivateRoom();
+            m_roomOwner.DeactivateRoom();
             actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
-
+            
             base.Interact();
         }
 

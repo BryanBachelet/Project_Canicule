@@ -20,6 +20,16 @@ namespace Canicule.Rooms
         }
         #endregion
 
+        public void ActivateRoom()
+        {
+            this.gameObject.SetActive(true);
+        }
+
+        public void DeactivateRoom()
+        {
+            this.gameObject.SetActive(false);
+        }
+
         public HeatManager GetHeatManager() { return m_heatManager; }
 
         public float GetRoomDegree() { return m_heatManager.GetDegree(); }
