@@ -5,62 +5,42 @@ namespace Canicule
 {
     public class PCManager : MonoBehaviour
     {
-
-        [SerializeField] private GameObject m_PCScreen;
-        [SerializeField] private List<GameObject> m_apps = new List<GameObject>();
         private InputManager m_inputManager;
-        private GameObject m_activeApp;
+        private PCUIManager m_pcUIManager;
 
+        #region Unity Methods
         private void Awake()
         {
             m_inputManager = FindAnyObjectByType<InputManager>();
+            m_pcUIManager = GetComponent<PCUIManager>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            m_PCScreen.SetActive(false);
-
-            foreach(GameObject app in m_apps)
-            {
-                app.SetActive(false);
-            }
+            m_pcUIManager.OnPCOpen += SwitchToUIMap;
+            m_pcUIManager.OnPCClosed += SwitchToPlayerMap;
         }
 
-        // Switches the state of the pc screen
-        public void SwitchPCScreen()
+        private void OnDisable()
         {
-            if (m_PCScreen.activeSelf)
-            {
-                m_PCScreen.SetActive(false);
-                m_inputManager.EnablePlayerMap();
-                m_inputManager.DisableUIMap();
-                CloseActiveApp();
-                // End interaction please
-            }
-            else
-            {
-                m_PCScreen.SetActive(true);
-                m_inputManager.DisablePlayerMap();
-                m_inputManager.EnableUIMap();
-            }
+            m_pcUIManager.OnPCOpen -= SwitchToUIMap;
+            m_pcUIManager.OnPCClosed -= SwitchToPlayerMap;
         }
+        #endregion
 
-        // Opens the active app
-        public void OpenActiveApp(GameObject gameObject)
+        #region Input Methods
+        private void SwitchToUIMap()
         {
-            m_activeApp = gameObject;
-            m_activeApp.SetActive(true);
+            m_inputManager.DisablePlayerMap();
+            m_inputManager.EnableUIMap();
         }
 
-        // Closes the active app
-        public void CloseActiveApp()
+        private void SwitchToPlayerMap()
         {
-            if(m_activeApp != null)
-            {
-                m_activeApp.SetActive(false);
-            }
+            m_inputManager.EnablePlayerMap();
+            m_inputManager.DisableUIMap();
         }
+        #endregion
 
-        
     }
 }

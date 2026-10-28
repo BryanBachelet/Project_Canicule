@@ -1322,19 +1322,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6562027596764081052, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8987204993521576442}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8849995057825799959, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6206653793634845494}
   m_SourcePrefab: {fileID: 100100000, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
 --- !u!114 &1042686054339172836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 565270964358912761, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
   m_PrefabInstance: {fileID: 693663758271595293}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8318460906014776330}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e1dec35d9e7ca14b8b7904a3dc236e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.PCManager
+--- !u!1 &5070901623038922939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5764349874883040166, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
+  m_PrefabInstance: {fileID: 693663758271595293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5187970727131994421 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5647298844896303656, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
@@ -1345,6 +1353,26 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6562027596764081052, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
   m_PrefabInstance: {fileID: 693663758271595293}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8318460906014776330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8849995057825799959, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
+  m_PrefabInstance: {fileID: 693663758271595293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6206653793634845494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318460906014776330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18fb8ee95a915d4a8a7509a873c78f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.PCUIManager
+  m_PCScreen: {fileID: 5070901623038922939}
+  m_apps:
+  - {fileID: 7852611449963820089}
 --- !u!1001 &2991138178900588993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1722,13 +1750,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7234721499302310300, guid: f0ec50bbd6141004f9c76e2348d326f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1945147576283189752}
   m_SourcePrefab: {fileID: 100100000, guid: f0ec50bbd6141004f9c76e2348d326f0, type: 3}
 --- !u!224 &3340749555234225657 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 260416299576974094, guid: f0ec50bbd6141004f9c76e2348d326f0, type: 3}
   m_PrefabInstance: {fileID: 3297080485486159607}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5307335913360971627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7234721499302310300, guid: f0ec50bbd6141004f9c76e2348d326f0, type: 3}
+  m_PrefabInstance: {fileID: 3297080485486159607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1945147576283189752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307335913360971627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
+  m_Content: {fileID: 0}
+  m_Horizontal: 1
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3395478209100830960
 PrefabInstance:
   m_ObjectHideFlags: 0

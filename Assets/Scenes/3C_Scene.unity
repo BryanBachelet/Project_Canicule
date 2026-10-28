@@ -934,41 +934,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &648245512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5307335913360971627, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
-  m_PrefabInstance: {fileID: 7849347280801373226}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &648245517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648245512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
-  m_Content: {fileID: 0}
-  m_Horizontal: 1
-  m_Vertical: 1
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 0}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 0
-  m_HorizontalScrollbarSpacing: 0
-  m_VerticalScrollbarSpacing: 0
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &820518689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,18 +1823,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 915112593088200101, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7849347280801373230}
+    - target: {fileID: 915112593088200101, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchPCScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 915112593088200101, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Canicule.PCUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 944644925714773196, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5243864215049515265, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7849347280801373230}
+    - target: {fileID: 5243864215049515265, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenActiveApp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243864215049515265, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Canicule.PCUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852611449963820089, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885959613907019452, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7849347280801373230}
+    - target: {fileID: 7885959613907019452, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseActiveApp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885959613907019452, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Canicule.PCUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5307335913360971627, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 648245517}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+--- !u!114 &7849347280801373230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6206653793634845494, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+  m_PrefabInstance: {fileID: 7849347280801373226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18fb8ee95a915d4a8a7509a873c78f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.PCUIManager
 --- !u!1001 &8598275716217771118
 PrefabInstance:
   m_ObjectHideFlags: 0
