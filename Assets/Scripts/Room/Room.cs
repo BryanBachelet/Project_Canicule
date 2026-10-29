@@ -21,6 +21,9 @@ namespace Canicule.Rooms
     {
         [SerializeField] private RoomData m_roomData;
 
+        [Space]
+        [SerializeField] private Vector3[] m_appearencePoints;
+
         [SerializeField] private HeatManager m_heatManager = new HeatManager();
 
         private List<RoomConnection> m_roomLink = new List<RoomConnection>();
@@ -30,10 +33,12 @@ namespace Canicule.Rooms
         public void Start()
         { 
             m_heatManager.InitHeatManager(m_roomData.m_baseTemperature, m_roomData.roomHeatResistance);
-        
+            
+            RoomManager roomManager = GameManager.GetRoomManager();
+            roomManager.RegisterRoom(this);
             if (gameObject.activeSelf)
             {
-                GameManager.GetRoomManager().SetCurrentRoom(this);
+                roomManager.SetCurrentRoom(this);
             }
 
         }
@@ -71,6 +76,8 @@ namespace Canicule.Rooms
         public HeatManager GetHeatManager() { return m_heatManager; }
 
         public float GetRoomDegree() { return m_heatManager.GetDegree(); }
+
+        public Vector3[] GetAppearencePoint() { return m_appearencePoints; }
     }
 
 

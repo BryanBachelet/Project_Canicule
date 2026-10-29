@@ -49,6 +49,10 @@ namespace Canicule
         {
             bIsOnPause = false;
         }
+
+        public void OnRegister()
+        {
+        }
         #endregion
 
         /// <summary>
@@ -99,6 +103,8 @@ namespace Canicule
         {
             return bIsInteracting; 
         }
+
+     
         #endregion
     }
 }

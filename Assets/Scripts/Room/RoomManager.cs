@@ -5,7 +5,7 @@ namespace Canicule.Rooms
 {
     public class RoomManager : MonoBehaviour
     {
-        private List<Room> m_roomList;
+        private List<Room> m_roomList = new List<Room>();
         private Room m_currentRoom;
 
         [Header("Debug Parameters")]
@@ -70,7 +70,8 @@ namespace Canicule.Rooms
 
             return m_roomValid.ToArray();
         }
-
+        
+        public Room GetCurrentRoom() { return m_currentRoom; }
 
         #region Debug Functions
         #endregion

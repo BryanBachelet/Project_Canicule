@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
+using NavMeshPlus.Components;
+using NavMeshPlus.Extensions;
+using System;
 namespace Canicule
 {
     public enum MonsterState
@@ -109,6 +112,7 @@ namespace Canicule
                 case MonsterState.NONE:
                     break;
                 case MonsterState.APPEAR:
+                    gameObject.SetActive(true);
                     m_navMeshAgent.isStopped = false;
                     m_appearTimer = m_appearDuration;
                     m_navMeshAgent.SetDestination(m_target.position);
@@ -119,7 +123,7 @@ namespace Canicule
                     m_navMeshAgent.isStopped = false;
                     m_navMeshAgent.SetDestination(m_target.position);
                     break;
-                
+
                 case MonsterState.MOVE:
                     m_moveRefreshTimer = m_cooldownRefreshTimer;
                     m_navMeshAgent.isStopped = false;
@@ -135,6 +139,18 @@ namespace Canicule
             }
         }
 
+        public void Teleport(Vector3 position)
+        {
+            NavMeshHit hit = new NavMeshHit();
+            if (NavMesh.SamplePosition(position, out hit,10000.0f ,NavMesh.AllAreas))
+            {
+                transform.position = hit.position;
+            }
+            else
+            {
+                Debug.LogWarning($"[Monster] Couldn't teleport because monster navmesh can't find a point on the navmesh point");
+            }
+        }
 
         #region Process Functions
         private void Process_State()
@@ -142,7 +158,7 @@ namespace Canicule
             switch (m_currentState)
             {
                 case MonsterState.NONE:
-                    
+
                     break;
                 case MonsterState.APPEAR:
                     Process_Appear();
@@ -180,10 +196,10 @@ namespace Canicule
         {
             m_moveRefreshTimer -= Time.deltaTime;
             if (m_moveRefreshTimer >= 0.0f) return;
-            
+
             m_moveRefreshTimer = m_cooldownRefreshTimer;
             m_navMeshAgent.SetDestination(m_target.position);
-        
+
         }
 
         private void Process_Catch()
@@ -261,5 +277,28 @@ namespace Canicule
 
         }
         #endregion
+
+        public MonsterState GetState() { return m_currentState; }
+        public bool IsAppear() { return m_currentState != MonsterState.NONE; }
+
+        public void OnPause()
+        {
+
+        }
+
+        public void OnPlay()
+        {
+
+        }
+
+        public void OnRegister()
+        {
+
+        }
+
+        public void SetTarget(Transform target)
+        {
+            m_target = target;
+        }
     }
 }

@@ -4,8 +4,8 @@ namespace Canicule
 {
     public interface IPauseableObject 
     {
-        public void OnPause() { }
-        public void OnPlay() { }
-        public void OnRegister() { }
+        public void OnPause();
+        public void OnPlay();
+        public void OnRegister();
     }
 }
