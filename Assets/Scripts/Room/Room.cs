@@ -23,13 +23,19 @@ namespace Canicule.Rooms
 
         [SerializeField] private HeatManager m_heatManager = new HeatManager();
 
-        private List<RoomConnection> m_roomLink;
+        private List<RoomConnection> m_roomLink = new List<RoomConnection>();
 
         #region Unity Functions
 
         public void Start()
         { 
             m_heatManager.InitHeatManager(m_roomData.m_baseTemperature, m_roomData.roomHeatResistance);
+        
+            if (gameObject.activeSelf)
+            {
+                GameManager.GetRoomManager().SetCurrentRoom(this);
+            }
+
         }
         public void Update()
         {
@@ -40,6 +46,7 @@ namespace Canicule.Rooms
         public void ActivateRoom()
         {
             this.gameObject.SetActive(true);
+            GameManager.GetRoomManager().SetCurrentRoom(this);
         }
 
         public void DeactivateRoom()

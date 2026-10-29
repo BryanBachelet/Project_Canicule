@@ -13,9 +13,12 @@ namespace Canicule.Temperature
         private float m_nextStepHeatScore;
         private float m_prevStepHeatScore;
 
-        private float m_heatScoreResistance;
+        [SerializeField] private float m_heatScoreResistance = 0;
 
         private List<HeatSource> m_heatSourcesList = new List<HeatSource>();
+
+        private const float m_minDegreeRoom = 0;
+        private const float m_maxDegreeRoom = 55;
 
         [Header("Debugs parameters")]
         [SerializeField] private bool m_activeTemperaturDebug = false;
@@ -72,6 +75,7 @@ namespace Canicule.Temperature
             m_currentDegree++;
             m_nextStepHeatScore = HeatGeneralData.GetValueNextDegreeHeatScore();
 
+            m_currentDegree = Mathf.Clamp(m_currentDegree, m_minDegreeRoom, m_maxDegreeRoom);
             if (m_activeTemperaturDebug)
                 Debug.Log($"[Temperature] Increase Degree -> Prev {m_currentDegree - 1} / Current {m_currentDegree}");
         }
@@ -80,7 +84,9 @@ namespace Canicule.Temperature
         {
             m_currentDegree--;
             m_prevStepHeatScore = (-HeatGeneralData.GetValueNextDegreeHeatScore());
-            
+
+            m_currentDegree = Mathf.Clamp(m_currentDegree, m_minDegreeRoom, m_maxDegreeRoom);
+
             if (m_activeTemperaturDebug)
                 Debug.Log($"[Temperature] Decrease Degree -> Prev {m_currentDegree +1 } / Current {m_currentDegree}");
         }
