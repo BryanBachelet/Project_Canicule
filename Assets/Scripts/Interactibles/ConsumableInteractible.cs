@@ -5,8 +5,8 @@ namespace Canicule
     public class ConsumableInteractible : InteractibleObject
     {
         private ExhaustionManager m_exhaustionManager;
-        [SerializeField] private float m_hungerDecreaseAmount;
-        [SerializeField] private float m_thirstDecreaseAmount;
+        [SerializeField] private float m_hungerModifierAmount;
+        [SerializeField] private float m_thirstModifierAmount;
 
         private void Awake()
         {
@@ -16,8 +16,8 @@ namespace Canicule
         public override void LaunchInteraction(Transform actor)
         {
             base.LaunchInteraction(actor);
-            m_exhaustionManager.DecreaseHungerExhaustion(m_hungerDecreaseAmount);
-            m_exhaustionManager.DecreaseThirstExhaustion(m_thirstDecreaseAmount);
+            m_exhaustionManager.ModifyHungerExhaustion(m_hungerModifierAmount);
+            m_exhaustionManager.ModifyThirstExhaustion(m_thirstModifierAmount);
 
             gameObject.SetActive(false);
         }

@@ -150,21 +150,21 @@ namespace Canicule
         // Modifies exhaustion when sleep event is triggered
         private void HandleSleepStarted()
         {
-            sleepExhaustion = m_sleepExhaustionManager.DecreaseExhaustionByAmount(
-                sleepExhaustion, exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(nightRatio));
+            sleepExhaustion = m_sleepExhaustionManager.ModifyExhaustionByAmount(
+                sleepExhaustion, -1 * exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(nightRatio));
         }
 
-        // Decreases exhaustion when eating
-        public void DecreaseHungerExhaustion(float amount)
+        // Modify exhaustion when eating
+        public void ModifyHungerExhaustion(float amount)
         {
-            hungerExhaustion = m_hungerExhaustionManager.DecreaseExhaustionByAmount(
+            hungerExhaustion = m_hungerExhaustionManager.ModifyExhaustionByAmount(
                 hungerExhaustion, amount);
         }
 
-        // Decreases exhaustion when drinking
-        public void DecreaseThirstExhaustion(float amount)
+        // Modify exhaustion when drinking
+        public void ModifyThirstExhaustion(float amount)
         {
-            thirstExhaustion = m_thirstExhaustionManager.DecreaseExhaustionByAmount(
+            thirstExhaustion = m_thirstExhaustionManager.ModifyExhaustionByAmount(
                 thirstExhaustion, amount);
         }
 
