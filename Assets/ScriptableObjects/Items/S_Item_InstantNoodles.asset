@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2836634e467d12747917fe58602bfc56, type: 3}
+  m_Name: S_Item_InstantNoodles
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
+  itemIcon: {fileID: 1842834387196757453, guid: 9a0d4ae993da22d4db7c0839eed06328, type: 3}
+  itemName: Instant Noodles
+  itemType: 0
+  exhaustionType: 1
+  itemDescription: Fills the stomach, but heats up the room.
+  itemPrice: 3
+  b_canBeBought: 1
+  itemEffects:
+  - rid: 9078439476675215635
+  - rid: 9078439476675215632
+  references:
+    version: 2
+    RefIds:
+    - rid: 9078439476675215632
+      type: {class: ModifyRoomTemperature, ns: Canicule, asm: Assembly-CSharp}
+      data: 
+    - rid: 9078439476675215635
+      type: {class: ModifyHunger, ns: Canicule, asm: Assembly-CSharp}
+      data:
+        m_hungerModifierAmount: -5

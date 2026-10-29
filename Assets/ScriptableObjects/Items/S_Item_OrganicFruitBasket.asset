@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2836634e467d12747917fe58602bfc56, type: 3}
+  m_Name: S_Item_OrganicFruitBasket
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
+  itemIcon: {fileID: -5321949957799140045, guid: 7a55287b44e490848805d1a86324fbd9, type: 3}
+  itemName: Organic Fruit Basket
+  itemType: 0
+  exhaustionType: 1
+  itemDescription: Fills you up and hydrates a lot.
+  itemPrice: 20
+  b_canBeBought: 1
+  itemEffects:
+  - rid: 9078439476675215633
+  - rid: 9078439476675215640
+  references:
+    version: 2
+    RefIds:
+    - rid: 9078439476675215633
+      type: {class: ModifyHunger, ns: Canicule, asm: Assembly-CSharp}
+      data:
+        m_hungerModifierAmount: -40
+    - rid: 9078439476675215640
+      type: {class: ModifyThirst, ns: Canicule, asm: Assembly-CSharp}
+      data:
+        m_thirstModifierAmount: -40

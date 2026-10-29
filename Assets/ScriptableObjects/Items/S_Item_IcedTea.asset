@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2836634e467d12747917fe58602bfc56, type: 3}
+  m_Name: S_Item_IcedTea
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
+  itemIcon: {fileID: -8527944052799224055, guid: 537d642333fb1d9468c83609bb1d34a8, type: 3}
+  itemName: Iced Tea
+  itemType: 0
+  exhaustionType: 2
+  itemDescription: Hydrates and lowers body temperature! Stay cool!
+  itemPrice: 7
+  b_canBeBought: 1
+  itemEffects:
+  - rid: 9078439476675215644
+  - rid: 9078439476675215646
+  references:
+    version: 2
+    RefIds:
+    - rid: 9078439476675215644
+      type: {class: ModifyThirst, ns: Canicule, asm: Assembly-CSharp}
+      data:
+        m_thirstModifierAmount: -20
+    - rid: 9078439476675215646
+      type: {class: ModifyBodyTemperatureDuringXSeconds, ns: Canicule, asm: Assembly-CSharp}
+      data: 

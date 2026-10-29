@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2836634e467d12747917fe58602bfc56, type: 3}
+  m_Name: S_Item_Cake
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
+  itemIcon: {fileID: 8732635013323328055, guid: 0485766b5efb275408b8439669a6d62b, type: 3}
+  itemName: Cake
+  itemType: 0
+  exhaustionType: 1
+  itemDescription: Big hunger fix. Be careful of the sugar crash right after...
+  itemPrice: 2
+  b_canBeBought: 1
+  itemEffects:
+  - rid: 9078439476675215633
+  - rid: 9078439476675215639
+  references:
+    version: 2
+    RefIds:
+    - rid: 9078439476675215633
+      type: {class: ModifyHunger, ns: Canicule, asm: Assembly-CSharp}
+      data:
+        m_hungerModifierAmount: -10
+    - rid: 9078439476675215639
+      type: {class: ModifySleepAmountAfterXSeconds, ns: Canicule, asm: Assembly-CSharp}
+      data: 

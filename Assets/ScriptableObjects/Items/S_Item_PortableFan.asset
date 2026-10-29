@@ -10,13 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2836634e467d12747917fe58602bfc56, type: 3}
-  m_Name: ItemData
+  m_Name: S_Item_PortableFan
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
-  itemIcon: {fileID: 0}
-  itemName: 
-  itemDescription: 
-  itemPrice: 0
-  itemEffects: []
+  itemIcon: {fileID: 1710981365271166214, guid: ad1b4415707f2704493fee97d0baad4a, type: 3}
+  itemName: Portable Fan
+  itemType: 1
+  exhaustionType: 3
+  itemDescription: Cool down on command!
+  itemPrice: 30
+  b_canBeBought: 1
+  itemEffects:
+  - rid: 9078439476675215649
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 9078439476675215649
+      type: {class: ActivatePortableFan, ns: Canicule, asm: Assembly-CSharp}
+      data: 

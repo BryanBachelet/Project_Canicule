@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df7eec967f21624380d83c862e735c5, type: 3}
+  m_Name: S_ShopContentData
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ShopContent
+  m_shopCategories:
+  - type: 0
+    items:
+    - {fileID: 11400000, guid: b9c353f99dd0dd84489c0b3d13ad7305, type: 2}
+    - {fileID: 11400000, guid: c6cfa5cff00c44344af574a9934bd907, type: 2}
+    - {fileID: 11400000, guid: 1541b119b625fe84387b560ecb539baf, type: 2}
+  - type: 1
+    items:
+    - {fileID: 11400000, guid: 0edaad8640c2a1d42914814953fb92ac, type: 2}
+    - {fileID: 11400000, guid: 4ffe836ab070b9d4f8c0f321eab3ec68, type: 2}
+    - {fileID: 11400000, guid: e2f7440b1c014c047ace2d9f346e4d5a, type: 2}
+    - {fileID: 11400000, guid: ef57671125730ed49bd12f9b7982b129, type: 2}
+    - {fileID: 11400000, guid: 16f34ebe7c6577a4ba6d485315966603, type: 2}
+  - type: 2
+    items:
+    - {fileID: 11400000, guid: dac43fea62a7a22438c479faed65f17e, type: 2}
+    - {fileID: 11400000, guid: 7b7f7268a84d7f9459c962947917f2be, type: 2}
+    - {fileID: 11400000, guid: 18ab88f570899f546aca5a52f8d74384, type: 2}
+    - {fileID: 11400000, guid: f676b74a953c9b14ebafb5f6752029df, type: 2}
+  - type: 3
+    items:
+    - {fileID: 11400000, guid: 72841096606ede549b0eec73f5f9e9ee, type: 2}
+    - {fileID: 11400000, guid: ef26a5283099a5741a8a3573c5dc1c59, type: 2}
+    - {fileID: 11400000, guid: 9bcdeba05bf16a54e88b4f90238cad00, type: 2}
+    - {fileID: 11400000, guid: c30772259addc45499262a4f6b9a08b4, type: 2}
+    - {fileID: 11400000, guid: b5db3ee9c76420546bbd709d4b79dffd, type: 2}
