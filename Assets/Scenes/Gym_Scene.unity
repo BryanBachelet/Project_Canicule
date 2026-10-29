@@ -816,27 +816,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1312253003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2012194104469931508, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
-  m_PrefabInstance: {fileID: 4274355352259829801}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1312253009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312253003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649f8f46a2810504494093cc171c82f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Canicule.Temperature.HeatGeneralData
-  valueNextDegreeHeatScore: 100
-  positifHeatScoreGain: 4
-  negatifHeatScoreGain: -2
-  ratioGainDegreeGap: 0.25
 --- !u!1 &1421841124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,10 +1294,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2012194104469931508, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1312253009}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
