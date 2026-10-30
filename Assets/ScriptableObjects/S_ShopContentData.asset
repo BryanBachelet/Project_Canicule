@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df7eec967f21624380d83c862e735c5, type: 3}
   m_Name: S_ShopContentData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ShopContent
-  m_shopCategories:
+  shopCategories:
   - type: 0
     items:
     - {fileID: 11400000, guid: b9c353f99dd0dd84489c0b3d13ad7305, type: 2}

@@ -507,11 +507,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba19d7196408c36429c2f2da77d27e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ShopUIManager
+  m_itemCard: {fileID: 4042433237591703086, guid: 954a44f0cfc576147afdcfd1d22f3e51, type: 3}
   m_tabs:
   - {fileID: 3275336059936076486}
   - {fileID: 8624517075792883438}
   - {fileID: 5217025754361626814}
   - {fileID: 8223860604703526061}
+  m_itemHolders:
+  - {fileID: 7062339227129592949}
+  - {fileID: 4091058763022540893}
+  - {fileID: 509106425152392717}
+  - {fileID: 4420047142202573342}
 --- !u!1 &5117049264121666389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1149,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2137253669702279658, guid: 78223776075f39f4595d3cf1b96b08cf, type: 3}
   m_PrefabInstance: {fileID: 1000563928891630998}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4091058763022540893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3829444872789722571, guid: 78223776075f39f4595d3cf1b96b08cf, type: 3}
+  m_PrefabInstance: {fileID: 1000563928891630998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8624517075792883438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8814326233753668472, guid: 78223776075f39f4595d3cf1b96b08cf, type: 3}
@@ -1265,6 +1276,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5c3b87367df3243acc7069c81cd176, type: 3}
+--- !u!1 &509106425152392717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1672794893409232389, guid: 9e5c3b87367df3243acc7069c81cd176, type: 3}
+  m_PrefabInstance: {fileID: 1163691835511367688}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3430989379747736108 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4592283103089459748, guid: 9e5c3b87367df3243acc7069c81cd176, type: 3}
@@ -2043,7 +2059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4979171963704109957, guid: ee440c012a85d3a47b4ede6817ce13cc, type: 3}
       propertyPath: m_Size
-      value: 0.41160488
+      value: 0.4119841
       objectReference: {fileID: 0}
     - target: {fileID: 6921891433831146065, guid: ee440c012a85d3a47b4ede6817ce13cc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2154,6 +2170,11 @@ GameObject:
 --- !u!224 &5372687887312492628 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8700614640238795291, guid: ee440c012a85d3a47b4ede6817ce13cc, type: 3}
+  m_PrefabInstance: {fileID: 3616766259593544271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7062339227129592949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5779013169207623226, guid: ee440c012a85d3a47b4ede6817ce13cc, type: 3}
   m_PrefabInstance: {fileID: 3616766259593544271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4235660973170518443
@@ -2278,6 +2299,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3392012556094984084, guid: 4c501d633a6addc4aac79d0a91616965, type: 3}
   m_PrefabInstance: {fileID: 4235660973170518443}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4420047142202573342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 549226140127423413, guid: 4c501d633a6addc4aac79d0a91616965, type: 3}
+  m_PrefabInstance: {fileID: 4235660973170518443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8223860604703526061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5253750864073368838, guid: 4c501d633a6addc4aac79d0a91616965, type: 3}
@@ -2297,11 +2323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1026091118685178725, guid: 7227743723e0ad34881cc3446433dc6a, type: 3}
       propertyPath: m_Size
-      value: 0.4389154
+      value: 0.43928778
       objectReference: {fileID: 0}
     - target: {fileID: 1026091118685178725, guid: 7227743723e0ad34881cc3446433dc6a, type: 3}
       propertyPath: m_Value
-      value: 0.00000006301879
+      value: 0.000000094528154
       objectReference: {fileID: 0}
     - target: {fileID: 2232280617975422219, guid: 7227743723e0ad34881cc3446433dc6a, type: 3}
       propertyPath: m_AnchorMax.y

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d526967dd4ddf9c49ba246ac019b5e69, type: 3}
+  m_Name: S_ColorsData
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ColorsData
+  sleepColor: {r: 0.6509804, g: 0.40392157, b: 1, a: 1}
+  hungerColor: {r: 1, g: 0.6666667, b: 0.34509805, a: 1}
+  thirstColor: {r: 0.29803923, g: 0.67058825, b: 1, a: 1}
+  bodyTemperatureColor: {r: 1, g: 0.36078432, b: 0.36078432, a: 1}
