@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2722672940106432627}
   - component: {fileID: 8083839647979461164}
   - component: {fileID: 5918943619816772218}
+  - component: {fileID: 187440502935573652}
   m_Layer: 5
-  m_Name: Pr_HungerTabButton
+  m_Name: Pr_TabButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,10 +120,26 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8083839647979461164}
+  m_TargetGraphic: {fileID: 6686467632982745967}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &187440502935573652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441066184276228246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e684b1f534bc449b136da469eeee20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.TabButtonUI
+  m_lowerBar: {fileID: 2515589187368634704}
+  m_text: {fileID: 2075170697802619363}
+  m_inactiveColor: {r: 0.4117647, g: 0.4117647, b: 0.4117647, a: 1}
+  m_activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1375148800449721265
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +289,7 @@ GameObject:
   - component: {fileID: 2854215685762128424}
   - component: {fileID: 226365479776396486}
   m_Layer: 5
-  m_Name: Image
+  m_Name: LowerBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6666667, b: 0.34509805, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

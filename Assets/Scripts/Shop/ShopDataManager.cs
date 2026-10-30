@@ -8,7 +8,6 @@ namespace Canicule
     public class ShopDataManager : MonoBehaviour
     {
         [SerializeField] private ShopContent m_shopContent;
-        private List<ShopCategory> m_shopCategories;
         private InventoryDataManager m_inventoryDataManager;
         private Dictionary<ItemData, int> m_itemCart;
         private float m_totalCartPrice;
@@ -22,9 +21,6 @@ namespace Canicule
         {
             // Reset values
             m_totalCartPrice = 0;
-
-            // This will erase shop updates! Change this!
-            m_shopCategories = m_shopContent.m_shopCategories;
         }
         #endregion
 
@@ -78,7 +74,7 @@ namespace Canicule
         public void RemoveItemFromShop(ItemData item)
         {
             // Find the item in the shop categories
-            foreach(ShopCategory shopCategory in m_shopCategories)
+            foreach(ShopCategory shopCategory in m_shopContent.shopCategories)
             {
                 // Check if the type matches
                 if(shopCategory.type == item.exhaustionType)
@@ -111,7 +107,7 @@ namespace Canicule
         {
             List<ItemData> items = new List<ItemData>();
 
-            foreach(ShopCategory category in m_shopCategories)
+            foreach(ShopCategory category in m_shopContent.shopCategories)
             {
                 if(category.type == type)
                 {
