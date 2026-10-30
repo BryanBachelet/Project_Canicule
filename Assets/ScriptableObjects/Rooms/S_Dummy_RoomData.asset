@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: S_Dummy_RoomData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Rooms.RoomData
   roomSize: 1
-  roomHeatResistance: 5
+  roomHeatResistance: 0
   m_baseTemperature: 25

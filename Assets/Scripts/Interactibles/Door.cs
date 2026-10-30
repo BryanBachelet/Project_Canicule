@@ -4,31 +4,41 @@ namespace Canicule
 {
     public class Door : InteractibleObject
     {
-        [SerializeField] private Transform m_teleportPoint;
-        [SerializeField] private Vector3 m_offsetTeleportPoint= Vector3.zero;
+        private bool m_bIsDoorOpen = false;
+        private Animator m_animator;
 
-        [Header("Debugs Options")]
-        [SerializeField] private bool m_showTeleportPoint;
-        private static readonly Color m_debugSphereColorStr = Color.rebeccaPurple;
-        private const float m_debugSphereSize = .4f;
+        private const string openStateNameAnimator = "Open";
+        private const string closeStateNameAnimator = "Close";
 
+        public override void Start()
+        {
+            base.Start();
+            m_animator = GetComponent<Animator>();
+        }
 
         protected override void Interact()
         {
-            actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
+            OpenDoor();
 
             base.Interact();
         }
 
-#if UNITY_DEVELOPMENT || UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        private void OpenDoor()
         {
-            if (!m_showTeleportPoint) return;
-
-            Gizmos.color = m_debugSphereColorStr;
-            Gizmos.DrawLine(transform.position, m_teleportPoint.position + m_offsetTeleportPoint);
-            Gizmos.DrawSphere(m_teleportPoint.position + m_offsetTeleportPoint, m_debugSphereSize);
+            if (!m_bIsDoorOpen)
+            {
+                m_animator.SetBool(openStateNameAnimator, true);
+                m_animator.SetBool(closeStateNameAnimator, false);
+                m_bIsDoorOpen = true;
+            }
+            else
+            {
+                m_animator.SetBool(closeStateNameAnimator, true);
+                m_animator.SetBool(openStateNameAnimator, false);
+                m_bIsDoorOpen = false;
+            }
         }
-#endif
+
     }
 }
+
