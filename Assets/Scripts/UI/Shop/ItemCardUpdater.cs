@@ -20,6 +20,8 @@ namespace Canicule
         [SerializeField] private GameObject m_thirstField;
         [SerializeField] private GameObject m_buyButton;
         [SerializeField] private GameObject m_tooExpensiveButton;
+        [SerializeField] private GameObject m_consumableField;
+        [SerializeField] private GameObject m_upgradeField;
         [SerializeField] private string m_currency;
         private ItemData m_storedItem;
         #endregion
@@ -110,6 +112,18 @@ namespace Canicule
                     ModifyThirst modifyThirst = (ModifyThirst)effect;
                     m_thirstHealValue.text = modifyThirst.GetThirstModifierAmount().ToString();
                 }
+            }
+
+            // Activate the consumable or upgrade field
+            if(item.itemType == ItemType.Upgrade)
+            {
+                m_upgradeField.SetActive(true);
+                m_consumableField.SetActive(false);
+            }
+            else
+            {
+                m_upgradeField.SetActive(false);
+                m_consumableField.SetActive(true);
             }
 
         }
