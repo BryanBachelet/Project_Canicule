@@ -15,6 +15,7 @@ namespace Canicule
         public string itemDescription;
         public int itemPrice;
         public bool b_canBeBought = true; // Upgrades can be bought only once
+        public bool b_hasBeenBought = false;
 
         [Header("Item Effects")]
         [SerializeReference, SubclassSelector]

@@ -49,7 +49,6 @@ namespace Canicule
                 // Create a new key in the dict m_itemCart
                 m_itemCart.Add(item, 1);
                 OnItemCartAdded?.Invoke(item);
-
             }
 
         }

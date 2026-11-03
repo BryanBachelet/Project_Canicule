@@ -1397,11 +1397,15 @@ MonoBehaviour:
   m_ownedAmount: {fileID: 3790186452436226037}
   m_hungerField: {fileID: 3368987675185161947}
   m_thirstField: {fileID: 6028669361310856101}
-  m_buyButton: {fileID: 5996984859057486525}
+  m_addButton: {fileID: 5996984859057486525}
   m_tooExpensiveButton: {fileID: 8974997318014317330}
+  m_buyButtons: {fileID: 4014980514984597160}
+  m_emptyButton: {fileID: 7466150535391840468}
   m_consumableField: {fileID: 8446445262128244848}
   m_upgradeField: {fileID: 962601496497104969}
   m_currency: "\u20AC"
+  m_upgradeInCart: Already in cart
+  m_upgradeBought: Already bought
 --- !u!1 &4766054974329122964
 GameObject:
   m_ObjectHideFlags: 0

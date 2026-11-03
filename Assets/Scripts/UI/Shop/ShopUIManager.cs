@@ -89,16 +89,12 @@ namespace Canicule
             // For each item, instantiates an item card
             foreach(ItemData item in items)
             {
-                // Display the item, if it can be bought
-                if (item.b_canBeBought)
-                {
-                    // Should instantiate in the grid layout
-                    GameObject newItemCard = GameObject.Instantiate(m_itemCard, itemHolder.transform);
+                // Should instantiate in the grid layout
+                GameObject newItemCard = GameObject.Instantiate(m_itemCard, itemHolder.transform);
                     
-                    // Set the values of newItemCard with item values
-                    newItemCard.GetComponent<ItemCardUpdater>().UpdateItemCard(item);
-                    newItemCard.GetComponent<ItemCardUpdater>().UpdateOwnedAmount(m_inventoryManager.GetItemCount(item));
-                }
+                // Set the values of newItemCard with item values
+                newItemCard.GetComponent<ItemCardUpdater>().UpdateItemCard(item);
+                newItemCard.GetComponent<ItemCardUpdater>().UpdateOwnedAmount(m_inventoryManager.GetItemCount(item));
             }
 
         }
