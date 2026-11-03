@@ -4,6 +4,13 @@ using UnityEngine.Events;
 
 namespace Canicule
 {
+    public enum Interactor
+    {
+        NONE = 0,
+        PLAYER = 1,
+        MONSTER =2,
+    }
+
     public class InteractibleObject : MonoBehaviour, IPauseableObject
     {
         [SerializeField] protected Rooms.Room m_roomOwner;
@@ -17,6 +24,8 @@ namespace Canicule
         protected bool bIsInteracting = false;
 
         protected bool bIsOnPause = false;
+
+        protected Interactor interactor;
 
         [HideInInspector] public UnityEvent OnInteractStart;
 
@@ -75,7 +84,7 @@ namespace Canicule
         /// <summary>
         /// Launch the interaction and can be call only one time per interaction
         /// </summary>
-        public virtual void LaunchInteraction(Transform actor)
+        public virtual void LaunchInteraction(Transform actor, Interactor interactActorType)
         {
             if (bIsInteracting) return;
 
@@ -85,12 +94,15 @@ namespace Canicule
             actorTransform = actor;
 
             OnInteractStart?.Invoke();
+
+            interactor = interactActorType;
         }
 
         protected virtual void Interact()
         {
             bIsInteracting = false;
             actorTransform = null;
+            interactor = Interactor.NONE;
         }
 
         public bool CanInteract()
