@@ -47,7 +47,7 @@ namespace Canicule
                 return;
             }
 
-            Rooms.Room currentRoom = GameManager.GetRoomManager().GetCurrentRoom();
+            Rooms.Room currentRoom = GameManager.GetRoomManager().GetCurrentRoomPlayer();
             if (currentRoom.GetRoomDegree() < m_appearenceTemperature)
             {
                 return;
@@ -81,24 +81,26 @@ namespace Canicule
         /// <param name="room">Room where the monster will appear </param>
         public void LaunchMonsterAppearence(Rooms.Room room)
         {
-            GameObject playerInstance = GameManager.GetPlayer();
+            Vector3 playerInstancePosition = GameManager.GetPlayer().transform.position;
 
             Vector3[] points = room.GetAppearencePoint();
             float maxDistance = 0.0f;
             int validIndex = -1;
+
             for (int i = 0; i < points.Length; i++)
             {
-                float distance = Vector2.Distance(playerInstance.transform.position, points[i]);
+                float distance = Vector2.Distance(playerInstancePosition, points[i]);
                 if (distance > maxDistance)
                 {
                     validIndex = i;
                 }
-
             }
 
             Vector3 teleportPosition = points[validIndex];
             m_monsterCmpt.Teleport(teleportPosition);
             m_monsterCmpt.ChangeState(MonsterState.APPEAR);
+
+            GameManager.GetRoomManager().SetCurrentRoomMonster(room);
         }
 
         #region Pauseable Functions

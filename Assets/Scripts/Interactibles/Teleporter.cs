@@ -27,10 +27,10 @@ namespace Canicule
             Rooms.RoomConnection roomConnection = new Rooms.RoomConnection(m_roomLink, this);
             m_roomOwner.LinkRoomConnection(roomConnection);
         }
-
+        
         protected override void Interact()
         {
-            m_roomLink.ActivateRoom();
+            m_roomLink.ActivateRoom(interactor);
             m_roomOwner.DeactivateRoom();
             actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
             
