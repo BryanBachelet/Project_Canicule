@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6562984870974218042}
   - component: {fileID: 5674614132396760729}
   m_Layer: 5
-  m_Name: BuyText
+  m_Name: AddText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Add
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1135,6 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333deda68d07a8844804a2351b073840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemCardUpdater
+  storedItem: {fileID: 0}
   m_colors: {fileID: 11400000, guid: 0275eb0a1d26fc5479f1588ce525699d, type: 2}
   m_icon: {fileID: 7476565414534097285}
   m_name: {fileID: 4142993406375515636}
@@ -1447,8 +1448,9 @@ GameObject:
   - component: {fileID: 8889847360526145878}
   - component: {fileID: 5416730406768106721}
   - component: {fileID: 1732809544735983399}
+  - component: {fileID: 7915473541949782790}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: AddButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1556,6 +1558,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7915473541949782790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996984859057486525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39f4d3ab88347d4b90e8fb2a4f90b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.AddButtonUI
+  m_itemCardUpdater: {fileID: 35081250616972896}
 --- !u!1 &6028669361310856101
 GameObject:
   m_ObjectHideFlags: 0

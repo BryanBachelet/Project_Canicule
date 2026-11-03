@@ -1,23 +1,42 @@
-using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
+using UnityEngine;
 
 namespace Canicule
 {
     public class ShopUIManager : MonoBehaviour
     {
-        [SerializeField] private InventoryDataManager m_inventoryManager;
         [SerializeField] private GameObject m_itemCard;
+        [SerializeField] private GameObject m_cartCard;
         [SerializeField] private List<GameObject> m_tabs;
         [SerializeField] private List<GameObject> m_itemHolders;
+        [SerializeField] private GameObject m_cartHolder;
         private GameObject m_currentActiveTab;
         private ShopDataManager m_shopManager;
+        private InventoryDataManager m_inventoryManager;
 
         #region Unity Methods
         private void Awake()
         {
             m_shopManager = FindAnyObjectByType<ShopDataManager>();
-            //m_inventoryManager = FindAnyObjectByType<InventoryDataManager>();
+            m_inventoryManager = FindAnyObjectByType<InventoryDataManager>();
         }
+
+        private void OnEnable()
+        {
+            m_shopManager.OnItemCartAdded += FillCartWithNewCard;
+            m_shopManager.OnItemCartUpdated += UpdateCartCardAmount;
+            m_shopManager.OnItemCartRemoved += RemoveCartCard;
+        }
+
+        private void OnDisable()
+        {
+            m_shopManager.OnItemCartAdded -= FillCartWithNewCard;
+            m_shopManager.OnItemCartUpdated -= UpdateCartCardAmount;
+            m_shopManager.OnItemCartRemoved -= RemoveCartCard;
+        }
+
         public void Start()
         {
             // Resets the tabs
@@ -86,6 +105,46 @@ namespace Canicule
             FillTabWithItemCards(ExhaustionType.Hunger, m_itemHolders[1]);
             FillTabWithItemCards(ExhaustionType.Thirst, m_itemHolders[2]);
             FillTabWithItemCards(ExhaustionType.BodyTemperature, m_itemHolders[3]);
+        }
+        #endregion
+
+        #region Cart Management
+        // Creates a new cart card in the cart
+        public void FillCartWithNewCard(ItemData item)
+        {
+            GameObject newCartCard = GameObject.Instantiate(m_cartCard, m_cartHolder.transform);
+            newCartCard.GetComponent<CartCardUpdater>().UpdateCartCard(item);
+            newCartCard.GetComponent<CartCardUpdater>().UpdateCartAmount(1);
+        }
+
+        // Updates the amount of a cart card in the cart
+        public void UpdateCartCardAmount(ItemData item, int amount)
+        {
+            CartCardUpdater[] cartCards = m_cartHolder.GetComponentsInChildren<CartCardUpdater>();
+
+            foreach(CartCardUpdater cartCardUpdater in cartCards)
+            {
+                if(cartCardUpdater.GetStoredItem() == item)
+                {
+                    cartCardUpdater.UpdateCartAmount(amount);
+                    return;
+                }
+            }
+        }
+
+        // Destroy a cart card in the cart
+        public void RemoveCartCard(ItemData item)
+        {
+            CartCardUpdater[] cartCards = m_cartHolder.GetComponentsInChildren<CartCardUpdater>();
+
+            foreach (CartCardUpdater cartCardUpdater in cartCards)
+            {
+                if (cartCardUpdater.GetStoredItem() == item)
+                {
+                    Destroy(cartCardUpdater.gameObject);
+                    return;
+                }
+            }
         }
         #endregion
     }

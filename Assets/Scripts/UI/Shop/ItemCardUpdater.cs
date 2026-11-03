@@ -7,6 +7,7 @@ namespace Canicule
 {
     public class ItemCardUpdater : MonoBehaviour
     {
+        #region Fields for values management
         [SerializeField] private ColorsData m_colors;
         [SerializeField] private Image m_icon;
         [SerializeField] private TMP_Text m_name;
@@ -20,11 +21,40 @@ namespace Canicule
         [SerializeField] private GameObject m_buyButton;
         [SerializeField] private GameObject m_tooExpensiveButton;
         [SerializeField] private string m_currency;
-        private ItemData storedItem;
+        private ItemData m_storedItem;
+        #endregion
 
+        #region Fields for button management
+
+        private ShopDataManager m_shopManager;
+        private InventoryDataManager m_inventoryDataManager;
+
+        #endregion
+
+        #region Unity Methods
+        private void Awake()
+        {
+            m_shopManager = FindAnyObjectByType<ShopDataManager>();
+            m_inventoryDataManager = FindAnyObjectByType<InventoryDataManager>();
+        }
+
+        private void OnEnable()
+        {
+            m_shopManager.OnItemCartAdded += _ => VerifyPlayerBalance();
+            m_shopManager.OnItemCartRemoved += _ => VerifyPlayerBalance();
+            m_shopManager.OnItemCartUpdated += (_, _) => VerifyPlayerBalance();
+        }
+
+        private void Start()
+        {
+            VerifyPlayerBalance();
+        }
+        #endregion
+
+        #region Values Management
         public void UpdateItemCard(ItemData item)
         {
-            storedItem = item;
+            m_storedItem = item;
 
             m_icon.sprite = item.itemIcon;
             m_name.text = item.itemName;
@@ -78,12 +108,40 @@ namespace Canicule
         {
             m_ownedAmount.text = ownedAmount.ToString();
         }
+        #endregion
 
-        public void SwapButtons()
+        #region Button Management
+        public void VerifyPlayerBalance()
         {
-            m_buyButton.SetActive(!m_buyButton.activeSelf);
-            m_tooExpensiveButton.SetActive(!m_tooExpensiveButton.activeSelf);
+            if(m_storedItem.itemPrice > m_inventoryDataManager.GetPlayerBalance())
+            {
+                DeactivateAddButton();
+            }
+            else
+            {
+                ActivateAddButton();
+            }
         }
+
+        public void ActivateAddButton()
+        {
+            m_buyButton.SetActive(true);
+            m_tooExpensiveButton.SetActive(false);
+        }
+
+        public void DeactivateAddButton()
+        {
+            m_buyButton.SetActive(false);
+            m_tooExpensiveButton.SetActive(true);
+        }
+        #endregion
+
+        #region Getter
+        public ItemData GetStoredItem()
+        {
+            return m_storedItem;
+        }
+        #endregion
 
     }
 }

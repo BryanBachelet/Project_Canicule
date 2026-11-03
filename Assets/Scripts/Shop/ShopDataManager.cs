@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
@@ -9,8 +10,11 @@ namespace Canicule
     {
         [SerializeField] private ShopContent m_shopContent;
         private InventoryDataManager m_inventoryDataManager;
-        private Dictionary<ItemData, int> m_itemCart;
+        private Dictionary<ItemData, int> m_itemCart = new Dictionary<ItemData, int>();
         private float m_totalCartPrice;
+        public event Action<ItemData> OnItemCartAdded;
+        public event Action<ItemData> OnItemCartRemoved;
+        public event Action<ItemData, int> OnItemCartUpdated;
 
         #region Unity Methods
         private void Awake()
@@ -27,39 +31,53 @@ namespace Canicule
         #region Shop Data Management Methods
         public void AddItemInCart(ItemData item)
         {
+            // Update player balance
+            m_inventoryDataManager.SetPlayerBalance(m_inventoryDataManager.GetPlayerBalance() - item.itemPrice);
+
+            // Add the item in the cart
             bool b_hasKey = m_itemCart.ContainsKey(item);
 
             if (b_hasKey)
             {
                 // Increase the value of the key item
                 m_itemCart[item] += 1;
+                OnItemCartUpdated?.Invoke(item, m_itemCart[item]);
             }
             else
             {
                 // Create a new key in the dict m_itemCart
                 m_itemCart.Add(item, 1);
+                OnItemCartAdded?.Invoke(item);
+
             }
 
-            // Update player balance
-            m_inventoryDataManager.SetPlayerBalance(m_inventoryDataManager.GetPlayerBalance() - item.itemPrice);
         }
 
         public void RemoveItemFromCart(ItemData item)
         {
+            // Update player balance
+            m_inventoryDataManager.SetPlayerBalance(m_inventoryDataManager.GetPlayerBalance() + item.itemPrice);
+
+            // Remove the item from the cart and if there is no more item in the dict, remove the key
             m_itemCart[item] -= 1;
             
-            // Remove the item from the cart dict if there is no more item in it
             if (m_itemCart[item] == 0)
             {
                 m_itemCart.Remove(item);
+                OnItemCartRemoved?.Invoke(item);
+            }
+            else
+            {
+                OnItemCartUpdated?.Invoke(item, m_itemCart[item]);
             }
 
-            // Update player balance
-            m_inventoryDataManager.SetPlayerBalance(m_inventoryDataManager.GetPlayerBalance() + item.itemPrice);
         }
 
-        public float ComputeCartTotalPrice(Dictionary<ItemData, int> itemCart)
+        public float ComputeCartTotalPrice()
         {
+            // Reset price
+            m_totalCartPrice = 0;
+
             // Runs through the dict and add the price of each item
             foreach (KeyValuePair<ItemData, int> item in m_itemCart)
             {
@@ -116,6 +134,12 @@ namespace Canicule
             }
 
             return null;
+        }
+        
+        
+        public Dictionary<ItemData, int> GetItemCart()
+        {
+            return m_itemCart;
         }
         #endregion
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1136402286210706339}
   - component: {fileID: 8447967932189371915}
   m_Layer: 5
-  m_Name: PurchaseIcon
+  m_Name: CartCardIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 618141820979866906}
   - component: {fileID: 7866104078542234585}
   m_Layer: 5
-  m_Name: PurchasePrice
+  m_Name: CartCardPrice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 142.6, y: -54.19998}
-  m_SizeDelta: {x: 35.9075, y: 21.4963}
+  m_AnchoredPosition: {x: 166.22575, y: -54.19998}
+  m_SizeDelta: {x: 83.159, y: 21.4963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &618141820979866906
 CanvasRenderer:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_fontSizeMin: 10
   m_fontSizeMax: 18
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1318048023501355955}
   - component: {fileID: 1546611559589682582}
   m_Layer: 5
-  m_Name: PurchaseAmount
+  m_Name: CartCardAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,8 +361,9 @@ GameObject:
   - component: {fileID: 8894147813564831774}
   - component: {fileID: 396820208198210572}
   - component: {fileID: 7817691871401381500}
+  - component: {fileID: 2790305229141717278}
   m_Layer: 5
-  m_Name: PurchaseCancelButton
+  m_Name: CartCardCancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,6 +470,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2790305229141717278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749792089425816700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6471c907c777f9341a5b8ef2e86f063e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.RemoveButtonUI
+  m_cartCardUpdater: {fileID: 2696817832280506599}
 --- !u!1 &8532311228290606086
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +495,7 @@ GameObject:
   - component: {fileID: 219479040736619238}
   - component: {fileID: 3162824769003732678}
   m_Layer: 5
-  m_Name: PurcheTitle
+  m_Name: CartCardTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,8 +631,9 @@ GameObject:
   - component: {fileID: 7647843516449727649}
   - component: {fileID: 3163866561236526533}
   - component: {fileID: 399348321158904193}
+  - component: {fileID: 2696817832280506599}
   m_Layer: 5
-  m_Name: Pr_PurchaseCard
+  m_Name: Pr_CartCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,3 +701,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2696817832280506599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004391471003797090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766d8beb3d937344be88dfc017bc172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.CartCardUpdater
+  m_icon: {fileID: 8447967932189371915}
+  m_name: {fileID: 3162824769003732678}
+  m_amount: {fileID: 1546611559589682582}
+  m_price: {fileID: 7866104078542234585}
+  m_currency: "\u20AC"
+  m_amountPrefix: x
