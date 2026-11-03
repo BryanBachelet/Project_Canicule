@@ -15,6 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 3986591214582709786, guid: 54b6a5555a1c06e4c922e35f16e5c47b, type: 3}
   itemName: Standing Fan
   itemType: 1
+  exhaustionType: 0
   itemDescription: Moderately increase sleep chance, but slowly heats up the room.
   itemPrice: 30
   b_canBeBought: 1

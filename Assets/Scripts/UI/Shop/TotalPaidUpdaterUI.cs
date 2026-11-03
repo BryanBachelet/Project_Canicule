@@ -25,6 +25,7 @@ namespace Canicule
             m_shopManager.OnItemCartAdded += _ => UpdateTotalPaid();
             m_shopManager.OnItemCartRemoved += _ => UpdateTotalPaid();
             m_shopManager.OnItemCartUpdated += (_, _) => UpdateTotalPaid();
+            m_shopManager.OnCartItemsMoved += UpdateTotalPaid;
         }
 
         private void OnDisable()
@@ -32,6 +33,7 @@ namespace Canicule
             m_shopManager.OnItemCartAdded -= _ => UpdateTotalPaid();
             m_shopManager.OnItemCartRemoved -= _ => UpdateTotalPaid();
             m_shopManager.OnItemCartUpdated -= (_, _) => UpdateTotalPaid();
+            m_shopManager.OnCartItemsMoved -= UpdateTotalPaid;
         }
         #endregion
 

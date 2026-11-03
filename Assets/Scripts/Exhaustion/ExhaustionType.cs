@@ -4,9 +4,9 @@ namespace Canicule
 {
     public enum ExhaustionType
     {
-        Sleep,
-        Hunger,
-        Thirst,
-        BodyTemperature
+        Sleep = 0,
+        Hunger = 1,
+        Thirst = 2,
+        BodyTemperature = 3
     }
 }

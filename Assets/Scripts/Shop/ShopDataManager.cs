@@ -15,6 +15,7 @@ namespace Canicule
         public event Action<ItemData> OnItemCartAdded;
         public event Action<ItemData> OnItemCartRemoved;
         public event Action<ItemData, int> OnItemCartUpdated;
+        public event Action OnCartItemsMoved;
 
         #region Unity Methods
         private void Awake()
@@ -107,6 +108,14 @@ namespace Canicule
                     }
                 }
             }
+        }
+
+        // Moves the cart items to the inventory
+        public void MoveCartItemsToInventory()
+        {
+            m_inventoryDataManager.AddNewItems(m_itemCart);
+            m_itemCart.Clear();
+            OnCartItemsMoved?.Invoke();
         }
         #endregion
 

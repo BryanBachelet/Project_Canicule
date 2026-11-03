@@ -1518,6 +1518,17 @@ MonoBehaviour:
   OnInteractStart:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1819114657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4315259037332883622, guid: eb980c43eb147a74792fcbcd7b037527, type: 3}
+  m_PrefabInstance: {fileID: 6686482444095750351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc11372b11cd02449f30f7a4c1726a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ShopDataManager
 --- !u!1 &1908517836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,7 +2043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1458944489880255786, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -242.13086
+      value: -242.13089
       objectReference: {fileID: 0}
     - target: {fileID: 2337108225413355143, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_Size
@@ -2042,13 +2053,41 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1819114657}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveCartItemsToInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Canicule.ShopDataManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744362008136737928, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7262843425762110507, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_Size
-      value: 0.43915793
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7262843425762110507, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7262843425762110507, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_Direction

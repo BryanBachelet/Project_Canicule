@@ -43,6 +43,15 @@ namespace Canicule
             m_shopManager.OnItemCartAdded += _ => VerifyPlayerBalance();
             m_shopManager.OnItemCartRemoved += _ => VerifyPlayerBalance();
             m_shopManager.OnItemCartUpdated += (_, _) => VerifyPlayerBalance();
+            //m_inventoryDataManager.OnAddingItem += UpdateOwnedAmount;
+        }
+
+        public void OnDisable()
+        {
+            m_shopManager.OnItemCartAdded -= _ => VerifyPlayerBalance();
+            m_shopManager.OnItemCartRemoved -= _ => VerifyPlayerBalance();
+            m_shopManager.OnItemCartUpdated -= (_, _) => VerifyPlayerBalance();
+            //m_inventoryDataManager.OnAddingItem -= UpdateOwnedAmount;
         }
 
         private void Start()

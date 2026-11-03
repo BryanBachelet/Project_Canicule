@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
@@ -10,6 +11,7 @@ namespace Canicule
         private Dictionary<ItemData, int> m_playerItems = new Dictionary<ItemData, int>();
         private ExhaustionManager m_exhaustionManager;
         private ShopDataManager m_shopManager;
+        public event Action<ItemData, int> OnAddingItem;
 
         #region Unity Methods
         private void Awake()
@@ -30,8 +32,10 @@ namespace Canicule
         // This method is used to add the cart items from the shopDataManager to the player items
         public void AddNewItems(Dictionary<ItemData, int> itemCart)
         {
+
             foreach (KeyValuePair<ItemData,int> item in itemCart)
             {
+
                 bool b_hasKey = m_playerItems.ContainsKey(item.Key);
 
                 
@@ -41,16 +45,19 @@ namespace Canicule
                     if (b_hasKey)
                     {
                         m_playerItems[item.Key] += item.Value;
+                        OnAddingItem?.Invoke(item.Key, m_playerItems[item.Key]);
                     }
                     else
                     {
                         m_playerItems.Add(item.Key, item.Value);
+                        OnAddingItem?.Invoke(item.Key, 1);
                     }
                 }
                 else
                 {
                     // If it's an upgrade, ask the Shop Manager to remove the item from the shop
                     m_shopManager.RemoveItemFromShop(item.Key);
+                    OnAddingItem?.Invoke(item.Key, 1);
                 }
 
             }
@@ -63,7 +70,13 @@ namespace Canicule
             if(m_playerItems[item] == 0)
             {
                 m_playerItems.Remove(item);
+                OnAddingItem?.Invoke(item, 0);
             }
+            else
+            {
+                OnAddingItem?.Invoke(item, m_playerItems[item]);
+            }
+
         }
         #endregion
 

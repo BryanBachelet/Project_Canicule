@@ -28,6 +28,8 @@ namespace Canicule
             m_shopManager.OnItemCartAdded += FillCartWithNewCard;
             m_shopManager.OnItemCartUpdated += UpdateCartCardAmount;
             m_shopManager.OnItemCartRemoved += RemoveCartCard;
+            m_shopManager.OnCartItemsMoved += ClearAllCartCard;
+            m_inventoryManager.OnAddingItem += UpdateCardOwnedAmount;
         }
 
         private void OnDisable()
@@ -35,6 +37,8 @@ namespace Canicule
             m_shopManager.OnItemCartAdded -= FillCartWithNewCard;
             m_shopManager.OnItemCartUpdated -= UpdateCartCardAmount;
             m_shopManager.OnItemCartRemoved -= RemoveCartCard;
+            m_shopManager.OnCartItemsMoved -= ClearAllCartCard;
+            m_inventoryManager.OnAddingItem -= UpdateCardOwnedAmount;
         }
 
         public void Start()
@@ -106,6 +110,20 @@ namespace Canicule
             FillTabWithItemCards(ExhaustionType.Thirst, m_itemHolders[2]);
             FillTabWithItemCards(ExhaustionType.BodyTemperature, m_itemHolders[3]);
         }
+
+        public void UpdateCardOwnedAmount(ItemData item, int amount)
+        {
+            ItemCardUpdater[] itemCardUpdaters = m_itemHolders[(int)item.exhaustionType].GetComponentsInChildren<ItemCardUpdater>();
+
+            foreach(ItemCardUpdater itemCardUpdater in itemCardUpdaters)
+            {
+                if(itemCardUpdater.GetStoredItem() == item)
+                {
+                    itemCardUpdater.UpdateOwnedAmount(amount);
+                    return;
+                }
+            }
+        }
         #endregion
 
         #region Cart Management
@@ -144,6 +162,17 @@ namespace Canicule
                     Destroy(cartCardUpdater.gameObject);
                     return;
                 }
+            }
+        }
+
+        // Clear all cart card
+        public void ClearAllCartCard()
+        {
+            CartCardUpdater[] cartCards = m_cartHolder.GetComponentsInChildren<CartCardUpdater>();
+
+            foreach(CartCardUpdater cartCardUpdater in cartCards)
+            {
+                Destroy(cartCardUpdater.gameObject);
             }
         }
         #endregion
