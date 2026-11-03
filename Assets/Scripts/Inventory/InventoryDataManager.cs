@@ -7,7 +7,7 @@ namespace Canicule
     public class InventoryDataManager : MonoBehaviour
     {
         [SerializeField] private float m_playerBalance;
-        private Dictionary<ItemData, int> m_playerItems;
+        private Dictionary<ItemData, int> m_playerItems = new Dictionary<ItemData, int>();
         private ExhaustionManager m_exhaustionManager;
         private ShopDataManager m_shopManager;
 
@@ -76,6 +76,18 @@ namespace Canicule
         public void SetPlayerBalance(float newBalance)
         {
             m_playerBalance = newBalance;
+        }
+
+        public int GetItemCount(ItemData item)
+        {
+            if (m_playerItems.ContainsKey(item))
+            {
+                return m_playerItems[item];
+            }
+            else
+            {
+                return 0;
+            }
         }
         #endregion
     }

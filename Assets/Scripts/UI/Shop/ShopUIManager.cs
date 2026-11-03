@@ -5,6 +5,7 @@ namespace Canicule
 {
     public class ShopUIManager : MonoBehaviour
     {
+        [SerializeField] private InventoryDataManager m_inventoryManager;
         [SerializeField] private GameObject m_itemCard;
         [SerializeField] private List<GameObject> m_tabs;
         [SerializeField] private List<GameObject> m_itemHolders;
@@ -15,6 +16,7 @@ namespace Canicule
         private void Awake()
         {
             m_shopManager = FindAnyObjectByType<ShopDataManager>();
+            //m_inventoryManager = FindAnyObjectByType<InventoryDataManager>();
         }
         public void Start()
         {
@@ -72,6 +74,7 @@ namespace Canicule
                     
                     // Set the values of newItemCard with item values
                     newItemCard.GetComponent<ItemCardUpdater>().UpdateItemCard(item);
+                    newItemCard.GetComponent<ItemCardUpdater>().UpdateOwnedAmount(m_inventoryManager.GetItemCount(item));
                 }
             }
 

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace Canicule
@@ -73,11 +74,16 @@ namespace Canicule
             }
 
         }
+        public void UpdateOwnedAmount(int ownedAmount)
+        {
+            m_ownedAmount.text = ownedAmount.ToString();
+        }
 
         public void SwapButtons()
         {
             m_buyButton.SetActive(!m_buyButton.activeSelf);
             m_tooExpensiveButton.SetActive(!m_tooExpensiveButton.activeSelf);
         }
+
     }
 }
