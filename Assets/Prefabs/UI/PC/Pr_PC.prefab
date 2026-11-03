@@ -1338,10 +1338,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6562027596764081052}
     m_Modifications:
-    - target: {fileID: 4324373739569091398, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
-      propertyPath: m_balance
-      value: 
-      objectReference: {fileID: 3340167605055833163}
     - target: {fileID: 4787228600175296076, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1469,14 +1465,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4892384682790546633, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
   m_PrefabInstance: {fileID: 6838636088691833936}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3340167605055833163 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8123684450094184475, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
-  m_PrefabInstance: {fileID: 6838636088691833936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI

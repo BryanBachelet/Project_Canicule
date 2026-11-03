@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1828cc87d2f52c24aad378a5ad1312bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.BalanceUpdaterUI
-  balance: {fileID: 8123684450094184475}
+  m_balance: {fileID: 8123684450094184475}
 --- !u!1 &8147710792479857350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,7 +2117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4979171963704109957, guid: ee440c012a85d3a47b4ede6817ce13cc, type: 3}
       propertyPath: m_Size
-      value: 0.41185182
+      value: 0.41204464
       objectReference: {fileID: 0}
     - target: {fileID: 4979171963704109957, guid: ee440c012a85d3a47b4ede6817ce13cc, type: 3}
       propertyPath: m_Value
