@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Canicule
 {
@@ -12,6 +13,8 @@ namespace Canicule
         [SerializeField] private List<GameObject> m_tabs;
         [SerializeField] private List<GameObject> m_itemHolders;
         [SerializeField] private GameObject m_cartHolder;
+        [SerializeField] private List<ScrollRect> m_shopScrollrect;
+        [SerializeField] private ScrollRect m_cartScrollrect;
         private GameObject m_currentActiveTab;
         private ShopDataManager m_shopManager;
         private InventoryDataManager m_inventoryManager;
@@ -120,6 +123,15 @@ namespace Canicule
                 }
             }
         }
+
+        public void ResetTabScrollbars()
+        {
+            foreach(ScrollRect scrollrect in m_shopScrollrect)
+            {
+                scrollrect.verticalNormalizedPosition = 1;
+            }
+        }
+
         #endregion
 
         #region Cart Management
@@ -171,6 +183,13 @@ namespace Canicule
                 Destroy(cartCardUpdater.gameObject);
             }
         }
+
+        // Reset cart scrollbar
+        public void ResetCartScrollbar()
+        {
+            m_cartScrollrect.verticalNormalizedPosition = 1;
+        }
+
         #endregion
     }
 }
