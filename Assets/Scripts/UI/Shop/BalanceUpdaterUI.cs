@@ -16,13 +16,9 @@ namespace Canicule
             m_inventoryManager = FindAnyObjectByType<InventoryDataManager>();
         }
 
-        private void Start()
-        {
-            UpdateBalance();
-        }
-
         private void OnEnable()
         {
+            UpdateBalance();
             m_shopManager.OnItemCartAdded += _ => UpdateBalance();
             m_shopManager.OnItemCartRemoved += _ => UpdateBalance();
             m_shopManager.OnItemCartUpdated += (_,_) => UpdateBalance();
@@ -38,7 +34,7 @@ namespace Canicule
 
         private void UpdateBalance()
         {
-            m_balance.text = m_inventoryManager.GetPlayerBalance().ToString();
+            m_balance.text = m_inventoryManager.GetPlayerBalance().ToString("F2");
         }
     }
 }

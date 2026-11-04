@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26440b2979e13d4cbcbfa87b7d4803a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.InventoryDataManager
-  m_playerBalance: 50
+  m_playerBalance: 5
