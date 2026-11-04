@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 1
   itemDescription: Fills a bit, but the salt makes you thirsty.
   itemPrice: 4
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215633
   - rid: 9078439476675215634

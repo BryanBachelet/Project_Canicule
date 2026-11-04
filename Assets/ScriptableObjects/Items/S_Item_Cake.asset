@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 1
   itemDescription: Big hunger fix. Be careful of the sugar crash right after...
   itemPrice: 2
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215633
   - rid: 9078439476675215639

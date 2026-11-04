@@ -87,34 +87,34 @@ namespace Canicule
             return m_totalCartPrice;
         }
 
-        // This method is used when buying an upgrade
-        // An upgrade can't be purchased twice
-        public void RemoveItemFromShop(ItemData item)
-        {
-            // Find the item in the shop categories
-            foreach(ShopCategory shopCategory in m_shopContent.shopCategories)
-            {
-                // Check if the type matches
-                if(shopCategory.type == item.exhaustionType)
-                {
-                    foreach(ItemData itemData in shopCategory.items)
-                    {
-                        // Check if it's the same item
-                        if(itemData == item)
-                        {
-                            itemData.b_canBeBought = false;
-                        }
-                    }
-                }
-            }
-        }
-
         // Moves the cart items to the inventory
         public void MoveCartItemsToInventory()
         {
             m_inventoryDataManager.AddNewItems(m_itemCart);
+            FlagShopItemsAsBought();
             m_itemCart.Clear();
             OnCartItemsMoved?.Invoke();
+        }
+
+        // Flag each shop item as "already bought once"
+        private void FlagShopItemsAsBought()
+        {
+            foreach (KeyValuePair<ItemData, int> item in m_itemCart)
+            {
+                foreach (ItemData shopItem in m_shopContent.shopCategories[(int)item.Key.exhaustionType].items)
+                {
+                    if (shopItem.b_hasBeenBoughtOnce)
+                    {
+                        break;
+                    }
+
+                    if (shopItem == item.Key)
+                    {
+                        shopItem.b_hasBeenBoughtOnce = true;
+                        break;
+                    }
+                }
+            }
         }
         #endregion
 

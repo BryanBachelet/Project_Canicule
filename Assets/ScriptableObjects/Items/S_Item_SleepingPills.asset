@@ -15,10 +15,11 @@ MonoBehaviour:
   itemIcon: {fileID: 1094393234852128250, guid: a1052f78b0a36e8488f687b64bcb3a5f, type: 3}
   itemName: Sleeping Pills
   itemType: 0
+  exhaustionType: 0
   itemDescription: Greatly increase sleep chance. Sleeping without pills later becomes
     harder.
   itemPrice: 6
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215625
   - rid: 9078439476675215630

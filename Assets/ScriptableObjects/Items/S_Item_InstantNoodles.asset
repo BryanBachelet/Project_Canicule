@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 1
   itemDescription: Fills the stomach, but heats up the room.
   itemPrice: 3
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215635
   - rid: 9078439476675215632

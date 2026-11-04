@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 2
   itemDescription: Hydrates and boosts work income, but lowers sleep chance and quality.
   itemPrice: 5
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215644
   - rid: 9078439476675215643

@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 2
   itemDescription: Hydrates and lowers body temperature! Stay cool!
   itemPrice: 7
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215644
   - rid: 9078439476675215646

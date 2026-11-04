@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 1
   itemDescription: Plain and filling.
   itemPrice: 6
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215633
   references:

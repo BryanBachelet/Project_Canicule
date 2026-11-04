@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 3
   itemDescription: Cools the whole apartment for good. Buying it ends heatwaves issues!
   itemPrice: 150
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215647
   references:

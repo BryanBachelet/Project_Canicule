@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 3
   itemDescription: Cool down on command!
   itemPrice: 30
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215649
   references:

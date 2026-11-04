@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 2
   itemDescription: Simple water bottle, stay hydrated!
   itemPrice: 3
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215640
   references:

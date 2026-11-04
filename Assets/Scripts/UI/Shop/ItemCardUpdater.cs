@@ -17,6 +17,7 @@ namespace Canicule
         [SerializeField] private TMP_Text m_hungerHealValue;
         [SerializeField] private TMP_Text m_thirstHealValue;
         [SerializeField] private TMP_Text m_ownedAmount;
+        [SerializeField] private TMP_Text m_emptyButtonText;
         [SerializeField] private GameObject m_hungerField;
         [SerializeField] private GameObject m_thirstField;
         [SerializeField] private GameObject m_addButton;
@@ -44,6 +45,7 @@ namespace Canicule
 
         private void OnEnable()
         {
+            // Events Subscribing
             m_shopManager.OnItemCartAdded += _ => VerifyPlayerBalance();
             m_shopManager.OnItemCartRemoved += _ => VerifyPlayerBalance();
             m_shopManager.OnItemCartUpdated += (_, _) => VerifyPlayerBalance();
@@ -51,10 +53,13 @@ namespace Canicule
             m_shopManager.OnItemCartAdded += SwitchEmptyBuyButtons;
             m_shopManager.OnItemCartRemoved += SwitchEmptyBuyButtons;
             m_shopManager.OnItemCartUpdated += (item, _) => SwitchEmptyBuyButtons(item);
+
+            m_shopManager.OnCartItemsMoved += UpdateEmptyButtonText;
         }
 
         public void OnDisable()
         {
+            // Events Unsubcribing
             m_shopManager.OnItemCartAdded -= _ => VerifyPlayerBalance();
             m_shopManager.OnItemCartRemoved -= _ => VerifyPlayerBalance();
             m_shopManager.OnItemCartUpdated -= (_, _) => VerifyPlayerBalance();
@@ -62,18 +67,19 @@ namespace Canicule
             m_shopManager.OnItemCartAdded -= SwitchEmptyBuyButtons;
             m_shopManager.OnItemCartRemoved -= SwitchEmptyBuyButtons;
             m_shopManager.OnItemCartUpdated -= (item, _) => SwitchEmptyBuyButtons(item);
+
+            m_shopManager.OnCartItemsMoved -= UpdateEmptyButtonText;
         }
 
         private void Start()
         {
-            if (m_storedItem.b_hasBeenBought)
+            if (m_storedItem.b_hasBeenBoughtOnce && m_storedItem.itemType == ItemType.Upgrade)
             {
                 ActivateEmptyButton();
                 UpdateEmptyButtonText();
             }
             else
             {
-                //SwitchEmptyBuyButtons(m_storedItem);
                 VerifyPlayerBalance();
             }
 
@@ -152,21 +158,9 @@ namespace Canicule
         #endregion
 
         #region Button Management
-        //public void CheckItemInCart()
-        //{
-        //    foreach(KeyValuePair<ItemData, int> item in m_shopManager.GetItemCart())
-        //    {
-        //        if(item.Key == m_storedItem)
-        //        {
-
-        //            return;
-        //        }
-        //    }
-        //}
-
         public void SwitchEmptyBuyButtons(ItemData item)
         {
-            if (!m_storedItem.b_hasBeenBought)
+            if (!m_storedItem.b_hasBeenBoughtOnce)
             {
                 if(item == m_storedItem && item.itemType == ItemType.Upgrade)
                 {
@@ -174,6 +168,7 @@ namespace Canicule
                 }
             }
         }
+        
         public void VerifyPlayerBalance()
         {
             if(m_storedItem.itemPrice > m_inventoryDataManager.GetPlayerBalance())
@@ -215,15 +210,16 @@ namespace Canicule
             m_buyButtons.SetActive(!m_buyButtons.activeSelf);
             m_emptyButton.SetActive(!m_emptyButton.activeSelf);
         }
+        
         public void UpdateEmptyButtonText()
         {
-            if (m_storedItem.b_hasBeenBought)
+            if (m_storedItem.b_hasBeenBoughtOnce && m_storedItem.itemType == ItemType.Upgrade)
             {
-                m_emptyButton.GetComponent<TMP_Text>().text = m_upgradeBought;
+                m_emptyButtonText.text = m_upgradeBought;
             }
             else
             {
-                m_emptyButton.GetComponent<TMP_Text>().text = m_upgradeInCart;
+                m_emptyButtonText.text = m_upgradeInCart;
             }
         }
         #endregion

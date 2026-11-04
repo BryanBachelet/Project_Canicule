@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 0
   itemDescription: Slightly increase sleep chance and sleep quality.
   itemPrice: 15
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215628
   - rid: 9078439476675215629

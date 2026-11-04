@@ -18,7 +18,7 @@ MonoBehaviour:
   exhaustionType: 1
   itemDescription: Fills you up and hydrates a lot.
   itemPrice: 20
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215633
   - rid: 9078439476675215640

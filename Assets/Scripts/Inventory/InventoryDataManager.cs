@@ -35,31 +35,19 @@ namespace Canicule
 
             foreach (KeyValuePair<ItemData,int> item in itemCart)
             {
-
                 bool b_hasKey = m_playerItems.ContainsKey(item.Key);
 
-                
-                if (item.Key.itemType != ItemType.Upgrade)
+                // Add item in inventory if it's not an upgrade
+                if (b_hasKey)
                 {
-                    // Add item in inventory if it's not an upgrade
-                    if (b_hasKey)
-                    {
-                        m_playerItems[item.Key] += item.Value;
-                        OnAddingItem?.Invoke(item.Key, m_playerItems[item.Key]);
-                    }
-                    else
-                    {
-                        m_playerItems.Add(item.Key, item.Value);
-                        OnAddingItem?.Invoke(item.Key, 1);
-                    }
+                    m_playerItems[item.Key] += item.Value;
+                    OnAddingItem?.Invoke(item.Key, m_playerItems[item.Key]);
                 }
                 else
                 {
-                    // If it's an upgrade, ask the Shop Manager to remove the item from the shop
-                    m_shopManager.RemoveItemFromShop(item.Key);
+                    m_playerItems.Add(item.Key, item.Value);
                     OnAddingItem?.Invoke(item.Key, 1);
                 }
-
             }
         }
 

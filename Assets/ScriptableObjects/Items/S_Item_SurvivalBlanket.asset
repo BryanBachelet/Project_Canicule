@@ -19,7 +19,7 @@ MonoBehaviour:
   itemDescription: Prevents the light from coming inside. Definitely cooling your
     rooms!
   itemPrice: 20
-  b_canBeBought: 1
+  b_hasBeenBoughtOnce: 0
   itemEffects:
   - rid: 9078439476675215648
   references:
