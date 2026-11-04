@@ -38,7 +38,7 @@ namespace Canicule.Rooms
             roomManager.RegisterRoom(this);
             if (gameObject.activeSelf)
             {
-                roomManager.SetCurrentRoom(this);
+                roomManager.SetCurrentRoomPlayer(this);
             }
 
         }
@@ -48,15 +48,29 @@ namespace Canicule.Rooms
         }
         #endregion
 
-        public void ActivateRoom()
+        public void ActivateRoom(Interactor interactor)
         {
             this.gameObject.SetActive(true);
-            GameManager.GetRoomManager().SetCurrentRoom(this);
+            if (interactor == Interactor.PLAYER)
+            {
+                GameManager.GetRoomManager().SetCurrentRoomPlayer(this);
+            }
+            else
+            {
+                GameManager.GetRoomManager().SetCurrentRoomMonster(this);
+            }
+
         }
 
-        public void DeactivateRoom()
+        public void DeactivateRoom(Interactor interactor)
         {
-            this.gameObject.SetActive(false);
+            RoomManager roomManager = GameManager.GetRoomManager();
+            if( interactor == Interactor.PLAYER && roomManager.GetCurrentRoomMonster() != this ||
+                interactor == Interactor.MONSTER && roomManager.GetCurrentRoomPlayer() != this )
+            {
+                this.gameObject.SetActive(false);
+            }
+          
         }
 
         public void LinkRoomConnection(RoomConnection roomLink)
@@ -78,6 +92,8 @@ namespace Canicule.Rooms
         public float GetRoomDegree() { return m_heatManager.GetDegree(); }
 
         public Vector3[] GetAppearencePoint() { return m_appearencePoints; }
+
+        public RoomConnection[] GetRoomsConnection() { return m_roomLink.ToArray(); }
     }
 
 

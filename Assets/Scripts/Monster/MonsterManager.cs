@@ -96,6 +96,8 @@ namespace Canicule
                 }
             }
 
+            m_monsterCmpt.transform.position = room.transform.position;
+
             Vector3 teleportPosition = points[validIndex];
             m_monsterCmpt.Teleport(teleportPosition);
             m_monsterCmpt.ChangeState(MonsterState.APPEAR);

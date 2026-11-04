@@ -25,9 +25,10 @@ namespace Canicule
 
         protected bool bIsOnPause = false;
 
-        protected Interactor interactor;
+        protected Interactor m_interactor;
 
         [HideInInspector] public UnityEvent OnInteractStart;
+        [HideInInspector] public UnityEvent OnInteractEnd;
 
         #region Unity Function
 
@@ -95,14 +96,15 @@ namespace Canicule
 
             OnInteractStart?.Invoke();
 
-            interactor = interactActorType;
+            m_interactor = interactActorType;
         }
 
         protected virtual void Interact()
         {
             bIsInteracting = false;
             actorTransform = null;
-            interactor = Interactor.NONE;
+            m_interactor = Interactor.NONE;
+            OnInteractEnd?.Invoke();
         }
 
         public bool CanInteract()
