@@ -300,6 +300,7 @@ namespace Canicule
 
         private void Process_Catch()
         {
+
         }
 
         private void Process_Appear()
@@ -367,10 +368,10 @@ namespace Canicule
         {
             if (m_currentState != MonsterState.CATCH || collision.transform.tag != "Player") return;
 
-            //TODO: Set the catch system on the player.
+            GameManager.LaunchLose();
+            GameManager.GetGameManager().PauseGame();
 
             Debug.Log("Player is catch");
-
         }
         #endregion
 

@@ -28,6 +28,9 @@ namespace Canicule
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
 
+       [HideInInspector] public UnityEvent OnLose;
+
+
         #region Unity Functions
         private void Awake()
         {
@@ -71,7 +74,6 @@ namespace Canicule
             OnPlay?.Invoke();
         }
 
-
         #region Static Functions
         public static void RegisterObject(IPauseableObject obj)
         {
@@ -114,6 +116,15 @@ namespace Canicule
             return m_instance.playerObj;
         }
 
+        public static bool SubscribeToOnLoseEvent(UnityAction func)
+        {
+            if (!m_instance)
+                return false;
+
+            m_instance.OnLose?.AddListener(func);
+            return true;
+        }
+
         public static ExhaustionManager GetExhaustionManager()
         {
             if (m_instance == null || !m_instance.m_exhaustionManager)
@@ -121,6 +132,24 @@ namespace Canicule
 
             return m_instance.m_exhaustionManager;
         }
+
+        public static bool UnsubscribeToOnLoseEvent(UnityAction func)
+        {
+            if (!m_instance)
+                return false;
+
+            m_instance.OnLose?.RemoveListener(func);
+            return true;
+        }
+
+        public static void LaunchLose()
+        {
+            if (!m_instance)
+                return;
+
+            m_instance.OnLose?.Invoke();
+        }
+
 
         public static ShopDataManager GetShopDataManager()
         {
