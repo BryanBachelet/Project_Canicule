@@ -51,6 +51,8 @@ namespace Canicule
             m_inventoryDataManager.OnAddingFinished += RecreateInventoryDisplay;
             m_inventoryDataManager.OnSelectorChanged += UpdateItemValues;
             m_inventoryDataManager.OnSelectorChanged += UpdateItemPositions;
+            m_inventoryDataManager.OnDecreasingItemAmount += UpdateItemValues;
+            m_inventoryDataManager.OnRemovingItem += UpdateDisplayedItemsAfterRemove;
         }
 
         private void OnDisable()
@@ -58,6 +60,8 @@ namespace Canicule
             m_inventoryDataManager.OnAddingFinished -= RecreateInventoryDisplay;
             m_inventoryDataManager.OnSelectorChanged -= UpdateItemValues;
             m_inventoryDataManager.OnSelectorChanged -= UpdateItemPositions;
+            m_inventoryDataManager.OnDecreasingItemAmount -= UpdateItemValues;
+            m_inventoryDataManager.OnRemovingItem -= UpdateDisplayedItemsAfterRemove;
         }
 
         private void Start()
@@ -137,8 +141,6 @@ namespace Canicule
 
         private void UpdateItemValues()
         {
-            //KeyValuePair<ItemData, int> item = m_inventoryDataManager.GetPlayerItems().ElementAt(m_inventoryDataManager.GetIndexSelector());
-
             ItemData item = m_inventoryDataManager.GetDisplayedInventory()[m_inventoryDataManager.GetIndexSelector()];
 
             m_itemDescription.text = item.itemDescription.ToString();
@@ -153,7 +155,14 @@ namespace Canicule
                     break;
                 case ItemType.Equippable:
                     m_itemType.text = m_itemTypeEquipement;
-                    m_itemAction.text = m_itemActionEquipmentNotEquipped;
+                    if (item.b_isEquipped)
+                    {
+                        m_itemAction.text = m_itemActionEquipmentEquipped;
+                    }
+                    else
+                    {
+                        m_itemAction.text = m_itemActionEquipmentNotEquipped;
+                    }
                     break;
             }
 
@@ -179,6 +188,40 @@ namespace Canicule
             m_itemType.text = m_itemTypeDefault;
             m_itemAction.text = m_itemActionDefault;
             m_actionKey.SetActive(false);
+        }
+
+        private void UpdateDisplayedItemsAfterRemove()
+        {
+            if(m_inventoryDataManager.GetDisplayedInventory().Count == 0)
+            {
+                // Resets the inventory if there is no items in it
+                ClearDisplayedItems();
+                SetDefaultInventory();
+            }
+            else
+            {
+                InventoryItemCardUpdater[] itemCards = m_inventoryContainer.GetComponentsInChildren<InventoryItemCardUpdater>();
+                
+                Destroy(itemCards[m_inventoryDataManager.GetIndexSelector()].gameObject);
+
+                if(m_inventoryDataManager.GetIndexSelector() == itemCards.Length - 1)
+                {
+                    // Moves the selector to ensure items are centered
+                    m_inventoryDataManager.DecreaseIndexSelector();
+                }
+                else
+                {
+                    // Moves the items on the left to center them back
+                    for (int i = m_inventoryDataManager.GetIndexSelector() + 1; i < itemCards.Length; i++)
+                    {
+                        itemCards[i].SetRank(itemCards[i].GetRank() - 1);
+                        itemCards[i].UpdatePosition();
+                        itemCards[i].UpdateStatus();
+                    }
+
+                    UpdateItemValues();
+                }
+            }
         }
         #endregion
 

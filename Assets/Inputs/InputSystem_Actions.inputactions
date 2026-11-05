@@ -719,7 +719,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Submit",
+                    "name": "SubmitInventory",
                     "type": "Button",
                     "id": "5a1599c8-3fc1-413c-9122-e9d71504c22b",
                     "expectedControlType": "",
@@ -1081,7 +1081,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Submit",
+                    "action": "SubmitInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

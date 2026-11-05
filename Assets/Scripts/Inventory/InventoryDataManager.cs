@@ -14,16 +14,11 @@ namespace Canicule
         private List<ItemData> m_displayedInventory = new List<ItemData>();
         private ExhaustionManager m_exhaustionManager;
 
-        public event Action<ItemData, int> OnAddingItem;
+        public event Action<ItemData, int> OnAddingItem; // Used to update the owned amount in the shop
+        public event Action OnDecreasingItemAmount;
+        public event Action OnRemovingItem;
         public event Action OnAddingFinished;
         public event Action OnSelectorChanged;
-
-        // Debug
-        [SerializeField] private int dictCount;
-        private void Update()
-        {
-            dictCount = m_playerItems.Count;
-        }
 
         #region Unity Methods
         private void Awake()
@@ -33,11 +28,18 @@ namespace Canicule
         #endregion
 
         #region Inventory Data Management Methods
-        public void UseItem(ItemData item)
+        public void UseItem()
         {
-            item.UseItem(m_exhaustionManager.gameObject);
+            if(m_indexSelector < m_displayedInventory.Count)
+            {
+                ItemData item = m_displayedInventory[m_indexSelector];
 
-            RemoveItem(item);
+                Debug.Log("[Inventory Data] Used " + item.itemName);
+                // item.UseItem(m_exhaustionManager.gameObject);
+                
+                RemoveItem(item);
+            }
+
         }
 
         // This method is used to add the cart items from the shopDataManager to the player items
@@ -70,11 +72,16 @@ namespace Canicule
             if(m_playerItems[item] == 0)
             {
                 m_playerItems.Remove(item);
+                m_displayedInventory.Remove(item);
+
                 OnAddingItem?.Invoke(item, 0);
+                OnRemovingItem?.Invoke();
+                Debug.Log("An item has been removed!");
             }
             else
             {
                 OnAddingItem?.Invoke(item, m_playerItems[item]);
+                OnDecreasingItemAmount?.Invoke();
             }
 
         }
@@ -129,6 +136,11 @@ namespace Canicule
                 m_indexSelector--;
                 OnSelectorChanged?.Invoke();
             }
+        }
+
+        public void SetIndexSelector(int index)
+        {
+            m_indexSelector = index;
         }
 
         public List<ItemData> GetDisplayedInventory()

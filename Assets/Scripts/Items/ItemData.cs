@@ -15,6 +15,7 @@ namespace Canicule
         public string itemDescription;
         public int itemPrice;
         public bool b_hasBeenBoughtOnce = false;
+        public bool b_isEquipped = false;
 
         [Header("Item Effects")]
         [SerializeReference, SubclassSelector]

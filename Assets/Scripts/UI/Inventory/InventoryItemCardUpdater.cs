@@ -42,7 +42,12 @@ namespace Canicule
             }
         }
 
-        #region Setter
+        #region Getter & Setter
+        public int GetRank()
+        {
+            return m_rank;
+        }
+
         public void SetRank(int rank)
         {
             m_rank = rank;

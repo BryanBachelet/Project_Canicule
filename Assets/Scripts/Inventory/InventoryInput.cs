@@ -10,7 +10,9 @@ namespace Canicule
         private InventoryDataManager m_inventoryDataManager;
 
         private InputAction m_navigateAction;
+        private InputAction m_submitAction;
         private const string m_navigateActionName = "NavigateInventory";
+        private const string m_submitActionName = "SubmitInventory";
 
         #region Unity Methods
         private void Awake()
@@ -20,6 +22,7 @@ namespace Canicule
             m_inventoryDataManager = GetComponent<InventoryDataManager>();
 
             m_navigateAction = InputSystem.actions.FindAction(m_navigateActionName, true);
+            m_submitAction = InputSystem.actions.FindAction(m_submitActionName, true);
         }
 
         private void OnEnable()
@@ -28,6 +31,7 @@ namespace Canicule
             m_inventoryUIManager.OnInventoryClose += SwitchToPlayerMap;
 
             m_navigateAction.performed += ModifyIndexSelector;
+            m_submitAction.performed += InteractWithItem;
         }
 
         private void OnDisable()
@@ -36,6 +40,7 @@ namespace Canicule
             m_inventoryUIManager.OnInventoryClose -= SwitchToPlayerMap;
 
             m_navigateAction.performed -= ModifyIndexSelector;
+            m_submitAction.performed -= InteractWithItem;
         }
         #endregion
 
@@ -53,6 +58,11 @@ namespace Canicule
                 // Decrease index selector
                 m_inventoryDataManager.DecreaseIndexSelector();
             }
+        }
+
+        private void InteractWithItem(InputAction.CallbackContext ctx)
+        {
+            m_inventoryDataManager.UseItem();
         }
 
         private void SwitchToInventoryMap()
