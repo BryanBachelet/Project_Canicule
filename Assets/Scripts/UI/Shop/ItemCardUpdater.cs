@@ -26,6 +26,7 @@ namespace Canicule
         [SerializeField] private GameObject m_emptyButton;
         [SerializeField] private GameObject m_consumableField;
         [SerializeField] private GameObject m_upgradeField;
+        [SerializeField] private GameObject m_equipementField;
         [SerializeField] private string m_currency;
         [SerializeField] private string m_upgradeInCart;
         [SerializeField] private string m_upgradeBought;
@@ -34,6 +35,7 @@ namespace Canicule
 
         private ShopDataManager m_shopManager;
         private InventoryDataManager m_inventoryDataManager;
+        
         #endregion
 
         #region Unity Methods
@@ -55,6 +57,8 @@ namespace Canicule
             m_shopManager.OnItemCartUpdated += (item, _) => SwitchEmptyBuyButtons(item);
 
             m_shopManager.OnCartItemsMoved += UpdateEmptyButtonText;
+
+            m_shopManager.OnShopOpened += InitialCheckForButtons;
         }
 
         public void OnDisable()
@@ -69,20 +73,13 @@ namespace Canicule
             m_shopManager.OnItemCartUpdated -= (item, _) => SwitchEmptyBuyButtons(item);
 
             m_shopManager.OnCartItemsMoved -= UpdateEmptyButtonText;
+
+            m_shopManager.OnShopOpened -= InitialCheckForButtons;
         }
 
         private void Start()
         {
-            if (m_storedItem.b_hasBeenBoughtOnce && m_storedItem.itemType == ItemType.Upgrade)
-            {
-                ActivateEmptyButton();
-                UpdateEmptyButtonText();
-            }
-            else
-            {
-                VerifyPlayerBalance();
-            }
-
+            InitialCheckForButtons();
         }
         #endregion
 
@@ -143,11 +140,19 @@ namespace Canicule
             {
                 m_upgradeField.SetActive(true);
                 m_consumableField.SetActive(false);
+                m_equipementField.SetActive(false);
+            }
+            else if(item.itemType == ItemType.Equippable)
+            {
+                m_upgradeField.SetActive(false);
+                m_consumableField.SetActive(false);
+                m_equipementField.SetActive(true);
             }
             else
             {
                 m_upgradeField.SetActive(false);
                 m_consumableField.SetActive(true);
+                m_equipementField.SetActive(false);
             }
 
         }
@@ -162,7 +167,7 @@ namespace Canicule
         {
             if (!m_storedItem.b_hasBeenBoughtOnce)
             {
-                if(item == m_storedItem && item.itemType == ItemType.Upgrade)
+                if(item == m_storedItem && (item.itemType == ItemType.Upgrade || item.itemType == ItemType.Equippable))
                 {
                     SwitchEmptyButton();
                 }
@@ -213,13 +218,26 @@ namespace Canicule
         
         public void UpdateEmptyButtonText()
         {
-            if (m_storedItem.b_hasBeenBoughtOnce && m_storedItem.itemType == ItemType.Upgrade)
+            if (m_storedItem.b_hasBeenBoughtOnce && (m_storedItem.itemType == ItemType.Upgrade || m_storedItem.itemType == ItemType.Equippable))
             {
                 m_emptyButtonText.text = m_upgradeBought;
             }
             else
             {
                 m_emptyButtonText.text = m_upgradeInCart;
+            }
+        }
+
+        public void InitialCheckForButtons()
+        {
+            if (m_storedItem.b_hasBeenBoughtOnce && (m_storedItem.itemType == ItemType.Upgrade || m_storedItem.itemType == ItemType.Equippable))
+            {
+                ActivateEmptyButton();
+                UpdateEmptyButtonText();
+            }
+            else
+            {
+                VerifyPlayerBalance();
             }
         }
         #endregion

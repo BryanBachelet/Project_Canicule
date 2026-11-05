@@ -5,6 +5,7 @@ namespace Canicule
     public enum ItemType
     {
         Consumable,
-        Upgrade
+        Upgrade,
+        Equippable
     }
 }

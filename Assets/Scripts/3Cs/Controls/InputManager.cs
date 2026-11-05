@@ -9,11 +9,13 @@ namespace Canicule
 
         private const string m_playerInputMapName = "Player";
         private const string m_UIInputMapName = "UI";
+        private const string m_inventoryInputMapName = "Inventory";
 
         private void Start()
         {
             DisablePlayerMap();
             DisableUIMap();
+            DisableInventoryMap();
 
             EnablePlayerMap();
         }
@@ -36,6 +38,16 @@ namespace Canicule
         public void DisableUIMap()
         {
             InputSystem.actions.FindActionMap(m_UIInputMapName).Disable();
+        }
+
+        public void EnableInventoryMap()
+        {
+            InputSystem.actions.FindActionMap(m_inventoryInputMapName).Enable();
+        }
+
+        public void DisableInventoryMap()
+        {
+            InputSystem.actions.FindActionMap(m_inventoryInputMapName).Disable();
         }
 
     }

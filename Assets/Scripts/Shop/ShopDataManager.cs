@@ -16,6 +16,7 @@ namespace Canicule
         public event Action<ItemData> OnItemCartRemoved;
         public event Action<ItemData, int> OnItemCartUpdated;
         public event Action OnCartItemsMoved;
+        public event Action OnShopOpened;
 
         #region Unity Methods
         private void Awake()
@@ -115,6 +116,13 @@ namespace Canicule
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Event Management
+        public void InvokeOnShopOpened()
+        {
+            OnShopOpened?.Invoke();
         }
         #endregion
 

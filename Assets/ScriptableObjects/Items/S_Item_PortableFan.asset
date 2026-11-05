@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
   itemIcon: {fileID: 1710981365271166214, guid: ad1b4415707f2704493fee97d0baad4a, type: 3}
   itemName: Portable Fan
-  itemType: 1
+  itemType: 2
   exhaustionType: 3
   itemDescription: Cool down on command!
   itemPrice: 30

@@ -8,16 +8,27 @@ namespace Canicule
     public class InventoryDataManager : MonoBehaviour
     {
         [SerializeField] private float m_playerBalance;
+        private int m_indexSelector = 0;
+
         private Dictionary<ItemData, int> m_playerItems = new Dictionary<ItemData, int>();
+        private List<ItemData> m_displayedInventory = new List<ItemData>();
         private ExhaustionManager m_exhaustionManager;
-        private ShopDataManager m_shopManager;
+
         public event Action<ItemData, int> OnAddingItem;
+        public event Action OnAddingFinished;
+        public event Action OnSelectorChanged;
+
+        // Debug
+        [SerializeField] private int dictCount;
+        private void Update()
+        {
+            dictCount = m_playerItems.Count;
+        }
 
         #region Unity Methods
         private void Awake()
         {
             m_exhaustionManager = FindAnyObjectByType<ExhaustionManager>();
-            m_shopManager = FindAnyObjectByType<ShopDataManager>();
         }
         #endregion
 
@@ -37,7 +48,6 @@ namespace Canicule
             {
                 bool b_hasKey = m_playerItems.ContainsKey(item.Key);
 
-                // Add item in inventory if it's not an upgrade
                 if (b_hasKey)
                 {
                     m_playerItems[item.Key] += item.Value;
@@ -49,6 +59,8 @@ namespace Canicule
                     OnAddingItem?.Invoke(item.Key, 1);
                 }
             }
+
+            OnAddingFinished?.Invoke();
         }
 
         public void RemoveItem(ItemData item)
@@ -89,6 +101,49 @@ namespace Canicule
             {
                 return 0;
             }
+        }
+
+        public Dictionary<ItemData,int> GetPlayerItems()
+        {
+            return m_playerItems;
+        }
+
+        public int GetIndexSelector()
+        {
+            return m_indexSelector;
+        }
+
+        public void IncreaseIndexSelector()
+        {
+            if(m_indexSelector < m_displayedInventory.Count - 1)
+            {
+                m_indexSelector++;
+                OnSelectorChanged?.Invoke();
+            }
+        }
+
+        public void DecreaseIndexSelector()
+        {
+            if(m_indexSelector > 0)
+            {
+                m_indexSelector--;
+                OnSelectorChanged?.Invoke();
+            }
+        }
+
+        public List<ItemData> GetDisplayedInventory()
+        {
+            return m_displayedInventory;
+        }
+
+        public void AddItemInDisplayedInventory(ItemData item)
+        {
+            m_displayedInventory.Add(item);
+        }
+
+        public void ClearItemsFromDisplayedInventory()
+        {
+            m_displayedInventory.Clear();
         }
         #endregion
     }

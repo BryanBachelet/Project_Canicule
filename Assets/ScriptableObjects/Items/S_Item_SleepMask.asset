@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
   itemIcon: {fileID: -4440664127937064486, guid: 8e3c820d7c0c7b14fb7c6fb9f1a12308, type: 3}
   itemName: Sleep Mask
-  itemType: 1
+  itemType: 2
   exhaustionType: 0
   itemDescription: Slightly increase sleep chance and sleep quality.
   itemPrice: 15

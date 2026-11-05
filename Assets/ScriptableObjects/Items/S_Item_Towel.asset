@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemData
   itemIcon: {fileID: 1011511256227955051, guid: 5847422bff0ae71409821699ae12af18, type: 3}
   itemName: Towel
-  itemType: 1
+  itemType: 2
   exhaustionType: 3
   itemDescription: Combined with water, it's the perfect fix for overheating!
   itemPrice: 15

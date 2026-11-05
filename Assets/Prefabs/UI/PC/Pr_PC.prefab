@@ -145,6 +145,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2090385702296375449}
+        m_TargetAssemblyTypeName: Canicule.ShopUIManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3498158468873299075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1379,10 @@ PrefabInstance:
     - target: {fileID: 1911833591229098754, guid: d8929f52b9a400c4b9d87f7010db294c, type: 3}
       propertyPath: m_Name
       value: Work
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911833591229098754, guid: d8929f52b9a400c4b9d87f7010db294c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5149511849804129112, guid: d8929f52b9a400c4b9d87f7010db294c, type: 3}
       propertyPath: m_Pivot.x
