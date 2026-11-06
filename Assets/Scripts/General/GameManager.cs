@@ -13,8 +13,10 @@ namespace Canicule
         private static GameManager m_instance;
         private List<IPauseableObject> m_pauseableObject = new List<IPauseableObject>();
 
+        public GameObject playerObj;
         // Manager Variables
         private Rooms.RoomManager m_roomManager;
+        private MonsterManager m_monsterManager;
         private ExhaustionManager m_exhaustionManager;
 
         public UnityEvent OnPause;
@@ -28,7 +30,13 @@ namespace Canicule
                 m_instance = this;
             }
             m_roomManager = GetComponent<Rooms.RoomManager>();
+            m_monsterManager = GetComponent<MonsterManager>();
             m_exhaustionManager = GetComponent<ExhaustionManager>();
+        }
+
+        private void Start()
+        {
+            m_monsterManager.InitiateManager();
         }
         #endregion
 
@@ -84,6 +92,14 @@ namespace Canicule
                 return null;
 
             return m_instance.m_roomManager;
+        }
+
+        public static GameObject GetPlayer()
+        {
+            if (!m_instance || !m_instance.playerObj)
+                return null;
+
+            return m_instance.playerObj;
         }
 
         public static ExhaustionManager GetExhaustionManager()

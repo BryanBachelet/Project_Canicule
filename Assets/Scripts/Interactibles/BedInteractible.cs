@@ -11,9 +11,9 @@ namespace Canicule
             m_sleepManager = Object.FindAnyObjectByType<SleepManager>();
         }
 
-        public override void LaunchInteraction(Transform actor)
+        public override void LaunchInteraction(Transform actor,Interactor interactActorType)
         {
-            base.LaunchInteraction(actor);
+            base.LaunchInteraction(actor, interactActorType);
             TrySleep();
         }
 

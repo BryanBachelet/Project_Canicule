@@ -21,6 +21,9 @@ namespace Canicule.Rooms
     {
         [SerializeField] private RoomData m_roomData;
 
+        [Space]
+        [SerializeField] private Vector3[] m_appearencePoints;
+
         [SerializeField] private HeatManager m_heatManager = new HeatManager();
 
         private List<RoomConnection> m_roomLink = new List<RoomConnection>();
@@ -30,10 +33,12 @@ namespace Canicule.Rooms
         public void Start()
         { 
             m_heatManager.InitHeatManager(m_roomData.m_baseTemperature, m_roomData.roomHeatResistance);
-        
+            
+            RoomManager roomManager = GameManager.GetRoomManager();
+            roomManager.RegisterRoom(this);
             if (gameObject.activeSelf)
             {
-                GameManager.GetRoomManager().SetCurrentRoom(this);
+                roomManager.SetCurrentRoomPlayer(this);
             }
 
         }
@@ -43,15 +48,29 @@ namespace Canicule.Rooms
         }
         #endregion
 
-        public void ActivateRoom()
+        public void ActivateRoom(Interactor interactor)
         {
             this.gameObject.SetActive(true);
-            GameManager.GetRoomManager().SetCurrentRoom(this);
+            if (interactor == Interactor.PLAYER)
+            {
+                GameManager.GetRoomManager().SetCurrentRoomPlayer(this);
+            }
+            else
+            {
+                GameManager.GetRoomManager().SetCurrentRoomMonster(this);
+            }
+
         }
 
-        public void DeactivateRoom()
+        public void DeactivateRoom(Interactor interactor)
         {
-            this.gameObject.SetActive(false);
+            RoomManager roomManager = GameManager.GetRoomManager();
+            if( interactor == Interactor.PLAYER && roomManager.GetCurrentRoomMonster() != this ||
+                interactor == Interactor.MONSTER && roomManager.GetCurrentRoomPlayer() != this )
+            {
+                this.gameObject.SetActive(false);
+            }
+          
         }
 
         public void LinkRoomConnection(RoomConnection roomLink)
@@ -71,6 +90,10 @@ namespace Canicule.Rooms
         public HeatManager GetHeatManager() { return m_heatManager; }
 
         public float GetRoomDegree() { return m_heatManager.GetDegree(); }
+
+        public Vector3[] GetAppearencePoint() { return m_appearencePoints; }
+
+        public RoomConnection[] GetRoomsConnection() { return m_roomLink.ToArray(); }
     }
 
 

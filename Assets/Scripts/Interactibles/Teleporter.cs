@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.AI;
 namespace Canicule
 {
     public class Teleporter : InteractibleObject
@@ -7,18 +7,19 @@ namespace Canicule
         [SerializeField] private Rooms.Room m_roomLink;
         [Space]
         [SerializeField] private Transform m_teleportPoint;
-        [SerializeField] private Vector3 m_offsetTeleportPoint= Vector3.zero;
+        [SerializeField] private Vector3 m_offsetTeleportPoint = Vector3.zero;
 
         [Header("Debugs Options")]
         [SerializeField] private bool m_showTeleportPoint;
         private static readonly Color m_debugSphereColorStr = Color.rebeccaPurple;
         private const float m_debugSphereSize = .4f;
 
+
         public override void Start()
         {
             base.Start();
 
-            if(m_roomLink == null)
+            if (m_roomLink == null)
             {
                 Debug.LogError("[Door] Door don't have the linked room");
                 return;
@@ -30,10 +31,16 @@ namespace Canicule
 
         protected override void Interact()
         {
-            m_roomLink.ActivateRoom();
-            m_roomOwner.DeactivateRoom();
+            m_roomLink.ActivateRoom(m_interactor);
+            m_roomOwner.DeactivateRoom(m_interactor);
             actorTransform.position = m_teleportPoint.position + m_offsetTeleportPoint;
-            
+            if (m_interactor == Interactor.MONSTER)
+            {
+                Vector3 sourcePosition = m_teleportPoint.position + m_offsetTeleportPoint;
+                Monster monsterCmp = actorTransform.GetComponent<Monster>();
+                monsterCmp.Teleport(sourcePosition);
+            }
+
             base.Interact();
         }
 

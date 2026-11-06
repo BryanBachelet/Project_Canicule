@@ -10,9 +10,9 @@ namespace Canicule
 
         private bool m_isWindowClose = true;
 
-        public override void LaunchInteraction(Transform actor)
+        public override void LaunchInteraction(Transform actor, Interactor interactActorType)
         {
-            base.LaunchInteraction(actor);
+            base.LaunchInteraction(actor,interactActorType);
             
             m_isWindowClose = !m_isWindowClose; 
             WindowInteraction();
