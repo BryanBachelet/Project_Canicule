@@ -5,6 +5,9 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 namespace Canicule
 {
+    [DefaultExecutionOrder(-999)] 
+    // Ensure game manager runs first
+    // To be replaced with an initialization system
     public class GameManager : MonoBehaviour
     {
         private static GameManager m_instance;
@@ -12,6 +15,7 @@ namespace Canicule
 
         // Manager Variables
         private Rooms.RoomManager m_roomManager;
+        private ExhaustionManager m_exhaustionManager;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -24,6 +28,7 @@ namespace Canicule
                 m_instance = this;
             }
             m_roomManager = GetComponent<Rooms.RoomManager>();
+            m_exhaustionManager = GetComponent<ExhaustionManager>();
         }
         #endregion
 
@@ -79,6 +84,14 @@ namespace Canicule
                 return null;
 
             return m_instance.m_roomManager;
+        }
+
+        public static ExhaustionManager GetExhaustionManager()
+        {
+            if (m_instance == null || !m_instance.m_exhaustionManager)
+                return null;
+
+            return m_instance.m_exhaustionManager;
         }
 
         #endregion

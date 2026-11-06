@@ -8,7 +8,7 @@ namespace Canicule
     [System.Serializable]
     public abstract class ItemEffect
     {
-        public abstract void UseItemEffect(GameObject reference);
+        public abstract void UseItemEffect();
     }
 
     #region Sleep Effects
@@ -16,7 +16,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepChance : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Sleep Chance Effect Used!");
         }
@@ -26,7 +26,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepChanceWithoutPills : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Sleep Chance Without Pills Effect Used!");
         }
@@ -36,7 +36,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepQuality : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Sleep Quality Effect Used!");
         }
@@ -46,7 +46,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepAmountAfterXSeconds : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Sleep Amount Effect Used!");
         }
@@ -60,14 +60,10 @@ namespace Canicule
     {
         [SerializeField] private float m_hungerModifierAmount;
 
-        public override void UseItemEffect(GameObject reference)
-        {
-            if(reference.TryGetComponent<ExhaustionManager>(out ExhaustionManager exhaustionManager))
-            {
-                exhaustionManager.ModifyHungerExhaustion(m_hungerModifierAmount);
-
-                Debug.Log("[Item Effect] Hunger modified by " + m_hungerModifierAmount + " through item use!");
-            }
+        public override void UseItemEffect()
+        {      
+            GameManager.GetExhaustionManager().ModifyHungerExhaustion(m_hungerModifierAmount);
+            Debug.Log("[Item Effect] Hunger modified by " + m_hungerModifierAmount + " through item use!");
         }
 
         public float GetHungerModifierAmount()
@@ -77,6 +73,7 @@ namespace Canicule
     }
     #endregion
 
+
     #region Thirst Effects
     // Thirst effect
     [System.Serializable]
@@ -84,12 +81,9 @@ namespace Canicule
     {
         [SerializeField] private float m_thirstModifierAmount;
 
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
-            if(reference.TryGetComponent<ExhaustionManager>(out ExhaustionManager exhaustionManager))
-            {
-                exhaustionManager.ModifyThirstExhaustion(m_thirstModifierAmount);
-            }
+            GameManager.GetExhaustionManager().ModifyThirstExhaustion(m_thirstModifierAmount);
 
             Debug.Log("[Item Effect] Thirst modified by " + m_thirstModifierAmount + " through item use!");
         }
@@ -98,8 +92,6 @@ namespace Canicule
         {
             return m_thirstModifierAmount;
         }
-
-        
     }
     #endregion
 
@@ -108,7 +100,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifyRoomTemperature : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Room Temperature Effect Used!");
         }
@@ -118,7 +110,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifyBodyTemperatureDuringXSeconds : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Body Temperature During X Seconds Effect Used!");
         }
@@ -130,7 +122,7 @@ namespace Canicule
     [System.Serializable]
     public class ModifyMoneyGeneratedDuringXSeconds : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Money Generated Effect Used!");
         }
@@ -142,7 +134,7 @@ namespace Canicule
     [System.Serializable]
     public class InstallSurvivalBlanket : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Install Survival Blanket Effect Used!");
         }
@@ -152,7 +144,7 @@ namespace Canicule
     [System.Serializable]
     public class ActivatePortableFan : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Activate Portable Fan Effect Used!");
         }
@@ -162,7 +154,7 @@ namespace Canicule
     [System.Serializable]
     public class ActivateStandingFan : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Activate Standing Fan Effect Used!");
         }
@@ -172,7 +164,7 @@ namespace Canicule
     [System.Serializable]
     public class ActivateTowel : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] Activate Towel Effect Used!");
         }
@@ -182,7 +174,7 @@ namespace Canicule
     [System.Serializable]
     public class EndGame : ItemEffect
     {
-        public override void UseItemEffect(GameObject reference)
+        public override void UseItemEffect()
         {
             Debug.Log("[Item Effect] End Game Effect Used!");
         }

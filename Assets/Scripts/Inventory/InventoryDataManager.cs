@@ -35,9 +35,17 @@ namespace Canicule
                 ItemData item = m_displayedInventory[m_indexSelector];
 
                 Debug.Log("[Inventory Data] Used " + item.itemName);
-                // item.UseItem(m_exhaustionManager.gameObject);
+
+                if(item.itemType == ItemType.Consumable)
+                {
+                    RemoveItem(item);
+                }
+                else if (item.itemType == ItemType.Equippable)
+                {
+                    Debug.Log("Switch Equip State");
+                }
                 
-                RemoveItem(item);
+                item.UseItem();
             }
 
         }

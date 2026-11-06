@@ -14,6 +14,11 @@ GameObject:
   - component: {fileID: 7178166073420476163}
   - component: {fileID: 4177741467549920024}
   - component: {fileID: 4743371100846850078}
+  - component: {fileID: 3133562103238911232}
+  - component: {fileID: 590853543653121887}
+  - component: {fileID: 1277446863924106869}
+  - component: {fileID: 2166609485483831331}
+  - component: {fileID: 5728769988694510536}
   m_Layer: 0
   m_Name: Pr_GameManager
   m_TagString: Untagged
@@ -108,3 +113,72 @@ MonoBehaviour:
   positifHeatScoreGain: 4
   negatifHeatScoreGain: -2
   ratioGainDegreeGap: 0.25
+--- !u!114 &3133562103238911232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ca0d676b9638c49bd05bf587f3310f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ExhaustionManager
+  exhaustionData: {fileID: 11400000, guid: 129b6e1833282b043b989151f55eaed1, type: 2}
+  nightRatio: 0.1
+  roomTemperature: 28
+  exhaustionRatio: 0
+  exhaustion: 0
+  sleepExhaustion: 0
+  hungerExhaustion: 0
+  thirstExhaustion: 0
+  bodyTemperatureExhaustion: 0
+--- !u!114 &590853543653121887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf2db9abf388e547a082d9eac9fcb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.SleepExhaustionManager
+--- !u!114 &1277446863924106869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2b8c5315639fc4e81d70b3a9805ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.HungerExhaustionManager
+--- !u!114 &2166609485483831331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425b56cb9b2dcbc4db88012fa5b1f993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ThirstExhaustionManager
+--- !u!114 &5728769988694510536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37cce94c5b5e53429e34cf695497ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.BodyTemperatureExhaustionManager

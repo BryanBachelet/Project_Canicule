@@ -10,7 +10,7 @@ namespace Canicule
 
         private void Awake()
         {
-            m_exhaustionManager = Object.FindAnyObjectByType<ExhaustionManager>();
+            m_exhaustionManager = GameManager.GetExhaustionManager();
         }
 
         public override void LaunchInteraction(Transform actor)

@@ -17,7 +17,7 @@ namespace Canicule
 
         private void Awake()
         {
-            m_exhaustionManager = FindAnyObjectByType<ExhaustionManager>();
+            m_exhaustionManager = GameManager.GetExhaustionManager();
 
             foreach (RectTransform rectTransform in m_exhaustionGaugesRect)
             {

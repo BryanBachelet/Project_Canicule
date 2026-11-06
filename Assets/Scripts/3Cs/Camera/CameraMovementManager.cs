@@ -5,18 +5,17 @@ namespace Canicule
     public class CameraMovementManager : MonoBehaviour
     {
         public CameraData cameraData;
-        [HideInInspector()]
-        public ExhaustionManager m_exhaustionManager;
         [SerializeField] private Camera m_camera;
         [SerializeField] private GameObject m_target;
         [SerializeField] private float m_cameraLerpSpeed = 8f;
+        private ExhaustionManager m_exhaustionManager;
         private CameraStateManager m_cameraStateManager;
 
 
 
         private void Awake()
         {
-            m_exhaustionManager = Object.FindAnyObjectByType<ExhaustionManager>();
+            m_exhaustionManager = GameManager.GetExhaustionManager();
             m_cameraStateManager = GetComponent<CameraStateManager>();
         }
 

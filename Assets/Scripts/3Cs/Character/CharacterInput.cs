@@ -7,7 +7,6 @@ namespace Canicule
     public class CharacterInput : MonoBehaviour
     {
         public CharacterData characterData;
-        [HideInInspector()] public ExhaustionManager m_exhaustionManager;
         public InputActionAsset inputActions;
         public Vector2 moveDirection;
 
@@ -30,7 +29,6 @@ namespace Canicule
         {
             m_characterInteract = GetComponent<CharacterInteract>();
             m_characterOpenInventory = GetComponent<CharacterOpenInventory>();
-            m_exhaustionManager = FindAnyObjectByType<ExhaustionManager>();
 
             m_interactAction = InputSystem.actions.FindAction(m_interactActionName, true);
             m_moveAction = InputSystem.actions.FindAction(m_moveActionName, true);

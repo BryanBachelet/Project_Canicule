@@ -35,7 +35,7 @@ namespace Canicule
         {
             float start = m_characterMovementSpeed;
             float target = m_characterInput.characterData.characterMovementSpeedOverExhaustion.Evaluate(
-                m_characterInput.m_exhaustionManager.exhaustionRatio);
+                GameManager.GetExhaustionManager().exhaustionRatio);
             m_characterMovementSpeed = Mathf.Lerp(start, target, m_characterInput.characterData.movementSpeedLerpSpeed);
         }
     }

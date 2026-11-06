@@ -29,11 +29,11 @@ namespace Canicule
         /// Apply the effects linked defined in itemEffects
         /// </summary>
         /// <param name="reference"> The exhaustion manager</param>
-        public void UseItem(GameObject reference)
+        public void UseItem()
         {
             foreach(ItemEffect effect in itemEffects)
             {
-                effect?.UseItemEffect(reference);
+                effect?.UseItemEffect();
             }
         }
     }
