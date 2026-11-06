@@ -46,7 +46,7 @@ namespace Canicule
 
         private void Start()
         {
-            //m_monsterManager.InitiateManager();
+            m_monsterManager.InitiateManager();
         }
         #endregion
 
