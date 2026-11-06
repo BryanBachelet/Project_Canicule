@@ -1,3 +1,4 @@
+using Canicule.Rooms;
 using System;
 using UnityEngine;
 
@@ -8,8 +9,9 @@ namespace Canicule
         public event Action OnSleepStarted;
 
         [SerializeField] private SleepData m_sleepData;
-        [SerializeField] private float m_roomTemperature; // To be replaced with real value
+        [SerializeField] private float m_roomTemperature;
 
+        private RoomManager m_roomManager;
         private AnimationCurve m_sleepChanceOverRoomTemperature;
         private float m_sleepCooldown;
         private float m_tryChance;
@@ -17,6 +19,7 @@ namespace Canicule
         private bool m_bCanAttempSleep = true;
         private bool m_bIsSleepTimerRunning = false;
 
+        #region Unity Methods
         private void Start()
         {
             m_sleepTimer = m_sleepCooldown;
@@ -24,14 +27,22 @@ namespace Canicule
             m_sleepCooldown = m_sleepData.sleepCooldown;
         }
 
+        private void Awake()
+        {
+            m_roomManager = GameManager.GetRoomManager();
+        }
+
         private void Update()
         {
             ComputeSleepTimer();
         }
+        #endregion
 
         // Checkes if the player succeeded their sleep try
         public void AttemptSleep()
         {
+            m_roomTemperature = m_roomManager.GetCurrentRoomPlayer().GetHeatManager().GetDegree();
+
             if (m_bCanAttempSleep)
             {
                 m_tryChance = UnityEngine.Random.Range(0f, 1f);

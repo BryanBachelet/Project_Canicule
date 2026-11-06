@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 6520396739658275495}
   - component: {fileID: 4704684507163883762}
   - component: {fileID: 6443054003133940021}
+  - component: {fileID: 2557747493542805779}
   m_Layer: 0
   m_Name: Pr_GameManager
   m_TagString: Untagged
@@ -253,3 +254,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.WorkDataManager
   m_WorkData: {fileID: 11400000, guid: d2642a198851bd84aacfa0a3aee08a3a, type: 2}
+--- !u!114 &2557747493542805779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7f47e944ddabb488c3eb5ca3e0bd8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.MonsterManager
+  m_monsterPrefab: {fileID: 6416992850716951731, guid: 1d140ddd2ef84c641a81910ec9b4d239, type: 3}
+  m_appearenceTemperature: 40

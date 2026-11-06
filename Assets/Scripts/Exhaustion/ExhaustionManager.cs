@@ -1,16 +1,16 @@
+using Canicule.Rooms;
 using UnityEngine;
 
 namespace Canicule
 {
     public class ExhaustionManager : MonoBehaviour
     {
-
+        #region Fields
         public ExhaustionData exhaustionData;
 
         [Range(0f, 1f)]
-        public float nightRatio = 0f; // To be replaced with the right value in the Night Manager
-        [Range(28f, 50f)]
-        public float roomTemperature = 28f; // To be replaced with the value in the Room Temp Manager
+        [SerializeField] private float m_nightRatio = 0f; // To be replaced with the right value in the Night Manager
+        [SerializeField] private float m_roomTemperature;
 
         [Range(0f, 1f)]
         public float exhaustionRatio = 0f;
@@ -26,15 +26,18 @@ namespace Canicule
         private bool m_bCanBeThirstExhausted = false;
         private bool m_bCanBeBodyTemperatureExhausted = false;
 
+        private RoomManager m_roomManager;
         private SleepManager m_sleepManager;
         private SleepExhaustionManager m_sleepExhaustionManager;
         private HungerExhaustionManager m_hungerExhaustionManager;
         private ThirstExhaustionManager m_thirstExhaustionManager;
         private BodyTemperatureExhaustionManager m_bodyTemperatureExhaustionManager;
+        #endregion
 
-
+        #region Unity Methods
         private void Awake()
         {
+            m_roomManager = GameManager.GetRoomManager();
             m_sleepManager = GameManager.GetSleepManager();
             m_sleepExhaustionManager = GetComponent<SleepExhaustionManager>();
             m_hungerExhaustionManager = GetComponent<HungerExhaustionManager>();
@@ -63,6 +66,8 @@ namespace Canicule
         {
             if (m_bCanBeExhausted)
             {
+                m_roomTemperature = m_roomManager.GetCurrentRoomPlayer().GetHeatManager().GetDegree();
+
                 exhaustion = ComputeExhaustion();
                 exhaustionRatio = ComputeExhaustionRatio(exhaustionRatio, exhaustion, exhaustionData.maxExhaustion);
 
@@ -70,7 +75,7 @@ namespace Canicule
                 if (m_bCanBeSleepExhausted)
                 {
                     sleepExhaustion = m_sleepExhaustionManager.IncreaseExhaustionOverTime(
-                        sleepExhaustion, exhaustionData.sleepIncreaseRateOverNightRatio.Evaluate(nightRatio));
+                        sleepExhaustion, exhaustionData.sleepIncreaseRateOverNightRatio.Evaluate(m_nightRatio));
                 }
                 // Hunger
                 if (m_bCanBeHungerExhausted)
@@ -82,23 +87,23 @@ namespace Canicule
                 if (m_bCanBeThirstExhausted)
                 {
                     thirstExhaustion = m_thirstExhaustionManager.IncreaseExhaustionOverTime(
-                        thirstExhaustion, exhaustionData.thirstIncreaseRateOverTemperature.Evaluate(roomTemperature));
+                        thirstExhaustion, exhaustionData.thirstIncreaseRateOverTemperature.Evaluate(m_roomTemperature));
                 }
                 // Body Temperature
                 if (m_bCanBeBodyTemperatureExhausted)
                 {
                     bodyTemperatureExhaustion = m_bodyTemperatureExhaustionManager.ModifyExhaustionOverTime(
                         bodyTemperatureExhaustion, 
-                        exhaustionData.bodyTemperatureOverTargetTemperature.Evaluate(roomTemperature),
+                        exhaustionData.bodyTemperatureOverTargetTemperature.Evaluate(m_roomTemperature),
                         exhaustionData.upBodyTemperatureSpeed,
                         exhaustionData.downBodyTemperatureSpeed);
                 }
 
             }
         }
+        #endregion
 
-
-
+        #region Exhaustion Management
         // Computes the value of exhaustion
         private float ComputeExhaustion()
         {
@@ -151,7 +156,7 @@ namespace Canicule
         private void HandleSleepStarted()
         {
             sleepExhaustion = m_sleepExhaustionManager.ModifyExhaustionByAmount(
-                sleepExhaustion, -1 * exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(nightRatio));
+                sleepExhaustion, -1 * exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(m_nightRatio));
         }
 
         // Modify exhaustion when eating
@@ -167,6 +172,7 @@ namespace Canicule
             thirstExhaustion = m_thirstExhaustionManager.ModifyExhaustionByAmount(
                 thirstExhaustion, amount);
         }
+        #endregion
 
     }
 }
