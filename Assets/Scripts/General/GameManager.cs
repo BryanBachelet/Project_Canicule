@@ -23,6 +23,7 @@ namespace Canicule
         private InputManager m_inputManager;
         private SleepManager m_sleepManager;
         private WorkDataManager m_workDataManager;
+        private NightDayManager m_nightDayManager;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -42,6 +43,7 @@ namespace Canicule
             m_inputManager = GetComponent<InputManager>();
             m_sleepManager = GetComponent<SleepManager>();
             m_workDataManager = GetComponent<WorkDataManager>();
+            m_nightDayManager = GetComponent<NightDayManager>();
         }
 
         private void Start()
@@ -157,6 +159,14 @@ namespace Canicule
                 return null;
 
             return m_instance.m_workDataManager;
+        }
+
+        public static NightDayManager GetNightDayManager()
+        {
+            if (m_instance == null || !m_instance.m_nightDayManager)
+                return null;
+
+            return m_instance.m_nightDayManager;
         }
         #endregion
 

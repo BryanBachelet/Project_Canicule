@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 4704684507163883762}
   - component: {fileID: 6443054003133940021}
   - component: {fileID: 2557747493542805779}
+  - component: {fileID: 5216660736732683965}
   m_Layer: 0
   m_Name: Pr_GameManager
   m_TagString: Untagged
@@ -133,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ExhaustionManager
   exhaustionData: {fileID: 11400000, guid: 129b6e1833282b043b989151f55eaed1, type: 2}
-  nightRatio: 0.1
-  roomTemperature: 28
+  m_nightRatio: 0
+  m_roomTemperature: 0
   exhaustionRatio: 0
   exhaustion: 0
   sleepExhaustion: 0
@@ -268,3 +269,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.MonsterManager
   m_monsterPrefab: {fileID: 6416992850716951731, guid: 1d140ddd2ef84c641a81910ec9b4d239, type: 3}
   m_appearenceTemperature: 40
+--- !u!114 &5216660736732683965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8030853bfd2083d438bbe451940a7ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.NightDayManager
+  m_nightDuration: 600

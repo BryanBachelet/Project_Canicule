@@ -9,7 +9,7 @@ namespace Canicule
         public ExhaustionData exhaustionData;
 
         [Range(0f, 1f)]
-        [SerializeField] private float m_nightRatio = 0f; // To be replaced with the right value in the Night Manager
+        [SerializeField] private float m_nightRatio;
         [SerializeField] private float m_roomTemperature;
 
         [Range(0f, 1f)]
@@ -67,6 +67,7 @@ namespace Canicule
             if (m_bCanBeExhausted)
             {
                 m_roomTemperature = m_roomManager.GetCurrentRoomPlayer().GetHeatManager().GetDegree();
+                m_nightRatio = GameManager.GetNightDayManager().GetNightRatio();
 
                 exhaustion = ComputeExhaustion();
                 exhaustionRatio = ComputeExhaustionRatio(exhaustionRatio, exhaustion, exhaustionData.maxExhaustion);
