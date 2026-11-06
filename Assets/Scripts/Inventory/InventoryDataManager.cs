@@ -12,20 +12,12 @@ namespace Canicule
 
         private Dictionary<ItemData, int> m_playerItems = new Dictionary<ItemData, int>();
         private List<ItemData> m_displayedInventory = new List<ItemData>();
-        private ExhaustionManager m_exhaustionManager;
 
         public event Action<ItemData, int> OnAddingItem; // Used to update the owned amount in the shop
         public event Action OnDecreasingItemAmount;
         public event Action OnRemovingItem;
         public event Action OnAddingFinished;
         public event Action OnSelectorChanged;
-
-        #region Unity Methods
-        private void Awake()
-        {
-            m_exhaustionManager = FindAnyObjectByType<ExhaustionManager>();
-        }
-        #endregion
 
         #region Inventory Data Management Methods
         public void UseItem()

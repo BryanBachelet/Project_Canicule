@@ -16,31 +16,31 @@ namespace Canicule
         [SerializeField] private List<ScrollRect> m_shopScrollrect;
         [SerializeField] private ScrollRect m_cartScrollrect;
         private GameObject m_currentActiveTab;
-        private ShopDataManager m_shopManager;
+        private ShopDataManager m_shopDataManager;
         private InventoryDataManager m_inventoryManager;
 
         #region Unity Methods
         private void Awake()
         {
-            m_shopManager = FindAnyObjectByType<ShopDataManager>();
+            m_shopDataManager = GameManager.GetShopDataManager();
             m_inventoryManager = FindAnyObjectByType<InventoryDataManager>();
         }
 
         private void OnEnable()
         {
-            m_shopManager.OnItemCartAdded += FillCartWithNewCard;
-            m_shopManager.OnItemCartUpdated += UpdateCartCardAmount;
-            m_shopManager.OnItemCartRemoved += RemoveCartCard;
-            m_shopManager.OnCartItemsMoved += ClearAllCartCard;
+            m_shopDataManager.OnItemCartAdded += FillCartWithNewCard;
+            m_shopDataManager.OnItemCartUpdated += UpdateCartCardAmount;
+            m_shopDataManager.OnItemCartRemoved += RemoveCartCard;
+            m_shopDataManager.OnCartItemsMoved += ClearAllCartCard;
             m_inventoryManager.OnAddingItem += UpdateCardOwnedAmount;
         }
 
         private void OnDisable()
         {
-            m_shopManager.OnItemCartAdded -= FillCartWithNewCard;
-            m_shopManager.OnItemCartUpdated -= UpdateCartCardAmount;
-            m_shopManager.OnItemCartRemoved -= RemoveCartCard;
-            m_shopManager.OnCartItemsMoved -= ClearAllCartCard;
+            m_shopDataManager.OnItemCartAdded -= FillCartWithNewCard;
+            m_shopDataManager.OnItemCartUpdated -= UpdateCartCardAmount;
+            m_shopDataManager.OnItemCartRemoved -= RemoveCartCard;
+            m_shopDataManager.OnCartItemsMoved -= ClearAllCartCard;
             m_inventoryManager.OnAddingItem -= UpdateCardOwnedAmount;
         }
 
@@ -87,7 +87,7 @@ namespace Canicule
         public void FillTabWithItemCards(ExhaustionType type, GameObject itemHolder)
         {
             // Gets the item list of type type
-            List<ItemData> items = m_shopManager.GetShopItemsByType(type);
+            List<ItemData> items = m_shopDataManager.GetShopItemsByType(type);
             
             // For each item, instantiates an item card
             foreach(ItemData item in items)
@@ -131,7 +131,6 @@ namespace Canicule
                 scrollrect.verticalNormalizedPosition = 1;
             }
         }
-
         #endregion
 
         #region Cart Management

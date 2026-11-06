@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1277446863924106869}
   - component: {fileID: 2166609485483831331}
   - component: {fileID: 5728769988694510536}
+  - component: {fileID: 3814500639759219481}
   m_Layer: 0
   m_Name: Pr_GameManager
   m_TagString: Untagged
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd19b96ae73a8074991c1fef01c65ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.GameManager
+  playerObj: {fileID: 0}
   OnPause:
     m_PersistentCalls:
       m_Calls: []
@@ -182,3 +184,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37cce94c5b5e53429e34cf695497ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.BodyTemperatureExhaustionManager
+--- !u!114 &3814500639759219481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc11372b11cd02449f30f7a4c1726a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ShopDataManager
+  m_shopContent: {fileID: 11400000, guid: 1f8369f57b2c49f4c8a1286898812d81, type: 2}

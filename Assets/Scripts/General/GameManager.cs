@@ -18,6 +18,9 @@ namespace Canicule
         private Rooms.RoomManager m_roomManager;
         private MonsterManager m_monsterManager;
         private ExhaustionManager m_exhaustionManager;
+        private ShopDataManager m_shopDataManager;
+        private InventoryDataManager m_inventoryDataManager;
+        private WorkDataManager m_workDataManager;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -32,11 +35,12 @@ namespace Canicule
             m_roomManager = GetComponent<Rooms.RoomManager>();
             m_monsterManager = GetComponent<MonsterManager>();
             m_exhaustionManager = GetComponent<ExhaustionManager>();
+            m_shopDataManager = GetComponent<ShopDataManager>();
         }
 
         private void Start()
         {
-            m_monsterManager.InitiateManager();
+            //m_monsterManager.InitiateManager();
         }
         #endregion
 
@@ -110,6 +114,13 @@ namespace Canicule
             return m_instance.m_exhaustionManager;
         }
 
+        public static ShopDataManager GetShopDataManager()
+        {
+            if (m_instance == null || !m_instance.m_shopDataManager)
+                return null;
+
+            return m_instance.m_shopDataManager;
+        }
         #endregion
 
     }
