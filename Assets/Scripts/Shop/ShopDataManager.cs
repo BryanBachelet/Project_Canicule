@@ -21,7 +21,7 @@ namespace Canicule
         #region Unity Methods
         private void Awake()
         {
-            m_inventoryDataManager = FindAnyObjectByType<InventoryDataManager>();
+            m_inventoryDataManager = GameManager.GetInventoryDataManager();
         }
         void Start()
         {

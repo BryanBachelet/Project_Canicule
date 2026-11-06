@@ -587,7 +587,6 @@ GameObject:
   - component: {fileID: 6719858603632149757}
   - component: {fileID: 4262792109198552062}
   - component: {fileID: 1440547687530448137}
-  - component: {fileID: 8474446034572422438}
   - component: {fileID: 4209754949471223291}
   m_Layer: 5
   m_Name: Pr_Inventory
@@ -636,20 +635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e0000cbe72d164f9cbb0ebb4dbd6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.InventoryInput
---- !u!114 &8474446034572422438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515396166218908776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26440b2979e13d4cbcbfa87b7d4803a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Canicule.InventoryDataManager
-  m_playerBalance: 500
-  dictCount: 0
 --- !u!114 &4209754949471223291
 MonoBehaviour:
   m_ObjectHideFlags: 0

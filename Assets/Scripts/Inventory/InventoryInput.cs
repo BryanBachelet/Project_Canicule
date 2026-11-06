@@ -19,7 +19,7 @@ namespace Canicule
         {
             m_inputManager = FindAnyObjectByType<InputManager>();
             m_inventoryUIManager = GetComponent<InventoryUIManager>();
-            m_inventoryDataManager = GetComponent<InventoryDataManager>();
+            m_inventoryDataManager = GameManager.GetInventoryDataManager();
 
             m_navigateAction = InputSystem.actions.FindAction(m_navigateActionName, true);
             m_submitAction = InputSystem.actions.FindAction(m_submitActionName, true);

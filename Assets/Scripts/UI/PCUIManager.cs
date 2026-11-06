@@ -11,7 +11,6 @@ namespace Canicule
         [SerializeField] private List<GameObject> m_apps = new List<GameObject>();
         
         private GameObject m_activeApp;
-        private PCManager m_pcManager;
 
         public event Action OnPCOpen;
         public event Action OnPCClosed;

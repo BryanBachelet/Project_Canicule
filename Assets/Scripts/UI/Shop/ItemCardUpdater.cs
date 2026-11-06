@@ -42,7 +42,7 @@ namespace Canicule
         private void Awake()
         {
             m_shopManager = GameManager.GetShopDataManager();
-            m_inventoryDataManager = FindAnyObjectByType<InventoryDataManager>();
+            m_inventoryDataManager = GameManager.GetInventoryDataManager();
         }
 
         private void OnEnable()

@@ -43,7 +43,7 @@ namespace Canicule
         #region Unity Methods
         private void Awake()
         {
-            m_inventoryDataManager = GetComponent<InventoryDataManager>();
+            m_inventoryDataManager = GameManager.GetInventoryDataManager();
         }
 
         private void OnEnable()

@@ -10,7 +10,7 @@ namespace Canicule
 
         private void Awake()
         {
-            m_inventoryDataManager = FindAnyObjectByType<InventoryDataManager>();
+            m_inventoryDataManager = GameManager.GetInventoryDataManager();
         }
 
         public void GainMoney()
