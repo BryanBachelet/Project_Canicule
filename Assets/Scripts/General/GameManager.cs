@@ -20,9 +20,9 @@ namespace Canicule
         private ExhaustionManager m_exhaustionManager;
         private ShopDataManager m_shopDataManager;
         private InventoryDataManager m_inventoryDataManager;
-        private WorkDataManager m_workDataManager;
-        private SleepManager m_sleepManager;
         private InputManager m_inputManager;
+        private SleepManager m_sleepManager;
+        private WorkDataManager m_workDataManager;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -39,6 +39,9 @@ namespace Canicule
             m_exhaustionManager = GetComponent<ExhaustionManager>();
             m_shopDataManager = GetComponent<ShopDataManager>();
             m_inventoryDataManager = GetComponent<InventoryDataManager>();
+            m_inputManager = GetComponent<InputManager>();
+            m_sleepManager = GetComponent<SleepManager>();
+            m_workDataManager = GetComponent<WorkDataManager>();
         }
 
         private void Start()
@@ -130,6 +133,30 @@ namespace Canicule
                 return null;
 
             return m_instance.m_inventoryDataManager;
+        }
+
+        public static InputManager GetInputManager()
+        {
+            if (m_instance == null || !m_instance.m_inputManager)
+                return null;
+
+            return m_instance.m_inputManager;
+        }
+
+        public static SleepManager GetSleepManager()
+        {
+            if (m_instance == null || !m_instance.m_sleepManager)
+                return null;
+
+            return m_instance.m_sleepManager;
+        }
+
+        public static WorkDataManager GetWorkDataManager()
+        {
+            if (m_instance == null || !m_instance.m_workDataManager)
+                return null;
+
+            return m_instance.m_workDataManager;
         }
         #endregion
 

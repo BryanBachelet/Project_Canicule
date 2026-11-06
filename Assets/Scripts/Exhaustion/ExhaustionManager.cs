@@ -35,7 +35,7 @@ namespace Canicule
 
         private void Awake()
         {
-            m_sleepManager = Object.FindAnyObjectByType<SleepManager>();
+            m_sleepManager = GameManager.GetSleepManager();
             m_sleepExhaustionManager = GetComponent<SleepExhaustionManager>();
             m_hungerExhaustionManager = GetComponent<HungerExhaustionManager>();
             m_thirstExhaustionManager = GetComponent<ThirstExhaustionManager>();

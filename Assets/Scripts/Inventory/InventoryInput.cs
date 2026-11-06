@@ -17,7 +17,7 @@ namespace Canicule
         #region Unity Methods
         private void Awake()
         {
-            m_inputManager = FindAnyObjectByType<InputManager>();
+            m_inputManager = GameManager.GetInputManager();
             m_inventoryUIManager = GetComponent<InventoryUIManager>();
             m_inventoryDataManager = GameManager.GetInventoryDataManager();
 

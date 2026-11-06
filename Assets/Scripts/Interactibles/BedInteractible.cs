@@ -8,7 +8,7 @@ namespace Canicule
 
         private void Awake()
         {
-            m_sleepManager = Object.FindAnyObjectByType<SleepManager>();
+            m_sleepManager = GameManager.GetSleepManager();
         }
 
         public override void LaunchInteraction(Transform actor,Interactor interactActorType)
