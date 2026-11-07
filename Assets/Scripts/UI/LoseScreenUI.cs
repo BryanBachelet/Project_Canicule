@@ -10,10 +10,9 @@ namespace Canicule
         [SerializeField] private Button m_replayButton;
         [SerializeField] private int m_sceneReplayIndex = 0;
 
-        public void Start()
+        public void CreateUI()
         {
             GameManager.SubscribeToOnLoseEvent(ActiveLoseScreen);
-            HideLoseScreen();
         }
 
         public void OnDestroy()

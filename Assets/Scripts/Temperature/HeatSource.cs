@@ -38,8 +38,13 @@ namespace Canicule.Temperature
         }
 
         public void ActiveHeatSource() { m_isActive = true; }
+
         public void DeactiveHeatSource() { m_isActive = false; }
 
+        public void SetTemperature(float degree)
+        {
+            m_temperature = degree;
+        }
 
     }
 }
