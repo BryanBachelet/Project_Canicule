@@ -64,6 +64,7 @@ namespace Canicule
         private Teleporter m_currentDoorTarget = null;
         private const float m_doorDetectionDistance = 0.5f;
 
+        private bool m_onPause= false;
 
         #region Unity Functions
 
@@ -86,6 +87,8 @@ namespace Canicule
 
         public void Update()
         {
+            if (m_onPause) return;
+
             Process_State();
         }
 
@@ -337,6 +340,11 @@ namespace Canicule
         {
             OnHit(collision);
         }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            OnHit(collision);
+        }
         #endregion
 
         #region Catch Function
@@ -366,8 +374,10 @@ namespace Canicule
 
         private void OnHit(Collider2D collision)
         {
-            if (m_currentState != MonsterState.CATCH || collision.transform.tag != "Player") return;
-
+            if ( m_currentState != MonsterState.CATCH || collision.transform.tag != "Player")
+            {
+                return;
+            }
             GameManager.LaunchLose();
             GameManager.GetGameManager().PauseGame();
 
@@ -381,12 +391,12 @@ namespace Canicule
         #region Pauseable Functions
         public void OnPause()
         {
-
+            m_onPause = true;
         }
 
         public void OnPlay()
         {
-
+            m_onPause = false;
         }
 
         public void OnRegister()

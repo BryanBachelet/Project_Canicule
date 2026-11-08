@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 69684509742393783}
   - component: {fileID: 7292707635963918036}
   - component: {fileID: 6930493308963619858}
+  - component: {fileID: 8405202929206638097}
   m_Layer: 5
   m_Name: Pr_UI
   m_TagString: Untagged
@@ -105,6 +106,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8405202929206638097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944644925714773196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792652a54ba6dd04b8a7e80a7f2b4601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.UIManager
+  m_loseScreenUI: {fileID: 0}
 --- !u!1 &6340630573622554034
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +234,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -242.13078
       objectReference: {fileID: 0}
+    - target: {fileID: 3012749886404646298, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
+      propertyPath: m_Size
+      value: 0.40994957
+      objectReference: {fileID: 0}
     - target: {fileID: 5647298844896303656, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -301,8 +319,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7884305544801136438, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
+      propertyPath: m_Size
+      value: 0.43728372
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884305544801136438, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 8849995057825799959, guid: 4df88115cd624c14e89a97bda7c60037, type: 3}
       propertyPath: m_Name
