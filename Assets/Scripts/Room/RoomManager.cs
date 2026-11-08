@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using BorsalinoTools;
+using Canicule.Temperature;
+
 namespace Canicule.Rooms
 {
     public class RoomManager : MonoBehaviour
@@ -23,6 +25,8 @@ namespace Canicule.Rooms
         private List<Room> m_roomList = new List<Room>();
         private Room m_currentRoomPlayer;
         private Room m_currentRoomMonster;
+
+        [SerializeField] private EnvirommentHeatSource m_envirommentHeatSource;
 
         [Header("Debug Parameters")]
         [SerializeField] private bool m_activeRoomDebug = false;
@@ -55,6 +59,9 @@ namespace Canicule.Rooms
                 return;
 
             m_roomList.Add(roomToRegister);
+
+            HeatSource heatSource = m_envirommentHeatSource.GetHeatSource();
+            roomToRegister.GetHeatManager().RegisterHeatSource(heatSource);
 
             if (m_activeRoomDebug)
             {

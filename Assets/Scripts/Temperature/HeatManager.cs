@@ -37,7 +37,7 @@ namespace Canicule.Temperature
         {
             float nextHeatScore = m_currentHeatScore;
 
-            nextHeatScore -= m_heatScoreResistance;
+            nextHeatScore -= m_heatScoreResistance * Time.deltaTime;
 
             for (int i = 0; i < m_heatSourcesList.Count; i++)
             {
@@ -46,7 +46,7 @@ namespace Canicule.Temperature
                 if (m_activeTemperaturDebug)
                     Debug.Log($"[Temperature] Add Heat {heatScore} score from {m_heatSourcesList[i].gameObject}");
 
-                nextHeatScore += heatScore;
+                nextHeatScore += heatScore *Time.deltaTime;
             }
 
             if (nextHeatScore > m_nextStepHeatScore)
