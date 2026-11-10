@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 6443054003133940021}
   - component: {fileID: 2557747493542805779}
   - component: {fileID: 5216660736732683965}
+  - component: {fileID: 2394902231535143013}
   m_Layer: 0
   m_Name: Pr_GameManager
   m_TagString: Untagged
@@ -67,6 +68,9 @@ MonoBehaviour:
   OnPlay:
     m_PersistentCalls:
       m_Calls: []
+  OnLose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &230091388579479107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370eceee2cfe9af4593cec3b01a6bb56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Rooms.RoomManager
+  m_envirommentHeatSource: {fileID: 0}
   m_activeRoomDebug: 0
   m_showDebugCurrentRoom: 1
 --- !u!114 &7178166073420476163
@@ -281,4 +286,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8030853bfd2083d438bbe451940a7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.NightDayManager
-  m_nightDuration: 600
+  m_nightTotalDuration: 600
+  m_nightStartHour: 18
+  m_nightEndHour: 8
+--- !u!114 &2394902231535143013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d9fca319ddf47498009df37afaef32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.Temperature.EnvirommentHeatSource
+  m_dayTemperature:
+  - m_temperaturePerHour:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 42
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 42
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - m_temperaturePerHour:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 42
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 42
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  OnTemperatureUpdate:
+    m_PersistentCalls:
+      m_Calls: []

@@ -38,7 +38,7 @@ namespace Canicule
             m_roomOwner = GetComponentInParent<Rooms.Room>();
         }
 
-        public void OnDestroy()
+        public virtual void OnDestroy()
         {
             GameManager.UnregisterObject(this);
         }

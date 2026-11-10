@@ -60,9 +60,6 @@ namespace Canicule.Rooms
 
             m_roomList.Add(roomToRegister);
 
-            HeatSource heatSource = m_envirommentHeatSource.GetHeatSource();
-            roomToRegister.GetHeatManager().RegisterHeatSource(heatSource);
-
             if (m_activeRoomDebug)
             {
                 Debug.Log($"[Room] Add room {roomToRegister.gameObject.name}");

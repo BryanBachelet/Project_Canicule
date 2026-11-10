@@ -24,6 +24,7 @@ namespace Canicule
         private SleepManager m_sleepManager;
         private WorkDataManager m_workDataManager;
         private NightDayManager m_nightDayManager;
+        private Canicule.Temperature.EnvirommentHeatSource m_environementTemperature;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -47,6 +48,7 @@ namespace Canicule
             m_sleepManager = GetComponent<SleepManager>();
             m_workDataManager = GetComponent<WorkDataManager>();
             m_nightDayManager = GetComponent<NightDayManager>();
+            m_environementTemperature = GetComponent<Canicule.Temperature.EnvirommentHeatSource>();
         }
 
         private void Start()
@@ -196,6 +198,14 @@ namespace Canicule
                 return null;
 
             return m_instance.m_nightDayManager;
+        }
+
+        public static Canicule.Temperature.EnvirommentHeatSource GetEnvirommentHeatSource()
+        {
+            if (m_instance == null || !m_instance.m_environementTemperature)
+                return null;
+
+            return m_instance.m_environementTemperature;
         }
         #endregion
 

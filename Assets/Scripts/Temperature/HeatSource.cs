@@ -8,7 +8,13 @@ namespace Canicule.Temperature
 
         [SerializeField] private bool m_isActive = true;
 
+        [SerializeField] private float baseHeatScoreRatio = 1.0f;
+
         private Rooms.Room m_room;
+
+#if UNITY_EDITOR || UNITY_DEVELOPMENT
+        private float m_lastHeatScore = 0.0f;
+#endif
 
         #region Unity Function
         public void Start()
@@ -34,7 +40,10 @@ namespace Canicule.Temperature
             }
 
             float m_heatScore = baseHeatScore + ((m_temperature - refTemperature) * HeatGeneralData.GetRatioPerDegreeGap());
-            return m_heatScore;
+#if UNITY_EDITOR || UNITY_DEVELOPMENT
+            m_lastHeatScore = m_heatScore * baseHeatScoreRatio;
+#endif
+            return m_heatScore * baseHeatScoreRatio;
         }
 
         public void ActiveHeatSource() { m_isActive = true; }
@@ -46,5 +55,24 @@ namespace Canicule.Temperature
             m_temperature = degree;
         }
 
+        public void SetTemperatureScoreRatio(float scoreRatio)
+        {
+            baseHeatScoreRatio = Mathf.Clamp(scoreRatio, 0.001f, float.MaxValue);
+        }
+
+#region Debug Functions
+
+#if UNITY_EDITOR || UNITY_DEVELOPMENT
+
+        public void OnDrawGizmosSelected()
+        {
+            BorsalinoTools.ScreenDebuggerTool.AddMessage($"[HeatSource] Current temperutre {m_temperature}");
+            BorsalinoTools.ScreenDebuggerTool.AddMessage($"[HeatSource] Current gain degree score point {m_lastHeatScore}");
+        }
+#endif
+
+#endregion
+
     }
+
 }
