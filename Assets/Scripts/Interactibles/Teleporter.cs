@@ -44,6 +44,8 @@ namespace Canicule
             base.Interact();
         }
 
+        public Transform GetDoorTransformLink() { return m_teleportPoint; } 
+
 #if UNITY_DEVELOPMENT || UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {

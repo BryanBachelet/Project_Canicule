@@ -50,6 +50,8 @@ namespace Canicule.Temperature
 
         public void DeactiveHeatSource() { m_isActive = false; }
 
+        public float GetTemperature() { return m_temperature; }
+
         public void SetTemperature(float degree)
         {
             m_temperature = degree;

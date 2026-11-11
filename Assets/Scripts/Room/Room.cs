@@ -28,12 +28,14 @@ namespace Canicule.Rooms
 
         private List<RoomConnection> m_roomLink = new List<RoomConnection>();
 
+        private Window[] m_windowArray;
+
         #region Unity Functions
 
         public void Start()
-        { 
+        {
             m_heatManager.InitHeatManager(m_roomData.m_baseTemperature, m_roomData.roomHeatResistance);
-            
+
             RoomManager roomManager = GameManager.GetRoomManager();
             roomManager.RegisterRoom(this);
             if (gameObject.activeSelf)
@@ -41,6 +43,7 @@ namespace Canicule.Rooms
                 roomManager.SetCurrentRoomPlayer(this);
             }
 
+            m_windowArray = GetComponentsInChildren<Window>();
         }
         public void Update()
         {
@@ -65,12 +68,12 @@ namespace Canicule.Rooms
         public void DeactivateRoom(Interactor interactor)
         {
             RoomManager roomManager = GameManager.GetRoomManager();
-            if( interactor == Interactor.PLAYER && roomManager.GetCurrentRoomMonster() != this ||
-                interactor == Interactor.MONSTER && roomManager.GetCurrentRoomPlayer() != this )
+            if (interactor == Interactor.PLAYER && roomManager.GetCurrentRoomMonster() != this ||
+                interactor == Interactor.MONSTER && roomManager.GetCurrentRoomPlayer() != this)
             {
                 this.gameObject.SetActive(false);
             }
-          
+
         }
 
         public void LinkRoomConnection(RoomConnection roomLink)
@@ -94,6 +97,28 @@ namespace Canicule.Rooms
         public Vector3[] GetAppearencePoint() { return m_appearencePoints; }
 
         public RoomConnection[] GetRoomsConnection() { return m_roomLink.ToArray(); }
+
+        public bool IsAWindowOpen()
+        {
+            for (int i = 0; i < m_windowArray.Length; i++)
+            {
+                if (m_windowArray[i].IsOpen())
+                    return true;
+            }
+
+            return false;
+        }
+
+        public Window GetOpenWindow()
+        {
+            for (int i = 0; i < m_windowArray.Length; i++)
+            {
+                if (m_windowArray[i].IsOpen())
+                    return m_windowArray[i];
+            }
+
+            return null;
+        }
     }
 
 

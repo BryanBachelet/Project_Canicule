@@ -63,5 +63,9 @@ namespace Canicule
                 monsterComp.ChangeState(MonsterState.DISAPPEAR);
             }
         }
+
+        public HeatSource GetHeatSource() { return m_heatSource; }
+
+        public bool IsOpen() { return !m_isWindowClose; }
     }
 }

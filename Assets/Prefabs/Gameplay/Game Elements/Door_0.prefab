@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 919211946897473588}
+  - component: {fileID: 6814524552312716670}
   m_Layer: 6
   m_Name: Door_0
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556141737993149148}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6378376, y: -1.0602417, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,6 +34,21 @@ Transform:
   - {fileID: 1027757536152269191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6814524552312716670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556141737993149148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043ae525a496449499c7fc9835fd9430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.DoorGeneral
+  m_doorCmpt: {fileID: 0}
+  m_teleporterCmpt: {fileID: 0}
+  m_doorLink: {fileID: 0}
 --- !u!1 &6094772638538333855
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,13 +77,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6094772638538333855}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8879943, z: -0, w: 0.45985436}
-  m_LocalPosition: {x: -1.825, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 919211946897473588}
-  m_LocalEulerAnglesHint: {x: 0, y: 125.245, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6497269582042747294
 SpriteRenderer:
   serializedVersion: 2
@@ -185,12 +201,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99dfddd19f450e4fa2fcaac5d8675db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Door
-  m_roomOwner: {fileID: 0}
   interactionRange: 1
   interactionDuration: 2
   OnInteractStart:
     m_PersistentCalls:
       m_Calls: []
+  OnInteractEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  m_draftPrefab: {fileID: 2794698492075447180, guid: a25e390075040a44996446a49a4e7b2b, type: 3}
 --- !u!95 &435756606492641761
 Animator:
   serializedVersion: 7
@@ -297,7 +316,7 @@ SpriteRenderer:
   m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.084905684, b: 0.026936227, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -364,13 +383,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9968c5c63a39434a8da4567193689cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Teleporter
-  m_roomOwner: {fileID: 0}
   interactionRange: 1
   interactionDuration: 2
   OnInteractStart:
     m_PersistentCalls:
       m_Calls: []
+  OnInteractEnd:
+    m_PersistentCalls:
+      m_Calls: []
   m_roomLink: {fileID: 0}
   m_teleportPoint: {fileID: 0}
-  m_offsetTeleportPoint: {x: 0, y: 0, z: 0}
+  m_offsetTeleportPoint: {x: 0, y: -1.31, z: 0}
   m_showTeleportPoint: 0

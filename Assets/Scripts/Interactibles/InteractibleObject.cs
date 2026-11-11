@@ -13,7 +13,7 @@ namespace Canicule
 
     public class InteractibleObject : MonoBehaviour, IPauseableObject
     {
-        [SerializeField] protected Rooms.Room m_roomOwner;
+        protected Rooms.Room m_roomOwner;
         [Space]
         [SerializeField] protected float interactionRange = 1;
         [SerializeField] protected float interactionDuration = 5;
@@ -43,7 +43,7 @@ namespace Canicule
             GameManager.UnregisterObject(this);
         }
         // Update is called once per frame
-        void Update()
+        public virtual void Update()
         {
             UpdateInteraction();
         }
