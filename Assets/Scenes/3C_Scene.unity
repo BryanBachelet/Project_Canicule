@@ -457,7 +457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49323824131b8a347ada275f5176f7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ConsumableInteractible
-  m_roomOwner: {fileID: 0}
   interactionRange: 1
   interactionDuration: 5
   OnInteractStart:
@@ -782,6 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 820518690}
+  - component: {fileID: 820518691}
   m_Layer: 0
   m_Name: Environments
   m_TagString: Untagged
@@ -808,6 +808,24 @@ Transform:
   - {fileID: 132345941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820518691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820518689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2f438586cc2684cad993236e759b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.Rooms.Room
+  m_roomData: {fileID: 11400000, guid: 398f81fd619361a4ebe9c8e079e6885b, type: 2}
+  m_appearencePoints: []
+  m_heatManager:
+    m_heatScoreResistance: 0
+    m_activeTemperaturDebug: 0
+    m_activeRegisterDebug: 0
 --- !u!1 &1115339446
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49323824131b8a347ada275f5176f7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ConsumableInteractible
-  m_roomOwner: {fileID: 0}
   interactionRange: 1
   interactionDuration: 5
   OnInteractStart:
