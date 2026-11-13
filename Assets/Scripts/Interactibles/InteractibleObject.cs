@@ -30,6 +30,8 @@ namespace Canicule
         [HideInInspector] public UnityEvent OnInteractStart;
         [HideInInspector] public UnityEvent OnInteractEnd;
 
+        [SerializeField] protected ItemData m_itemData;
+
         #region Unity Function
 
         public virtual void Start()
@@ -116,6 +118,12 @@ namespace Canicule
         {
 
         }
+
+        public void RetrieveObject()
+        {
+            
+        }
+
 
         #region Getter Function
         public bool IsInteracting() 
