@@ -6,6 +6,7 @@ namespace Canicule
     {
         Consumable,
         Upgrade,
-        Equippable
+        Equippable,
+        Interactable,
     }
 }

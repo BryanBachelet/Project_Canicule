@@ -11,6 +11,16 @@ namespace Canicule
         public abstract void UseItemEffect();
     }
 
+    [System.Serializable]
+    public class InteractableEffect : ItemEffect
+    {
+        public GameObject m_interactableObjectPrefab;
+        public override void UseItemEffect()
+        {
+            Debug.Log("[Item Effect] Interactable Effect has been used!");
+        }
+    }
+
     #region Sleep Effects
     // Sleep Chance effect
     [System.Serializable]
@@ -61,7 +71,7 @@ namespace Canicule
         [SerializeField] private float m_hungerModifierAmount;
 
         public override void UseItemEffect()
-        {      
+        {
             GameManager.GetExhaustionManager().ModifyHungerExhaustion(m_hungerModifierAmount);
             Debug.Log("[Item Effect] Hunger modified by " + m_hungerModifierAmount + " through item use!");
         }
@@ -115,6 +125,22 @@ namespace Canicule
             Debug.Log("[Item Effect] Body Temperature During X Seconds Effect Used!");
         }
     }
+
+
+
+    [System.Serializable]
+    public class WaterBowlEffect : InteractableEffect
+    {
+        public bool m_isFill;
+        public override void UseItemEffect()
+        {
+            base.UseItemEffect();
+            Debug.Log("[Item Effect] Interactable Effect has been used!");
+        }
+    }
+
+
+
     #endregion
 
     #region Money Effects
