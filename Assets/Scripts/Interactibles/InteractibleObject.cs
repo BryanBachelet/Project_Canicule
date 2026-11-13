@@ -112,6 +112,11 @@ namespace Canicule
             return !bIsInteracting;
         }
 
+        public virtual void CreateObject(ItemData data)
+        {
+
+        }
+
         #region Getter Function
         public bool IsInteracting() 
         {

@@ -36,5 +36,18 @@ namespace Canicule
                 effect?.UseItemEffect();
             }
         }
+
+        public T GetItemEffect<T>() where T : ItemEffect
+        {
+            foreach (ItemEffect item in itemEffects)
+            {
+                if(item.GetType() == typeof(T))
+                {
+                    return (T)item;
+                }
+            }
+
+            return null;
+        }
     }
 }
