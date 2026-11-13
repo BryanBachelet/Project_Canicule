@@ -13,12 +13,19 @@ namespace Canicule
         private bool m_isBowlFill = false;
         private HeatSource m_heatSource;
 
+        [Header("Sprite")]
+        [SerializeField] private Sprite m_emptyBowlSprite;
+        [SerializeField] private Sprite m_waterBowlSprite;
+        private SpriteRenderer m_spriteRenderer;
+        
+
 
         public override void Start()
         {
             base.Start();
 
             m_heatSource = GetComponent<HeatSource>();
+            m_spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public override void Update()
@@ -54,6 +61,8 @@ namespace Canicule
             m_isBowlFill = true;
             m_bowlFillTimer = 0.0f;
             m_heatSource.ActiveHeatSource();
+            m_spriteRenderer.sprite = m_waterBowlSprite;
+
         }
 
         private void EmptyBowl()
@@ -61,6 +70,7 @@ namespace Canicule
             m_bowlFillTimer = 0.0f;
             m_isBowlFill = false;
             m_heatSource.DeactiveHeatSource();
+            m_spriteRenderer.sprite = m_emptyBowlSprite;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

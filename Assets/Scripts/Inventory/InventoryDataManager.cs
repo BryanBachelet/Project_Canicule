@@ -87,6 +87,8 @@ namespace Canicule
                 m_playerItems.Add(item.Key, item.Value);
                 OnAddingItem?.Invoke(item.Key, item.Value);
             }
+
+            OnAddingFinished?.Invoke();
         }
 
         public void RemoveItem(ItemData item)

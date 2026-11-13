@@ -126,6 +126,7 @@ namespace Canicule
 
             KeyValuePair<ItemData, int> pair = new KeyValuePair<ItemData, int>(m_itemData, 1);
             GameManager.GetInventoryDataManager().AddNewItem(pair);
+            DestroyInteractible();
         }
 
         protected virtual void DestroyInteractible()
