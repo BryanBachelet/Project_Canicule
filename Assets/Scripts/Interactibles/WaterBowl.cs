@@ -64,7 +64,6 @@ namespace Canicule
             m_heatSource.DeactiveHeatSource();
         }
 
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag != "Player" && collision.tag != "Monster")
@@ -72,6 +71,16 @@ namespace Canicule
 
             EmptyBowl();
 
+        }
+
+        public override void CreateObject(ItemData data)
+        {
+            base.CreateObject(data);
+            WaterBowlEffect waterEffect = data.GetItemEffect<WaterBowlEffect>();
+            if(waterEffect != null && waterEffect.m_isFill)
+            {
+                FillBowl();
+            }
         }
     }
 }

@@ -22,23 +22,31 @@ namespace Canicule
         #region Inventory Data Management Methods
         public void UseItem()
         {
-            if(m_indexSelector < m_displayedInventory.Count)
+            if (m_indexSelector >= m_displayedInventory.Count)
             {
-                ItemData item = m_displayedInventory[m_indexSelector];
-
-                Debug.Log("[Inventory Data] Used " + item.itemName);
-
-                if(item.itemType == ItemType.Consumable)
-                {
-                    RemoveItem(item);
-                }
-                else if (item.itemType == ItemType.Equippable)
-                {
-                    Debug.Log("Switch Equip State");
-                }
-                
-                item.UseItem();
+                return;
             }
+
+            ItemData item = m_displayedInventory[m_indexSelector];
+
+            Debug.Log("[Inventory Data] Used " + item.itemName);
+
+            if (item.itemType == ItemType.Consumable)
+            {
+                RemoveItem(item);
+            }
+            else if (item.itemType == ItemType.Equippable)
+            {
+                Debug.Log("Switch Equip State");
+            }
+            else if (item.itemType == ItemType.Interactable)
+            {
+                Debug.Log("Hold Interact Item");
+                Item.CharacterHoldItem characterHoldItem = GameManager.GetPlayer().GetComponent<Item.CharacterHoldItem>();
+                characterHoldItem.SetHoldItem(item);
+            }
+
+            item.UseItem();
 
         }
 
@@ -46,7 +54,7 @@ namespace Canicule
         public void AddNewItems(Dictionary<ItemData, int> itemCart)
         {
 
-            foreach (KeyValuePair<ItemData,int> item in itemCart)
+            foreach (KeyValuePair<ItemData, int> item in itemCart)
             {
                 bool b_hasKey = m_playerItems.ContainsKey(item.Key);
 
@@ -69,7 +77,7 @@ namespace Canicule
         {
             m_playerItems[item] -= 1;
 
-            if(m_playerItems[item] == 0)
+            if (m_playerItems[item] == 0)
             {
                 m_playerItems.Remove(item);
                 m_displayedInventory.Remove(item);
@@ -110,7 +118,7 @@ namespace Canicule
             }
         }
 
-        public Dictionary<ItemData,int> GetPlayerItems()
+        public Dictionary<ItemData, int> GetPlayerItems()
         {
             return m_playerItems;
         }
@@ -122,7 +130,7 @@ namespace Canicule
 
         public void IncreaseIndexSelector()
         {
-            if(m_indexSelector < m_displayedInventory.Count - 1)
+            if (m_indexSelector < m_displayedInventory.Count - 1)
             {
                 m_indexSelector++;
                 OnSelectorChanged?.Invoke();
@@ -131,7 +139,7 @@ namespace Canicule
 
         public void DecreaseIndexSelector()
         {
-            if(m_indexSelector > 0)
+            if (m_indexSelector > 0)
             {
                 m_indexSelector--;
                 OnSelectorChanged?.Invoke();
