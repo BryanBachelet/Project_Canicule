@@ -66,11 +66,27 @@ namespace Canicule
                 else
                 {
                     m_playerItems.Add(item.Key, item.Value);
-                    OnAddingItem?.Invoke(item.Key, 1);
+                    OnAddingItem?.Invoke(item.Key, item.Value);
                 }
             }
 
             OnAddingFinished?.Invoke();
+        }
+
+        public void AddNewItem(KeyValuePair<ItemData, int> item)
+        {
+            bool b_hasKey = m_playerItems.ContainsKey(item.Key);
+
+            if (b_hasKey)
+            {
+                m_playerItems[item.Key] += item.Value;
+                OnAddingItem?.Invoke(item.Key, m_playerItems[item.Key]);
+            }
+            else
+            {
+                m_playerItems.Add(item.Key, item.Value);
+                OnAddingItem?.Invoke(item.Key, item.Value);
+            }
         }
 
         public void RemoveItem(ItemData item)

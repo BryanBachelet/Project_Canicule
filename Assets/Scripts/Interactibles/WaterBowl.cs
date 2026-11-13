@@ -30,7 +30,7 @@ namespace Canicule
         {
             base.Interact();
 
-
+            RetrieveObject();
         }
 
         public void UpdateBowl()
@@ -55,7 +55,6 @@ namespace Canicule
             m_bowlFillTimer = 0.0f;
             m_heatSource.ActiveHeatSource();
         }
-
 
         private void EmptyBowl()
         {

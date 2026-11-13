@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -121,7 +122,17 @@ namespace Canicule
 
         public void RetrieveObject()
         {
-            
+            if (!m_itemData) return;
+
+            KeyValuePair<ItemData, int> pair = new KeyValuePair<ItemData, int>(m_itemData, 1);
+            GameManager.GetInventoryDataManager().AddNewItem(pair);
+        }
+
+        protected virtual void DestroyInteractible()
+        {
+            OnInteractEnd.RemoveAllListeners();
+            OnInteractStart.RemoveAllListeners();
+            Destroy(gameObject);
         }
 
 
