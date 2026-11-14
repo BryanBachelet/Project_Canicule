@@ -110,6 +110,13 @@ namespace Canicule
             OnInteractEnd?.Invoke();
         }
 
+        public virtual void CancelInteration()
+        {
+            bIsInteracting = false;
+            actorTransform = null;
+            m_interactor = Interactor.NONE;
+        }
+
         public bool CanInteract()
         {
             return !bIsInteracting;
@@ -120,11 +127,18 @@ namespace Canicule
 
         }
 
-        public void RetrieveObject()
-        {
-            if (!m_itemData) return;
 
-            KeyValuePair<ItemData, int> pair = new KeyValuePair<ItemData, int>(m_itemData, 1);
+        public ItemData CreateItemInstance()
+        {
+            ItemData instance = UnityEngine.Object.Instantiate(m_itemData);
+            instance = m_itemData;
+            return instance;
+        }
+        public void RetrieveObject(ItemData instance)
+        {
+            if (!m_itemData || !instance) return;
+
+            KeyValuePair<ItemData, int> pair = new KeyValuePair<ItemData, int>(instance, 1);
             GameManager.GetInventoryDataManager().AddNewItem(pair);
             DestroyInteractible();
         }

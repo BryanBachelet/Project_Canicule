@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEditor.Progress;
 
 namespace Canicule
@@ -8,6 +9,7 @@ namespace Canicule
     public class InventoryDataManager : MonoBehaviour
     {
         [SerializeField] private float m_playerBalance;
+        [SerializeField] private InventoryUIManager m_inventoryUIManager;
         private int m_indexSelector = 0;
 
         private Dictionary<ItemData, int> m_playerItems = new Dictionary<ItemData, int>();
@@ -18,6 +20,48 @@ namespace Canicule
         public event Action OnRemovingItem;
         public event Action OnAddingFinished;
         public event Action OnSelectorChanged;
+
+        private UnityEvent<InventoryRequestResult,ItemData> m_OnSelectionRequestAnser = new UnityEvent<InventoryRequestResult, ItemData>();
+
+        private StationInterface m_currentStationInterface;
+        private const string m_resultIndexValidString = "Index selection isn't valid";
+        private const string m_resultItemValidString = "Item isn't valid";
+
+        public void OpenInventory()
+        {
+            m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.FREE);
+        }
+
+        public void RequestSelectionItem(UnityAction<InventoryRequestResult,ItemData> func,StationInterface stationInterface)
+        {
+            m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.SELECTION);
+            m_OnSelectionRequestAnser.AddListener(func);
+            m_currentStationInterface = stationInterface;
+        }
+
+        public bool AnswerSelectionRequest(InventoryRequestResult result, out string resultMessage)
+        {
+            resultMessage = "";
+            if (m_indexSelector >= m_displayedInventory.Count)
+            {
+                resultMessage = m_resultIndexValidString;
+                return false;
+            }
+
+            if (!m_currentStationInterface.IsItemValid(m_displayedInventory[m_indexSelector]))
+            {
+                resultMessage = m_resultItemValidString;
+                return false;
+            }
+
+
+            m_OnSelectionRequestAnser?.Invoke(result, m_displayedInventory[m_indexSelector]);
+            m_OnSelectionRequestAnser.RemoveAllListeners();
+            m_currentStationInterface = null;
+            OpenInventory();
+            return true;
+        }
+
 
         #region Inventory Data Management Methods
         public void UseItem()
@@ -80,7 +124,6 @@ namespace Canicule
             if (b_hasKey)
             {
                 m_playerItems[item.Key] += item.Value;
-                OnAddingItem?.Invoke(item.Key, m_playerItems[item.Key]);
             }
             else
             {

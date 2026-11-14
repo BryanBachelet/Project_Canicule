@@ -7,8 +7,15 @@ using System.Linq;
 
 namespace Canicule
 {
+    public enum InventoryDisplayMode
+    {
+        FREE = 0,
+        SELECTION = 1,
+    }
+
     public class InventoryUIManager : MonoBehaviour
     {
+     
 
         [SerializeField] private GameObject m_inventoryScreen;
         [SerializeField] private GameObject m_inventoryItemCard;
@@ -37,8 +44,11 @@ namespace Canicule
         private float m_itemWidth;
         private float m_itemSpacing = 140f;
 
-        public event Action OnInventoryOpen;
+        public event Action<InventoryDisplayMode> OnInventoryOpen;
         public event Action OnInventoryClose;
+
+
+        private InventoryDisplayMode m_displayMode = InventoryDisplayMode.FREE; 
 
         #region Unity Methods
         private void Awake()
@@ -79,9 +89,9 @@ namespace Canicule
             }
         }
         #endregion
-
+        
         #region Display Methods
-        public void SwitchInventoryScreen()
+        public void SwitchInventoryScreen(InventoryDisplayMode displayMode)
         {
             if (m_inventoryScreen.activeSelf)
             {
@@ -91,8 +101,10 @@ namespace Canicule
             else
             {
                 m_inventoryScreen.SetActive(true);
-                OnInventoryOpen?.Invoke();
+                OnInventoryOpen?.Invoke(displayMode);
+                m_displayMode = displayMode;
             }
+
         }
 
         private void RecreateInventoryDisplay()

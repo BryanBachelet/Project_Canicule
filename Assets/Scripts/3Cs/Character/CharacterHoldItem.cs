@@ -19,6 +19,8 @@ namespace Canicule.Item
             if (!m_itemHoldData) return;
 
             GameObject instance = SpawnItem();
+            if (instance == null)
+                return;
             PutItem(instance);
 
             GameManager.GetInventoryDataManager().RemoveItem(m_itemHoldData);

@@ -19,13 +19,13 @@ namespace Canicule
         {
             base.Start();
             m_heatSource = GetComponent<HeatSource>();
-            GameManager.GetEnvirommentHeatSource().OnTemperatureUpdate?.AddListener(OnWindowUpdateTemperature);
+            GameManager.GetEnvirommentHeatSource()?.OnTemperatureUpdate?.AddListener(OnWindowUpdateTemperature);
         }
 
         public override void OnDestroy()
         {
             base.OnDestroy();
-            GameManager.GetEnvirommentHeatSource().OnTemperatureUpdate?.RemoveListener(OnWindowUpdateTemperature);
+            GameManager.GetEnvirommentHeatSource()?.OnTemperatureUpdate.RemoveListener(OnWindowUpdateTemperature);
         }
 
         public override void LaunchInteraction(Transform actor, Interactor interactActorType)

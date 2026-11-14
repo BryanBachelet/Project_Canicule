@@ -1,3 +1,4 @@
+using Canicule.Item;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ namespace Canicule
         [SerializeField] private CameraInput m_CameraInput;
         private CharacterInteract m_characterInteract;
         private CharacterOpenInventory m_characterOpenInventory;
+        private CharacterHoldItem m_characterHoldItem;
 
         private InputAction m_moveAction;
         private InputAction m_interactAction;
@@ -31,6 +33,7 @@ namespace Canicule
         {
             m_characterInteract = GetComponent<CharacterInteract>();
             m_characterOpenInventory = GetComponent<CharacterOpenInventory>();
+            m_characterHoldItem = GetComponent<CharacterHoldItem>();
 
             m_interactAction = InputSystem.actions.FindAction(m_interactActionName, true);
 
@@ -81,7 +84,7 @@ namespace Canicule
 
         public void OnUseHoldItem(InputAction.CallbackContext ctx)
         {
-            throw new System.NotImplementedException();
+            m_characterHoldItem.UseHoldItem();
         }
         #endregion
     }

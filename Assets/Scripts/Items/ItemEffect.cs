@@ -132,6 +132,7 @@ namespace Canicule
     public class WaterBowlEffect : InteractableEffect
     {
         public bool m_isFill;
+        [HideInInspector] public float m_fillDuration;
         public override void UseItemEffect()
         {
             base.UseItemEffect();

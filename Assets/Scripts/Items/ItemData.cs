@@ -41,12 +41,17 @@ namespace Canicule
         {
             foreach (ItemEffect item in itemEffects)
             {
-                if(item.GetType() == typeof(T))
+                if (item.GetType() == typeof(T))
+                {
+                    return (T)item;
+                }
+
+                if (item.GetType().IsSubclassOf( typeof(T)))
                 {
                     return (T)item;
                 }
             }
-
+                
             return null;
         }
     }

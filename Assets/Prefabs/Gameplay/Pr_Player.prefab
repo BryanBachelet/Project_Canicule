@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6888967148945536768}
   - component: {fileID: 3735715357252105993}
   - component: {fileID: 5141082936781551567}
+  - component: {fileID: 5529563140077501315}
   - component: {fileID: 3784832770396393277}
   - component: {fileID: 916562205727234031}
   m_Layer: 0
@@ -53,13 +54,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterInput
   characterData: {fileID: 11400000, guid: 14e8c5c7f8dd76b4f80e6210b55063c2, type: 2}
-  m_exhaustionManager: {fileID: 0}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   moveDirection: {x: 0, y: 0}
   m_CameraInput: {fileID: 0}
-  m_interactActionName: Interact
-  m_moveActionName: Move
-  m_openInventoryActionName: OpenInventory
 --- !u!114 &1681762977341021182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +107,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterVisualSorting
   m_playerSpriteRenderer: {fileID: 1244876592288948540}
+--- !u!114 &5529563140077501315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285881632982618249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e956be6cc12da84fb2460ed217c1982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.Item.CharacterHoldItem
+  OnHoldItem:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &3784832770396393277
 Rigidbody2D:
   serializedVersion: 5

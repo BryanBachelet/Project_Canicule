@@ -118,7 +118,7 @@ namespace BorsalinoTools
                 playerInput = FindFirstObjectByType<PlayerInput>();
             }
 
-            playerInput.ActivateInput();
+            playerInput?.ActivateInput();
             m_showWindow = false;
             m_inputCommandText = "";
         }
