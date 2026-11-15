@@ -14,6 +14,8 @@ namespace Canicule
         private const string m_navigateActionName = "NavigateInventory";
         private const string m_submitActionName = "SubmitInventory";
 
+
+        private InventoryDisplayMode m_currentInventoryDisplayMode = InventoryDisplayMode.FREE;
         #region Unity Methods
         private void Awake()
         {
@@ -47,7 +49,7 @@ namespace Canicule
         #region Input Methods
         private void ModifyIndexSelector(InputAction.CallbackContext ctx)
         {
-            if(ctx.ReadValue<Vector2>().x > 0)
+            if (ctx.ReadValue<Vector2>().x > 0)
             {
                 // Increase index selector
                 m_inventoryDataManager.IncreaseIndexSelector();
@@ -62,13 +64,25 @@ namespace Canicule
 
         private void InteractWithItem(InputAction.CallbackContext ctx)
         {
-            m_inventoryDataManager.UseItem();
+            if (m_currentInventoryDisplayMode == InventoryDisplayMode.FREE)
+            {
+                m_inventoryDataManager.UseItem();
+            }
+            else
+            {
+                string resutAnswer = "";
+                if(!m_inventoryDataManager.AnswerSelectionRequest(InventoryRequestResult.SELECTED, out resutAnswer))
+                {
+                    // Do something of feedback error
+                }
+            }
         }
 
-        private void SwitchToInventoryMap()
+        private void SwitchToInventoryMap(InventoryDisplayMode mode)
         {
             m_inputManager.DisablePlayerMap();
             m_inputManager.EnableInventoryMap();
+            m_currentInventoryDisplayMode = mode;
         }
 
         private void SwitchToPlayerMap()

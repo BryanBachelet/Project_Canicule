@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEditor.Progress;
 
 namespace Canicule
@@ -8,6 +9,7 @@ namespace Canicule
     public class InventoryDataManager : MonoBehaviour
     {
         [SerializeField] private float m_playerBalance;
+        [SerializeField] private InventoryUIManager m_inventoryUIManager;
         private int m_indexSelector = 0;
 
         private Dictionary<ItemData, int> m_playerItems = new Dictionary<ItemData, int>();
@@ -19,26 +21,76 @@ namespace Canicule
         public event Action OnAddingFinished;
         public event Action OnSelectorChanged;
 
+        private UnityEvent<InventoryRequestResult,ItemData> m_OnSelectionRequestAnser = new UnityEvent<InventoryRequestResult, ItemData>();
+
+        private StationInterface m_currentStationInterface;
+        private const string m_resultIndexValidString = "Index selection isn't valid";
+        private const string m_resultItemValidString = "Item isn't valid";
+
+        public void OpenInventory()
+        {
+            m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.FREE);
+        }
+
+        public void RequestSelectionItem(UnityAction<InventoryRequestResult,ItemData> func,StationInterface stationInterface)
+        {
+            m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.SELECTION);
+            m_OnSelectionRequestAnser.AddListener(func);
+            m_currentStationInterface = stationInterface;
+        }
+
+        public bool AnswerSelectionRequest(InventoryRequestResult result, out string resultMessage)
+        {
+            resultMessage = "";
+            if (m_indexSelector >= m_displayedInventory.Count)
+            {
+                resultMessage = m_resultIndexValidString;
+                return false;
+            }
+
+            if (!m_currentStationInterface.IsItemValid(m_displayedInventory[m_indexSelector]))
+            {
+                resultMessage = m_resultItemValidString;
+                return false;
+            }
+
+
+            m_OnSelectionRequestAnser?.Invoke(result, m_displayedInventory[m_indexSelector]);
+            m_OnSelectionRequestAnser.RemoveAllListeners();
+            m_currentStationInterface = null;
+            OpenInventory();
+            return true;
+        }
+
+
         #region Inventory Data Management Methods
         public void UseItem()
         {
-            if(m_indexSelector < m_displayedInventory.Count)
+            if (m_indexSelector >= m_displayedInventory.Count)
             {
-                ItemData item = m_displayedInventory[m_indexSelector];
-
-                Debug.Log("[Inventory Data] Used " + item.itemName);
-
-                if(item.itemType == ItemType.Consumable)
-                {
-                    RemoveItem(item);
-                }
-                else if (item.itemType == ItemType.Equippable)
-                {
-                    Debug.Log("Switch Equip State");
-                }
-                
-                item.UseItem();
+                return;
             }
+
+            ItemData item = m_displayedInventory[m_indexSelector];
+
+            Debug.Log("[Inventory Data] Used " + item.itemName);
+
+            if (item.itemType == ItemType.Consumable)
+            {
+                RemoveItem(item);
+            }
+            else if (item.itemType == ItemType.Equippable)
+            {
+                Debug.Log("Switch Equip State");
+            }
+            else if (item.itemType == ItemType.Interactable)
+            {
+                Debug.Log("Hold Interact Item");
+                Item.CharacterHoldItem characterHoldItem = GameManager.GetPlayer().GetComponent<Item.CharacterHoldItem>();
+                characterHoldItem.SetHoldItem(item);
+            }
+
+            item.UseItem();
 
         }
 
@@ -46,7 +98,7 @@ namespace Canicule
         public void AddNewItems(Dictionary<ItemData, int> itemCart)
         {
 
-            foreach (KeyValuePair<ItemData,int> item in itemCart)
+            foreach (KeyValuePair<ItemData, int> item in itemCart)
             {
                 bool b_hasKey = m_playerItems.ContainsKey(item.Key);
 
@@ -58,8 +110,25 @@ namespace Canicule
                 else
                 {
                     m_playerItems.Add(item.Key, item.Value);
-                    OnAddingItem?.Invoke(item.Key, 1);
+                    OnAddingItem?.Invoke(item.Key, item.Value);
                 }
+            }
+
+            OnAddingFinished?.Invoke();
+        }
+
+        public void AddNewItem(KeyValuePair<ItemData, int> item)
+        {
+            bool b_hasKey = m_playerItems.ContainsKey(item.Key);
+
+            if (b_hasKey)
+            {
+                m_playerItems[item.Key] += item.Value;
+            }
+            else
+            {
+                m_playerItems.Add(item.Key, item.Value);
+                OnAddingItem?.Invoke(item.Key, item.Value);
             }
 
             OnAddingFinished?.Invoke();
@@ -69,7 +138,7 @@ namespace Canicule
         {
             m_playerItems[item] -= 1;
 
-            if(m_playerItems[item] == 0)
+            if (m_playerItems[item] == 0)
             {
                 m_playerItems.Remove(item);
                 m_displayedInventory.Remove(item);
@@ -110,7 +179,7 @@ namespace Canicule
             }
         }
 
-        public Dictionary<ItemData,int> GetPlayerItems()
+        public Dictionary<ItemData, int> GetPlayerItems()
         {
             return m_playerItems;
         }
@@ -122,7 +191,7 @@ namespace Canicule
 
         public void IncreaseIndexSelector()
         {
-            if(m_indexSelector < m_displayedInventory.Count - 1)
+            if (m_indexSelector < m_displayedInventory.Count - 1)
             {
                 m_indexSelector++;
                 OnSelectorChanged?.Invoke();
@@ -131,7 +200,7 @@ namespace Canicule
 
         public void DecreaseIndexSelector()
         {
-            if(m_indexSelector > 0)
+            if (m_indexSelector > 0)
             {
                 m_indexSelector--;
                 OnSelectorChanged?.Invoke();

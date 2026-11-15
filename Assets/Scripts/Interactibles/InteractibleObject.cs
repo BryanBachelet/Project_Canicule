@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,6 +30,8 @@ namespace Canicule
 
         [HideInInspector] public UnityEvent OnInteractStart;
         [HideInInspector] public UnityEvent OnInteractEnd;
+
+        [SerializeField] protected ItemData m_itemData;
 
         #region Unity Function
 
@@ -107,10 +110,46 @@ namespace Canicule
             OnInteractEnd?.Invoke();
         }
 
+        public virtual void CancelInteration()
+        {
+            bIsInteracting = false;
+            actorTransform = null;
+            m_interactor = Interactor.NONE;
+        }
+
         public bool CanInteract()
         {
             return !bIsInteracting;
         }
+
+        public virtual void CreateObject(ItemData data)
+        {
+
+        }
+
+
+        public ItemData CreateItemInstance()
+        {
+            ItemData instance = UnityEngine.Object.Instantiate(m_itemData);
+            instance = m_itemData;
+            return instance;
+        }
+        public void RetrieveObject(ItemData instance)
+        {
+            if (!m_itemData || !instance) return;
+
+            KeyValuePair<ItemData, int> pair = new KeyValuePair<ItemData, int>(instance, 1);
+            GameManager.GetInventoryDataManager().AddNewItem(pair);
+            DestroyInteractible();
+        }
+
+        protected virtual void DestroyInteractible()
+        {
+            OnInteractEnd.RemoveAllListeners();
+            OnInteractStart.RemoveAllListeners();
+            Destroy(gameObject);
+        }
+
 
         #region Getter Function
         public bool IsInteracting() 

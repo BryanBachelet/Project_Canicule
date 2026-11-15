@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Canicule
@@ -52,6 +51,24 @@ namespace Canicule
             instance.itemEffects = itemEffects;
 
             return instance;
+        }
+
+        public T GetItemEffect<T>() where T : ItemEffect
+        {
+            foreach (ItemEffect item in itemEffects)
+            {
+                if (item.GetType() == typeof(T))
+                {
+                    return (T)item;
+                }
+
+                if (item.GetType().IsSubclassOf( typeof(T)))
+                {
+                    return (T)item;
+                }
+            }
+                
+            return null;
         }
     }
 }
