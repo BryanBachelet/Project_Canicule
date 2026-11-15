@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.757, y: 7.757, z: 7.757}
+  m_LocalScale: {x: 0.45965117, y: 0.5653984, z: 1.5109159}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7328899900423910312}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1bad175cb0e5a4e80b3478832f4854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Window
-  m_roomOwner: {fileID: 0}
   interactionRange: 1
   interactionDuration: 2
   OnInteractStart:
@@ -147,6 +146,7 @@ MonoBehaviour:
   OnInteractEnd:
     m_PersistentCalls:
       m_Calls: []
+  m_itemData: {fileID: 0}
   OnWindowOpen:
     m_PersistentCalls:
       m_Calls:
@@ -155,7 +155,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+          m_ObjectArgument: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+          m_ObjectArgument: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -228,7 +228,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.018697262, y: 0.056090117}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -238,5 +238,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.261754, y: 2.5331292}
   m_EdgeRadius: 0

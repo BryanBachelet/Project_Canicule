@@ -35,6 +35,7 @@ namespace Canicule
         [SerializeField] private Animator m_monsterAnimator;
         private NavMeshAgent m_navMeshAgent;
         private Rooms.RoomManager roomManager;
+        private SpriteRenderer m_spriteRenderer;
 
 
         [Header("Move Parameters")]
@@ -76,6 +77,7 @@ namespace Canicule
 
             m_navMeshAgent = GetComponent<NavMeshAgent>();
             m_catchCollider.enabled = false;
+            m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         }
 
@@ -89,6 +91,9 @@ namespace Canicule
         {
             if (m_onPause) return;
 
+            bool isRight = m_navMeshAgent.destination.x - transform.position.x > 0 ? true : false;
+            m_spriteRenderer.flipX = !isRight;
+
             Process_State();
         }
 
@@ -97,7 +102,7 @@ namespace Canicule
         public void ChangeState(MonsterState state)
         {
             EndState(state);
-            Debug.Log("[Monster] Change monster state from " + m_currentState + " to " + state);
+            Debug.Log("[Monster] Change monster state from " + m_currentState + " to " + state);    
             m_currentState = state;
             StartState(state);
 
