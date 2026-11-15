@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Canicule
@@ -6,6 +7,10 @@ namespace Canicule
     {
         [SerializeField] private SpriteRenderer m_playerSpriteRenderer;
         private int m_previousPlayerSortOrder;
+
+        // Debugs
+        [SerializeField] private bool b_isDebugActive;
+
 
         private void Start()
         {
@@ -22,6 +27,11 @@ namespace Canicule
                 {
                     m_previousPlayerSortOrder = m_playerSpriteRenderer.sortingOrder;
                     m_playerSpriteRenderer.sortingOrder = collisionSpriteRenderer.sortingOrder + 1;
+
+                    if (b_isDebugActive)
+                    {
+                        DisplayDebugs();
+                    }
                 }
             }
             else
@@ -36,6 +46,17 @@ namespace Canicule
             {
                 m_playerSpriteRenderer.sortingOrder = m_previousPlayerSortOrder;
             }
+
+            if (b_isDebugActive)
+            {
+                DisplayDebugs();
+            }
+        }
+
+        private void DisplayDebugs()
+        {
+            Debug.Log("[Sort Order] previous player sort order: " + m_previousPlayerSortOrder);
+            Debug.Log("[Sort Order] new player sort order:" + m_playerSpriteRenderer.sortingOrder);
         }
     }
 }
