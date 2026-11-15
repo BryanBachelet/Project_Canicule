@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 334368385907534941}
   - component: {fileID: 2584747924941454207}
   - component: {fileID: 1727712517643572871}
+  - component: {fileID: 8730186540671217469}
   m_Layer: 5
   m_Name: ShopButton
   m_TagString: Untagged
@@ -145,9 +146,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Canicule.ShopDataManager, Assembly-CSharp
-        m_MethodName: InvokeOnShopOpened
+      - m_Target: {fileID: 8730186540671217469}
+        m_TargetAssemblyTypeName: Canicule.ShopButtonUI, Assembly-CSharp
+        m_MethodName: ShopOpened
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -157,6 +158,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8730186540671217469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441309120467056847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a9cae37d968db4689dedcb792e027f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.ShopButtonUI
 --- !u!1 &3498158468873299075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,11 +1685,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3714653120448893798, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_Size
-      value: 0.4376108
+      value: 0.43745652
       objectReference: {fileID: 0}
     - target: {fileID: 3714653120448893798, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_Value
-      value: -0.00000009452817
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3814940444508673519, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1956,11 +1969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8586331788859402698, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_Size
-      value: 0.41028056
+      value: 0.41012442
       objectReference: {fileID: 0}
     - target: {fileID: 8586331788859402698, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_Value
-      value: 0.9999999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8715588006976566985, guid: 396a38275d01fbd4cab760ee2cde873d, type: 3}
       propertyPath: m_Name

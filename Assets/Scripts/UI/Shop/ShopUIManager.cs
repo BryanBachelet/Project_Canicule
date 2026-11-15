@@ -32,6 +32,7 @@ namespace Canicule
             m_shopDataManager.OnItemCartUpdated += UpdateCartCardAmount;
             m_shopDataManager.OnItemCartRemoved += RemoveCartCard;
             m_shopDataManager.OnCartItemsMoved += ClearAllCartCard;
+            m_shopDataManager.OnShopOpened += ResetCartScrollbar;
             m_inventoryManager.OnAddingItem += UpdateCardOwnedAmount;
         }
 
@@ -41,6 +42,7 @@ namespace Canicule
             m_shopDataManager.OnItemCartUpdated -= UpdateCartCardAmount;
             m_shopDataManager.OnItemCartRemoved -= RemoveCartCard;
             m_shopDataManager.OnCartItemsMoved -= ClearAllCartCard;
+            m_shopDataManager.OnShopOpened -= ResetCartScrollbar;
             m_inventoryManager.OnAddingItem -= UpdateCardOwnedAmount;
         }
 
