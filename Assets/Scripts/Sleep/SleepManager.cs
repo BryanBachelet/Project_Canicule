@@ -51,7 +51,7 @@ namespace Canicule
                 {
                     Debug.Log("Sleep success!");
                     OnSleepStarted?.Invoke();
-
+                    GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.SLEEPING);
                 }
                 else
                 {

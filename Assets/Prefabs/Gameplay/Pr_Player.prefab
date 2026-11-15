@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6768622518121797174}
+  - component: {fileID: 7582963045405250119}
   - component: {fileID: 7564202398793636623}
   - component: {fileID: 1681762977341021182}
   - component: {fileID: 6888967148945536768}
@@ -41,6 +42,19 @@ Transform:
   - {fileID: 8213231555668182998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7582963045405250119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285881632982618249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a07f8b223ae81e41a970383bb6e2b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterState
+  b_isDebugActive: 1
 --- !u!114 &7564202398793636623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterVisualSorting
   m_playerSpriteRenderer: {fileID: 1244876592288948540}
+  b_isDebugActive: 0
 --- !u!114 &5529563140077501315
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,12 +8,14 @@ namespace Canicule
         private CharacterInput m_characterInput;
         private Vector2 m_moveDirection;
         private Rigidbody2D m_playerRigidbody2D;
+        private Character m_character;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             m_characterInput = GetComponent<CharacterInput>();
             m_playerRigidbody2D = GetComponent<Rigidbody2D>();
+            m_character = GetComponent<Character>();
         }
 
         // Update is called once per frame
@@ -29,6 +31,15 @@ namespace Canicule
         public void Move(Vector2 dir)
         {
             m_playerRigidbody2D.linearVelocity = dir;
+
+            if(dir != Vector2.zero && m_character.GetCurrentState() == CharacterState.IDLE)
+            {
+                m_character.ChangeState(CharacterState.WALKING);
+            }
+            else if (dir == Vector2.zero && m_character.GetCurrentState() != CharacterState.IDLE)
+            {
+                m_character.ChangeState(CharacterState.IDLE);
+            }
         }
 
         private void ComputeCharacterMovementSpeed()

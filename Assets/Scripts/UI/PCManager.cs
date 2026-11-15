@@ -33,12 +33,18 @@ namespace Canicule
         {
             m_inputManager.DisablePlayerMap();
             m_inputManager.EnableUIMap();
+
+            // Character state
+            GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.INTERACTION);
         }
 
         private void SwitchToPlayerMap()
         {
             m_inputManager.EnablePlayerMap();
             m_inputManager.DisableUIMap();
+
+            // Character state
+            GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.IDLE);
         }
         #endregion
 
