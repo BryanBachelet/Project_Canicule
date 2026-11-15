@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Canicule
 {
     public class CharacterMovement : MonoBehaviour
     {
         [SerializeField] private float m_characterMovementSpeed = 2f;
+
+        [Header("Debug Options")]
+        [SerializeField] private bool m_deactiveNavMeshLimiter = false;
+
         private CharacterInput m_characterInput;
         private Vector2 m_moveDirection;
         private Rigidbody2D m_playerRigidbody2D;
@@ -29,6 +34,18 @@ namespace Canicule
         public void Move(Vector2 dir)
         {
             m_playerRigidbody2D.linearVelocity = dir;
+
+            if(m_deactiveNavMeshLimiter)
+            {
+                return;
+            }
+
+            Vector3 nextPosition = m_playerRigidbody2D.position + m_playerRigidbody2D.linearVelocity * Time.deltaTime;
+            NavMeshHit hit = new NavMeshHit();
+            if (!NavMesh.SamplePosition(nextPosition, out hit, 0.5f, NavMesh.AllAreas))
+            {
+                m_playerRigidbody2D.linearVelocity = Vector2.zero;
+            }
         }
 
         private void ComputeCharacterMovementSpeed()
