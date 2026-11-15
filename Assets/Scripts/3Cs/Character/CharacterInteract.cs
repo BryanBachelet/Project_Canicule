@@ -4,11 +4,51 @@ namespace Canicule
 {
     public class CharacterInteract : MonoBehaviour
     {
+        [Header("Cursor Variables")]
+        [SerializeField] private Texture2D m_baseCursorTex;
+        [SerializeField] private Texture2D m_interactCursorTex;
         private CharacterInput m_characterInput;
 
         private void Awake()
         {
             m_characterInput = GetComponent<CharacterInput>();
+        }
+
+        public void Update()
+        {
+            UpdateCursor();
+        }
+
+
+        private void UpdateCursor()
+        {
+            bool bIsInteracting = CheckMouseOver();
+            if (bIsInteracting)
+            {
+                Cursor.SetCursor(m_interactCursorTex, Vector2.zero, CursorMode.ForceSoftware);
+            }
+            else
+            {
+                Cursor.SetCursor(m_baseCursorTex, Vector2.zero, CursorMode.ForceSoftware);
+            }
+
+          
+        }
+
+        public bool CheckMouseOver()
+        {
+            Collider2D hit = Physics2D.OverlapPoint(m_characterInput.GetMousePosition(), LayerMask.GetMask("Interactible"));
+
+            if (hit != null)
+            {
+                InteractibleObject interactibleObject = hit.GetComponent<InteractibleObject>();
+                if (interactibleObject != null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         // Shoots a point at the mouse's position, and if it's an interactible in the player's range, plays the Interact() function.

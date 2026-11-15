@@ -821,6 +821,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6888967148945536768, guid: 3fdb8467878377b438c8325eac29faac, type: 3}
+      propertyPath: m_baseCursorTex
+      value: 
+      objectReference: {fileID: 2800000, guid: 042d586c76382e142827aed62d1f91e0, type: 3}
+    - target: {fileID: 6888967148945536768, guid: 3fdb8467878377b438c8325eac29faac, type: 3}
+      propertyPath: m_interactCursorTex
+      value: 
+      objectReference: {fileID: 2800000, guid: 121fafd59f3220e4ab6554379c13ca81, type: 3}
     - target: {fileID: 7564202398793636623, guid: 3fdb8467878377b438c8325eac29faac, type: 3}
       propertyPath: m_CameraInput
       value: 
