@@ -37,19 +37,6 @@ namespace Canicule
         {
             m_playerRigidbody2D.linearVelocity = dir;
 
-            if(m_deactiveNavMeshLimiter)
-            {
-                return;
-            }
-
-            Vector3 nextPosition = m_playerRigidbody2D.position + m_playerRigidbody2D.linearVelocity * Time.deltaTime;
-            NavMeshHit hit = new NavMeshHit();
-            if (!NavMesh.SamplePosition(nextPosition, out hit, 0.5f, NavMesh.AllAreas))
-            {
-                m_playerRigidbody2D.linearVelocity = Vector2.zero;
-            }
-
-            // Manage player states
             if(dir != Vector2.zero && m_character.GetCurrentState() == CharacterState.IDLE)
             {
                 m_character.ChangeState(CharacterState.WALKING);
