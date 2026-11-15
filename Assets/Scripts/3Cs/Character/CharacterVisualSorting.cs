@@ -17,13 +17,13 @@ namespace Canicule
             m_previousPlayerSortOrder = m_playerSpriteRenderer.sortingOrder;
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision)
         {
             SpriteRenderer collisionSpriteRenderer = collision.GetComponent<SpriteRenderer>();
 
             if (collisionSpriteRenderer != null)
             {
-                if(m_playerSpriteRenderer.sortingOrder <= collisionSpriteRenderer.sortingOrder)
+                if (m_playerSpriteRenderer.sortingOrder <= collisionSpriteRenderer.sortingOrder)
                 {
                     m_previousPlayerSortOrder = m_playerSpriteRenderer.sortingOrder;
                     m_playerSpriteRenderer.sortingOrder = collisionSpriteRenderer.sortingOrder + 1;
