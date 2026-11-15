@@ -86,6 +86,11 @@ namespace Canicule
         {
             m_characterHoldItem.UseHoldItem();
         }
+
+        public Vector2 GetMousePosition()
+        {
+            return m_CameraInput.mousePosition;
+        }
         #endregion
     }
 }
