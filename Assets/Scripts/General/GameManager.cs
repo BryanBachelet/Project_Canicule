@@ -39,6 +39,7 @@ namespace Canicule
             {
                 m_instance = this;
             }
+
             m_roomManager = GetComponent<Rooms.RoomManager>();
             m_monsterManager = GetComponent<MonsterManager>();
             m_exhaustionManager = GetComponent<ExhaustionManager>();
@@ -53,6 +54,7 @@ namespace Canicule
 
         private void Start()
         {
+            m_shopDataManager.InitiateManager();
             m_monsterManager.InitiateManager();
         }
         #endregion

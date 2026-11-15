@@ -9,6 +9,7 @@ namespace Canicule
     public class ShopDataManager : MonoBehaviour
     {
         [SerializeField] private ShopContent m_shopContent;
+        [SerializeField] private ShopContent m_instanceShopContent;
         private InventoryDataManager m_inventoryDataManager;
         private Dictionary<ItemData, int> m_itemCart = new Dictionary<ItemData, int>();
         private float m_totalCartPrice;
@@ -19,14 +20,18 @@ namespace Canicule
         public event Action OnShopOpened;
 
         #region Unity Methods
-        private void Awake()
-        {
-            m_inventoryDataManager = GameManager.GetInventoryDataManager();
-        }
         void Start()
         {
             // Reset values
             m_totalCartPrice = 0;
+        }
+        #endregion
+
+        #region Initialization
+        public void InitiateManager()
+        {
+            m_inventoryDataManager = GameManager.GetInventoryDataManager();
+            m_instanceShopContent = m_shopContent.Clone();
         }
         #endregion
 
@@ -102,7 +107,7 @@ namespace Canicule
         {
             foreach (KeyValuePair<ItemData, int> item in m_itemCart)
             {
-                foreach (ItemData shopItem in m_shopContent.shopCategories[(int)item.Key.exhaustionType].items)
+                foreach (ItemData shopItem in m_instanceShopContent.shopCategories[(int)item.Key.exhaustionType].items)
                 {
                     if (shopItem.b_hasBeenBoughtOnce)
                     {
@@ -141,7 +146,7 @@ namespace Canicule
         {
             List<ItemData> items = new List<ItemData>();
 
-            foreach(ShopCategory category in m_shopContent.shopCategories)
+            foreach(ShopCategory category in m_instanceShopContent.shopCategories)
             {
                 if(category.type == type)
                 {

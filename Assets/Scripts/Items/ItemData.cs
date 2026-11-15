@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Canicule
@@ -24,7 +25,6 @@ namespace Canicule
         // In this dropdown, you can select the children of ItemEffect
         public List<ItemEffect> itemEffects = new List<ItemEffect>();
 
-
         /// <summary>
         /// Apply the effects linked defined in itemEffects
         /// </summary>
@@ -35,6 +35,23 @@ namespace Canicule
             {
                 effect?.UseItemEffect();
             }
+        }
+
+        public ItemData Clone()
+        {
+            ItemData instance = ScriptableObject.CreateInstance<ItemData>();
+
+            instance.name = this.name + "(clone)";
+
+            instance.itemIcon = itemIcon;
+            instance.itemName = itemName;
+            instance.itemType = itemType;
+            instance.exhaustionType = exhaustionType;
+            instance.itemDescription = itemDescription;
+            instance.itemPrice = itemPrice;
+            instance.itemEffects = itemEffects;
+
+            return instance;
         }
     }
 }

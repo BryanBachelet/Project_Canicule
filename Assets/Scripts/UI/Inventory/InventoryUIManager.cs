@@ -141,6 +141,8 @@ namespace Canicule
 
         private void UpdateItemValues()
         {
+            if(m_inventoryDataManager.GetDisplayedInventory().Count == 0) return;
+
             ItemData item = m_inventoryDataManager.GetDisplayedInventory()[m_inventoryDataManager.GetIndexSelector()];
 
             m_itemDescription.text = item.itemDescription.ToString();
