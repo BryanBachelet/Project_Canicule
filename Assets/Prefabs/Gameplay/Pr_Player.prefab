@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CharacterInteract
   m_baseCursorTex: {fileID: 2800000, guid: 042d586c76382e142827aed62d1f91e0, type: 3}
   m_interactCursorTex: {fileID: 2800000, guid: 121fafd59f3220e4ab6554379c13ca81, type: 3}
+  m_cancelInteractionCursor: {fileID: 2800000, guid: 11980e2c2dc64bf42b1167fe54cf5138, type: 3}
+  m_cancelDuration: 1
 --- !u!114 &3735715357252105993
 MonoBehaviour:
   m_ObjectHideFlags: 0

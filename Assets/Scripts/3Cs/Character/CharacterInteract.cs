@@ -7,6 +7,12 @@ namespace Canicule
         [Header("Cursor Variables")]
         [SerializeField] private Texture2D m_baseCursorTex;
         [SerializeField] private Texture2D m_interactCursorTex;
+        [SerializeField] private Texture2D m_cancelInteractionCursor;
+        [SerializeField] private float m_cancelDuration = 2.0f;
+        private bool m_cancelCursorActive;
+        private float m_cancelTimer = 0.0f;
+
+
         private CharacterInput m_characterInput;
 
         private void Awake()
@@ -22,6 +28,20 @@ namespace Canicule
 
         private void UpdateCursor()
         {
+            if(m_cancelCursorActive)
+            {
+                if (m_cancelTimer > m_cancelDuration)
+                {
+                    m_cancelCursorActive = false;
+                }
+                else
+                {
+                    m_cancelTimer += Time.deltaTime;
+                    return;
+                }
+
+            }
+
             bool bIsInteracting = CheckMouseOver();
             if (bIsInteracting)
             {
@@ -30,9 +50,15 @@ namespace Canicule
             else
             {
                 Cursor.SetCursor(m_baseCursorTex, Vector2.zero, CursorMode.ForceSoftware);
-            }
+            } 
 
-          
+        }
+
+        private void SetCancelCursor()
+        {
+            m_cancelCursorActive = true;
+            m_cancelTimer = 0.0f;
+            Cursor.SetCursor(m_cancelInteractionCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
 
         public bool CheckMouseOver()
@@ -69,10 +95,14 @@ namespace Canicule
                     Vector2 direction = mousePosWorld - playerPos;
                     Vector2 normalizedDirection = direction.normalized;
                     RaycastHit2D playerInteractibleRay = Physics2D.Raycast(playerPos, normalizedDirection, m_characterInput.characterData.interactionRange, LayerMask.GetMask("Interactible"));
-                    
+
                     if (interactibleObject.CanInteract() && playerInteractibleRay)
                     {
-                        interactibleObject.LaunchInteraction(this.transform,Interactor.PLAYER);
+                        interactibleObject.LaunchInteraction(this.transform, Interactor.PLAYER);
+                    }
+                    else
+                    {
+                        SetCancelCursor();
                     }
                 }
                 else
