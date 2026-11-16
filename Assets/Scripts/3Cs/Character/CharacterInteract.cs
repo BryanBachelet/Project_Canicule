@@ -4,6 +4,11 @@ namespace Canicule
 {
     public class CharacterInteract : MonoBehaviour
     {
+        private bool m_isInteracting = false;
+        private Character m_characterCmpt = null;
+        private InteractibleObject m_lastInteractibleObject = null;
+        private PlayerUIManager m_playerUIManager;
+
         [Header("Cursor Variables")]
         [SerializeField] private Texture2D m_baseCursorTex;
         [SerializeField] private Texture2D m_interactCursorTex;
@@ -18,17 +23,30 @@ namespace Canicule
         private void Awake()
         {
             m_characterInput = GetComponent<CharacterInput>();
+            m_characterCmpt = GetComponent<Character>();
+            m_playerUIManager = GetComponentInChildren<PlayerUIManager>();
         }
 
         public void Update()
         {
             UpdateCursor();
+            UpdateInteraction();
+        }
+
+        private void UpdateInteraction()
+        {
+            if(!m_isInteracting)
+            {
+                return;
+            }
+
+            m_playerUIManager.SetInteractionBar(m_lastInteractibleObject.GetRatioInteraction());
         }
 
 
         private void UpdateCursor()
         {
-            if(m_cancelCursorActive)
+            if (m_cancelCursorActive)
             {
                 if (m_cancelTimer > m_cancelDuration)
                 {
@@ -50,7 +68,7 @@ namespace Canicule
             else
             {
                 Cursor.SetCursor(m_baseCursorTex, Vector2.zero, CursorMode.ForceSoftware);
-            } 
+            }
 
         }
 
@@ -98,7 +116,13 @@ namespace Canicule
 
                     if (interactibleObject.CanInteract() && playerInteractibleRay)
                     {
-                        interactibleObject.LaunchInteraction(this.transform, Interactor.PLAYER);
+                        m_lastInteractibleObject = interactibleObject;
+                        m_lastInteractibleObject.LaunchInteraction(this.transform, Interactor.PLAYER);
+                        m_lastInteractibleObject.OnInteractEnd.AddListener(OnInteractionEnd);
+                        m_isInteracting = true;
+                        m_characterCmpt.ChangeState(CharacterState.INTERACTION);
+
+                        m_playerUIManager.ActiveInteractionBar();
                     }
                     else
                     {
@@ -110,6 +134,19 @@ namespace Canicule
                     Debug.LogError("No Interactible Script was founded on " + interactibleObject.name);
                 }
             }
+        }
+
+        private void OnInteractionEnd()
+        {
+            m_isInteracting = false;
+            m_characterCmpt.ChangeState(CharacterState.IDLE);
+            m_lastInteractibleObject.OnInteractEnd.RemoveListener(OnInteractionEnd);
+            m_playerUIManager.DeactivateInteractionBar();
+        }
+
+        public bool IsInteracting()
+        {
+            return m_isInteracting;
         }
     }
 }

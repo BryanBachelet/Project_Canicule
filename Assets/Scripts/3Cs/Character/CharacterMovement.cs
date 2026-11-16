@@ -26,6 +26,12 @@ namespace Canicule
         // Update is called once per frame
         void Update()
         {
+            if (m_character.GetCurrentState() == CharacterState.INVENTORY ||
+                m_character.GetCurrentState() == CharacterState.INTERACTION)
+            {
+                return;
+            }
+
             ComputeCharacterMovementSpeed();
 
             m_moveDirection = m_characterInput.moveDirection.normalized * m_characterMovementSpeed;

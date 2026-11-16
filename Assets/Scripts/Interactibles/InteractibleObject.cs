@@ -157,6 +157,11 @@ namespace Canicule
             return bIsInteracting; 
         }
 
+        public float GetRatioInteraction()
+        {
+            return interactionTimer / interactionDuration;
+        }
+
      
         #endregion
     }
