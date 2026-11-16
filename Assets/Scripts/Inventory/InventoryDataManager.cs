@@ -30,6 +30,19 @@ namespace Canicule
         public void OpenInventory()
         {
             m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.FREE);
+
+            // Manage player states
+            Character character = GameManager.GetPlayer().GetComponent<Character>();
+            CharacterState currentCharacterState = character.GetCurrentState();
+
+            if(currentCharacterState != CharacterState.INVENTORY)
+            {
+                character.ChangeState(CharacterState.INVENTORY);
+            }
+            else
+            {
+                character.ChangeState(CharacterState.IDLE);
+            }
         }
 
         public void RequestSelectionItem(UnityAction<InventoryRequestResult,ItemData> func,StationInterface stationInterface)

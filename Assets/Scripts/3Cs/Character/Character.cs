@@ -17,11 +17,6 @@ namespace Canicule
         private CharacterState m_currentState;
         [SerializeField] private bool b_isDebugActive;
 
-        private void Start()
-        {
-            m_currentState = CharacterState.NONE;
-        }
-
         public void ChangeState(CharacterState state)
         {
             if (b_isDebugActive)

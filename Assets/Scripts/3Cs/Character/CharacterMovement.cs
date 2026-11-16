@@ -49,11 +49,12 @@ namespace Canicule
                 m_playerRigidbody2D.linearVelocity = Vector2.zero;
             }
 
+            // Manage player states
             if(dir != Vector2.zero && m_character.GetCurrentState() == CharacterState.IDLE)
             {
                 m_character.ChangeState(CharacterState.WALKING);
             }
-            else if (dir == Vector2.zero && m_character.GetCurrentState() != CharacterState.IDLE)
+            else if (dir == Vector2.zero && m_character.GetCurrentState() == CharacterState.WALKING)
             {
                 m_character.ChangeState(CharacterState.IDLE);
             }

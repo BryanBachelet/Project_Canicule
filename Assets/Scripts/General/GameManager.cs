@@ -56,6 +56,7 @@ namespace Canicule
         {
             m_shopDataManager.InitiateManager();
             m_monsterManager.InitiateManager();
+            playerObj.GetComponent<Character>().ChangeState(CharacterState.IDLE); // To be replaced by an initiation of the player manager
         }
         #endregion
 
