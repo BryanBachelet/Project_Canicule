@@ -22,5 +22,10 @@ namespace Canicule
 
             m_inventoryDataManager.SetPlayerBalance(newbalance);
         }
+
+        public float GetPlayerBalance()
+        {
+            return m_inventoryDataManager.GetPlayerBalance();
+        }
     }
 }

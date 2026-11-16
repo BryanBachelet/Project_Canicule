@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.CameraTargetMovement
   m_cameraInput: {fileID: 8930968980638660146}
+  m_cameraMovementManager: {fileID: 6412711250705888675}
   m_cameraData: {fileID: 11400000, guid: 2f76283adc5c59d43a808afc504d7a1d, type: 2}
   m_player: {fileID: 0}
 --- !u!1 &199155736088423167

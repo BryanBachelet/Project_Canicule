@@ -49,13 +49,13 @@ namespace Canicule
 
                 if (m_tryChance <= m_sleepChanceOverRoomTemperature.Evaluate(m_roomTemperature))
                 {
-                    Debug.Log("Sleep success!");
+                    Debug.Log("[Sleep Manager] Sleep success!");
                     OnSleepStarted?.Invoke();
                     GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.SLEEPING);
                 }
                 else
                 {
-                    Debug.Log("Fail to sleep");
+                    Debug.Log("[Sleep Manager] Fail to sleep");
                     m_bIsSleepTimerRunning = true;
                 }
 
@@ -63,7 +63,7 @@ namespace Canicule
             }
             else
             {
-                Debug.Log("Attempting sleep unauthorized");
+                Debug.Log("[Sleep Manager] Attempting sleep unauthorized");
             }
         }
 

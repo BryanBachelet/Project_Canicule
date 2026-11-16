@@ -5,17 +5,18 @@ namespace Canicule
     public class CameraTargetMovement : MonoBehaviour
     {
         [SerializeField] private CameraInput m_cameraInput;
+        [SerializeField] private CameraMovementManager m_cameraMovementManager;
         [SerializeField] private CameraData m_cameraData;
         [SerializeField] private GameObject m_player;
         private ExhaustionManager m_exhaustionManager;
         private float m_targetMaxDistance;
         private Vector2 mousePosition;
-        
 
 
-        private void Awake()
+        #region Unity Methods
+        private void Start()
         {
-            m_exhaustionManager = Object.FindAnyObjectByType<ExhaustionManager>();
+            m_exhaustionManager = m_cameraMovementManager.GetExhaustionManager();
         }
 
         private void Update()
@@ -28,8 +29,9 @@ namespace Canicule
 
             ComputeTargetMaxDistance();
         }
+        #endregion
 
-
+        #region Camera Target Movement
         public Vector2 ComputesTargetPosition(Vector2 playerPos, Vector2 mousePos)
         {
             Vector2 m_playerMouseVector = mousePos - playerPos;
@@ -57,5 +59,6 @@ namespace Canicule
             float target = m_cameraData.characterTargetMaxDistanceOverExhaustion.Evaluate(m_exhaustionManager.exhaustionRatio);
             m_targetMaxDistance = Mathf.Lerp(start, target, m_cameraData.targetLerpSpeed);
         }
+        #endregion
     }
 }

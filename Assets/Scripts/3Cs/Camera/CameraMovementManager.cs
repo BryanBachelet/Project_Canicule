@@ -12,13 +12,12 @@ namespace Canicule
         private CameraStateManager m_cameraStateManager;
 
 
-
+        #region Unity Methods
         private void Awake()
         {
             m_exhaustionManager = GameManager.GetExhaustionManager();
             m_cameraStateManager = GetComponent<CameraStateManager>();
         }
-
 
         private void Update()
         {
@@ -34,7 +33,9 @@ namespace Canicule
                 CameraFollowsTarget();
             }
         }
+        #endregion
 
+        #region Camera Movement Management
         // The camera's position is set to the target's position with a lerp
         private void CameraFollowsTarget()
         {
@@ -58,7 +59,14 @@ namespace Canicule
         {
             m_cameraLerpSpeed = cameraData.cameraLerpSpeedOverExhaustion.Evaluate(m_exhaustionManager.exhaustionRatio);
         }
+        #endregion
 
+        #region Getter
+        public ExhaustionManager GetExhaustionManager()
+        {
+            return m_exhaustionManager;
+        }
+        #endregion
 
     }
 }

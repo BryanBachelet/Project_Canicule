@@ -7,11 +7,12 @@ namespace Canicule
     {
         [SerializeField] private TMP_Text m_balanceText;
         [SerializeField] private string m_currency;
-        private InventoryDataManager m_inventoryDataManager;
+        private WorkDataManager m_workDataManager;
 
         private void Awake()
         {
-            m_inventoryDataManager = GameManager.GetInventoryDataManager();
+            m_workDataManager = GameManager.GetWorkDataManager();
+            
         }
 
         private void OnEnable()
@@ -21,7 +22,7 @@ namespace Canicule
 
         public void UpdateBalance()
         {
-            m_balanceText.text = m_inventoryDataManager.GetPlayerBalance().ToString("F2") + m_currency;
+            m_balanceText.text = m_workDataManager.GetPlayerBalance().ToString("F2") + m_currency;
         }
 
         
