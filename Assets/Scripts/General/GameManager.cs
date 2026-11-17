@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -5,13 +6,24 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 namespace Canicule
 {
-    [DefaultExecutionOrder(-999)] 
+    public enum GamePhase
+    {
+        NIGHT = 0,
+        MORNING = 1,
+        WORK = 2,
+    }
+
+
+    [DefaultExecutionOrder(-999)]
     // Ensure game manager runs first
     // To be replaced with an initialization system
     public class GameManager : MonoBehaviour
     {
         private static GameManager m_instance;
         private List<IPauseableObject> m_pauseableObject = new List<IPauseableObject>();
+        private GamePhase m_currentGamePhase = GamePhase.NIGHT;
+        public UnityEvent<GamePhase> OnGamePhaseChange;
+
 
         public GameObject playerObj;
         // Manager Variables
@@ -29,7 +41,7 @@ namespace Canicule
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
 
-       [HideInInspector] public UnityEvent OnLose;
+        [HideInInspector] public UnityEvent OnLose;
 
 
         #region Unity Functions
@@ -77,6 +89,22 @@ namespace Canicule
                 m_pauseableObject[i].OnPlay();
             }
             OnPlay?.Invoke();
+        }
+
+        public void SwitchNextGamePhase()
+        {
+            int enumCount = Enum.GetNames(typeof(GamePhase)).Length;
+            int currentGamePhaseIndex = (int)m_currentGamePhase;
+
+            currentGamePhaseIndex++;
+            if (currentGamePhaseIndex == enumCount)
+            {
+                currentGamePhaseIndex = 0;
+            }
+
+            m_currentGamePhase = (GamePhase)currentGamePhaseIndex;
+            OnGamePhaseChange?.Invoke(m_currentGamePhase);
+
         }
 
         #region Static Functions
@@ -155,7 +183,6 @@ namespace Canicule
             m_instance.OnLose?.Invoke();
         }
 
-
         public static ShopDataManager GetShopDataManager()
         {
             if (m_instance == null || !m_instance.m_shopDataManager)
@@ -163,6 +190,7 @@ namespace Canicule
 
             return m_instance.m_shopDataManager;
         }
+
         public static InventoryDataManager GetInventoryDataManager()
         {
             if (m_instance == null || !m_instance.m_inventoryDataManager)
@@ -210,6 +238,25 @@ namespace Canicule
 
             return m_instance.m_environementTemperature;
         }
+
+        #region Game Phase Functions
+        public static GamePhase GetCurrentGamePhase()
+        {
+            return m_instance.m_currentGamePhase;
+        }
+
+        public static void SubcribeToOnGameEventChange(UnityAction<GamePhase> func )
+        {
+            m_instance.OnGamePhaseChange.AddListener(func);
+        }
+
+        public static void UnsubcribeToOnGameEventChange(UnityAction<GamePhase> func)
+        {
+            m_instance.OnGamePhaseChange.RemoveListener(func);
+        }
+
+        #endregion
+
         #endregion
 
     }
