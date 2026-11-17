@@ -11,11 +11,15 @@ namespace Canicule
         [SerializeField] private SleepData m_sleepData;
         [SerializeField] private float m_roomTemperature;
 
+        [SerializeField] private SleepingUIPhase m_sleepingUIPhase;
+
         private RoomManager m_roomManager;
         private AnimationCurve m_sleepChanceOverRoomTemperature;
-        private float m_sleepCooldown;
-        private float m_tryChance;
-        private float m_sleepTimer = 0f;
+
+        private float m_sleepCooldown = 0.0f;
+        private float m_tryChance = 0.0f;
+        private float m_sleepTimer = 0.0f;
+
         private bool m_bCanAttempSleep = true;
         private bool m_bIsSleepTimerRunning = false;
 
@@ -25,6 +29,7 @@ namespace Canicule
             m_sleepTimer = m_sleepCooldown;
             m_sleepChanceOverRoomTemperature = m_sleepData.sleepChanceOverRoomTemperature;
             m_sleepCooldown = m_sleepData.sleepCooldown;
+            m_sleepingUIPhase.OnEndSleepingPhase.AddListener(EndSleepingPhase); 
         }
 
         private void Awake()
@@ -52,6 +57,9 @@ namespace Canicule
                     Debug.Log("[Sleep Manager] Sleep success!");
                     OnSleepStarted?.Invoke();
                     GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.SLEEPING);
+                    GameManager.RequestToSwitchGamePhase();
+                    m_sleepingUIPhase.LaunchSleepingPhase();
+                   
                 }
                 else
                 {
@@ -70,17 +78,22 @@ namespace Canicule
         // Computes the timer cooldown when failed a sleep
         private void ComputeSleepTimer()
         {
-            if (m_bIsSleepTimerRunning)
-            {
-                m_sleepTimer -= Time.deltaTime;
+            if (!m_bIsSleepTimerRunning) return;
 
-                if(m_sleepTimer <= 0f)
-                {
-                    m_sleepTimer = m_sleepCooldown;
-                    m_bCanAttempSleep = true;
-                    m_bIsSleepTimerRunning = false;
-                }
+            m_sleepTimer -= Time.deltaTime;
+
+            if (m_sleepTimer <= 0f)
+            {
+                m_sleepTimer = m_sleepCooldown;
+                m_bCanAttempSleep = true;
+                m_bIsSleepTimerRunning = false;
             }
+
+        }
+        
+        public void EndSleepingPhase()
+        {
+            GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.IDLE);
         }
     }
 }

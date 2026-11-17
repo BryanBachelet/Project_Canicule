@@ -23,6 +23,7 @@ namespace Canicule
         protected Transform actorTransform;
 
         protected bool bIsInteracting = false;
+        protected bool bIsAvailable = true;
 
         protected bool bIsOnPause = false;
 
@@ -119,7 +120,12 @@ namespace Canicule
 
         public bool CanInteract()
         {
-            return !bIsInteracting;
+            return !bIsInteracting && bIsAvailable;
+        }
+
+        public void SetAvailability(bool availableState)
+        {
+            bIsAvailable = availableState;
         }
 
         public virtual void CreateObject(ItemData data)

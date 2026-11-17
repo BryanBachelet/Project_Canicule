@@ -245,6 +245,11 @@ namespace Canicule
             return m_instance.m_currentGamePhase;
         }
 
+        public static void RequestToSwitchGamePhase()
+        {
+            m_instance.SwitchNextGamePhase();
+        }
+
         public static void SubcribeToOnGameEventChange(UnityAction<GamePhase> func )
         {
             m_instance.OnGamePhaseChange.AddListener(func);

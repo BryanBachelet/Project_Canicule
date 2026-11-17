@@ -42,6 +42,12 @@ namespace Canicule
 
         private void UpdateMonsterApparence()
         {
+            if(GameManager.GetCurrentGamePhase() != GamePhase.NIGHT)
+            {
+                m_monsterCmpt.ChangeState(MonsterState.DISAPPEAR);
+                return;
+            }
+
             if (m_monsterCmpt.IsAppear())
             {
                 return;
