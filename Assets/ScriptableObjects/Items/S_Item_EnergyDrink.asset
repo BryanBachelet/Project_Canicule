@@ -19,6 +19,7 @@ MonoBehaviour:
   itemDescription: Hydrates and boosts work income, but lowers sleep chance and quality.
   itemPrice: 5
   b_hasBeenBoughtOnce: 0
+  b_isEquipped: 0
   itemEffects:
   - rid: 9078439476675215644
   - rid: 9078439476675215643
@@ -29,13 +30,17 @@ MonoBehaviour:
     RefIds:
     - rid: 9078439476675215641
       type: {class: ModifySleepChance, ns: Canicule, asm: Assembly-CSharp}
-      data: 
+      data:
+        m_amount: -0.2
     - rid: 9078439476675215642
       type: {class: ModifySleepQuality, ns: Canicule, asm: Assembly-CSharp}
-      data: 
+      data:
+        m_amount: -0.1
     - rid: 9078439476675215643
       type: {class: ModifyMoneyGeneratedDuringXSeconds, ns: Canicule, asm: Assembly-CSharp}
-      data: 
+      data:
+        m_amount: 1000
+        m_duration: 10
     - rid: 9078439476675215644
       type: {class: ModifyThirst, ns: Canicule, asm: Assembly-CSharp}
       data:

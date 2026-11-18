@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728e02d520fe94c4a8e74d5f133dca3c, type: 3}
   m_Name: S_WorkData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.WorkData
-  moneyGainFromClick: {x: 0.06, y: 0.12}
+  moneyGain: {x: 0.04, y: 0.14}

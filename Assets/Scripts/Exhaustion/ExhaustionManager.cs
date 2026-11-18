@@ -225,6 +225,7 @@ namespace Canicule
         {
             m_roomTemperatureModifier = 0;
         }
+
         public float GetRoomTemperatureModifier()
         {
             return m_roomTemperatureModifier;

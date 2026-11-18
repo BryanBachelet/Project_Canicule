@@ -30,7 +30,7 @@ MonoBehaviour:
     - rid: 679815262230282321
       type: {class: ModifySleepChancePills, ns: Canicule, asm: Assembly-CSharp}
       data:
-        m_amount: 0.9
+        m_amount: 1
     - rid: 9078439476675215630
       type: {class: ModifySleepChanceWithoutPills, ns: Canicule, asm: Assembly-CSharp}
       data:

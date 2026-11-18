@@ -6,21 +6,27 @@ namespace Canicule
 {
     public class ItemEffectManager : MonoBehaviour
     {
-
+        // Body Temp
         private float m_roomTemperatureModifierTimer = 0f;
         private bool b_isTemperatureTimerRunning = false;
         private float m_roomTemperatureDeltaBeforeTimer = 0f;
+
+        // Work
+        private float m_gainModifierTimer = 0f;
+        private bool b_isGainTimerRunning = false;
+        private float m_gainModifierDeltaBeforeTimer = 0f;
+
 
         #region Unity Methods
         private void Update()
         {
             // Room Temperature Timer
             RunRoomTemperatureTimer();
+            RunGainTimer();
         }
         #endregion
 
         #region Sleep
-
         public void ModifySleepExhaustionValue(float amount)
         {
             GameManager.GetExhaustionManager().ModifySleepExhaustionValue(amount);
@@ -30,6 +36,7 @@ namespace Canicule
         {
             StartCoroutine(WaitAndRun(delay, () => ModifySleepExhaustionValue(amount)));
         }
+
         public void ModifySleepChance(float amount)
         {
             GameManager.GetSleepManager().ModifySleepChanceModifier(amount);
@@ -98,6 +105,41 @@ namespace Canicule
                     ModifyRoomTemperatureModifier(-1 * m_roomTemperatureDeltaBeforeTimer);
                     Debug.Log("[Item Effect Manager] Room Temperature Timer ended !");
                     b_isTemperatureTimerRunning = false;
+                }
+            }
+        }
+        #endregion
+
+        #region Work
+        public void ModifyGainModifier(float amount)
+        {
+            GameManager.GetWorkDataManager().ModifyGainModifier(amount);
+            Debug.Log("[Item Effect Manager] Gain modifier modified by " + amount + " !");
+        }
+
+        public void ModifyGainModifierForXSeconds(float amount, float duration)
+        {
+            if (!b_isGainTimerRunning)
+            {
+                ModifyGainModifier(amount);
+                m_gainModifierDeltaBeforeTimer = amount;
+            }
+
+            m_gainModifierTimer = duration;
+            b_isGainTimerRunning = true;
+        }
+
+        public void RunGainTimer()
+        {
+            if (b_isGainTimerRunning)
+            {
+                m_gainModifierTimer -= Time.deltaTime;
+
+                if (m_gainModifierTimer < 0f)
+                {
+                    ModifyGainModifier(-1 * m_gainModifierDeltaBeforeTimer);
+                    Debug.Log("[Item Effect Manager] Gain modifier timer ended !");
+                    b_isGainTimerRunning = false;
                 }
             }
         }

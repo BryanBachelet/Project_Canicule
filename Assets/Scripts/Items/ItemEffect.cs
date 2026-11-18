@@ -172,9 +172,12 @@ namespace Canicule
     [System.Serializable]
     public class ModifyMoneyGeneratedDuringXSeconds : ItemEffect
     {
+        [SerializeField] private float m_amount;
+        [SerializeField] private float m_duration;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Money Generated Effect Used!");
+            GameManager.GetItemEffectManager().ModifyGainModifierForXSeconds(m_amount, m_duration);
         }
     }
     #endregion
