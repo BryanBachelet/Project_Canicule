@@ -11,28 +11,64 @@ namespace Canicule
         private bool b_isTemperatureTimerRunning = false;
         private float m_roomTemperatureDeltaBeforeTimer = 0f;
 
+        #region Unity Methods
         private void Update()
         {
             // Room Temperature Timer
             RunRoomTemperatureTimer();
         }
+        #endregion
 
+        #region Sleep
 
-        // Hunger
+        public void ModifySleepExhaustionValue(float amount)
+        {
+            GameManager.GetExhaustionManager().ModifySleepExhaustionValue(amount);
+        }
+
+        public void ModifySleepExhaustionValueAfterXSeconds(float amount, float delay)
+        {
+            StartCoroutine(WaitAndRun(delay, () => ModifySleepExhaustionValue(amount)));
+        }
+        public void ModifySleepChance(float amount)
+        {
+            GameManager.GetSleepManager().ModifySleepChanceModifier(amount);
+        }
+
+        public void ModifySleepChancePills(float amount)
+        {
+            GameManager.GetSleepManager().ModifySleepChancePillsModifier(amount);
+            GameManager.GetSleepManager().SetHasTakenPills(true);
+        }
+
+        public void ModifySleepChanceWithoutPills(float amount)
+        {
+            GameManager.GetSleepManager().ModifySleepChanceWithoutPillsModifier(amount);
+        }
+
+        public void ModifySleepQuality(float amount)
+        {
+            GameManager.GetExhaustionManager().ModifySleepQuality(amount);
+        }
+        #endregion
+
+        #region Hunger
         public void ModifyHunger(float amount)
         {
             GameManager.GetExhaustionManager().ModifyHungerExhaustion(amount);
             Debug.Log("[Item Effect Manager] Hunger modified by " + amount + " !");
         }
+        #endregion
 
-        // Thirst
+        #region Thirst
         public void ModifyThirst(float amount)
         {
             GameManager.GetExhaustionManager().ModifyThirstExhaustion(amount);
             Debug.Log("[Item Effect Manager] Thirst modified by " + amount + " !");
         }
+        #endregion
 
-        // Body Temperature
+        #region Body Temperature
         public void ModifyRoomTemperatureModifier(float amount)
         {
             GameManager.GetExhaustionManager().ModifyRoomTemperatureModifier(amount);
@@ -65,13 +101,14 @@ namespace Canicule
                 }
             }
         }
+        #endregion
 
 
-        IEnumerator WaitAndRun(float delay, Action onComplete)
+        IEnumerator WaitAndRun(float delay, Action methodToRun)
         {
             yield return new WaitForSeconds(delay);
 
-            onComplete?.Invoke();
+            methodToRun?.Invoke();
         }
 
         

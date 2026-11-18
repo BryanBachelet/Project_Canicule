@@ -26,19 +26,36 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepChance : ItemEffect
     {
+        [SerializeField] private float m_amount;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Sleep Chance Effect Used!");
+            GameManager.GetItemEffectManager().ModifySleepChance(m_amount);
         }
     }
 
+    // Sleep Chance associated with pills
+    [System.Serializable]
+    public class ModifySleepChancePills : ItemEffect
+    {
+        [SerializeField] private float m_amount;
+
+        public override void UseItemEffect()
+        {
+            GameManager.GetItemEffectManager().ModifySleepChancePills(m_amount);
+        }
+    }
+
+    
     // Sleep Chance Without Pills effect
     [System.Serializable]
     public class ModifySleepChanceWithoutPills : ItemEffect
     {
+        [SerializeField] private float m_amount;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Sleep Chance Without Pills Effect Used!");
+            GameManager.GetItemEffectManager().ModifySleepChanceWithoutPills(m_amount);
         }
     }
 
@@ -46,9 +63,11 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepQuality : ItemEffect
     {
+        [SerializeField] private float m_amount;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Sleep Quality Effect Used!");
+            GameManager.GetItemEffectManager().ModifySleepQuality(m_amount);
         }
     }
 
@@ -56,9 +75,12 @@ namespace Canicule
     [System.Serializable]
     public class ModifySleepAmountAfterXSeconds : ItemEffect
     {
+        [SerializeField] private float m_amount;
+        [SerializeField] private float m_delay;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Sleep Amount Effect Used!");
+            GameManager.GetItemEffectManager().ModifySleepExhaustionValueAfterXSeconds(m_amount, m_delay);
         }
     }
     #endregion

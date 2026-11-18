@@ -20,15 +20,18 @@ MonoBehaviour:
     harder.
   itemPrice: 6
   b_hasBeenBoughtOnce: 0
+  b_isEquipped: 0
   itemEffects:
-  - rid: 9078439476675215625
+  - rid: 679815262230282321
   - rid: 9078439476675215630
   references:
     version: 2
     RefIds:
-    - rid: 9078439476675215625
-      type: {class: ModifySleepChance, ns: Canicule, asm: Assembly-CSharp}
-      data: 
+    - rid: 679815262230282321
+      type: {class: ModifySleepChancePills, ns: Canicule, asm: Assembly-CSharp}
+      data:
+        m_amount: 0.9
     - rid: 9078439476675215630
       type: {class: ModifySleepChanceWithoutPills, ns: Canicule, asm: Assembly-CSharp}
-      data: 
+      data:
+        m_amount: 0.2

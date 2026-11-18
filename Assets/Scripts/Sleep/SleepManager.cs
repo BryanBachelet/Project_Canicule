@@ -17,11 +17,15 @@ namespace Canicule
         private AnimationCurve m_sleepChanceOverRoomTemperature;
 
         private float m_sleepCooldown = 0.0f;
-        private float m_tryChance = 0.0f;
+        private float m_sleepChance = 0.0f;
+        private float m_sleepChanceModifier = 0.0f;
+        private float m_sleepChancePillsModifier = 0.0f;
+        private float m_sleepChanceWithoutPillsModifier = 0.0f;
         private float m_sleepTimer = 0.0f;
 
         private bool m_bCanAttempSleep = true;
         private bool m_bIsSleepTimerRunning = false;
+        private bool m_hasTakenPills = false;
 
         #region Unity Methods
         private void Start()
@@ -50,20 +54,23 @@ namespace Canicule
 
             if (m_bCanAttempSleep)
             {
-                m_tryChance = UnityEngine.Random.Range(0f, 1f);
+                ComputeSleepChance();
 
-                if (m_tryChance <= m_sleepChanceOverRoomTemperature.Evaluate(m_roomTemperature))
+                if (m_sleepChance >= 1 - m_sleepChanceOverRoomTemperature.Evaluate(m_roomTemperature))
                 {
-                    Debug.Log("[Sleep Manager] Sleep success!");
+                    Debug.Log("[Sleep Manager] Sleep success! Sleep chance was " + m_sleepChance);
                     OnSleepStarted?.Invoke();
                     GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.SLEEPING);
                     GameManager.RequestToSwitchGamePhase();
                     m_sleepingUIPhase.LaunchSleepingPhase();
-                   
+
+                    // Reset Sleeping Pills Effect
+                    m_hasTakenPills = false;
+                    m_sleepChancePillsModifier = 0f;
                 }
                 else
                 {
-                    Debug.Log("[Sleep Manager] Fail to sleep");
+                    Debug.Log("[Sleep Manager] Fail to sleep. Sleep chance was " + m_sleepChance);
                     m_bIsSleepTimerRunning = true;
                 }
 
@@ -71,7 +78,7 @@ namespace Canicule
             }
             else
             {
-                Debug.Log("[Sleep Manager] Attempting sleep unauthorized");
+                Debug.Log("[Sleep Manager] Attempting sleep unauthorized. Remaining cooldown: " + m_sleepTimer + " seconds");
             }
         }
 
@@ -90,10 +97,50 @@ namespace Canicule
             }
 
         }
+
+        private void ComputeSleepChance()
+        {
+            if (m_hasTakenPills)
+            {
+                m_sleepChance = UnityEngine.Random.Range(0f, 1f)
+                        + m_sleepChanceModifier
+                        + m_sleepChancePillsModifier;
+            }
+            else
+            {
+                m_sleepChance = UnityEngine.Random.Range(0f, 1f)
+                        + m_sleepChanceModifier
+                        + m_sleepChanceWithoutPillsModifier;
+            }
+        }
         
         public void EndSleepingPhase()
         {
             GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.IDLE);
+        }
+
+        public void ModifySleepChanceModifier(float amount)
+        {
+            m_sleepChanceModifier += amount;
+            Debug.Log("[Sleep Manager] sleep chance modifier = " + m_sleepChanceModifier);
+        }
+
+        public void ModifySleepChancePillsModifier(float amount)
+        {
+            m_sleepChancePillsModifier += amount;
+            Debug.Log("[Sleep Manager] sleep chance pills modifier = " + m_sleepChancePillsModifier);
+        }
+
+        public void ModifySleepChanceWithoutPillsModifier(float amount)
+        {
+            m_sleepChanceWithoutPillsModifier += amount;
+            Debug.Log("[Sleep Manager] sleep chance without pills modifier = " + m_sleepChanceWithoutPillsModifier);
+        }
+
+        public void SetHasTakenPills(bool b)
+        {
+            m_hasTakenPills = b;
+            Debug.Log("[Sleep Manager] Has taken pills? " + m_hasTakenPills);
         }
     }
 }

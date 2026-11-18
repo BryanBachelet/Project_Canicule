@@ -12,6 +12,7 @@ namespace Canicule
         [SerializeField] private float m_nightRatio;
         [SerializeField] private float m_roomTemperature;
         private float m_roomTemperatureModifier = 0f;
+        private float m_sleepQuality = 1f;
 
         [Range(0f, 1f)]
         public float exhaustionRatio = 0f;
@@ -159,8 +160,18 @@ namespace Canicule
         // Modifies exhaustion when sleep event is triggered
         private void HandleSleepStarted()
         {
-            sleepExhaustion = m_sleepExhaustionManager.ModifyExhaustionByAmount(
-                sleepExhaustion, -1 * exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(m_nightRatio));
+            float sleepReduction = -1 * exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(m_nightRatio) * m_sleepQuality;
+            ModifySleepExhaustionValue(sleepReduction);
+        }
+
+        public void ModifySleepQuality(float amount)
+        {
+            m_sleepQuality += amount;
+        }
+
+        public void ModifySleepExhaustionValue(float amount)
+        {
+            sleepExhaustion = m_sleepExhaustionManager.ModifyExhaustionByAmount(sleepExhaustion, amount);
         }
         #endregion
 

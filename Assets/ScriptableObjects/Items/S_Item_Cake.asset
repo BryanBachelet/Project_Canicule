@@ -19,6 +19,7 @@ MonoBehaviour:
   itemDescription: Big hunger fix. Be careful of the sugar crash right after...
   itemPrice: 2
   b_hasBeenBoughtOnce: 0
+  b_isEquipped: 0
   itemEffects:
   - rid: 9078439476675215633
   - rid: 9078439476675215639
@@ -31,4 +32,6 @@ MonoBehaviour:
         m_hungerModifierAmount: -10
     - rid: 9078439476675215639
       type: {class: ModifySleepAmountAfterXSeconds, ns: Canicule, asm: Assembly-CSharp}
-      data: 
+      data:
+        m_amount: 20
+        m_delay: 10
