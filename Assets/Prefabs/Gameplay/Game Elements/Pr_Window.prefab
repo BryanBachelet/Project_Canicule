@@ -147,38 +147,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_itemData: {fileID: 0}
-  OnWindowOpen:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8656958438637863861}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnWindowClose:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8656958438637863861}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_heatRatioWindowClose: 0.5
   m_heatRatioWindowOpen: 1
+  m_windowRenderer: {fileID: 8656958438637863861}
+  m_windowOpen: {fileID: -2557461178451242925, guid: 7a96d677e02d23a4a97c79b7790b8e8b, type: 3}
+  m_windowClose: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
+  m_windowOpenSurvivalBlanket: {fileID: -2291057270814073552, guid: 588f9fea89a35374cb2aeee8dd16cb3e, type: 3}
+  m_windowCloseSurvivalBlanket: {fileID: 3379497053594612188, guid: ed686e0e789dabb4597a3eda9779b91d, type: 3}
 --- !u!114 &2980793949887904317
 MonoBehaviour:
   m_ObjectHideFlags: 0

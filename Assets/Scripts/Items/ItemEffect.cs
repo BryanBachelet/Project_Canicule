@@ -195,7 +195,7 @@ namespace Canicule
     {
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Install Survival Blanket Effect Used!");
+            GameManager.GetItemEffectManager().InstallSurvivalBlankets();
         }
     }
 

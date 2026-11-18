@@ -1,6 +1,8 @@
+using NUnit.Framework;
 using System;
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Canicule
 {
@@ -16,8 +18,14 @@ namespace Canicule
         private bool b_isGainTimerRunning = false;
         private float m_gainModifierDeltaBeforeTimer = 0f;
 
+        // Survival Blankets
+        private Window[] m_windows;
 
         #region Unity Methods
+        private void Start()
+        {
+            m_windows = FindObjectsByType<Window>(FindObjectsSortMode.None);
+        }
         private void Update()
         {
             // Room Temperature Timer
@@ -146,6 +154,17 @@ namespace Canicule
                     Debug.Log("[Item Effect Manager] Gain modifier timer ended !");
                     b_isGainTimerRunning = false;
                 }
+            }
+        }
+        #endregion
+
+        #region Special
+        public void InstallSurvivalBlankets()
+        {
+            foreach(Window window in m_windows)
+            {
+                window.InstallSurvivalBlanket();
+                Debug.Log("Survival Blankets installed for " + window.gameObject.name + " !");
             }
         }
         #endregion

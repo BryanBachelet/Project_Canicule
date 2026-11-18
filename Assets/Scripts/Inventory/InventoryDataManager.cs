@@ -94,11 +94,11 @@ namespace Canicule
             }
             else if (item.itemType == ItemType.Equippable)
             {
-                Debug.Log("Switch Equip State");
+                Debug.Log("[Inventory Data] Switch Equip State");
             }
             else if (item.itemType == ItemType.Interactable)
             {
-                Debug.Log("Hold Interact Item");
+                Debug.Log("[Inventory Data] Hold Interact Item");
                 Item.CharacterHoldItem characterHoldItem = GameManager.GetPlayer().GetComponent<Item.CharacterHoldItem>();
                 characterHoldItem.SetHoldItem(item);
             }
@@ -124,6 +124,12 @@ namespace Canicule
                 {
                     m_playerItems.Add(item.Key, item.Value);
                     OnAddingItem?.Invoke(item.Key, item.Value);
+
+                    // If it's an upgrade, use it right away
+                    if(item.Key.itemType == ItemType.Upgrade)
+                    {
+                        item.Key.UseItem();
+                    }
                 }
             }
 
