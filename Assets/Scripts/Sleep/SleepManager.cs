@@ -21,6 +21,7 @@ namespace Canicule
         private float m_sleepChanceModifier = 0.0f;
         private float m_sleepChancePillsModifier = 0.0f;
         private float m_sleepChanceWithoutPillsModifier = 0.0f;
+        private float m_sleepChanceEnergyDrinkModifier = 0.0f;
         private float m_sleepTimer = 0.0f;
 
         private bool m_bCanAttempSleep = true;
@@ -67,6 +68,9 @@ namespace Canicule
                     // Reset Sleeping Pills Effect
                     m_hasTakenPills = false;
                     m_sleepChancePillsModifier = 0f;
+
+                    // Reset Energy Drink Effect
+                    m_sleepChanceEnergyDrinkModifier = 0f;
                 }
                 else
                 {
@@ -104,13 +108,15 @@ namespace Canicule
             {
                 m_sleepChance = UnityEngine.Random.Range(0f, 1f)
                         + m_sleepChanceModifier
-                        + m_sleepChancePillsModifier;
+                        + m_sleepChancePillsModifier
+                        + m_sleepChanceEnergyDrinkModifier;
             }
             else
             {
                 m_sleepChance = UnityEngine.Random.Range(0f, 1f)
                         + m_sleepChanceModifier
-                        + m_sleepChanceWithoutPillsModifier;
+                        + m_sleepChanceWithoutPillsModifier
+                        + m_sleepChanceEnergyDrinkModifier;
             }
         }
         
@@ -135,6 +141,12 @@ namespace Canicule
         {
             m_sleepChanceWithoutPillsModifier += amount;
             Debug.Log("[Sleep Manager] sleep chance without pills modifier = " + m_sleepChanceWithoutPillsModifier);
+        }
+
+        public void ModifySleepChanceEnergyDrink(float amount)
+        {
+            m_sleepChanceEnergyDrinkModifier += amount;
+            Debug.Log("[Sleep Manager] sleep chance energy drink modifier = " + m_sleepChanceEnergyDrinkModifier);
         }
 
         public void SetHasTakenPills(bool b)

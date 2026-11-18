@@ -24,9 +24,10 @@ namespace Canicule
 
             m_inventoryDataManager.SetPlayerBalance(newbalance);
 
-            Debug.Log("gain modifier : " + m_gainModifier);
-            Debug.Log("rounded random gain : " + roundedRandomGain);
+            //Debug.Log("gain modifier : " + m_gainModifier);
+            //Debug.Log("rounded random gain : " + roundedRandomGain);
         }
+
         public void ModifyGainModifier(float amount)
         {
             m_gainModifier += amount;

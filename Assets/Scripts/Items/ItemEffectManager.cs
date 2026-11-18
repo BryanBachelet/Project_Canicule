@@ -53,6 +53,11 @@ namespace Canicule
             GameManager.GetSleepManager().ModifySleepChanceWithoutPillsModifier(amount);
         }
 
+        public void ModifySleepChanceEnergyDrink(float amount)
+        {
+            GameManager.GetSleepManager().ModifySleepChanceEnergyDrink(amount);
+        }
+
         public void ModifySleepQuality(float amount)
         {
             GameManager.GetExhaustionManager().ModifySleepQuality(amount);

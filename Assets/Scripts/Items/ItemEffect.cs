@@ -59,6 +59,17 @@ namespace Canicule
         }
     }
 
+    [System.Serializable]
+    public class ModifySleepChanceEnergyDrink : ItemEffect
+    {
+        [SerializeField] private float m_amount;
+
+        public override void UseItemEffect()
+        {
+            GameManager.GetItemEffectManager().ModifySleepChanceEnergyDrink(m_amount);
+        }
+    }
+
     // Sleep Quality effect
     [System.Serializable]
     public class ModifySleepQuality : ItemEffect
@@ -149,8 +160,6 @@ namespace Canicule
         }
     }
 
-
-
     [System.Serializable]
     public class WaterBowlEffect : InteractableEffect
     {
@@ -162,9 +171,6 @@ namespace Canicule
             Debug.Log("[Item Effect] Interactable Effect has been used!");
         }
     }
-
-
-
     #endregion
 
     #region Money Effects
