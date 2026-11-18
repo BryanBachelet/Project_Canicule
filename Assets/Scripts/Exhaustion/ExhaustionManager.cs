@@ -11,6 +11,7 @@ namespace Canicule
         [Range(0f, 1f)]
         [SerializeField] private float m_nightRatio;
         [SerializeField] private float m_roomTemperature;
+        private float m_roomTemperatureModifier = 0f;
 
         [Range(0f, 1f)]
         public float exhaustionRatio = 0f;
@@ -69,42 +70,36 @@ namespace Canicule
                 m_roomTemperature = m_roomManager.GetCurrentRoomPlayer().GetHeatManager().GetDegree();
                 m_nightRatio = GameManager.GetNightDayManager().GetNightRatio();
 
+                // General
                 exhaustion = ComputeExhaustion();
                 exhaustionRatio = ComputeExhaustionRatio(exhaustionRatio, exhaustion, exhaustionData.maxExhaustion);
 
                 // Sleep
                 if (m_bCanBeSleepExhausted)
                 {
-                    sleepExhaustion = m_sleepExhaustionManager.IncreaseExhaustionOverTime(
-                        sleepExhaustion, exhaustionData.sleepIncreaseRateOverNightRatio.Evaluate(m_nightRatio));
+                    sleepExhaustion = ComputeSleepExhaustion();
                 }
                 // Hunger
                 if (m_bCanBeHungerExhausted)
                 {
-                    hungerExhaustion = m_hungerExhaustionManager.IncreaseExhaustionOverTime(
-                        hungerExhaustion, exhaustionData.hungerIncreaseRate);
+                    hungerExhaustion = ComputeHungerExhaustion();
                 }
                 // Thirst
                 if (m_bCanBeThirstExhausted)
                 {
-                    thirstExhaustion = m_thirstExhaustionManager.IncreaseExhaustionOverTime(
-                        thirstExhaustion, exhaustionData.thirstIncreaseRateOverTemperature.Evaluate(m_roomTemperature));
+                    thirstExhaustion = ComputeThirstExhaustion();
                 }
                 // Body Temperature
                 if (m_bCanBeBodyTemperatureExhausted)
                 {
-                    bodyTemperatureExhaustion = m_bodyTemperatureExhaustionManager.ModifyExhaustionOverTime(
-                        bodyTemperatureExhaustion, 
-                        exhaustionData.bodyTemperatureOverTargetTemperature.Evaluate(m_roomTemperature),
-                        exhaustionData.upBodyTemperatureSpeed,
-                        exhaustionData.downBodyTemperatureSpeed);
+                    bodyTemperatureExhaustion = ComputeBodyTemperatureExhaustion();
                 }
 
             }
         }
         #endregion
 
-        #region Exhaustion Management
+        #region General Exhaustion Management
         // Computes the value of exhaustion
         private float ComputeExhaustion()
         {
@@ -152,12 +147,28 @@ namespace Canicule
                     break;
             }
         }
+        #endregion
+
+        #region Sleep
+        private float ComputeSleepExhaustion()
+        {
+            return m_sleepExhaustionManager.IncreaseExhaustionOverTime(
+                        sleepExhaustion, exhaustionData.sleepIncreaseRateOverNightRatio.Evaluate(m_nightRatio));
+        }
 
         // Modifies exhaustion when sleep event is triggered
         private void HandleSleepStarted()
         {
             sleepExhaustion = m_sleepExhaustionManager.ModifyExhaustionByAmount(
                 sleepExhaustion, -1 * exhaustionData.sleepDecreaseAmountOverNightRatio.Evaluate(m_nightRatio));
+        }
+        #endregion
+
+        #region Hunger
+        private float ComputeHungerExhaustion()
+        {
+            return m_hungerExhaustionManager.IncreaseExhaustionOverTime(
+                        hungerExhaustion, exhaustionData.hungerIncreaseRate);
         }
 
         // Modify exhaustion when eating
@@ -167,13 +178,49 @@ namespace Canicule
                 hungerExhaustion, amount);
         }
 
-        // Modify exhaustion when drinking
+        #endregion
+
+        #region Thirst
         public void ModifyThirstExhaustion(float amount)
         {
             thirstExhaustion = m_thirstExhaustionManager.ModifyExhaustionByAmount(
                 thirstExhaustion, amount);
         }
+
+        // Modify exhaustion when drinking
+        private float ComputeThirstExhaustion()
+        {
+            return m_thirstExhaustionManager.IncreaseExhaustionOverTime(
+                        thirstExhaustion, exhaustionData.thirstIncreaseRateOverTemperature.Evaluate(m_roomTemperature + m_roomTemperatureModifier));
+        }
         #endregion
+
+        #region Body Temperature
+        private float ComputeBodyTemperatureExhaustion()
+        {
+            return m_bodyTemperatureExhaustionManager.ModifyExhaustionOverTime(
+                        bodyTemperatureExhaustion,
+                        exhaustionData.bodyTemperatureOverTargetTemperature.Evaluate(m_roomTemperature + m_roomTemperatureModifier),
+                        exhaustionData.upBodyTemperatureSpeed,
+                        exhaustionData.downBodyTemperatureSpeed);
+        }
+
+        public void ModifyRoomTemperatureModifier(float amount)
+        {
+            m_roomTemperatureModifier += amount;
+        }
+
+        public void ResetRoomTemperatureModifier()
+        {
+            m_roomTemperatureModifier = 0;
+        }
+        public float GetRoomTemperatureModifier()
+        {
+            return m_roomTemperatureModifier;
+        }
+        #endregion
+
+
 
     }
 }

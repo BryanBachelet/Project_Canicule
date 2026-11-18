@@ -72,8 +72,7 @@ namespace Canicule
 
         public override void UseItemEffect()
         {
-            GameManager.GetExhaustionManager().ModifyHungerExhaustion(m_hungerModifierAmount);
-            Debug.Log("[Item Effect] Hunger modified by " + m_hungerModifierAmount + " through item use!");
+            GameManager.GetItemEffectManager().ModifyHunger(m_hungerModifierAmount);
         }
 
         public float GetHungerModifierAmount()
@@ -82,7 +81,6 @@ namespace Canicule
         }
     }
     #endregion
-
 
     #region Thirst Effects
     // Thirst effect
@@ -93,9 +91,7 @@ namespace Canicule
 
         public override void UseItemEffect()
         {
-            GameManager.GetExhaustionManager().ModifyThirstExhaustion(m_thirstModifierAmount);
-
-            Debug.Log("[Item Effect] Thirst modified by " + m_thirstModifierAmount + " through item use!");
+            GameManager.GetItemEffectManager().ModifyThirst(m_thirstModifierAmount);
         }
 
         public float GetThirstModifierAmount()
@@ -110,9 +106,11 @@ namespace Canicule
     [System.Serializable]
     public class ModifyRoomTemperature : ItemEffect
     {
+        [SerializeField] private float m_roomTemperatureModifierAmount;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Room Temperature Effect Used!");
+            GameManager.GetItemEffectManager().ModifyRoomTemperatureModifier(m_roomTemperatureModifierAmount);
         }
     }
 
@@ -120,9 +118,12 @@ namespace Canicule
     [System.Serializable]
     public class ModifyBodyTemperatureDuringXSeconds : ItemEffect
     {
+        [SerializeField] private float m_amount;
+        [SerializeField] private float m_duration;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Body Temperature During X Seconds Effect Used!");
+            GameManager.GetItemEffectManager().ModifyRoomTemperatureModifierForXSeconds(m_amount, m_duration);
         }
     }
 

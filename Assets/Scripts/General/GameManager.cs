@@ -37,6 +37,7 @@ namespace Canicule
         private WorkDataManager m_workDataManager;
         private NightDayManager m_nightDayManager;
         private Canicule.Temperature.EnvirommentHeatSource m_environementTemperature;
+        private ItemEffectManager m_itemEffectManager;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -62,6 +63,7 @@ namespace Canicule
             m_workDataManager = GetComponent<WorkDataManager>();
             m_nightDayManager = GetComponent<NightDayManager>();
             m_environementTemperature = GetComponent<Canicule.Temperature.EnvirommentHeatSource>();
+            m_itemEffectManager = GetComponent <ItemEffectManager>();
         }
 
         private void Start()
@@ -237,6 +239,13 @@ namespace Canicule
                 return null;
 
             return m_instance.m_environementTemperature;
+        }
+        public static ItemEffectManager GetItemEffectManager()
+        {
+            if (m_instance == null || !m_instance.m_itemEffectManager)
+                return null;
+
+            return m_instance.m_itemEffectManager;
         }
 
         #region Game Phase Functions
