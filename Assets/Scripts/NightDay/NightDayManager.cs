@@ -5,7 +5,7 @@ namespace Canicule
 {
     public class NightDayManager : MonoBehaviour
     {
-        private bool m_isNightActive = false;
+        [SerializeField] private bool m_isNightActive = false;
 
         [SerializeField] private float m_nightTotalDuration = 600f; // in seconds
         private float m_nightRatio = 0.0f;
@@ -132,6 +132,11 @@ namespace Canicule
         public int GetDay()
         {
             return m_dayCount;
+        }
+
+        public bool GetIsNightActive()
+        {
+            return m_isNightActive;
         }
         #endregion
     }

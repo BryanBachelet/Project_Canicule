@@ -12,6 +12,7 @@ namespace Canicule
 
         private bool m_isWindowClose = true;
         private HeatSource m_heatSource;
+        private NightDayManager m_nightDayManager;
 
         [SerializeField] private float m_heatRatioWindowClose = 0.5f;
         [SerializeField] private float m_heatRatioWindowOpen = 1.0f;
@@ -23,12 +24,14 @@ namespace Canicule
         [SerializeField] private Sprite m_windowCloseSurvivalBlanket;
 
         private bool b_areSurvivalBlanketsInstalled = false;
+        private float m_degreeReductionFromSurvivalBlankets = 0f;
 
         #region Unity Methods
         public override void Start()
         {
             base.Start();
             m_heatSource = GetComponent<HeatSource>();
+            m_nightDayManager = GameManager.GetNightDayManager();
             GameManager.GetEnvirommentHeatSource()?.OnTemperatureUpdate?.AddListener(OnWindowUpdateTemperature);
         }
 
@@ -109,9 +112,10 @@ namespace Canicule
             }
         }
 
-        public void InstallSurvivalBlanket()
+        public void InstallSurvivalBlanket(float degreeReduction)
         {
             b_areSurvivalBlanketsInstalled = true;
+            m_degreeReductionFromSurvivalBlankets = degreeReduction;
 
             if (m_isWindowClose)
             {
@@ -126,7 +130,14 @@ namespace Canicule
 
         private void OnWindowUpdateTemperature(float degree)
         {
-            m_heatSource.SetTemperature(degree);
+            float effectiveDegree = degree;
+
+            if (!m_nightDayManager.GetIsNightActive() && b_areSurvivalBlanketsInstalled)
+            {
+                effectiveDegree = degree - m_degreeReductionFromSurvivalBlankets;
+            }
+
+            m_heatSource.SetTemperature(effectiveDegree);
         }
 
         public HeatSource GetHeatSource() { return m_heatSource; }

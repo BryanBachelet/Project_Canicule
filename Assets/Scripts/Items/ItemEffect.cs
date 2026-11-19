@@ -193,9 +193,11 @@ namespace Canicule
     [System.Serializable]
     public class InstallSurvivalBlanket : ItemEffect
     {
+        [SerializeField] private float m_degreeReduction;
+
         public override void UseItemEffect()
         {
-            GameManager.GetItemEffectManager().InstallSurvivalBlankets();
+            GameManager.GetItemEffectManager().InstallSurvivalBlankets(m_degreeReduction);
         }
     }
 

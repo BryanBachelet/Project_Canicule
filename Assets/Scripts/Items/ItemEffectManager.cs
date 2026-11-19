@@ -159,11 +159,11 @@ namespace Canicule
         #endregion
 
         #region Special
-        public void InstallSurvivalBlankets()
+        public void InstallSurvivalBlankets(float degreeReduction)
         {
             foreach(Window window in m_windows)
             {
-                window.InstallSurvivalBlanket();
+                window.InstallSurvivalBlanket(degreeReduction);
                 Debug.Log("Survival Blankets installed for " + window.gameObject.name + " !");
             }
         }
