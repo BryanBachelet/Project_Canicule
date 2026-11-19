@@ -29,4 +29,4 @@ MonoBehaviour:
     - rid: 9078439476675215648
       type: {class: InstallSurvivalBlanket, ns: Canicule, asm: Assembly-CSharp}
       data:
-        m_degreeReduction: 10
+        m_reduction: 0.4

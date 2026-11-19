@@ -24,7 +24,7 @@ namespace Canicule
         [SerializeField] private Sprite m_windowCloseSurvivalBlanket;
 
         private bool b_areSurvivalBlanketsInstalled = false;
-        private float m_degreeReductionFromSurvivalBlankets = 0f;
+        private float m_heatRatioReduction = 0f;
 
         #region Unity Methods
         public override void Start()
@@ -45,12 +45,16 @@ namespace Canicule
         {
             OnWindowOpen += ChangeWindowSpriteToOpen;
             OnWindowClose += ChangeWindowSpriteToClose;
+            m_nightDayManager.OnStartNight += UpdateHeatRatio;
+            m_nightDayManager.OnEndNight += UpdateHeatRatio;
         }
 
         private void OnDisable()
         {
             OnWindowOpen -= ChangeWindowSpriteToOpen;
             OnWindowClose -= ChangeWindowSpriteToClose;
+            m_nightDayManager.OnStartNight -= UpdateHeatRatio;
+            m_nightDayManager.OnEndNight -= UpdateHeatRatio;
         }
 
         public void OnTriggerEnter(Collider other)
@@ -77,12 +81,12 @@ namespace Canicule
             if(m_isWindowClose)
             {
                 OnWindowClose?.Invoke();
-                m_heatSource.SetTemperatureScoreRatio(m_heatRatioWindowClose);
+                SetHeatRatioWindowClose();
             }
             else
             {
                 OnWindowOpen?.Invoke();
-                m_heatSource.SetTemperatureScoreRatio(m_heatRatioWindowOpen);
+                SetHeatRatioWindowOpen();
             }
         }
         #endregion
@@ -112,32 +116,52 @@ namespace Canicule
             }
         }
 
-        public void InstallSurvivalBlanket(float degreeReduction)
+        #endregion
+
+        public void InstallSurvivalBlanket(float reduction)
         {
             b_areSurvivalBlanketsInstalled = true;
-            m_degreeReductionFromSurvivalBlankets = degreeReduction;
+            m_heatRatioReduction = reduction;
 
             if (m_isWindowClose)
             {
                 ChangeWindowSpriteToClose();
+                SetHeatRatioWindowClose();
             }
             else
             {
                 ChangeWindowSpriteToOpen();
             }
         }
-        #endregion
 
-        private void OnWindowUpdateTemperature(float degree)
+        public void SetHeatRatioWindowClose()
         {
-            float effectiveDegree = degree;
+            float effectiveHeatRatioWindowClose = m_heatRatioWindowClose;
 
             if (!m_nightDayManager.GetIsNightActive() && b_areSurvivalBlanketsInstalled)
             {
-                effectiveDegree = degree - m_degreeReductionFromSurvivalBlankets;
+                effectiveHeatRatioWindowClose = m_heatRatioWindowClose - m_heatRatioReduction;
             }
 
-            m_heatSource.SetTemperature(effectiveDegree);
+            m_heatSource.SetTemperatureScoreRatio(effectiveHeatRatioWindowClose);
+        }
+
+        public void SetHeatRatioWindowOpen()
+        {
+            m_heatSource.SetTemperatureScoreRatio(m_heatRatioWindowOpen);
+        }
+
+        public void UpdateHeatRatio()
+        {
+            if (m_isWindowClose)
+            {
+                SetHeatRatioWindowClose();
+            }
+        }
+
+        private void OnWindowUpdateTemperature(float degree)
+        {
+            m_heatSource.SetTemperature(degree);
         }
 
         public HeatSource GetHeatSource() { return m_heatSource; }
