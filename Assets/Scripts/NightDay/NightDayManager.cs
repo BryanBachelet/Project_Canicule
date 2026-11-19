@@ -18,10 +18,13 @@ namespace Canicule
         [Header("Hours Parameters")]
         [SerializeField] private int m_nightStartHour = 18;
         [SerializeField] private int m_nightEndHour = 8;
+        [SerializeField] private string m_letterHour = "h";
         private const int m_maxHour = 24;
         private int m_currentHour = 0;
         private float m_hourDuration = 0;
         private float m_hourTimer = 0.0f;
+        private const int m_minMinutes = 0;
+        private const int m_maxMinutes = 59;
 
         [HideInInspector] public UnityAction<int> OnHourChange;
 
@@ -127,6 +130,41 @@ namespace Canicule
         public int GetHour()
         {
             return m_currentHour;
+        }
+
+        public string GetDispayableHour()
+        {
+            // Hours
+
+            int hours = GetHour();
+            string hoursText = hours.ToString();
+            if (hours >= 0f && hours < 10f)
+            {
+                hoursText = "0" + hoursText;
+            }
+            else if (hours == 24)
+            {
+                hoursText = "00";
+            }
+
+            // Minutes
+
+            float m_hourRatio = GetHourRatio() - GetHour();
+            float minutes = Mathf.Round(Mathf.Lerp(m_minMinutes, m_maxMinutes, m_hourRatio) / 10f) * 10f;
+
+            if (minutes > 50f)
+            {
+                minutes = 50f;
+            }
+
+            string minutesText = minutes.ToString();
+
+            if (minutes < 10f)
+            {
+                minutesText = "0" + minutesText;
+            }
+
+            return hoursText + m_letterHour + minutesText;
         }
 
         public int GetDay()

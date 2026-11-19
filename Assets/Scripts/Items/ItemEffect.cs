@@ -234,6 +234,24 @@ namespace Canicule
         }
     }
 
+    [System.Serializable]
+    public class ActivateThermometer : ItemEffect
+    {
+        public override void UseItemEffect()
+        {
+            GameManager.GetItemEffectManager().ActivateThermoter();
+        }
+    }
+
+    [System.Serializable]
+    public class ActivateWatch : ItemEffect
+    {
+        public override void UseItemEffect()
+        {
+            GameManager.GetItemEffectManager().ActivateWatch();
+        }
+    }
+
     // End Game effect
     [System.Serializable]
     public class EndGame : ItemEffect

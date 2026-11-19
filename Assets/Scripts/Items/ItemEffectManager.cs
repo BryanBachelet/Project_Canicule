@@ -25,6 +25,12 @@ namespace Canicule
         // Standing Fan
         [SerializeField] private GameObject m_standingFan;
 
+        // Thermometer
+        [SerializeField] private GameObject m_thermometerUI;
+
+        // Watch
+        [SerializeField] private GameObject m_watchUI;
+
         #region Unity Methods
         private void Start()
         {
@@ -178,6 +184,16 @@ namespace Canicule
             m_standingFan.SetActive(true);
             m_standingFan.GetComponent<StandingFan>().InitStandingFan(sleepChance, sleepQuality);
             Debug.Log("Standing Fan installed !");
+        }
+
+        public void ActivateThermoter()
+        {
+            m_thermometerUI.SetActive(true);
+        }
+        
+        public void ActivateWatch()
+        {
+            m_watchUI.SetActive(true);
         }
         #endregion
 
