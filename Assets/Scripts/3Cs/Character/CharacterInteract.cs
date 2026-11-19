@@ -103,6 +103,7 @@ namespace Canicule
             if (hit != null)
             {
                 InteractibleObject interactibleObject = hit.GetComponent<InteractibleObject>();
+                Debug.Log(hit.gameObject.name);
 
                 if (interactibleObject != null)
                 {
@@ -127,6 +128,10 @@ namespace Canicule
                     else
                     {
                         SetCancelCursor();
+
+
+
+
                     }
                 }
                 else

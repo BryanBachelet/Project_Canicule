@@ -215,9 +215,12 @@ namespace Canicule
     [System.Serializable]
     public class ActivateStandingFan : ItemEffect
     {
+        [SerializeField] private float m_sleepChanceIncrease;
+        [SerializeField] private float m_sleepQualityDecrease;
+
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] Activate Standing Fan Effect Used!");
+            GameManager.GetItemEffectManager().ActivateStandingFan(m_sleepChanceIncrease, m_sleepQualityDecrease);
         }
     }
 

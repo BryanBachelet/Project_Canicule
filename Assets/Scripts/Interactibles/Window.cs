@@ -45,8 +45,8 @@ namespace Canicule
         {
             OnWindowOpen += ChangeWindowSpriteToOpen;
             OnWindowClose += ChangeWindowSpriteToClose;
-            m_nightDayManager.OnStartNight += UpdateHeatRatio;
-            m_nightDayManager.OnEndNight += UpdateHeatRatio;
+            GameManager.GetNightDayManager().OnStartNight += UpdateHeatRatio;
+            GameManager.GetNightDayManager().OnEndNight += UpdateHeatRatio;
         }
 
         private void OnDisable()
@@ -134,7 +134,7 @@ namespace Canicule
             }
         }
 
-        public void SetHeatRatioWindowClose()
+        private void SetHeatRatioWindowClose()
         {
             float effectiveHeatRatioWindowClose = m_heatRatioWindowClose;
 
@@ -146,7 +146,7 @@ namespace Canicule
             m_heatSource.SetTemperatureScoreRatio(effectiveHeatRatioWindowClose);
         }
 
-        public void SetHeatRatioWindowOpen()
+        private void SetHeatRatioWindowOpen()
         {
             m_heatSource.SetTemperatureScoreRatio(m_heatRatioWindowOpen);
         }

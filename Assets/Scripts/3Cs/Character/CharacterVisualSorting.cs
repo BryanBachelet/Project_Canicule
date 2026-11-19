@@ -19,7 +19,8 @@ namespace Canicule
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            SpriteRenderer collisionSpriteRenderer = collision.GetComponent<SpriteRenderer>();
+            InteractibleVisualSortSetter interactibleVisualSortSetter = collision?.GetComponent<InteractibleVisualSortSetter>();
+            SpriteRenderer collisionSpriteRenderer = interactibleVisualSortSetter?.GetSpriteRenderer();
 
             if (collisionSpriteRenderer != null)
             {

@@ -1,8 +1,9 @@
 using NUnit.Framework;
 using System;
 using System.Collections;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
+using UnityEngine;
 
 namespace Canicule
 {
@@ -21,10 +22,14 @@ namespace Canicule
         // Survival Blankets
         private Window[] m_windows;
 
+        // Standing Fan
+        [SerializeField] private GameObject m_standingFan;
+
         #region Unity Methods
         private void Start()
         {
             m_windows = FindObjectsByType<Window>(FindObjectsSortMode.None);
+            //m_standingFan = UnityEngine.Object.FindAnyObjectByType<StandingFan>().gameObject;
         }
         private void Update()
         {
@@ -166,6 +171,13 @@ namespace Canicule
                 window.InstallSurvivalBlanket(reduction);
                 Debug.Log("Survival Blankets installed for " + window.gameObject.name + " !");
             }
+        }
+
+        public void ActivateStandingFan(float sleepChance, float sleepQuality)
+        {
+            m_standingFan.SetActive(true);
+            m_standingFan.GetComponent<StandingFan>().InitStandingFan(sleepChance, sleepQuality);
+            Debug.Log("Standing Fan installed !");
         }
         #endregion
 
