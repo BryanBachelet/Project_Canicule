@@ -25,7 +25,7 @@ namespace Canicule
         {
             if (!m_sleepingAnimationLaunch) return;
 
-            if (m_betweeFadeTimer < m_durationBetweeFadeAnimation)
+            if (m_betweeFadeTimer    < m_durationBetweeFadeAnimation)
             {
                 m_betweeFadeTimer += Time.deltaTime;
             }

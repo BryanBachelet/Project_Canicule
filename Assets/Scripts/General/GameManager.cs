@@ -44,6 +44,7 @@ namespace Canicule
 
         [HideInInspector] public UnityEvent OnLose;
 
+        [SerializeField] private bool m_showDebug = false;
 
         #region Unity Functions
         private void Awake()
@@ -71,6 +72,14 @@ namespace Canicule
             m_shopDataManager.InitiateManager();
             m_monsterManager.InitiateManager();
             playerObj.GetComponent<Character>().ChangeState(CharacterState.IDLE); // To be replaced by an initiation of the player manager
+        }
+
+        private void Update()
+        {
+            if(m_showDebug)
+            {
+                BorsalinoTools.ScreenDebuggerTool.AddMessage($"Game State : {m_currentGamePhase.ToString()}");
+            }
         }
         #endregion
 
@@ -272,6 +281,8 @@ namespace Canicule
         #endregion
 
         #endregion
+
+       
 
     }
 }

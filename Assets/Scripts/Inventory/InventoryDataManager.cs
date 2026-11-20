@@ -27,6 +27,8 @@ namespace Canicule
         private const string m_resultIndexValidString = "Index selection isn't valid";
         private const string m_resultItemValidString = "Item isn't valid";
 
+        [SerializeField] private OutsideWorkUIPhase m_OutsideUIPhase;
+
         public void OpenInventory()
         {
             m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.FREE);
@@ -173,6 +175,28 @@ namespace Canicule
             }
 
         }
+        #endregion
+
+        #region Work Function
+
+        public void ActivateWorkSession()
+        {
+            GameManager.RequestToSwitchGamePhase();
+            GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.NONE);
+            m_OutsideUIPhase.LaunchOutsidePhase();
+            m_OutsideUIPhase.OnEndOutsidePhase.AddListener(EndWorkSession);
+        }
+
+        public void EndWorkSession()
+        {
+            if (GameManager.GetCurrentGamePhase() != GamePhase.WORK)
+                return;
+
+            m_OutsideUIPhase.OnEndOutsidePhase.RemoveListener(EndWorkSession);
+            GameManager.RequestToSwitchGamePhase();
+            GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.IDLE);
+        }
+
         #endregion
 
         #region Getter & Setter

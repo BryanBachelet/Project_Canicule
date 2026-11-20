@@ -47,14 +47,14 @@ namespace Canicule
             m_currentFadaData.m_fadeTimer += Time.deltaTime;
             float currentRatio = m_currentFadaData.m_fadeTimer / m_currentFadaData.m_fadeInDuration;
 
-            currentRatio = m_currentFadaData.m_fadeInCurve.Evaluate(currentRatio);
-
+            float evaluateRatio = m_currentFadaData.m_fadeInCurve.Evaluate(currentRatio);
+           
             if (m_currentFadaData.isFadeOut)
             {
-                currentRatio = 1.0f - currentRatio;
+                evaluateRatio = 1.0f - evaluateRatio;
             }
 
-            SetImageAlphaValue(currentRatio);
+            SetImageAlphaValue(evaluateRatio);
 
 
             if (currentRatio >= 1.0f)
@@ -99,6 +99,7 @@ namespace Canicule
         {
             OnFadeLaunch?.Invoke(m_currentFadaData.isFadeOut);
             m_fadeOccuring = true;
+            m_currentFadaData.m_fadeTimer = 0.0f;
         }
     }
 }

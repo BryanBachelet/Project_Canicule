@@ -42,16 +42,18 @@ namespace Canicule
 
         private void UpdateMonsterApparence()
         {
-            if(GameManager.GetCurrentGamePhase() != GamePhase.NIGHT)
+            if (m_monsterCmpt.IsAppear())
             {
-                m_monsterCmpt.ChangeState(MonsterState.DISAPPEAR);
+                if (GameManager.GetCurrentGamePhase() != GamePhase.NIGHT)
+                {
+                    m_monsterCmpt.ChangeState(MonsterState.DISAPPEAR);
+                    return;
+                }
+
                 return;
             }
 
-            if (m_monsterCmpt.IsAppear())
-            {
-                return;
-            }
+
 
             Rooms.Room currentRoom = GameManager.GetRoomManager().GetCurrentRoomPlayer();
             if (currentRoom.GetRoomDegree() < m_appearenceTemperature)
