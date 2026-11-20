@@ -16,6 +16,11 @@ namespace Canicule
         private DoorGeneral m_doorGeneral;
         [SerializeField] private GameObject m_draftPrefab = null;
         private DraftBehavior m_draftBehavior = null;
+        private bool m_isDraftActive;
+
+        [SerializeField] private float m_durationBetweenDrawDoorCloseDraft = 2.0f;
+        private float m_timerBetweenDrawDoorCloseDraft = 0.0f;
+        [SerializeField] private float m_rateDoorCloseOfDraft = .1f;
 
         public override void Start()
         {
@@ -56,6 +61,7 @@ namespace Canicule
             }
 
             CreateDraft();
+
         }
 
         public void OnEnable()
@@ -77,6 +83,13 @@ namespace Canicule
             m_animator.SetBool(closeStateNameAnimator, !m_bIsDoorOpen);
             m_animator.SetBool(openStateNameAnimator, m_bIsDoorOpen);
         }
+
+        private void UpdateDraftDoor()
+        {
+            if()
+
+        }
+
 
         public void CreateDraft()
         {
@@ -102,11 +115,14 @@ namespace Canicule
             m_draftBehavior = draftBehavior;
             m_draftBehavior.OnDraftDestroy.AddListener(RemoveActiveDraft);
             m_draftBehavior.OnDraftDestroy.AddListener(linkDoor.RemoveActiveDraft);
+            
+            m_isDraftActive = true;
         }
 
         public void RemoveActiveDraft()
         {
             m_draftBehavior = null;
+            m_isDraftActive = false;
         }
 
 
