@@ -11,9 +11,10 @@ namespace Canicule
         [SerializeField] private bool m_deactiveNavMeshLimiter = false;
 
         private CharacterInput m_characterInput;
-        private Vector2 m_moveDirection;
         private Rigidbody2D m_playerRigidbody2D;
         private Character m_character;
+
+        private Vector2 m_moveDirection;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -29,6 +30,7 @@ namespace Canicule
                 if (m_character.GetCurrentState() == CharacterState.INVENTORY ||
                 m_character.GetCurrentState() == CharacterState.INTERACTION)
             {
+                m_playerRigidbody2D.linearVelocity = Vector2.zero;
                 return;
             }
 
