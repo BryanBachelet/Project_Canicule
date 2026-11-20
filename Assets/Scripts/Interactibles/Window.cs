@@ -138,7 +138,7 @@ namespace Canicule
         {
             float effectiveHeatRatioWindowClose = m_heatRatioWindowClose;
 
-            if (!m_nightDayManager.GetIsNightActive() && b_areSurvivalBlanketsInstalled)
+            if (m_nightDayManager && !m_nightDayManager.GetIsNightActive() && b_areSurvivalBlanketsInstalled)
             {
                 effectiveHeatRatioWindowClose = m_heatRatioWindowClose - m_heatRatioReduction;
             }

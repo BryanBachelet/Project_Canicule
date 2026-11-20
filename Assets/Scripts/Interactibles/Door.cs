@@ -18,8 +18,7 @@ namespace Canicule
         private DraftBehavior m_draftBehavior = null;
         private bool m_isDraftActive;
 
-        [SerializeField] private float m_durationBetweenDrawDoorCloseDraft = 2.0f;
-        private float m_timerBetweenDrawDoorCloseDraft = 0.0f;
+        [SerializeField] private TimerObject m_timerDrawDraftCloseDoor;
         [SerializeField] private float m_rateDoorCloseOfDraft = .1f;
 
         public override void Start()
@@ -61,7 +60,7 @@ namespace Canicule
             }
 
             CreateDraft();
-
+            UpdateDraftDoor();
         }
 
         public void OnEnable()
@@ -86,7 +85,17 @@ namespace Canicule
 
         private void UpdateDraftDoor()
         {
-            if()
+            if (!m_isDraftActive) return;
+
+            if(m_timerDrawDraftCloseDoor.UpdateTimer())
+            {
+                float draw = Random.Range(0.0f, 1.0f);
+                
+                if(m_rateDoorCloseOfDraft > draw)
+                {
+                    OpenDoor();
+                }
+            }
 
         }
 

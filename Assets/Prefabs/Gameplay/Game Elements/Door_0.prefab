@@ -209,7 +209,14 @@ MonoBehaviour:
   OnInteractEnd:
     m_PersistentCalls:
       m_Calls: []
+  m_itemData: {fileID: 0}
   m_draftPrefab: {fileID: 2794698492075447180, guid: a25e390075040a44996446a49a4e7b2b, type: 3}
+  m_timerDrawDraftCloseDoor:
+    duration: 2
+    OnTimerCycleFinish:
+      m_PersistentCalls:
+        m_Calls: []
+  m_rateDoorCloseOfDraft: 0.1
 --- !u!95 &435756606492641761
 Animator:
   serializedVersion: 7
@@ -391,6 +398,7 @@ MonoBehaviour:
   OnInteractEnd:
     m_PersistentCalls:
       m_Calls: []
+  m_itemData: {fileID: 0}
   m_roomLink: {fileID: 0}
   m_teleportPoint: {fileID: 0}
   m_offsetTeleportPoint: {x: 0, y: -1.31, z: 0}
