@@ -15,7 +15,7 @@ namespace Canicule
 
     public class InventoryUIManager : MonoBehaviour
     {
-     
+
 
         [SerializeField] private GameObject m_inventoryScreen;
         [SerializeField] private GameObject m_inventoryItemCard;
@@ -48,7 +48,7 @@ namespace Canicule
         public event Action OnInventoryClose;
 
 
-        private InventoryDisplayMode m_displayMode = InventoryDisplayMode.FREE; 
+        private InventoryDisplayMode m_displayMode = InventoryDisplayMode.FREE;
 
         #region Unity Methods
         private void Awake()
@@ -83,28 +83,29 @@ namespace Canicule
             m_itemWidth = itemRect.rect.width;
 
             // If the inventory is empty, set the default inventory
-            if(m_inventoryDataManager.GetPlayerItems().Count == 0)
+            if (m_inventoryDataManager.GetPlayerItems().Count == 0)
             {
                 SetDefaultInventory();
             }
         }
         #endregion
-        
+
         #region Display Methods
-        public void SwitchInventoryScreen(InventoryDisplayMode displayMode)
+        public void OpenInventoryScreen(InventoryDisplayMode displayMode)
+        {
+            m_inventoryScreen.SetActive(true);
+            OnInventoryOpen?.Invoke(displayMode);
+            m_displayMode = displayMode;
+
+        }
+
+        public void CloseInventoryScreen()
         {
             if (m_inventoryScreen.activeSelf)
             {
                 m_inventoryScreen.SetActive(false);
                 OnInventoryClose?.Invoke();
             }
-            else
-            {
-                m_inventoryScreen.SetActive(true);
-                OnInventoryOpen?.Invoke(displayMode);
-                m_displayMode = displayMode;
-            }
-
         }
 
         private void RecreateInventoryDisplay()
@@ -118,9 +119,9 @@ namespace Canicule
         {
             int rank = 0;
 
-            foreach(KeyValuePair<ItemData, int> item in m_inventoryDataManager.GetPlayerItems())
+            foreach (KeyValuePair<ItemData, int> item in m_inventoryDataManager.GetPlayerItems())
             {
-                if(item.Value > 0 && item.Key.itemType != ItemType.Upgrade)
+                if (item.Value > 0 && item.Key.itemType != ItemType.Upgrade)
                 {
                     GameObject newItemCard = GameObject.Instantiate(m_inventoryItemCard, m_inventoryContainer.transform);
 
@@ -143,7 +144,7 @@ namespace Canicule
         {
             InventoryItemCardUpdater[] itemCards = m_inventoryContainer.GetComponentsInChildren<InventoryItemCardUpdater>();
 
-            foreach(InventoryItemCardUpdater itemCard in itemCards)
+            foreach (InventoryItemCardUpdater itemCard in itemCards)
             {
                 Destroy(itemCard.gameObject);
             }
@@ -153,7 +154,7 @@ namespace Canicule
 
         private void UpdateItemValues()
         {
-            if(m_inventoryDataManager.GetDisplayedInventory().Count == 0) return;
+            if (m_inventoryDataManager.GetDisplayedInventory().Count == 0) return;
 
             ItemData item = m_inventoryDataManager.GetDisplayedInventory()[m_inventoryDataManager.GetIndexSelector()];
 
@@ -206,7 +207,7 @@ namespace Canicule
 
         private void UpdateDisplayedItemsAfterRemove()
         {
-            if(m_inventoryDataManager.GetDisplayedInventory().Count == 0)
+            if (m_inventoryDataManager.GetDisplayedInventory().Count == 0)
             {
                 // Resets the inventory if there is no items in it
                 ClearDisplayedItems();
@@ -215,10 +216,10 @@ namespace Canicule
             else
             {
                 InventoryItemCardUpdater[] itemCards = m_inventoryContainer.GetComponentsInChildren<InventoryItemCardUpdater>();
-                
+
                 Destroy(itemCards[m_inventoryDataManager.GetIndexSelector()].gameObject);
 
-                if(m_inventoryDataManager.GetIndexSelector() == itemCards.Length - 1)
+                if (m_inventoryDataManager.GetIndexSelector() == itemCards.Length - 1)
                 {
                     // Moves the selector to ensure items are centered
                     m_inventoryDataManager.DecreaseIndexSelector();

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 using static UnityEditor.Progress;
 
 namespace Canicule
@@ -21,7 +23,7 @@ namespace Canicule
         public event Action OnAddingFinished;
         public event Action OnSelectorChanged;
 
-        private UnityEvent<InventoryRequestResult,ItemData> m_OnSelectionRequestAnser = new UnityEvent<InventoryRequestResult, ItemData>();
+        private UnityEvent<InventoryRequestResult, ItemData> m_OnSelectionRequestAnser = new UnityEvent<InventoryRequestResult, ItemData>();
 
         private StationInterface m_currentStationInterface;
         private const string m_resultIndexValidString = "Index selection isn't valid";
@@ -29,29 +31,66 @@ namespace Canicule
 
         [SerializeField] private OutsideWorkUIPhase m_OutsideUIPhase;
 
+        private bool m_isInventoryOpen = false;
+        private InventoryDisplayMode m_displayMode;
+
         public void OpenInventory()
         {
-            m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.FREE);
 
+            if (m_isInventoryOpen)
+            {
+                _CloseInventory();
+            }
+            else
+            {
+                _OpenInventory();
+            }
+
+        }
+
+        private void _OpenInventory()
+        {
             // Manage player states
             Character character = GameManager.GetPlayer().GetComponent<Character>();
             CharacterState currentCharacterState = character.GetCurrentState();
 
-            if(currentCharacterState != CharacterState.INVENTORY)
+            m_displayMode = InventoryDisplayMode.FREE;
+
+            if (!m_isInventoryOpen && currentCharacterState != CharacterState.INVENTORY)
             {
                 character.ChangeState(CharacterState.INVENTORY);
+                m_isInventoryOpen = true;
+                return;
             }
-            else
-            {
-                character.ChangeState(CharacterState.IDLE);
-            }
+
         }
 
-        public void RequestSelectionItem(UnityAction<InventoryRequestResult,ItemData> func,StationInterface stationInterface)
+        private void _CloseInventory()
         {
-            m_inventoryUIManager.SwitchInventoryScreen(InventoryDisplayMode.SELECTION);
+            if (m_isInventoryOpen)
+            {
+                Character character = GameManager.GetPlayer().GetComponent<Character>();
+                CharacterState currentCharacterState = character.GetCurrentState();
+                character.ChangeState(CharacterState.IDLE);
+
+                m_inventoryUIManager.CloseInventoryScreen();
+            }
+            if (m_displayMode == InventoryDisplayMode.SELECTION)
+            {
+                CharacterInteract interactCmp = GameManager.GetPlayer().GetComponent<CharacterInteract>();
+                interactCmp.CancelInteraction();
+            }
+
+        }
+
+        public void RequestSelectionItem(UnityAction<InventoryRequestResult, ItemData> func, StationInterface stationInterface)
+        {
+            m_inventoryUIManager.OpenInventoryScreen(InventoryDisplayMode.SELECTION);
+            m_displayMode = InventoryDisplayMode.SELECTION;
             m_OnSelectionRequestAnser.AddListener(func);
             m_currentStationInterface = stationInterface;
+            m_isInventoryOpen = true;
+
         }
 
         public bool AnswerSelectionRequest(InventoryRequestResult result, out string resultMessage)
@@ -128,7 +167,7 @@ namespace Canicule
                     OnAddingItem?.Invoke(item.Key, item.Value);
 
                     // If it's an upgrade, use it right away
-                    if(item.Key.itemType == ItemType.Upgrade)
+                    if (item.Key.itemType == ItemType.Upgrade)
                     {
                         item.Key.UseItem();
                     }

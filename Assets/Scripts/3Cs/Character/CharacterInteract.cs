@@ -141,6 +141,13 @@ namespace Canicule
             }
         }
 
+        public void CancelInteraction()
+        {
+            m_isInteracting = true;
+            m_lastInteractibleObject.CancelInteration();
+            OnInteractionEnd();
+        }
+       
         private void OnInteractionEnd()
         {
             m_isInteracting = false;
