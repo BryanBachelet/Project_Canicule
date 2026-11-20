@@ -3299,14 +3299,6 @@ PrefabInstance:
       value: Room
       objectReference: {fileID: 0}
     - target: {fileID: 7639162163146432415, guid: bed318ff180e91847be0686e9f1c4d1e, type: 3}
-      propertyPath: m_appearencePoints.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639162163146432415, guid: bed318ff180e91847be0686e9f1c4d1e, type: 3}
-      propertyPath: m_appearencePoints.Array.data[0].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639162163146432415, guid: bed318ff180e91847be0686e9f1c4d1e, type: 3}
       propertyPath: m_heatManager.m_heatScoreResistance
       value: 2
       objectReference: {fileID: 0}

@@ -71,7 +71,7 @@ namespace Canicule.Rooms
             if (interactor == Interactor.PLAYER && roomManager.GetCurrentRoomMonster() != this ||
                 interactor == Interactor.MONSTER && roomManager.GetCurrentRoomPlayer() != this)
             {
-                this.gameObject.SetActive(false);
+                this.gameObject.SetActive(true);
             }
 
         }

@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Rooms.Room
   m_roomData: {fileID: 11400000, guid: 398f81fd619361a4ebe9c8e079e6885b, type: 2}
+  m_appearencePoints:
+  - {x: 0, y: 0, z: 0}
   m_heatManager:
+    m_heatScoreResistance: 0
     m_activeTemperaturDebug: 0
     m_activeRegisterDebug: 0
