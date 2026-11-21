@@ -19,6 +19,11 @@ namespace Canicule
             m_cameraStateManager = GetComponent<CameraStateManager>();
         }
 
+        private void Start()
+        {
+            m_camera.orthographicSize = cameraData.cameraZoomOverExhaustion.Evaluate(0);
+        }
+
         private void Update()
         {
             UpdateCameraZoom();
