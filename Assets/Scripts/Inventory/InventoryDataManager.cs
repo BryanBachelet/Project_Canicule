@@ -60,6 +60,7 @@ namespace Canicule
             {
                 character.ChangeState(CharacterState.INVENTORY);
                 m_isInventoryOpen = true;
+                m_inventoryUIManager.OpenInventoryScreen(InventoryDisplayMode.FREE);
                 return;
             }
 
@@ -74,12 +75,15 @@ namespace Canicule
                 character.ChangeState(CharacterState.IDLE);
 
                 m_inventoryUIManager.CloseInventoryScreen();
+                m_isInventoryOpen = false;
             }
             if (m_displayMode == InventoryDisplayMode.SELECTION)
             {
                 CharacterInteract interactCmp = GameManager.GetPlayer().GetComponent<CharacterInteract>();
                 interactCmp.CancelInteraction();
             }
+
+
 
         }
 

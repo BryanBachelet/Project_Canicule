@@ -147,7 +147,7 @@ namespace Canicule
 
                 case MonsterState.DISAPPEAR:
                     m_disappearTimer = m_disappearDuration;
-                    m_navMeshAgent.isStopped = false;
+                    m_navMeshAgent.isStopped = true;
                     m_navMeshAgent.SetDestination(m_target.position);
                     break;
 

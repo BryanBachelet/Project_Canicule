@@ -43,6 +43,7 @@ namespace Canicule
         public UnityEvent OnPlay;
 
         [HideInInspector] public UnityEvent OnLose;
+        [HideInInspector] public UnityEvent OnWin;
 
         [SerializeField] private bool m_showDebug = false;
 
@@ -186,12 +187,29 @@ namespace Canicule
             return true;
         }
 
+        public static bool SubscribeToOnWinEvent(UnityAction func)
+        {
+            m_instance.OnWin?.AddListener(func);
+            return true;
+        }
+
+        public static bool UnsubscribeToOnWinEvent(UnityAction func)
+        {
+            m_instance.OnWin?.RemoveListener(func);
+            return true;
+        }
+
         public static void LaunchLose()
         {
             if (!m_instance)
                 return;
 
             m_instance.OnLose?.Invoke();
+        }
+
+        public static void LaunchWin()
+        {
+            m_instance.OnWin?.Invoke();
         }
 
         public static ShopDataManager GetShopDataManager()
