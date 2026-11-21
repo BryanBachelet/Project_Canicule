@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 namespace Canicule
 {
@@ -7,6 +8,7 @@ namespace Canicule
     {
         [SerializeField] private FadeUIComponent m_fadeComponent;
         [SerializeField] private float m_durationBetweeFadeAnimation;
+        [SerializeField] private TMP_Text m_sleepingText;
         private bool m_sleepingAnimationLaunch;
         private float m_betweeFadeTimer = 0.0f;
 
@@ -25,7 +27,7 @@ namespace Canicule
         {
             if (!m_sleepingAnimationLaunch) return;
 
-            if (m_betweeFadeTimer    < m_durationBetweeFadeAnimation)
+            if (m_betweeFadeTimer < m_durationBetweeFadeAnimation)
             {
                 m_betweeFadeTimer += Time.deltaTime;
             }
@@ -33,6 +35,7 @@ namespace Canicule
             {
                 m_fadeComponent.LaunchFadeOut();
                 m_sleepingAnimationLaunch = false;
+                m_sleepingText.gameObject.SetActive(false);
             }
         }
         #endregion
@@ -41,6 +44,7 @@ namespace Canicule
         {
             OnLaunchSleepingPhase?.Invoke();
             m_fadeComponent.LaunchFadeIn();
+            m_sleepingText.gameObject.SetActive(false);
         }
 
         private void OnFadeEnd(bool isFadeOut)
@@ -53,12 +57,14 @@ namespace Canicule
             {
                 m_sleepingAnimationLaunch = true;
                 m_betweeFadeTimer = 0.0f;
+                m_sleepingText.gameObject.SetActive(true);
             }
         }
 
         public void EndSleepingPhase()
         {
             OnEndSleepingPhase?.Invoke();
+           
           
         }
     }
