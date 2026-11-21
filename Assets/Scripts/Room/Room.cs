@@ -119,6 +119,20 @@ namespace Canicule.Rooms
 
             return null;
         }
+
+        public bool HasDraft()
+        {
+            for (int i = 0; i < m_roomLink.Count; i++)
+            {
+                Teleporter teleporterCmpt = m_roomLink[i].teleporter;
+                if( teleporterCmpt.GetDoorGeneral().HasDraft())
+                { 
+                    return true; 
+                }
+            }
+
+            return false;
+        }
     }
 
 

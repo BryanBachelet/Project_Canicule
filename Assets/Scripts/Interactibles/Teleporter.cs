@@ -4,6 +4,7 @@ namespace Canicule
 {
     public class Teleporter : InteractibleObject
     {
+        private DoorGeneral m_doorGeneralCmpt;
         [SerializeField] private Rooms.Room m_roomLink;
         [Space]
         [SerializeField] private Transform m_teleportPoint;
@@ -17,6 +18,7 @@ namespace Canicule
 
         public override void Start()
         {
+            m_doorGeneralCmpt = GetComponentInParent<DoorGeneral>();
             base.Start();
 
             if (m_roomLink == null)
@@ -44,7 +46,8 @@ namespace Canicule
             base.Interact();
         }
 
-        public Transform GetDoorTransformLink() { return m_teleportPoint; } 
+        public Transform GetDoorTransformLink() { return m_teleportPoint; }
+        public DoorGeneral GetDoorGeneral () { return m_doorGeneralCmpt; } 
 
 #if UNITY_DEVELOPMENT || UNITY_EDITOR
         private void OnDrawGizmosSelected()

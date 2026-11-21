@@ -278,11 +278,17 @@ namespace Canicule
             m_instance.OnGamePhaseChange.RemoveListener(func);
         }
 
-        #endregion
+        public static Monster GetMonster()
+        {
+            return m_instance.m_monsterManager.GetMonster();
+
+        }
 
         #endregion
 
-       
+        #endregion
+
+
 
     }
 }

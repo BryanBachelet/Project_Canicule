@@ -26,6 +26,11 @@ namespace Canicule
         private bool b_areSurvivalBlanketsInstalled = false;
         private float m_heatRatioReduction = 0f;
 
+        [Header("Safe Area")]
+        [SerializeField] private  float m_radiusSafeArea =1.0f;
+        [SerializeField] private bool m_activateDebugSafeArea = false;
+        private bool m_isSafeAreaActive = false;
+
         #region Unity Methods
         public override void Start()
         {
@@ -57,6 +62,29 @@ namespace Canicule
             m_nightDayManager.OnEndNight -= UpdateHeatRatio;
         }
 
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (m_isWindowClose) return;
+
+            if(m_roomOwner.HasDraft())
+            {
+                Monster monsterCmpt = GameManager.GetMonster();
+                float distance = Vector3.Distance(transform.position, monsterCmpt.transform.position);
+                if(distance < m_radiusSafeArea)
+                {
+                    monsterCmpt.ChangeState(MonsterState.DISAPPEAR);
+                }
+            }
+            else
+            {
+                m_isSafeAreaActive = false;
+            }
+
+        }
+
         public void OnTriggerEnter(Collider other)
         {
             Monster monsterComp = other.GetComponent<Monster>();
@@ -81,6 +109,7 @@ namespace Canicule
             if(m_isWindowClose)
             {
                 OnWindowClose?.Invoke();
+                m_isSafeAreaActive = false;
                 SetHeatRatioWindowClose();
             }
             else
@@ -136,6 +165,8 @@ namespace Canicule
 
         private void SetHeatRatioWindowClose()
         {
+            if (!m_heatSource) return;
+
             float effectiveHeatRatioWindowClose = m_heatRatioWindowClose;
 
             if (m_nightDayManager && !m_nightDayManager.GetIsNightActive() && b_areSurvivalBlanketsInstalled)
@@ -167,5 +198,15 @@ namespace Canicule
         public HeatSource GetHeatSource() { return m_heatSource; }
 
         public bool IsOpen() { return !m_isWindowClose; }
+
+        #region Debug Functions
+
+        public void OnDrawGizmosSelected()
+        {
+            if (!m_activateDebugSafeArea) return;
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, m_radiusSafeArea);
+        }
+        #endregion
     }
 }

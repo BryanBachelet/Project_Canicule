@@ -65,7 +65,7 @@ namespace Canicule
         private Teleporter m_currentDoorTarget = null;
         private const float m_doorDetectionDistance = 0.5f;
 
-        private bool m_onPause= false;
+        private bool m_onPause = false;
 
         #region Unity Functions
 
@@ -76,6 +76,7 @@ namespace Canicule
             m_currentState = MonsterState.NONE;
 
             m_navMeshAgent = GetComponent<NavMeshAgent>();
+            m_navMeshAgent.updateRotation = false;
             m_catchCollider.enabled = false;
             m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
@@ -84,7 +85,6 @@ namespace Canicule
         public void Start()
         {
             roomManager = GameManager.GetRoomManager();
-            ChangeState(MonsterState.APPEAR);
         }
 
         public void Update()
@@ -102,7 +102,7 @@ namespace Canicule
         public void ChangeState(MonsterState state)
         {
             EndState(state);
-            Debug.Log("[Monster] Change monster state from " + m_currentState + " to " + state);    
+            Debug.Log("[Monster] Change monster state from " + m_currentState + " to " + state);
             m_currentState = state;
             StartState(state);
 
@@ -175,12 +175,16 @@ namespace Canicule
             if (NavMesh.SamplePosition(position, out hit, m_distanceSamplePoint, NavMesh.AllAreas))
             {
                 m_navMeshAgent.Warp(hit.position);
+                transform.rotation = Quaternion.identity;
             }
+
             else
             {
                 Debug.LogWarning($"[Monster] Couldn't teleport because monster navmesh can't find a point on the navmesh point");
             }
-        }
+
+        }            
+            
 
         #region Process Functions
         private void Process_State()

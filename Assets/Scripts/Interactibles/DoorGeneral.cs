@@ -20,5 +20,10 @@ namespace Canicule
             m_doorLink.m_doorCmpt.SetDoorOpen();
         }
 
+        public bool HasDraft()
+        {
+            return m_doorCmpt.IsDraftActive();
+        }
+
     }
 }

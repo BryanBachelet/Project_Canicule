@@ -1,3 +1,5 @@
+using BorsalinoTools;
+using System;
 using UnityEngine;
 
 namespace Canicule
@@ -14,15 +16,26 @@ namespace Canicule
 
         private bool isPaused = false;
 
+#if UNITY_EDITOR || UNITY_DEVELOPEMENT
+        private const string m_spawnMonsterCommandStr = "SpawnMonster";
+#endif
+
         #region Unity Functions
         public void OnEnable()
         {
             GameManager.RegisterObject(this);
+#if UNITY_EDITOR || UNITY_DEVELOPEMENT
+            CommandsConsole.OnCommandCall += OnCommandEnter;
+            CommandsConsole.RegisterCommand(m_spawnMonsterCommandStr);
+#endif
         }
 
         public void OnDisable()
         {
             GameManager.UnregisterObject(this);
+#if UNITY_EDITOR || UNITY_DEVELOPEMENT
+            CommandsConsole.OnCommandCall -= OnCommandEnter;
+#endif
         }
 
         public void Update()
@@ -104,12 +117,9 @@ namespace Canicule
                 }
             }
 
-            m_monsterCmpt.transform.position = room.transform.position;
-
-            Vector3 teleportPosition = points[validIndex];  
+            Vector3 teleportPosition = room.transform.position + points[validIndex];  
             m_monsterCmpt.Teleport(teleportPosition);
             m_monsterCmpt.ChangeState(MonsterState.APPEAR);
-
             GameManager.GetRoomManager().SetCurrentRoomMonster(room);
         }
 
@@ -128,6 +138,26 @@ namespace Canicule
         {
 
         }
+
+        public Monster GetMonster()
+        {
+           return  m_monsterCmpt ;
+        }
         #endregion
+
+#if UNITY_EDITOR || UNITY_DEVELOPEMENT
+        public void OnCommandEnter(string commandStr, params object[] args)
+        {
+            if(commandStr == m_spawnMonsterCommandStr)
+            {
+                SpawnMonsterCommand();
+            }    
+        }
+
+        private void SpawnMonsterCommand()
+        {
+            LaunchMonsterAppearence(GameManager.GetRoomManager().GetCurrentRoomPlayer());
+        }
+#endif
     }
 }

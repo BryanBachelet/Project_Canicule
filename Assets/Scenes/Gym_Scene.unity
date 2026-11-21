@@ -544,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Navmesh2D
       objectReference: {fileID: 0}
+    - target: {fileID: 6192278077837572719, guid: 2088a9eb81d35604188002d0e28aa86a, type: 3}
+      propertyPath: m_CompressBounds
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7581735540451026901, guid: 2088a9eb81d35604188002d0e28aa86a, type: 3}
       propertyPath: m_NavMeshData
       value: 

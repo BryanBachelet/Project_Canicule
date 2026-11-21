@@ -94,6 +94,7 @@ namespace Canicule
                 if(m_rateDoorCloseOfDraft > draw)
                 {
                     OpenDoor();
+                    m_doorGeneral.OpenLinkDoor();
                 }
             }
 
@@ -134,7 +135,7 @@ namespace Canicule
             m_isDraftActive = false;
         }
 
-
+        public bool IsDraftActive() { return m_isDraftActive; }
         public bool IsOpen() { return m_bIsDoorOpen; }
 
     }
