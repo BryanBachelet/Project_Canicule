@@ -418,8 +418,8 @@ MonoBehaviour:
   m_sleepQualityDecreaseAmount: 0
   b_isOn: 0
   b_isInstalled: 0
-  m_lightOn: {fileID: 5562514018824521559}
-  m_lightOff: {fileID: 1963998405435650910}
+  m_lightOn: {fileID: 7458954996828191636}
+  m_lightOff: {fileID: 6081310759624362043}
 --- !u!61 &1914504300290416048
 BoxCollider2D:
   m_ObjectHideFlags: 0

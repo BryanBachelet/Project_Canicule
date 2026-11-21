@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7072741262902247272}
   - component: {fileID: 8702161249411601596}
   m_Layer: 6
-  m_Name: Computer_Interactible
+  m_Name: Computer_Interactible_Deprecated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9b73cd5542e6640a9b5af1b05ee3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.PCInteractible
-  m_roomOwner: {fileID: 0}
   interactionRange: 1.5
   interactionDuration: 0
   OnInteractStart:
@@ -146,6 +145,7 @@ MonoBehaviour:
   OnInteractEnd:
     m_PersistentCalls:
       m_Calls: []
+  m_itemData: {fileID: 0}
 --- !u!61 &8702161249411601596
 BoxCollider2D:
   m_ObjectHideFlags: 0

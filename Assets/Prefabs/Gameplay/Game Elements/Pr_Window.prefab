@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 940062611
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
@@ -154,6 +154,8 @@ MonoBehaviour:
   m_windowClose: {fileID: -8430137894388489581, guid: 92277988968ec4a41bce86e64635e182, type: 3}
   m_windowOpenSurvivalBlanket: {fileID: -2291057270814073552, guid: 588f9fea89a35374cb2aeee8dd16cb3e, type: 3}
   m_windowCloseSurvivalBlanket: {fileID: 3379497053594612188, guid: ed686e0e789dabb4597a3eda9779b91d, type: 3}
+  m_radiusSafeArea: 1
+  m_activateDebugSafeArea: 0
 --- !u!114 &2980793949887904317
 MonoBehaviour:
   m_ObjectHideFlags: 0

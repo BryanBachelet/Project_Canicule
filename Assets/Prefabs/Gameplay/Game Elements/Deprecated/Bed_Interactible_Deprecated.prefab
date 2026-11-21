@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3945732180847187343}
   - component: {fileID: 1745828889096935449}
   m_Layer: 6
-  m_Name: Bed_Interactible
+  m_Name: Bed_Interactible_Deprecated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,12 +102,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.9185047, y: 1.275785}
-      - {x: -4.224506, y: -0.36245987}
-      - {x: -4.2209535, y: -1.22869}
-      - {x: 2.6142058, y: -1.2166989}
-      - {x: 4.2237873, y: 0.38983297}
-      - {x: 4.236496, y: 1.2442882}
+    - - {x: -1.478898, y: 0.7262769}
+      - {x: -2.4503818, y: -0.14265606}
+      - {x: -2.4493442, y: -0.7203263}
+      - {x: 1.6800432, y: -0.7221415}
+      - {x: 2.4496634, y: 0.15432882}
+      - {x: 2.4623723, y: 0.7340324}
   m_UseDelaunayMesh: 1
 --- !u!1 &3709325816403593044
 GameObject:
@@ -188,10 +188,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.0769978, y: 0.38537836}
-      - {x: -4.1937165, y: -1.1957467}
-      - {x: 2.6336803, y: -1.2117003}
-      - {x: 4.2331276, y: 0.3990333}
+    - - {x: -1.4437785, y: 0.1646967}
+      - {x: -2.4551291, y: -0.72387624}
+      - {x: 1.6632123, y: -0.73157394}
+      - {x: 2.4556386, y: 0.17429328}
   m_UseDelaunayMesh: 1
 --- !u!114 &5525405276647959058
 MonoBehaviour:
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5167690650097798016, guid: e81f3f62e58a40b48bfdbe46b0a079fd, type: 3}
+  m_Sprite: {fileID: 5167690650097798016, guid: 7818e86ba6b2d0f48a4a31ae2ccc2a29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -314,3 +314,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.InteractibleVisualSortSetter
   m_movementCollider: {fileID: 3709325816403593044}
+  m_spriteRenderer: {fileID: 0}
+  b_autoCreateCollider: 1
