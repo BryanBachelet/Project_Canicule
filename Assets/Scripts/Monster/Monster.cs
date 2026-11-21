@@ -85,6 +85,7 @@ namespace Canicule
         public void Start()
         {
             roomManager = GameManager.GetRoomManager();
+            transform.rotation = Quaternion.identity; 
         }
 
         public void Update()
