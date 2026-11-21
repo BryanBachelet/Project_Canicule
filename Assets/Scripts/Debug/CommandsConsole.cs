@@ -106,7 +106,7 @@ namespace BorsalinoTools
             {
                 playerInput = FindFirstObjectByType<PlayerInput>();
             }
-            playerInput.DeactivateInput();
+            InputSystem.DisableAllEnabledActions();
             m_showWindow = true;
             m_isFirstTimeTrigger = false;
         }
@@ -118,7 +118,7 @@ namespace BorsalinoTools
                 playerInput = FindFirstObjectByType<PlayerInput>();
             }
 
-            playerInput?.ActivateInput();
+            InputSystem.actions.Enable();
             m_showWindow = false;
             m_inputCommandText = "";
         }
