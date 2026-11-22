@@ -25,5 +25,15 @@ namespace Canicule
             return m_doorCmpt.IsDraftActive();
         }
 
+        public void ActiveTP()
+        {
+            m_teleporterCmpt.ActiveTeleportCollider();
+        }
+
+       public void DeactiveTP()
+        {
+            m_teleporterCmpt.DeactiveTeleportCollider();
+        }
+
     }
 }
