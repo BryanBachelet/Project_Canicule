@@ -62,14 +62,25 @@ namespace Canicule
             }
 
             InteractibleObject interactibleObject = GetInteractibleMouseOver();
-            if (interactibleObject)
+            MouseOverObject(interactibleObject);
+        }
+
+        private void MouseOverObject(InteractibleObject obj)
+        {
+            if (obj)
             {
                 Cursor.SetCursor(m_interactCursorTex, Vector2.zero, CursorMode.ForceSoftware);
-                interactibleObject.ActiveOutline();
-                if (m_lastObjectOver != interactibleObject)
+                float distance = Vector2.Distance(obj.transform.position, transform.position);
+
+                RaycastHit2D playerInteractibleRay = CheckDistanceInteractible(obj, m_characterInput.GetMousePosition());
+                if (!playerInteractibleRay)
+                    return;
+
+                obj.ActiveOutline();
+                if (m_lastObjectOver != obj)
                 {
                     if (m_lastObjectOver) m_lastObjectOver.DeactiveOutline();
-                    m_lastObjectOver = interactibleObject;
+                    m_lastObjectOver = obj;
                 }
             }
             else
@@ -119,13 +130,7 @@ namespace Canicule
 
                 if (interactibleObject != null)
                 {
-                    // Check distance between player and object
-                    Vector2 playerPos;
-                    playerPos.x = transform.position.x;
-                    playerPos.y = transform.position.y;
-                    Vector2 direction = mousePosWorld - playerPos;
-                    Vector2 normalizedDirection = direction.normalized;
-                    RaycastHit2D playerInteractibleRay = Physics2D.Raycast(playerPos, normalizedDirection, m_characterInput.characterData.interactionRange, LayerMask.GetMask("Interactible"));
+                    RaycastHit2D playerInteractibleRay = CheckDistanceInteractible(interactibleObject, mousePosWorld);
 
                     if (interactibleObject.CanInteract() && playerInteractibleRay)
                     {
@@ -147,6 +152,17 @@ namespace Canicule
                     Debug.LogError("No Interactible Script was founded on " + interactibleObject.name);
                 }
             }
+        }
+
+        private RaycastHit2D CheckDistanceInteractible(InteractibleObject obj, Vector2 mousePosWorld)
+        {
+            // Check distance between player and object
+            Vector2 playerPos;
+            playerPos.x = transform.position.x;
+            playerPos.y = transform.position.y;
+            Vector2 direction = mousePosWorld - playerPos;
+            Vector2 normalizedDirection = direction.normalized;
+            return Physics2D.Raycast(playerPos, normalizedDirection, m_characterInput.characterData.interactionRange, LayerMask.GetMask("Interactible"));
         }
 
         public void CancelInteraction()

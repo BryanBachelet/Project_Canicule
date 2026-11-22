@@ -58,7 +58,7 @@ MonoBehaviour:
       m_Calls: []
   m_itemData: {fileID: 11400000, guid: 41eb0231dd3abd349a89716d0d04454a, type: 2}
   m_rendererCmpt: {fileID: 2623230264364382575}
-  m_outlineThickness: 2
+  m_outlineThickness: 10
   m_bowlReduceDegree: 1
   m_bowlFillDuration: 50
   m_emptyBowlSprite: {fileID: 21300000, guid: a24d62272c8b73448ad3eafd06d92829, type: 3}
