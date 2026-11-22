@@ -7,8 +7,6 @@ namespace Canicule
 
         protected override void Interact()
         {
-            Debug.Log(GameManager.GetNightDayManager().GetIsNightActive());
-
             if (!GameManager.GetNightDayManager().GetIsNightActive())
             {
                 GameManager.GetInventoryDataManager().ActivateWorkSession();
@@ -17,7 +15,6 @@ namespace Canicule
             else
             {
                 CancelInteration();
-                Debug.Log("Nope");
                 // Should turn the change the cursor to cancel state
             }
         }
