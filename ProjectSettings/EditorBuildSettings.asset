@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gym_Scene.unity
-    guid: 4559dec4151606f42b9f77ce481c62dd
+    path: Assets/Scenes/MainLevel_Scene.unity
+    guid: e5956cb9298d461438e3d9dfa9f6399e
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: fe3dba015f48a1a4d865af3285be64a0, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
