@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: -3863394978628413901, guid: a0e99b66f04bc69449fa4644b08e3422, type: 3}
     - target: {fileID: 1098984579472352554, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_Name
-      value: Pr_KitchenSink Variant
+      value: Pr_KitchenSink
       objectReference: {fileID: 0}
     - target: {fileID: 3862450625121354747, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_Size.x
@@ -34,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.04423
+      value: 0.17422485
       objectReference: {fileID: 0}
     - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 44.21084
+      value: 0.9039993
       objectReference: {fileID: 0}
     - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_LocalPosition.z
@@ -97,6 +97,11 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 8016070392584168989}
   m_SourcePrefab: {fileID: 100100000, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+--- !u!212 &3754167765039249810 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 913001487121549254, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+  m_PrefabInstance: {fileID: 4085567174686178900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4031488120460319614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1098984579472352554, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
@@ -123,3 +128,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_itemData: {fileID: 0}
+  m_rendererCmpt: {fileID: 3754167765039249810}
+  m_outlineThickness: 1

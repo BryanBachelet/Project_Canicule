@@ -226,6 +226,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_itemData: {fileID: 0}
+  m_rendererCmpt: {fileID: 2009057994592421127}
+  m_outlineThickness: 2
+--- !u!212 &2009057994592421127 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 913001487121549254, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+  m_PrefabInstance: {fileID: 1678217144260592321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2362321901879277074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}

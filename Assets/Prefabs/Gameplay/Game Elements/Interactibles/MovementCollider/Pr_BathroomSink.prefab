@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 4938052084294647817, guid: 7847412db16f431498708186bb763498, type: 3}
     - target: {fileID: 1098984579472352554, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_Name
-      value: Pr_BathroomSink Variant
+      value: Pr_BathroomSink
       objectReference: {fileID: 0}
     - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.997007
+      value: -1.8470001
       objectReference: {fileID: 0}
     - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.683247
+      value: -0.5149994
       objectReference: {fileID: 0}
     - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
       propertyPath: m_LocalPosition.z
@@ -165,3 +165,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_itemData: {fileID: 0}
+  m_rendererCmpt: {fileID: 8529370021894297986}
+  m_outlineThickness: 1
+--- !u!212 &8529370021894297986 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 913001487121549254, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+  m_PrefabInstance: {fileID: 8860210887351901764}
+  m_PrefabAsset: {fileID: 0}
