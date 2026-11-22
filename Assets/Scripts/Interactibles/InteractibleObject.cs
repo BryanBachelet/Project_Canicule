@@ -34,12 +34,29 @@ namespace Canicule
 
         [SerializeField] protected ItemData m_itemData;
 
+        [Header("Outline Parameters")]
+        [SerializeField] private Renderer m_rendererCmpt;
+        [SerializeField] private float m_outlineThickness  = 1;
+        [Space]
+        private const string m_outlineActiveParameterStr = "_ActiveOutline";
+        private const string m_outlineThicknecsParameterStr = "_Thickness";
+
         #region Unity Function
 
         public virtual void Start()
         {
             GameManager.RegisterObject(this);
             m_roomOwner = GetComponentInParent<Rooms.Room>();
+            if (m_rendererCmpt)
+            {
+                m_rendererCmpt.material = new Material(m_rendererCmpt.material);
+                DeactiveOutline();
+            }
+            else
+            {
+                Debug.LogError($"Need to fill the variable m_renderCmpt");
+            }
+
         }
 
         public virtual void OnDestroy()
@@ -155,6 +172,23 @@ namespace Canicule
             OnInteractStart.RemoveAllListeners();
             Destroy(gameObject);
         }
+
+        #region Visual Functions
+        public void ActiveOutline()
+        {
+            if (!m_rendererCmpt) return;
+            
+                m_rendererCmpt.material.SetFloat(m_outlineActiveParameterStr, 1);
+                m_rendererCmpt.material.SetFloat(m_outlineThicknecsParameterStr, m_outlineThickness);
+        }
+
+        public void DeactiveOutline()
+        {
+            if (!m_rendererCmpt) return;    
+            m_rendererCmpt.material.SetFloat(m_outlineActiveParameterStr, 0);
+        }
+
+        #endregion
 
 
         #region Getter Function

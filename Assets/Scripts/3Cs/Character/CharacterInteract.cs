@@ -19,6 +19,7 @@ namespace Canicule
 
 
         private CharacterInput m_characterInput;
+        private InteractibleObject m_lastObjectOver;
 
         private void Awake()
         {
@@ -35,7 +36,7 @@ namespace Canicule
 
         private void UpdateInteraction()
         {
-            if(!m_isInteracting)
+            if (!m_isInteracting)
             {
                 return;
             }
@@ -60,16 +61,27 @@ namespace Canicule
 
             }
 
-            bool bIsInteracting = CheckMouseOver();
-            if (bIsInteracting)
+            InteractibleObject interactibleObject = GetInteractibleMouseOver();
+            if (interactibleObject)
             {
                 Cursor.SetCursor(m_interactCursorTex, Vector2.zero, CursorMode.ForceSoftware);
+                interactibleObject.ActiveOutline();
+                if (m_lastObjectOver != interactibleObject)
+                {
+                    if (m_lastObjectOver) m_lastObjectOver.DeactiveOutline();
+                    m_lastObjectOver = interactibleObject;
+                }
             }
             else
             {
                 Cursor.SetCursor(m_baseCursorTex, Vector2.zero, CursorMode.ForceSoftware);
-            }
+                if (m_lastObjectOver)
+                {
+                    m_lastObjectOver.DeactiveOutline();
+                    m_lastObjectOver = null;
+                }
 
+            }
         }
 
         private void SetCancelCursor()
@@ -79,7 +91,7 @@ namespace Canicule
             Cursor.SetCursor(m_cancelInteractionCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
 
-        public bool CheckMouseOver()
+        public InteractibleObject GetInteractibleMouseOver()
         {
             Collider2D hit = Physics2D.OverlapPoint(m_characterInput.GetMousePosition(), LayerMask.GetMask("Interactible"));
 
@@ -88,11 +100,11 @@ namespace Canicule
                 InteractibleObject interactibleObject = hit.GetComponent<InteractibleObject>();
                 if (interactibleObject != null)
                 {
-                    return true;
+                    return interactibleObject;
                 }
             }
 
-            return false;
+            return null;
         }
 
         // Shoots a point at the mouse's position, and if it's an interactible in the player's range, plays the Interact() function.
@@ -128,10 +140,6 @@ namespace Canicule
                     else
                     {
                         SetCancelCursor();
-
-
-
-
                     }
                 }
                 else
@@ -147,7 +155,7 @@ namespace Canicule
             m_lastInteractibleObject.CancelInteration();
             OnInteractionEnd();
         }
-       
+
         private void OnInteractionEnd()
         {
             m_isInteracting = false;
