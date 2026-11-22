@@ -6,6 +6,8 @@ namespace Canicule
 {
     public class MonsterManager : MonoBehaviour, IPauseableObject
     {
+        [SerializeField] private bool m_IsMonsterCannotAppear = false;
+        
         [Header("Prefabs")]
         [SerializeField] private GameObject m_monsterPrefab;
 
@@ -40,7 +42,7 @@ namespace Canicule
 
         public void Update()
         {
-            if (isPaused)
+            if (isPaused || m_IsMonsterCannotAppear)
                 return;
 
             UpdateMonsterApparence();
