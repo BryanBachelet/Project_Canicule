@@ -73,7 +73,7 @@ namespace Canicule
                 float distance = Vector2.Distance(obj.transform.position, transform.position);
 
                 RaycastHit2D playerInteractibleRay = CheckDistanceInteractible(obj, m_characterInput.GetMousePosition());
-                if (!playerInteractibleRay)
+                if (!playerInteractibleRay || playerInteractibleRay.collider != obj.GetComponent<Collider2D>())
                     return;
 
                 obj.ActiveOutline();
@@ -132,7 +132,7 @@ namespace Canicule
                 {
                     RaycastHit2D playerInteractibleRay = CheckDistanceInteractible(interactibleObject, mousePosWorld);
 
-                    if (interactibleObject.CanInteract() && playerInteractibleRay)
+                    if (interactibleObject.CanInteract() && playerInteractibleRay && playerInteractibleRay.collider == hit)
                     {
                         m_lastInteractibleObject = interactibleObject;
                         m_lastInteractibleObject.LaunchInteraction(this.transform, Interactor.PLAYER);
