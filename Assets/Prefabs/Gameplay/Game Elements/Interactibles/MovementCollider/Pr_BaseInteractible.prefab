@@ -104,6 +104,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_itemData: {fileID: 0}
+  m_rendererCmpt: {fileID: 913001487121549254}
+  m_outlineThickness: 1
 --- !u!61 &4452688935328805044
 BoxCollider2D:
   m_ObjectHideFlags: 0

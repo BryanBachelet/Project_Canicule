@@ -7,8 +7,15 @@ namespace Canicule
 
         protected override void Interact()
         {
-            GameManager.GetInventoryDataManager().ActivateWorkSession();
-            base.Interact();
+            if (!GameManager.GetNightDayManager().GetIsNightActive())
+            {
+                GameManager.GetInventoryDataManager().ActivateWorkSession();
+                base.Interact();
+            }
+            else
+            {
+                // Should turn the change the cursor to cancel state
+            }
         }
     }
 }
