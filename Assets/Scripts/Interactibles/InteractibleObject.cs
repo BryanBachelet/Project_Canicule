@@ -133,6 +133,7 @@ namespace Canicule
             bIsInteracting = false;
             actorTransform = null;
             m_interactor = Interactor.NONE;
+            OnInteractEnd?.Invoke();
         }
 
         public bool CanInteract()
