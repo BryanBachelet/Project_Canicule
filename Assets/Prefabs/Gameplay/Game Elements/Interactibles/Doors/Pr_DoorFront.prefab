@@ -129,9 +129,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 940062611
+  m_SortingLayer: -1
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5213229242370633579, guid: ff7dbe3d0645bae41805f1c3e5966a3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -218,7 +218,7 @@ MonoBehaviour:
     OnTimerCycleFinish:
       m_PersistentCalls:
         m_Calls: []
-  m_rateDoorCloseOfDraft: 0.1
+  m_rateDoorCloseOfDraft: 0.04
 --- !u!95 &435756606492641761
 Animator:
   serializedVersion: 7
