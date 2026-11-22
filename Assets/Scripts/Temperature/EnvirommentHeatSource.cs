@@ -6,7 +6,8 @@ namespace Canicule.Temperature
     [System.Serializable]
     public struct EnvirommentDayTemperature
     {
-        public AnimationCurve m_temperaturePerHour; 
+        public AnimationCurve m_temperaturePerHour;
+        public float m_morningTemperature;
     }
 
     public class EnvirommentHeatSource : MonoBehaviour
@@ -21,11 +22,15 @@ namespace Canicule.Temperature
         private void Start()
         {
             m_nightDayManager = GameManager.GetNightDayManager();
+            GameManager.SubcribeToOnGameEventChange(OnGameStateChange);
         }
 
         public void Update()
         {
-            UpdateHeatSource();
+            if (GameManager.GetCurrentGamePhase() == GamePhase.NIGHT)
+            {
+                UpdateHeatSource();
+            }
         }
         #endregion
 
@@ -35,6 +40,16 @@ namespace Canicule.Temperature
             float hourRatio = m_nightDayManager.GetHourRatio();
             float degree = m_dayTemperature[day].m_temperaturePerHour.Evaluate(hourRatio);
             OnTemperatureUpdate?.Invoke(degree);
+        }
+
+        private void OnGameStateChange(GamePhase phase)
+        {
+            if(phase == GamePhase.MORNING)
+            {
+                int day = m_nightDayManager.GetDay();
+                OnTemperatureUpdate?.Invoke(m_dayTemperature[day].m_morningTemperature);
+            }
+           
         }
 
     }

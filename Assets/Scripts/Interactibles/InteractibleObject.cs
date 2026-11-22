@@ -50,7 +50,7 @@ namespace Canicule
             if (m_rendererCmpt)
             {
                 m_rendererCmpt.material = new Material(m_rendererCmpt.material);
-                DeactiveOutline();
+                    DeactiveOutline();
             }
             else
             {

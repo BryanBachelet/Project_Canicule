@@ -33,6 +33,11 @@ namespace Canicule.Temperature
             m_heatScoreResistance = heatResistance;
         }
 
+        public void SetHeat(float temperature)
+        {
+            m_currentDegree = temperature;
+        }
+
         public void UpdateHeatManager()
         {
             float nextHeatScore = m_currentHeatScore;

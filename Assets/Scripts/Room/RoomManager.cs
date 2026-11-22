@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using BorsalinoTools;
 using Canicule.Temperature;
+using UnityEngine.Events;
 
 namespace Canicule.Rooms
 {
@@ -32,6 +33,8 @@ namespace Canicule.Rooms
         [SerializeField] private bool m_activeRoomDebug = false;
         [SerializeField] private bool m_showDebugCurrentRoom = false;
 
+        [HideInInspector] public UnityEvent<Room> OnPlayerChangeRoom;
+
 
         #region Unity Function
         public void Update()
@@ -46,6 +49,7 @@ namespace Canicule.Rooms
         public void SetCurrentRoomPlayer(Room newRoom)
         {
             m_currentRoomPlayer = newRoom;
+            OnPlayerChangeRoom?.Invoke(m_currentRoomPlayer);
         }
 
         public void SetCurrentRoomMonster(Room newRoom)
