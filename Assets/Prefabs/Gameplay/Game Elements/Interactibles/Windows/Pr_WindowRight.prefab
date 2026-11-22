@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2980793949887904317}
   - component: {fileID: 4250368033513848821}
   m_Layer: 6
-  m_Name: Pr_Window
+  m_Name: Pr_WindowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

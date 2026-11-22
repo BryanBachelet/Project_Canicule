@@ -17,7 +17,7 @@ namespace Canicule
         protected Rooms.Room m_roomOwner;
         [Space]
         [SerializeField] protected float interactionRange = 1;
-        [SerializeField] protected float interactionDuration = 5;
+        [SerializeField] protected float interactionDuration = 1;
         protected float interactionTimer = 0.0f;
         
         protected Transform actorTransform;

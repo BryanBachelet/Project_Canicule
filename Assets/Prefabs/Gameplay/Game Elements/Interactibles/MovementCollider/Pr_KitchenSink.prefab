@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4085567174686178900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 913001487121549254, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3863394978628413901, guid: a0e99b66f04bc69449fa4644b08e3422, type: 3}
+    - target: {fileID: 1098984579472352554, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Name
+      value: Pr_KitchenSink Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862450625121354747, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Size.x
+      value: 5.0231705
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862450625121354747, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Size.y
+      value: 0.44893265
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862450625121354747, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00434494
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862450625121354747, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.79286766
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70.04423
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.21084
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999934074125563091, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452688935328805044, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2465606
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452688935328805044, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1911659
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452688935328805044, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.0557518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452688935328805044, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.51267433
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 141063541459169322, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1098984579472352554, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 8016070392584168989}
+  m_SourcePrefab: {fileID: 100100000, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+--- !u!1 &4031488120460319614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1098984579472352554, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
+  m_PrefabInstance: {fileID: 4085567174686178900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8016070392584168989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031488120460319614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f4d1a772928b444b0c62b13d4ea4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.Sink
+  interactionRange: 1
+  interactionDuration: 1
+  OnInteractStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInteractEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  m_itemData: {fileID: 0}
