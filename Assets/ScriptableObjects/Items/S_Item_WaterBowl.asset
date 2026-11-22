@@ -15,9 +15,9 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: a24d62272c8b73448ad3eafd06d92829, type: 3}
   itemName: Bowl
   itemType: 3
-  exhaustionType: 0
-  itemDescription: Bowl that can contains water and reduce the heat
-  itemPrice: 0
+  exhaustionType: 3
+  itemDescription: Fill this bowl with water and let evaporation cool your room down!
+  itemPrice: 20
   b_hasBeenBoughtOnce: 0
   b_isEquipped: 0
   itemEffects:

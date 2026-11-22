@@ -28,5 +28,5 @@ MonoBehaviour:
     - rid: 9078439476675215651
       type: {class: ModifyBodyTemperatureDuringXSeconds, ns: Canicule, asm: Assembly-CSharp}
       data:
-        m_amount: -20
-        m_duration: 5
+        m_amount: -100
+        m_duration: 10
