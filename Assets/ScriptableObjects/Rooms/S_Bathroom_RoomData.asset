@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b69afe4f93d60498aaeb306d8aec0f, type: 3}
-  m_Name: S_Dummy_RoomData
+  m_Name: S_Bathroom_RoomData
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.Rooms.RoomData
   roomSize: 1
-  roomHeatResistance: 0
-  m_baseTemperature: 32
+  roomHeatResistance: 1
+  m_baseTemperature: 30
