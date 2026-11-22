@@ -34,6 +34,7 @@ namespace Canicule
         private HungerExhaustionManager m_hungerExhaustionManager;
         private ThirstExhaustionManager m_thirstExhaustionManager;
         private BodyTemperatureExhaustionManager m_bodyTemperatureExhaustionManager;
+        private NightDayManager m_nightDayManager;
         #endregion
 
         #region Unity Methods
@@ -41,6 +42,7 @@ namespace Canicule
         {
             m_roomManager = GameManager.GetRoomManager();
             m_sleepManager = GameManager.GetSleepManager();
+            m_nightDayManager = GameManager.GetNightDayManager();
             m_sleepExhaustionManager = GetComponent<SleepExhaustionManager>();
             m_hungerExhaustionManager = GetComponent<HungerExhaustionManager>();
             m_thirstExhaustionManager = GetComponent<ThirstExhaustionManager>();
@@ -69,29 +71,29 @@ namespace Canicule
             if (m_bCanBeExhausted)
             {
                 m_roomTemperature = m_roomManager.GetCurrentRoomPlayer().GetHeatManager().GetDegree();
-                m_nightRatio = GameManager.GetNightDayManager().GetNightRatio();
+                m_nightRatio = m_nightDayManager.GetNightRatio();
 
                 // General
                 exhaustion = ComputeExhaustion();
                 exhaustionRatio = ComputeExhaustionRatio(exhaustionRatio, exhaustion, exhaustionData.maxExhaustion);
 
                 // Sleep
-                if (m_bCanBeSleepExhausted)
+                if (m_bCanBeSleepExhausted && m_nightDayManager.GetIsNightActive())
                 {
                     sleepExhaustion = ComputeSleepExhaustion();
                 }
                 // Hunger
-                if (m_bCanBeHungerExhausted)
+                if (m_bCanBeHungerExhausted && m_nightDayManager.GetIsNightActive())
                 {
                     hungerExhaustion = ComputeHungerExhaustion();
                 }
                 // Thirst
-                if (m_bCanBeThirstExhausted)
+                if (m_bCanBeThirstExhausted && m_nightDayManager.GetIsNightActive())
                 {
                     thirstExhaustion = ComputeThirstExhaustion();
                 }
                 // Body Temperature
-                if (m_bCanBeBodyTemperatureExhausted)
+                if (m_bCanBeBodyTemperatureExhausted && m_nightDayManager.GetIsNightActive())
                 {
                     bodyTemperatureExhaustion = ComputeBodyTemperatureExhaustion();
                 }
