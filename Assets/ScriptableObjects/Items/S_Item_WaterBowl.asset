@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Bowl
   itemType: 3
   exhaustionType: 0
-  itemDescription: Bowl
+  itemDescription: Bowl that can contains water and reduce the heat
   itemPrice: 0
   b_hasBeenBoughtOnce: 0
   b_isEquipped: 0

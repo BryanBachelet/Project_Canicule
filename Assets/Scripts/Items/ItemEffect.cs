@@ -258,7 +258,7 @@ namespace Canicule
     {
         public override void UseItemEffect()
         {
-            Debug.Log("[Item Effect] End Game Effect Used!");
+            GameManager.LaunchWin();
         }
     }
     #endregion

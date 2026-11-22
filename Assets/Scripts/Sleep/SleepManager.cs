@@ -31,9 +31,9 @@ namespace Canicule
         #region Unity Methods
         private void Start()
         {
-            m_sleepTimer = m_sleepCooldown;
             m_sleepChanceOverRoomTemperature = m_sleepData.sleepChanceOverRoomTemperature;
             m_sleepCooldown = m_sleepData.sleepCooldown;
+            m_sleepTimer = m_sleepCooldown;
             m_sleepingUIPhase.OnEndSleepingPhase.AddListener(EndSleepingPhase); 
         }
 
@@ -49,7 +49,7 @@ namespace Canicule
         #endregion
 
         // Checkes if the player succeeded their sleep try
-        public void AttemptSleep()
+        public bool AttemptSleep()
         {
             m_roomTemperature = m_roomManager.GetCurrentRoomPlayer().GetHeatManager().GetDegree();
 
@@ -71,11 +71,13 @@ namespace Canicule
 
                     // Reset Energy Drink Effect
                     m_sleepChanceEnergyDrinkModifier = 0f;
+                    return true;
                 }
                 else
                 {
                     Debug.Log("[Sleep Manager] Fail to sleep. Sleep chance was " + m_sleepChance);
                     m_bIsSleepTimerRunning = true;
+                    
                 }
 
                 m_bCanAttempSleep = false;
@@ -84,6 +86,8 @@ namespace Canicule
             {
                 Debug.Log("[Sleep Manager] Attempting sleep unauthorized. Remaining cooldown: " + m_sleepTimer + " seconds");
             }
+            return false;
+
         }
 
         // Computes the timer cooldown when failed a sleep
@@ -153,6 +157,16 @@ namespace Canicule
         {
             m_hasTakenPills = b;
             Debug.Log("[Sleep Manager] Has taken pills? " + m_hasTakenPills);
+        }
+
+        public bool CanSleep()
+        {
+            return m_bCanAttempSleep;
+        }
+
+        public float GetRatioCooldownSleepAttemp()
+        {
+            return m_sleepTimer / m_sleepCooldown;
         }
     }
 }

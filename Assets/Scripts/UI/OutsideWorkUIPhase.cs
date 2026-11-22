@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ namespace Canicule
     {
         [SerializeField] private FadeUIComponent m_fadeComponent;
         [SerializeField] private float m_durationBetweeFadeAnimation;
+        [SerializeField] private TMP_Text m_outsideWorkText;
         private bool m_outsideWorkAnimationLaunch;
         private float m_betweeFadeTimer = 0.0f;
 
@@ -33,6 +35,7 @@ namespace Canicule
             {
                 m_fadeComponent.LaunchFadeOut();
                 m_outsideWorkAnimationLaunch = false;
+                m_outsideWorkText.gameObject.SetActive(false);
             }
         }
         #endregion
@@ -41,6 +44,7 @@ namespace Canicule
         {
             OnLaunchOutsidePhase?.Invoke();
             m_fadeComponent.LaunchFadeIn();
+            m_outsideWorkText.gameObject.SetActive(false);
         }
 
         private void OnFadeEnd(bool isFadeOut)
@@ -53,12 +57,14 @@ namespace Canicule
             {
                 m_outsideWorkAnimationLaunch = true;
                 m_betweeFadeTimer = 0.0f;
+                m_outsideWorkText.gameObject.SetActive(true);
             }
         }
 
         public void EndOutsidePhase()
         {
             OnEndOutsidePhase?.Invoke();
+            m_outsideWorkText.gameObject.SetActive(true);
 
         }
     }
