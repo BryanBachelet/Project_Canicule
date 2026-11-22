@@ -1,6 +1,6 @@
 using Canicule.Rooms;
 using UnityEngine;
-
+using FMODUnity;
 namespace Canicule
 {
     public class Door : InteractibleObject
@@ -21,18 +21,28 @@ namespace Canicule
         [SerializeField] private TimerObject m_timerDrawDraftCloseDoor;
         [SerializeField] private float m_rateDoorCloseOfDraft = .1f;
 
+        private StudioEventEmitter m_doorSlamEmitter;
+
         public override void Start()
         {
             base.Start();
             m_animator = GetComponent<Animator>();
             m_doorGeneral = GetComponentInParent<DoorGeneral>();
             SetAnimatorBools();
+            m_doorSlamEmitter = GetComponent<StudioEventEmitter>();
         }
 
         protected override void Interact()
         {
             m_doorGeneral.OpenLinkDoor();
-            OpenDoor();
+            if (!m_bIsDoorOpen)
+            {
+                OpenDoor();
+            }
+            else
+            {
+                CloseDoor();
+            }
             CreateDraft();
 
 
@@ -41,9 +51,21 @@ namespace Canicule
 
         private void OpenDoor()
         {
-            m_bIsDoorOpen = !m_bIsDoorOpen;
+            m_bIsDoorOpen = true;
 
-            if(m_bIsDoorOpen)
+            SwitchDoorState();
+        }
+
+        private void CloseDoor()
+        {
+            m_bIsDoorOpen = false;
+
+            SwitchDoorState();
+        }
+
+    private void SwitchDoorState()
+        {
+            if (m_bIsDoorOpen)
             {
                 m_doorGeneral.ActiveTP();
             }
@@ -57,7 +79,14 @@ namespace Canicule
 
         public void SetDoorOpen()
         {
-            OpenDoor();
+            if (!m_bIsDoorOpen)
+            {
+                OpenDoor();
+            }
+            else
+            {
+                CloseDoor();
+            }
         }
 
         public override void Update()
@@ -101,10 +130,11 @@ namespace Canicule
             {
                 float draw = Random.Range(0.0f, 1.0f);
                 
-                if(m_rateDoorCloseOfDraft > draw)
+                if(m_rateDoorCloseOfDraft > 0)
                 {
-                    OpenDoor();
+                    CloseDoor();
                     m_doorGeneral.OpenLinkDoor();
+                    m_doorSlamEmitter.Play();
                 }
             }
 

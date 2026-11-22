@@ -53,8 +53,12 @@ namespace Canicule.Rooms
             {
                 Debug.LogWarning("[Collider] Need to add an edgeCollider");
             }
-            if(!m_isStartingRoom)
-                m_edgeCollider.enabled = false;
+            else
+            {
+                if (!m_isStartingRoom)
+                    m_edgeCollider.enabled = false;
+            }
+          
 
         }
         public void Update()
