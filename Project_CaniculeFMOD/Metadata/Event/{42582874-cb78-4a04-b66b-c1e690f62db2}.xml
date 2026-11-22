@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{42582874-cb78-4a04-b66b-c1e690f62db2}">
 		<property name="name">
-			<value>TestEvent</value>
+			<value>DoorSlam</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{fc806636-7666-46c4-9efa-17db6e2afeca}</destination>
@@ -38,6 +38,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{955a58b7-994a-44ba-90bd-9a922b322e63}">
+		<relationship name="modules">
+			<destination>{a6c78355-1a86-4d76-aa06-475d3c05ff65}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{d14c59a6-9f45-4e30-95ed-d580cc3186de}</destination>
 		</relationship>
@@ -56,11 +59,14 @@
 	<object class="EventAutomatableProperties" id="{4c30fc34-5a69-4774-9b6c-2bf2fcfc4ef4}" />
 	<object class="MarkerTrack" id="{730bf4ab-cf46-4133-8a31-a64bbe36fb2a}" />
 	<object class="Timeline" id="{25019a7a-97dc-4d63-994a-988c8354dde0}">
-		<property name="isProxyEnabled">
-			<value>false</value>
-		</property>
+		<relationship name="modules">
+			<destination>{a6c78355-1a86-4d76-aa06-475d3c05ff65}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{d14c59a6-9f45-4e30-95ed-d580cc3186de}">
+		<property name="volume">
+			<value>-1</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{f23e8293-4ff7-46ee-b999-92f2c0cdb053}</destination>
 		</relationship>
@@ -69,6 +75,11 @@
 		</relationship>
 		<relationship name="mixer">
 			<destination>{d844ef2d-12b9-44a9-8d5d-ae01bb08047e}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{a6c78355-1a86-4d76-aa06-475d3c05ff65}">
+		<relationship name="audioFile">
+			<destination>{04d53e68-0402-4f4f-b0c0-d3d30f3d353e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{98290000-ea7c-416b-9d54-2167a0e47f33}">
