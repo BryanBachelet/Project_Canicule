@@ -42,6 +42,16 @@ namespace Canicule
         private void OpenDoor()
         {
             m_bIsDoorOpen = !m_bIsDoorOpen;
+
+            if(m_bIsDoorOpen)
+            {
+                m_doorGeneral.ActiveTP();
+            }
+            else
+            {
+                m_doorGeneral.DeactiveTP();
+            }
+
             UpdateAnimatorDoor();
         }
 

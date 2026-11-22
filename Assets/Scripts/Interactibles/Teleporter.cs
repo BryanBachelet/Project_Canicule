@@ -15,6 +15,7 @@ namespace Canicule
         private static readonly Color m_debugSphereColorStr = Color.rebeccaPurple;
         private const float m_debugSphereSize = .4f;
 
+        private Collider2D m_colliderCmpt = null;
 
         public override void Start()
         {
@@ -29,6 +30,8 @@ namespace Canicule
 
             Rooms.RoomConnection roomConnection = new Rooms.RoomConnection(m_roomLink, this);
             m_roomOwner.LinkRoomConnection(roomConnection);
+            m_colliderCmpt = GetComponent<Collider2D>();
+            m_colliderCmpt.enabled = false;
         }
 
         protected override void Interact()
@@ -47,7 +50,10 @@ namespace Canicule
         }
 
         public Transform GetDoorTransformLink() { return m_teleportPoint; }
-        public DoorGeneral GetDoorGeneral () { return m_doorGeneralCmpt; } 
+        public DoorGeneral GetDoorGeneral () { return m_doorGeneralCmpt; }
+
+        public void ActiveTeleportCollider() { m_colliderCmpt.enabled = true; }
+        public void DeactiveTeleportCollider() { m_colliderCmpt.enabled = false; }
 
 #if UNITY_DEVELOPMENT || UNITY_EDITOR
         private void OnDrawGizmosSelected()

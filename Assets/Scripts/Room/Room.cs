@@ -20,6 +20,7 @@ namespace Canicule.Rooms
     public class Room : MonoBehaviour
     {
         [SerializeField] private RoomData m_roomData;
+        [SerializeField] private bool m_isStartingRoom = false; 
 
         [Space]
         [SerializeField] private Vector3[] m_appearencePoints;
@@ -29,6 +30,8 @@ namespace Canicule.Rooms
         private List<RoomConnection> m_roomLink = new List<RoomConnection>();
 
         private Window[] m_windowArray;
+
+        private EdgeCollider2D m_edgeCollider;
 
         #region Unity Functions
 
@@ -41,13 +44,26 @@ namespace Canicule.Rooms
             if (gameObject.activeSelf)
             {
                 roomManager.SetCurrentRoomPlayer(this);
+                roomManager.OnPlayerChangeRoom.AddListener(OnPlayerChangedRoom);
             }
 
             m_windowArray = GetComponentsInChildren<Window>();
+            m_edgeCollider = GetComponentInChildren<EdgeCollider2D>();
+            if (!m_edgeCollider)
+            {
+                Debug.LogWarning("[Collider] Need to add an edgeCollider");
+            }
+            if(!m_isStartingRoom)
+                m_edgeCollider.enabled = false;
+
         }
         public void Update()
         {
-            m_heatManager.UpdateHeatManager();
+            if (GameManager.GetCurrentGamePhase() == GamePhase.NIGHT)
+            {
+                m_heatManager.UpdateHeatManager();
+            }
+
         }
         #endregion
 
@@ -74,6 +90,20 @@ namespace Canicule.Rooms
                 this.gameObject.SetActive(true);
             }
 
+        }
+
+        public void PlayerLeaveRoom()
+        {
+            if (!m_edgeCollider) return;
+
+            m_edgeCollider.enabled = false;
+        }
+
+        public void PlayerEnterRoom()
+        {
+            if (!m_edgeCollider) return;
+
+            m_edgeCollider.enabled = true;
         }
 
         public void LinkRoomConnection(RoomConnection roomLink)
@@ -125,15 +155,34 @@ namespace Canicule.Rooms
             for (int i = 0; i < m_roomLink.Count; i++)
             {
                 Teleporter teleporterCmpt = m_roomLink[i].teleporter;
-                if( teleporterCmpt.GetDoorGeneral().HasDraft())
-                { 
-                    return true; 
+                if (teleporterCmpt.GetDoorGeneral().HasDraft())
+                {
+                    return true;
                 }
             }
 
             return false;
         }
-    }
 
+        private void OnGamePhaseChanged(GamePhase phase)
+        {
+            if (phase == GamePhase.MORNING)
+            {
+                m_heatManager.SetHeat(m_windowArray[0].GetHeatSource().GetTemperature());
+            }
+        }
+
+        private void OnPlayerChangedRoom(Room room)
+        {
+            if (room == this)
+            {
+                PlayerEnterRoom();
+            }
+            else
+            {
+                PlayerLeaveRoom();
+            }
+        }
+    }
 
 }

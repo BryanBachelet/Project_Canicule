@@ -19,6 +19,7 @@ namespace Canicule
 
 
         private CharacterInput m_characterInput;
+        private InteractibleObject m_lastObjectOver;
 
         private void Awake()
         {
@@ -35,7 +36,7 @@ namespace Canicule
 
         private void UpdateInteraction()
         {
-            if(!m_isInteracting)
+            if (!m_isInteracting)
             {
                 return;
             }
@@ -60,16 +61,38 @@ namespace Canicule
 
             }
 
-            bool bIsInteracting = CheckMouseOver();
-            if (bIsInteracting)
+            InteractibleObject interactibleObject = GetInteractibleMouseOver();
+            MouseOverObject(interactibleObject);
+        }
+
+        private void MouseOverObject(InteractibleObject obj)
+        {
+            if (obj)
             {
                 Cursor.SetCursor(m_interactCursorTex, Vector2.zero, CursorMode.ForceSoftware);
+                float distance = Vector2.Distance(obj.transform.position, transform.position);
+
+                RaycastHit2D playerInteractibleRay = CheckDistanceInteractible(obj, m_characterInput.GetMousePosition());
+                if (!playerInteractibleRay || playerInteractibleRay.collider != obj.GetComponent<Collider2D>())
+                    return;
+
+                obj.ActiveOutline();
+                if (m_lastObjectOver != obj)
+                {
+                    if (m_lastObjectOver) m_lastObjectOver.DeactiveOutline();
+                    m_lastObjectOver = obj;
+                }
             }
             else
             {
                 Cursor.SetCursor(m_baseCursorTex, Vector2.zero, CursorMode.ForceSoftware);
-            }
+                if (m_lastObjectOver)
+                {
+                    m_lastObjectOver.DeactiveOutline();
+                    m_lastObjectOver = null;
+                }
 
+            }
         }
 
         private void SetCancelCursor()
@@ -79,7 +102,7 @@ namespace Canicule
             Cursor.SetCursor(m_cancelInteractionCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
 
-        public bool CheckMouseOver()
+        public InteractibleObject GetInteractibleMouseOver()
         {
             Collider2D hit = Physics2D.OverlapPoint(m_characterInput.GetMousePosition(), LayerMask.GetMask("Interactible"));
 
@@ -88,11 +111,11 @@ namespace Canicule
                 InteractibleObject interactibleObject = hit.GetComponent<InteractibleObject>();
                 if (interactibleObject != null)
                 {
-                    return true;
+                    return interactibleObject;
                 }
             }
 
-            return false;
+            return null;
         }
 
         // Shoots a point at the mouse's position, and if it's an interactible in the player's range, plays the Interact() function.
@@ -107,15 +130,9 @@ namespace Canicule
 
                 if (interactibleObject != null)
                 {
-                    // Check distance between player and object
-                    Vector2 playerPos;
-                    playerPos.x = transform.position.x;
-                    playerPos.y = transform.position.y;
-                    Vector2 direction = mousePosWorld - playerPos;
-                    Vector2 normalizedDirection = direction.normalized;
-                    RaycastHit2D playerInteractibleRay = Physics2D.Raycast(playerPos, normalizedDirection, m_characterInput.characterData.interactionRange, LayerMask.GetMask("Interactible"));
+                    RaycastHit2D playerInteractibleRay = CheckDistanceInteractible(interactibleObject, mousePosWorld);
 
-                    if (interactibleObject.CanInteract() && playerInteractibleRay)
+                    if (interactibleObject.CanInteract() && playerInteractibleRay && playerInteractibleRay.collider == hit)
                     {
                         m_lastInteractibleObject = interactibleObject;
                         m_lastInteractibleObject.LaunchInteraction(this.transform, Interactor.PLAYER);
@@ -128,10 +145,6 @@ namespace Canicule
                     else
                     {
                         SetCancelCursor();
-
-
-
-
                     }
                 }
                 else
@@ -141,13 +154,24 @@ namespace Canicule
             }
         }
 
+        private RaycastHit2D CheckDistanceInteractible(InteractibleObject obj, Vector2 mousePosWorld)
+        {
+            // Check distance between player and object
+            Vector2 playerPos;
+            playerPos.x = transform.position.x;
+            playerPos.y = transform.position.y;
+            Vector2 direction = mousePosWorld - playerPos;
+            Vector2 normalizedDirection = direction.normalized;
+            return Physics2D.Raycast(playerPos, normalizedDirection, m_characterInput.characterData.interactionRange, LayerMask.GetMask("Interactible"));
+        }
+
         public void CancelInteraction()
         {
             m_isInteracting = true;
             m_lastInteractibleObject.CancelInteration();
             OnInteractionEnd();
         }
-       
+
         private void OnInteractionEnd()
         {
             m_isInteracting = false;

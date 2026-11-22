@@ -34,7 +34,7 @@ namespace Canicule
         [Header("Components")]
         [SerializeField] private Animator m_monsterAnimator;
         private NavMeshAgent m_navMeshAgent;
-        private Rooms.RoomManager roomManager;
+        private Rooms.RoomManager m_roomManager;
         private SpriteRenderer m_spriteRenderer;
 
 
@@ -84,7 +84,7 @@ namespace Canicule
 
         public void Start()
         {
-            roomManager = GameManager.GetRoomManager();
+            m_roomManager = GameManager.GetRoomManager();
             transform.rotation = Quaternion.identity; 
         }
 
@@ -215,12 +215,12 @@ namespace Canicule
        
         private void StartState_Search()
         {
-            Room playerRoom = roomManager.GetCurrentRoomPlayer();
+            Room playerRoom = m_roomManager.GetCurrentRoomPlayer();
             if (m_roomNavList.Count == 0 || m_lastPlayerRoom != playerRoom)
             {
-                m_roomNavList = roomManager.ComputeRoomNavigation(
-                   roomManager.GetCurrentRoomPlayer(),
-                   roomManager.GetCurrentRoomMonster()
+                m_roomNavList = m_roomManager.ComputeRoomNavigation(
+                   m_roomManager.GetCurrentRoomPlayer(),
+                   m_roomManager.GetCurrentRoomMonster()
                    );
 
                 m_lastPlayerRoom = playerRoom;
@@ -244,12 +244,12 @@ namespace Canicule
 
         private void Process_Search()
         {
-            if (roomManager.GetCurrentRoomMonster() == roomManager.GetCurrentRoomPlayer())
+            if (m_roomManager.GetCurrentRoomMonster() == m_roomManager.GetCurrentRoomPlayer())
             {
                 ChangeState(MonsterState.MOVE);
             }
 
-            Room playerRoom = roomManager.GetCurrentRoomPlayer();
+            Room playerRoom = m_roomManager.GetCurrentRoomPlayer();
             if (m_lastPlayerRoom != playerRoom)
             {
                 StartState_Search();
@@ -273,7 +273,7 @@ namespace Canicule
         {
             m_currentDoorTarget.OnInteractEnd.RemoveListener(OnPhaseFinish);
 
-            if (roomManager.GetCurrentRoomMonster() != roomManager.GetCurrentRoomPlayer())
+            if (m_roomManager.GetCurrentRoomMonster() != m_roomManager.GetCurrentRoomPlayer())
             {
                 ChangeState(MonsterState.SEARCH);
             }
@@ -285,7 +285,7 @@ namespace Canicule
 
         private void Process_Move()
         {
-            if (roomManager.GetCurrentRoomMonster() != roomManager.GetCurrentRoomPlayer())
+            if (m_roomManager.GetCurrentRoomMonster() != m_roomManager.GetCurrentRoomPlayer())
             {
                 ChangeState(MonsterState.SEARCH);
             }

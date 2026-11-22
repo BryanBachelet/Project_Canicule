@@ -57,6 +57,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_itemData: {fileID: 11400000, guid: 41eb0231dd3abd349a89716d0d04454a, type: 2}
+  m_rendererCmpt: {fileID: 2623230264364382575}
+  m_outlineThickness: 10
   m_bowlReduceDegree: 1
   m_bowlFillDuration: 50
   m_emptyBowlSprite: {fileID: 21300000, guid: a24d62272c8b73448ad3eafd06d92829, type: 3}
@@ -87,7 +89,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 693a53f3c8b389e4e872abde11163393, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
