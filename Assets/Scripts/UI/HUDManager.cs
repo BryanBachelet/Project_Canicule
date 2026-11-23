@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 
 namespace Canicule
 {
@@ -9,21 +10,37 @@ namespace Canicule
 
         [SerializeField] private RectTransform m_exhaustionGaugeHolder;
         [SerializeField] private List<RectTransform> m_exhaustionGaugesRect = new List<RectTransform>();
+        [SerializeField] private Animator m_infobarAC;
 
         private List<ExhaustionGauge>  m_exhaustionGauges = new List<ExhaustionGauge>();
         private ExhaustionManager m_exhaustionManager;
+        private NightDayManager m_nightDayManager;
         private float m_targetWidth = 0f;
         private float m_exhaustionToWidthConverter;
 
+        #region Unity Methods
         private void Awake()
         {
             m_exhaustionManager = GameManager.GetExhaustionManager();
+            m_nightDayManager = GameManager.GetNightDayManager();
 
             foreach (RectTransform rectTransform in m_exhaustionGaugesRect)
             {
                 m_exhaustionGauges.Add(rectTransform.GetComponent<ExhaustionGauge>());
             }
 
+        }
+
+        private void OnEnable()
+        {
+            m_nightDayManager.OnStartNight += UpdateExhaustionGaugesVisibility;
+            m_nightDayManager.OnEndNight += UpdateExhaustionGaugesVisibility;
+        }
+
+        private void OnDisable()
+        {
+            m_nightDayManager.OnStartNight -= UpdateExhaustionGaugesVisibility;
+            m_nightDayManager.OnEndNight -= UpdateExhaustionGaugesVisibility;
         }
 
         private void Start()
@@ -37,8 +54,16 @@ namespace Canicule
             UpdateExhaustionGaugesValues();
 
         }
+        #endregion
 
-        // Sets the position of the gauges next to each other
+        #region Exhaustion Gauges
+        // Update the visibility of the exhaustion gauges
+        private void UpdateExhaustionGaugesVisibility()
+        {
+            m_infobarAC.SetBool("isNightActive", m_nightDayManager.GetIsNightActive());
+        }
+
+        // Sets the position of the exhaustion gauges next to each other
         private void SetExhaustionGaugesPositions()
         {
             for (int i = 0; i < m_exhaustionGaugesRect.Count; ++i)
@@ -71,5 +96,7 @@ namespace Canicule
             // Body Temperature
             m_exhaustionGauges[3].UpdateExhaustionGaugeValue(m_exhaustionToWidthConverter, m_exhaustionManager.bodyTemperatureExhaustion);
         }
+        #endregion
+
     }
 }
