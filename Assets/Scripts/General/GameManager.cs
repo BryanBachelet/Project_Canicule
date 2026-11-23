@@ -38,6 +38,7 @@ namespace Canicule
         private NightDayManager m_nightDayManager;
         private Canicule.Temperature.EnvirommentHeatSource m_environementTemperature;
         private ItemEffectManager m_itemEffectManager;
+        private DraftManager m_draftManager;
 
         public UnityEvent OnPause;
         public UnityEvent OnPlay;
@@ -66,6 +67,7 @@ namespace Canicule
             m_nightDayManager = GetComponent<NightDayManager>();
             m_environementTemperature = GetComponent<Canicule.Temperature.EnvirommentHeatSource>();
             m_itemEffectManager = GetComponent <ItemEffectManager>();
+            m_draftManager = GetComponent <DraftManager>();
         }
 
         private void Start()
@@ -298,7 +300,11 @@ namespace Canicule
         public static Monster GetMonster()
         {
             return m_instance.m_monsterManager.GetMonster();
+        }
 
+        public static DraftManager GetDraftManager()
+        {
+            return m_instance.m_draftManager;
         }
 
         #endregion

@@ -27,7 +27,7 @@ namespace Canicule
         private float m_heatRatioReduction = 0f;
 
         [Header("Safe Area")]
-        [SerializeField] private  float m_radiusSafeArea =1.0f;
+        [SerializeField] private float m_radiusSafeArea = 1.0f;
         [SerializeField] private bool m_activateDebugSafeArea = false;
         private bool m_isSafeAreaActive = false;
 
@@ -69,11 +69,11 @@ namespace Canicule
 
             if (m_isWindowClose) return;
 
-            if(m_roomOwner.HasDraft())
+            if (m_roomOwner.HasDraft())
             {
                 Monster monsterCmpt = GameManager.GetMonster();
                 float distance = Vector3.Distance(transform.position, monsterCmpt.transform.position);
-                if(distance < m_radiusSafeArea)
+                if (distance < m_radiusSafeArea)
                 {
                     monsterCmpt.ChangeState(MonsterState.DISAPPEAR);
                 }
@@ -98,18 +98,22 @@ namespace Canicule
         #region Interaction Logic
         public override void LaunchInteraction(Transform actor, Interactor interactActorType)
         {
-            base.LaunchInteraction(actor,interactActorType);
-            
-            m_isWindowClose = !m_isWindowClose; 
+            base.LaunchInteraction(actor, interactActorType);
+
+            m_isWindowClose = !m_isWindowClose;
             WindowInteraction();
         }
 
         private void WindowInteraction()
         {
-            if(m_isWindowClose)
+            if (m_isWindowClose)
             {
                 OnWindowClose?.Invoke();
                 m_isSafeAreaActive = false;
+                if (m_roomOwner.HasDraft())
+                {
+                    GameManager.GetDraftManager().OnWindowClosed(m_roomOwner);
+                }
                 SetHeatRatioWindowClose();
             }
             else
@@ -132,7 +136,7 @@ namespace Canicule
                 m_windowRenderer.sprite = m_windowOpenSurvivalBlanket;
             }
         }
-        
+
         public void ChangeWindowSpriteToClose()
         {
             if (!b_areSurvivalBlanketsInstalled)

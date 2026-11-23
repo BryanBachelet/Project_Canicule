@@ -43,8 +43,6 @@ namespace Canicule
             {
                 CloseDoor();
             }
-            CreateDraft();
-
 
             base.Interact();
         }
@@ -52,14 +50,14 @@ namespace Canicule
         private void OpenDoor()
         {
             m_bIsDoorOpen = true;
-
+            m_doorGeneral.OnDoorOpened?.Invoke();
             SwitchDoorState();
         }
 
         private void CloseDoor()
         {
             m_bIsDoorOpen = false;
-
+            m_doorGeneral.OnDoorClosed?.Invoke();
             SwitchDoorState();
         }
 
@@ -97,8 +95,6 @@ namespace Canicule
             {
                 return;
             }
-
-            CreateDraft();
             UpdateDraftDoor();
         }
 
@@ -130,47 +126,43 @@ namespace Canicule
             {
                 float draw = Random.Range(0.0f, 1.0f);
                 
-                if(m_rateDoorCloseOfDraft > 0)
+                if(m_rateDoorCloseOfDraft > draw)
                 {
-                    CloseDoor();
-                    m_doorGeneral.OpenLinkDoor();
-                    m_doorSlamEmitter.Play();
+                    SlamDoor();
                 }
             }
-
         }
 
-
-        public void CreateDraft()
+        private void SlamDoor()
         {
-            Room linkRoom = m_doorGeneral.m_doorLink.m_doorCmpt.m_roomOwner;
-            Door linkDoor = m_doorGeneral.m_doorLink.m_doorCmpt;
-            if (!m_bIsDoorOpen || !m_roomOwner.IsAWindowOpen() || !linkRoom.IsAWindowOpen() || m_draftBehavior)
-            {
-                return;
-            }
+            GameManager.GetDraftManager().OnDoorClosed(m_doorGeneral);
+            CloseDoor();
+            m_doorGeneral.OpenLinkDoor();
+            m_doorSlamEmitter.Play();
+        }
 
+        public void CreateDraft(Room starterRoom,Room enderRoom)
+        {
             GameObject draftInstance = GameObject.Instantiate(m_draftPrefab, m_doorGeneral.transform);
             DraftBehavior draftBehavior = draftInstance.GetComponent<DraftBehavior>();
 
             DraftBehavior.DraftData draftDataA = new DraftBehavior.DraftData();
             draftDataA.door = this;
-            draftDataA.room = m_roomOwner;
+            draftDataA.room = starterRoom;
 
             DraftBehavior.DraftData draftDataB = new DraftBehavior.DraftData();
+            Door linkDoor = m_doorGeneral.m_doorLink.m_doorCmpt;
             draftDataB.door = linkDoor;
-            draftDataB.room = linkRoom;
+            draftDataB.room = enderRoom;
 
             draftBehavior.InitDraft(draftDataA, draftDataB);
             m_draftBehavior = draftBehavior;
-            m_draftBehavior.OnDraftDestroy.AddListener(RemoveActiveDraft);
-            m_draftBehavior.OnDraftDestroy.AddListener(linkDoor.RemoveActiveDraft);
-            
             m_isDraftActive = true;
         }
 
-        public void RemoveActiveDraft()
+        public void DeleteDraft()
         {
+            m_draftBehavior.DestroyDraft();
             m_draftBehavior = null;
             m_isDraftActive = false;
         }

@@ -9,7 +9,7 @@ namespace Canicule
     {
         NONE = 0,
         PLAYER = 1,
-        MONSTER =2,
+        MONSTER = 2,
     }
 
     public class InteractibleObject : MonoBehaviour, IPauseableObject
@@ -19,7 +19,7 @@ namespace Canicule
         [SerializeField] protected float interactionRange = 1;
         [SerializeField] protected float interactionDuration = 1;
         protected float interactionTimer = 0.0f;
-        
+
         protected Transform actorTransform;
 
         protected bool bIsInteracting = false;
@@ -36,7 +36,7 @@ namespace Canicule
 
         [Header("Outline Parameters")]
         [SerializeField] private Renderer m_rendererCmpt;
-        [SerializeField] private float m_outlineThickness  = 1;
+        [SerializeField] private float m_outlineThickness = 1;
         [Space]
         private const string m_outlineActiveParameterStr = "_ActiveOutline";
         private const string m_outlineThicknecsParameterStr = "_Thickness";
@@ -50,7 +50,7 @@ namespace Canicule
             if (m_rendererCmpt)
             {
                 m_rendererCmpt.material = new Material(m_rendererCmpt.material);
-                    DeactiveOutline();
+                DeactiveOutline();
             }
             else
             {
@@ -72,7 +72,7 @@ namespace Canicule
         #endregion
 
         #region Pause Functions
-        public  void OnPause()
+        public void OnPause()
         {
             bIsOnPause = true;
         }
@@ -93,7 +93,7 @@ namespace Canicule
         {
             if (!bIsInteracting || bIsOnPause) return;
 
-            if(interactionTimer < interactionDuration)
+            if (interactionTimer < interactionDuration)
             {
                 interactionTimer += Time.deltaTime;
             }
@@ -178,14 +178,14 @@ namespace Canicule
         public void ActiveOutline()
         {
             if (!m_rendererCmpt) return;
-            
-                m_rendererCmpt.material.SetFloat(m_outlineActiveParameterStr, 1);
-                m_rendererCmpt.material.SetFloat(m_outlineThicknecsParameterStr, m_outlineThickness);
+
+            m_rendererCmpt.material.SetFloat(m_outlineActiveParameterStr, 1);
+            m_rendererCmpt.material.SetFloat(m_outlineThicknecsParameterStr, m_outlineThickness);
         }
 
         public void DeactiveOutline()
         {
-            if (!m_rendererCmpt) return;    
+            if (!m_rendererCmpt) return;
             m_rendererCmpt.material.SetFloat(m_outlineActiveParameterStr, 0);
         }
 
@@ -193,9 +193,9 @@ namespace Canicule
 
 
         #region Getter Function
-        public bool IsInteracting() 
+        public bool IsInteracting()
         {
-            return bIsInteracting; 
+            return bIsInteracting;
         }
 
         public float GetRatioInteraction()
@@ -203,7 +203,11 @@ namespace Canicule
             return interactionTimer / interactionDuration;
         }
 
-     
+        public Rooms.Room GetOwnerRoom()
+        {
+            return m_roomOwner;
+        }
+
         #endregion
     }
 }

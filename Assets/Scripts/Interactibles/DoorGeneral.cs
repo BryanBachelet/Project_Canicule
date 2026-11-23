@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Canicule
 {
@@ -8,6 +9,8 @@ namespace Canicule
         [HideInInspector] public Teleporter m_teleporterCmpt;
         [HideInInspector] public DoorGeneral m_doorLink;
 
+        [HideInInspector] public UnityEvent OnDoorClosed;
+        [HideInInspector] public UnityEvent OnDoorOpened;
         private void Awake()
         {
             m_doorCmpt = GetComponentInChildren<Door>();
@@ -25,14 +28,20 @@ namespace Canicule
             return m_doorCmpt.IsDraftActive();
         }
 
+        public bool IsDoorOpen() { return m_doorCmpt.IsOpen(); }
         public void ActiveTP()
         {
             m_teleporterCmpt.ActiveTeleportCollider();
         }
 
-       public void DeactiveTP()
+        public void DeactiveTP()
         {
             m_teleporterCmpt.DeactiveTeleportCollider();
+        }
+
+        public void DeleteDraft()
+        {
+            m_doorCmpt.DeleteDraft();
         }
 
     }

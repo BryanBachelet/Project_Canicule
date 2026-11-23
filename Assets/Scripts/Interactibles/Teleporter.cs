@@ -19,8 +19,8 @@ namespace Canicule
 
         public override void Start()
         {
-            m_doorGeneralCmpt = GetComponentInParent<DoorGeneral>();
             base.Start();
+            m_doorGeneralCmpt = GetComponentInParent<DoorGeneral>();
 
             if (m_roomLink == null)
             {

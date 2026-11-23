@@ -27,13 +27,7 @@ namespace Canicule
 
         public void Update()
         {
-            if (!m_hasBeenInit) return;
-
-            if(IsDraftShouldBeDestroy())
-            {
-                DestroyDraft();
-                return;
-            }
+            if (!m_hasBeenInit || m_hasStartDestroy) return;
 
             Window windowA = m_draftDataA.room.GetOpenWindow();
             Window windowB = m_draftDataB.room.GetOpenWindow();
@@ -74,14 +68,6 @@ namespace Canicule
             m_draftDataA.room.GetHeatManager().UnregisterHeatSource(m_heatSource);
             m_draftDataB.room.GetHeatManager().UnregisterHeatSource(m_heatSource);
             Destroy(this.gameObject);
-        }
-
-        private bool IsDraftShouldBeDestroy()
-        {
-            return !m_draftDataA.room.IsAWindowOpen()
-                || !m_draftDataB.room.IsAWindowOpen()
-                || !m_draftDataA.door.IsOpen()
-                || !m_draftDataB.door.IsOpen();
         }
     }
 }

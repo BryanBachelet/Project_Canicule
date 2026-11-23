@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 5216660736732683965}
   - component: {fileID: 2394902231535143013}
   - component: {fileID: 4206023531299025870}
+  - component: {fileID: 4297698607008085231}
   m_Layer: 0
   m_Name: Pr_GameManager
   m_TagString: Untagged
@@ -391,3 +392,15 @@ MonoBehaviour:
   m_standingFan: {fileID: 0}
   m_thermometerUI: {fileID: 0}
   m_watchUI: {fileID: 0}
+--- !u!114 &4297698607008085231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012194104469931508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d419d4a87da444495a341d16637250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canicule.DraftManager

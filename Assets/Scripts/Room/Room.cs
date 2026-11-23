@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Canicule.Rooms
 {
     [System.Serializable]
-    public struct RoomConnection
+    public class RoomConnection
     {
         public Room roomLink;
         public Teleporter teleporter;
@@ -13,6 +13,11 @@ namespace Canicule.Rooms
         {
             this.roomLink = room;
             this.teleporter = teleporter;
+        }
+
+        public bool IsDoorOpen()
+        {
+            return teleporter.GetDoorGeneral().IsDoorOpen();
         }
     }
 
@@ -27,7 +32,7 @@ namespace Canicule.Rooms
 
         [SerializeField] private HeatManager m_heatManager = new HeatManager();
 
-        private List<RoomConnection> m_roomLink = new List<RoomConnection>();
+        private List<RoomConnection> m_roomConnectionArray = new List<RoomConnection>();
 
         private Window[] m_windowArray;
 
@@ -47,7 +52,34 @@ namespace Canicule.Rooms
                 roomManager.OnPlayerChangeRoom.AddListener(OnPlayerChangedRoom);
             }
 
+            InitializeWindows();
+            InitializeEdgeCollider();
+        }
+        public void Update()
+        {
+            if (GameManager.GetCurrentGamePhase() == GamePhase.NIGHT)
+            {
+                m_heatManager.UpdateHeatManager();
+
+               
+            }
+
+        }
+        #endregion
+
+        #region Inits Functions
+
+        public void InitializeWindows()
+        {
             m_windowArray = GetComponentsInChildren<Window>();
+            for (int i = 0; i < m_windowArray.Length; i++)
+            {
+                m_windowArray[i].OnWindowOpen += OnDoorWindowOpened;
+            }
+        }
+
+        public void InitializeEdgeCollider()
+        {
             m_edgeCollider = GetComponentInChildren<EdgeCollider2D>();
             if (!m_edgeCollider)
             {
@@ -58,18 +90,17 @@ namespace Canicule.Rooms
                 if (!m_isStartingRoom)
                     m_edgeCollider.enabled = false;
             }
-          
-
         }
-        public void Update()
-        {
-            if (GameManager.GetCurrentGamePhase() == GamePhase.NIGHT)
-            {
-                m_heatManager.UpdateHeatManager();
-            }
 
-        }
         #endregion
+
+        public void OnDoorWindowOpened()
+        {
+            if (IsADoorOpen() && IsAWindowOpen())
+            {
+                GameManager.GetDraftManager().TryCreateDraft(this);
+            }
+        }
 
         public void ActivateRoom(Interactor interactor)
         {
@@ -112,16 +143,18 @@ namespace Canicule.Rooms
 
         public void LinkRoomConnection(RoomConnection roomLink)
         {
-            if (m_roomLink.Contains(roomLink)) return;
+            if (m_roomConnectionArray.Contains(roomLink)) return;
 
-            m_roomLink.Add(roomLink);
+            m_roomConnectionArray.Add(roomLink);
+            roomLink.teleporter.GetDoorGeneral().OnDoorOpened.AddListener(OnDoorWindowOpened);
         }
 
         public void UnlinkRoomConnection(RoomConnection roomLink)
         {
-            if (!m_roomLink.Contains(roomLink)) return;
+            if (!m_roomConnectionArray.Contains(roomLink)) return;
 
-            m_roomLink.Remove(roomLink);
+            m_roomConnectionArray.Remove(roomLink);
+            roomLink.teleporter.GetDoorGeneral().OnDoorOpened.RemoveListener(OnDoorWindowOpened);
         }
 
         public HeatManager GetHeatManager() { return m_heatManager; }
@@ -130,7 +163,7 @@ namespace Canicule.Rooms
 
         public Vector3[] GetAppearencePoint() { return m_appearencePoints; }
 
-        public RoomConnection[] GetRoomsConnection() { return m_roomLink.ToArray(); }
+        public RoomConnection[] GetRoomsConnection() { return m_roomConnectionArray.ToArray(); }
 
         public bool IsAWindowOpen()
         {
@@ -142,7 +175,7 @@ namespace Canicule.Rooms
 
             return false;
         }
-
+  
         public Window GetOpenWindow()
         {
             for (int i = 0; i < m_windowArray.Length; i++)
@@ -154,11 +187,37 @@ namespace Canicule.Rooms
             return null;
         }
 
+        public bool IsADoorOpen(Room excludeRoom = null)
+        {
+            for (int i = 0; i < m_roomConnectionArray.Count; i++)
+            {
+                if (excludeRoom != m_roomConnectionArray[i].roomLink && m_roomConnectionArray[i].IsDoorOpen())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public RoomConnection GetMatchingRoomConnection(Room roomLink)
+        {
+            for (int i = 0; i < m_roomConnectionArray.Count; i++)
+            {
+                if (m_roomConnectionArray[i].roomLink == roomLink)
+                {
+                    return m_roomConnectionArray[i];
+                }
+            }
+
+            return null;
+        }
+
+
         public bool HasDraft()
         {
-            for (int i = 0; i < m_roomLink.Count; i++)
+            for (int i = 0; i < m_roomConnectionArray.Count; i++)
             {
-                Teleporter teleporterCmpt = m_roomLink[i].teleporter;
+                Teleporter teleporterCmpt = m_roomConnectionArray[i].teleporter;
                 if (teleporterCmpt.GetDoorGeneral().HasDraft())
                 {
                     return true;
