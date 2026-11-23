@@ -26,7 +26,7 @@ namespace Canicule
             {
                 if (m_playerSpriteRenderer.sortingOrder <= collisionSpriteRenderer.sortingOrder)
                 {
-                    m_previousPlayerSortOrder = m_playerSpriteRenderer.sortingOrder;
+                    //m_previousPlayerSortOrder = m_playerSpriteRenderer.sortingOrder;
                     m_playerSpriteRenderer.sortingOrder = collisionSpriteRenderer.sortingOrder + 1;
 
                     if (b_isDebugActive)
