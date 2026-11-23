@@ -10,6 +10,7 @@ namespace Canicule
 
         [SerializeField] private SleepData m_sleepData;
         [SerializeField] private float m_roomTemperature;
+        [SerializeField] private bool b_alwaysSucceedSleep = false;
 
         [SerializeField] private SleepingUIPhase m_sleepingUIPhase;
 
@@ -59,7 +60,7 @@ namespace Canicule
                 ComputeSleepChance();
                 m_requieredSleepChance = 1 - m_sleepChanceOverRoomTemperature.Evaluate(m_roomTemperature);
 
-                if (m_sleepChance >= m_requieredSleepChance)
+                if (m_sleepChance >= m_requieredSleepChance || b_alwaysSucceedSleep)
                 {
                     Debug.Log("[Sleep Manager] Sleep success!");
                     Debug.Log("[Sleep Manager] Requiered chance was: " + m_requieredSleepChance);

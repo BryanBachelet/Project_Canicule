@@ -1,4 +1,5 @@
 using Canicule.Rooms;
+using System;
 using UnityEngine;
 
 namespace Canicule
@@ -21,6 +22,8 @@ namespace Canicule
         public float hungerExhaustion;
         public float thirstExhaustion;
         public float bodyTemperatureExhaustion;
+
+        public event Action OnModifyExhaustion;
 
         private bool m_bCanBeExhausted = false;
         private bool m_bCanBeSleepExhausted = false;
@@ -169,11 +172,13 @@ namespace Canicule
         public void ModifySleepQuality(float amount)
         {
             m_sleepQuality += amount;
+            OnModifyExhaustion?.Invoke();
         }
 
         public void ModifySleepExhaustionValue(float amount)
         {
             sleepExhaustion = m_sleepExhaustionManager.ModifyExhaustionByAmount(sleepExhaustion, amount);
+            OnModifyExhaustion?.Invoke();
         }
         #endregion
 
@@ -189,6 +194,7 @@ namespace Canicule
         {
             hungerExhaustion = m_hungerExhaustionManager.ModifyExhaustionByAmount(
                 hungerExhaustion, amount);
+            OnModifyExhaustion?.Invoke();
         }
 
         #endregion
@@ -198,6 +204,7 @@ namespace Canicule
         {
             thirstExhaustion = m_thirstExhaustionManager.ModifyExhaustionByAmount(
                 thirstExhaustion, amount);
+            OnModifyExhaustion?.Invoke();
         }
 
         // Modify exhaustion when drinking
@@ -221,11 +228,13 @@ namespace Canicule
         public void ModifyRoomTemperatureModifier(float amount)
         {
             m_roomTemperatureModifier += amount;
+            OnModifyExhaustion?.Invoke();
         }
 
         public void ResetRoomTemperatureModifier()
         {
             m_roomTemperatureModifier = 0;
+            OnModifyExhaustion?.Invoke();
         }
 
         public float GetRoomTemperatureModifier()

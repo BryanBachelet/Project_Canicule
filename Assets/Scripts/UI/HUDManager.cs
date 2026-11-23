@@ -11,12 +11,19 @@ namespace Canicule
         [SerializeField] private RectTransform m_exhaustionGaugeHolder;
         [SerializeField] private List<RectTransform> m_exhaustionGaugesRect = new List<RectTransform>();
         [SerializeField] private Animator m_infobarAC;
+        [SerializeField] private CanvasGroup m_exhaustionGaugesCanvaGroup;
+        [SerializeField] private float m_exhaustionGaugesTemporaryDuration = 4f;
+        [SerializeField] private float m_exhaustionGaugesLerpDuration = 1f;
 
         private List<ExhaustionGauge>  m_exhaustionGauges = new List<ExhaustionGauge>();
         private ExhaustionManager m_exhaustionManager;
         private NightDayManager m_nightDayManager;
         private float m_targetWidth = 0f;
         private float m_exhaustionToWidthConverter;
+        private float m_temporaryTimer = 0f;
+        private float m_temporaryLerpTimer = 0f;
+        private bool b_isTemporaryTimerRunning = false;
+        private bool b_isTemporaryGaugesDisplayed = false;
 
         #region Unity Methods
         private void Awake()
@@ -35,12 +42,14 @@ namespace Canicule
         {
             m_nightDayManager.OnStartNight += UpdateExhaustionGaugesVisibility;
             m_nightDayManager.OnEndNight += UpdateExhaustionGaugesVisibility;
+            m_exhaustionManager.OnModifyExhaustion += ManageTemporaryVisibilityExhaustionGauges;
         }
 
         private void OnDisable()
         {
             m_nightDayManager.OnStartNight -= UpdateExhaustionGaugesVisibility;
             m_nightDayManager.OnEndNight -= UpdateExhaustionGaugesVisibility;
+            m_exhaustionManager.OnModifyExhaustion -= ManageTemporaryVisibilityExhaustionGauges;
         }
 
         private void Start()
@@ -53,6 +62,12 @@ namespace Canicule
             SetExhaustionGaugesPositions();
             UpdateExhaustionGaugesValues();
 
+            if (b_isTemporaryTimerRunning)
+            {
+                UpdateTemporaryTimer();
+            }
+
+            TemporarilyDisplayingGauges();
         }
         #endregion
 
@@ -60,7 +75,66 @@ namespace Canicule
         // Update the visibility of the exhaustion gauges
         private void UpdateExhaustionGaugesVisibility()
         {
+            // Reactivate the animator for the night phase
+            if (m_nightDayManager.GetIsNightActive())
+            {
+                m_infobarAC.enabled = true;
+            }
+
             m_infobarAC.SetBool("isNightActive", m_nightDayManager.GetIsNightActive());
+        }
+
+        // Manage temporary visibility of the exhaustion gauges
+        private void ManageTemporaryVisibilityExhaustionGauges()
+        {
+            m_temporaryTimer = m_exhaustionGaugesTemporaryDuration;
+
+            if (!b_isTemporaryTimerRunning)
+            {
+                m_temporaryLerpTimer = 0;
+            }
+
+            b_isTemporaryTimerRunning = true;
+        }
+
+        private void UpdateTemporaryTimer()
+        {
+            m_temporaryTimer -= Time.deltaTime;
+
+            if(m_temporaryTimer < 0)
+            {
+                m_temporaryLerpTimer = 0;
+                b_isTemporaryTimerRunning = false;
+            }
+        }
+
+        /*
+        private void ManageTemporaryVisibility()
+        {
+            if (!b_isTemporaryGaugesDisplayed)
+            {
+                b_isTemporaryGaugesDisplayed = true;
+                m_temporaryLerpTimer = 0;
+            }
+        }
+        */
+
+        private void TemporarilyDisplayingGauges()
+        {
+            if (!m_infobarAC.isActiveAndEnabled)
+            {
+                m_temporaryLerpTimer += Time.deltaTime;
+                float timerRatio = m_temporaryLerpTimer / m_exhaustionGaugesLerpDuration;
+
+                if (b_isTemporaryTimerRunning)
+                {
+                    m_exhaustionGaugesCanvaGroup.alpha = Mathf.Lerp(0, 1, timerRatio);
+                }
+                else
+                {
+                    m_exhaustionGaugesCanvaGroup.alpha = Mathf.Lerp(1, 0, timerRatio);
+                }
+            }
         }
 
         // Sets the position of the exhaustion gauges next to each other
