@@ -116,7 +116,6 @@ namespace Canicule
 
             m_currentGamePhase = (GamePhase)currentGamePhaseIndex;
             OnGamePhaseChange?.Invoke(m_currentGamePhase);
-
         }
 
         #region Static Functions

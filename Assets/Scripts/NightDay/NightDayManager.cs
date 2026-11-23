@@ -8,8 +8,8 @@ namespace Canicule
         [SerializeField] private bool m_isNightActive = false;
 
         [SerializeField] private float m_nightTotalDuration = 600f; // in seconds
-        private float m_nightRatio = 0.0f;
-        private float m_nightTotalTimer = 0.0f;
+        [SerializeField] private float m_nightRatio = 0.0f;
+        [SerializeField] private float m_nightTotalTimer = 0.0f;
         private int m_dayCount = 0;
 
         [HideInInspector] public UnityAction OnStartNight;
@@ -29,6 +29,16 @@ namespace Canicule
         [HideInInspector] public UnityAction<int> OnHourChange;
 
         #region Unity Methods
+        private void OnEnable()
+        {
+            GameManager.GetGameManager().OnGamePhaseChange.AddListener(ChangeNightStateOverGamePhase);
+        }
+
+        private void OnDisable()
+        {
+            GameManager.GetGameManager().OnGamePhaseChange.RemoveListener(ChangeNightStateOverGamePhase);
+        }
+
         private void Start()
         {
             InitComponent();
@@ -37,8 +47,6 @@ namespace Canicule
 
         private void Update()
         {
-            Debug.Log(m_isNightActive);
-
             if (!m_isNightActive)
             {
                 return;
@@ -100,6 +108,18 @@ namespace Canicule
 
             m_currentHour = hour;
 
+        }
+
+        private void ChangeNightStateOverGamePhase(GamePhase phase)
+        {
+            if(phase == GamePhase.MORNING)
+            {
+                FinishNight();
+            }
+            else if(phase == GamePhase.NIGHT)
+            {
+                StartNight();
+            }
         }
 
         public void StartNight()

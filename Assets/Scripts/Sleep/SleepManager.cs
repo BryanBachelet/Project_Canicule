@@ -19,6 +19,7 @@ namespace Canicule
         private float m_sleepCooldown = 0.0f;
         private float m_sleepChance = 0.0f;
         private float m_sleepChanceModifier = 0.0f;
+        private float m_requieredSleepChance = 0.0f;
         private float m_sleepChancePillsModifier = 0.0f;
         private float m_sleepChanceWithoutPillsModifier = 0.0f;
         private float m_sleepChanceEnergyDrinkModifier = 0.0f;
@@ -56,10 +57,12 @@ namespace Canicule
             if (m_bCanAttempSleep)
             {
                 ComputeSleepChance();
+                m_requieredSleepChance = 1 - m_sleepChanceOverRoomTemperature.Evaluate(m_roomTemperature);
 
-                if (m_sleepChance >= 1 - m_sleepChanceOverRoomTemperature.Evaluate(m_roomTemperature))
+                if (m_sleepChance >= m_requieredSleepChance)
                 {
-                    Debug.Log("[Sleep Manager] Sleep success! Sleep chance was " + m_sleepChance);
+                    Debug.Log("[Sleep Manager] Sleep success!");
+                    Debug.Log("[Sleep Manager] Requiered chance was: " + m_requieredSleepChance);
                     OnSleepStarted?.Invoke();
                     GameManager.GetPlayer().GetComponent<Character>().ChangeState(CharacterState.SLEEPING);
                     GameManager.RequestToSwitchGamePhase();
@@ -75,7 +78,8 @@ namespace Canicule
                 }
                 else
                 {
-                    Debug.Log("[Sleep Manager] Fail to sleep. Sleep chance was " + m_sleepChance);
+                    Debug.Log("[Sleep Manager] Fail to sleep");
+                    Debug.Log("[Sleep Manager] Requiered chance was: " + m_requieredSleepChance);
                     m_bIsSleepTimerRunning = true;
                     
                 }
@@ -121,6 +125,11 @@ namespace Canicule
                         + m_sleepChanceModifier
                         + m_sleepChanceWithoutPillsModifier
                         + m_sleepChanceEnergyDrinkModifier;
+                Debug.Log("[Sleep Chance] Sleep chance was " + m_sleepChance);
+                Debug.Log("[Sleep Chance] base modifier: " + m_sleepChanceModifier);
+                Debug.Log("[Sleep Chance] without pills modifier: " + m_sleepChanceWithoutPillsModifier);
+                Debug.Log("[Sleep Chance] energy drink modifier: " + m_sleepChanceEnergyDrinkModifier);
+
             }
         }
         
