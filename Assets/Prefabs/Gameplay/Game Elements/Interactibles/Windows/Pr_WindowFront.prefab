@@ -25,6 +25,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7087972362427821045, guid: 800b86c18dd7a3a4bbd69d257e4645ee, type: 3}
     - target: {fileID: 2047639794849939296, guid: d06b77920df405c4a830f30e816ca65f, type: 3}
+      propertyPath: m_radiusSafeArea
+      value: 4.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047639794849939296, guid: d06b77920df405c4a830f30e816ca65f, type: 3}
       propertyPath: m_windowOpenSurvivalBlanket
       value: 
       objectReference: {fileID: 4033787721351624448, guid: 49074a55947fcc14bae6bdc9e40819f6, type: 3}
