@@ -37,6 +37,8 @@ namespace Canicule
 
         private void Update()
         {
+            Debug.Log(m_isNightActive);
+
             if (!m_isNightActive)
             {
                 return;
@@ -50,7 +52,7 @@ namespace Canicule
         #region Night Management
         private void InitComponent()
         {
-            m_hourDuration = m_nightEndHour + (m_maxHour - m_nightStartHour) / m_nightTotalDuration;
+            m_hourDuration = m_nightTotalDuration / (m_nightEndHour + (m_maxHour - m_nightStartHour));
         }
 
         private void ComputeNightRatio()
