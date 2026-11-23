@@ -26,17 +26,20 @@ namespace Canicule
         private const int m_minMinutes = 0;
         private const int m_maxMinutes = 59;
 
+        [Header("Morning")]
+        [SerializeField] private int m_morningHour = 9;
+
         [HideInInspector] public UnityAction<int> OnHourChange;
 
         #region Unity Methods
         private void OnEnable()
         {
-            GameManager.GetGameManager().OnGamePhaseChange.AddListener(ChangeNightStateOverGamePhase);
+            GameManager.SubcribeToOnGameEventChange(ChangeNightStateOverGamePhase);
         }
 
         private void OnDisable()
         {
-            GameManager.GetGameManager().OnGamePhaseChange.RemoveListener(ChangeNightStateOverGamePhase);
+            GameManager.UnsubcribeToOnGameEventChange(ChangeNightStateOverGamePhase);
         }
 
         private void Start()
@@ -115,6 +118,7 @@ namespace Canicule
             if(phase == GamePhase.MORNING)
             {
                 FinishNight();
+                
             }
             else if(phase == GamePhase.NIGHT)
             {
@@ -135,6 +139,7 @@ namespace Canicule
         {
             m_isNightActive = false;
             OnEndNight?.Invoke();
+            SetHour(m_morningHour);
         }
         #endregion
 
