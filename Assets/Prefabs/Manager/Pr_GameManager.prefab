@@ -75,6 +75,10 @@ MonoBehaviour:
   OnLose:
     m_PersistentCalls:
       m_Calls: []
+  OnWin:
+    m_PersistentCalls:
+      m_Calls: []
+  m_showDebug: 0
 --- !u!114 &230091388579479107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +94,9 @@ MonoBehaviour:
   m_envirommentHeatSource: {fileID: 0}
   m_activeRoomDebug: 0
   m_showDebugCurrentRoom: 1
+  OnPlayerChangeRoom:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7178166073420476163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26440b2979e13d4cbcbfa87b7d4803a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.InventoryDataManager
-  m_playerBalance: 500
+  m_playerBalance: 5
   m_inventoryUIManager: {fileID: 0}
+  m_OutsideUIPhase: {fileID: 0}
 --- !u!114 &6520396739658275495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.SleepManager
   m_sleepData: {fileID: 11400000, guid: 30cbeca72f806344cbfb54205cabbe24, type: 2}
   m_roomTemperature: 0
+  b_alwaysSucceedSleep: 0
   m_sleepingUIPhase: {fileID: 0}
 --- !u!114 &6443054003133940021
 MonoBehaviour:
@@ -279,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7f47e944ddabb488c3eb5ca3e0bd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.MonsterManager
+  m_isMonsterCannotAppear: 0
   m_monsterPrefab: {fileID: 6416992850716951731, guid: 1d140ddd2ef84c641a81910ec9b4d239, type: 3}
   m_appearenceTemperature: 40
 --- !u!114 &5216660736732683965
@@ -293,9 +303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8030853bfd2083d438bbe451940a7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.NightDayManager
+  m_isNightActive: 0
   m_nightTotalDuration: 600
+  m_nightRatio: 0
+  m_nightTotalTimer: 0
   m_nightStartHour: 18
   m_nightEndHour: 8
+  m_letterHour: h
 --- !u!114 &2394902231535143013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +347,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    m_morningTemperature: 0
   - m_temperaturePerHour:
       serializedVersion: 2
       m_Curve:
@@ -357,6 +372,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    m_morningTemperature: 0
   OnTemperatureUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -372,3 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3fb3a9f3c18540459488f2726c250c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canicule.ItemEffectManager
+  m_standingFan: {fileID: 0}
+  m_thermometerUI: {fileID: 0}
+  m_watchUI: {fileID: 0}
