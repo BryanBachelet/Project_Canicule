@@ -41,6 +41,7 @@ namespace Canicule
             m_heatSource = GetComponent<HeatSource>();
             m_spriteRenderer = GetComponent<SpriteRenderer>();
             m_isInitializationDone = true;
+            m_heatSource.DeactiveHeatSource();
         }
 
         protected override void Interact()

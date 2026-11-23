@@ -25,12 +25,15 @@ namespace Canicule.Rooms
     public class Room : MonoBehaviour
     {
         [SerializeField] private RoomData m_roomData;
-        [SerializeField] private bool m_isStartingRoom = false; 
+        [SerializeField] private bool m_isStartingRoom = false;
 
         [Space]
         [SerializeField] private Vector3[] m_appearencePoints;
+        [SerializeField] private bool m_showAppearancePoints = false;
+        private const float m_appearencePointsRadiusDebug = 0.3f;
 
-        [SerializeField] private HeatManager m_heatManager = new HeatManager();
+
+       [SerializeField] private HeatManager m_heatManager = new HeatManager();
 
         private List<RoomConnection> m_roomConnectionArray = new List<RoomConnection>();
 
@@ -43,7 +46,7 @@ namespace Canicule.Rooms
         public void OnEnable()
         {
             GameManager.SubcribeToOnGameEventChange(OnGamePhaseChanged);
-            
+
         }
 
         public void OnDisable()
@@ -63,7 +66,7 @@ namespace Canicule.Rooms
                 roomManager.OnPlayerChangeRoom.AddListener(OnPlayerChangedRoom);
             }
 
-            
+
 
             InitializeWindows();
             InitializeEdgeCollider();
@@ -186,7 +189,7 @@ namespace Canicule.Rooms
 
             return false;
         }
-  
+
         public Window GetOpenWindow()
         {
             for (int i = 0; i < m_windowArray.Length; i++)
@@ -256,6 +259,21 @@ namespace Canicule.Rooms
                 PlayerLeaveRoom();
             }
         }
+
+        #region Debugs Functions
+
+        public void OnDrawGizmosSelected()
+        {
+            if (m_showAppearancePoints)
+            {
+                for (int i = 0; i < m_appearencePoints.Length; i++)
+                {
+                    Gizmos.DrawSphere(m_appearencePoints[i], m_appearencePointsRadiusDebug);
+                }
+            }
+        }
+
+        #endregion
     }
 
 }

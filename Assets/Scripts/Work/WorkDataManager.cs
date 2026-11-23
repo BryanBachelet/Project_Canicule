@@ -9,7 +9,7 @@ namespace Canicule
         private InventoryDataManager m_inventoryDataManager;
         private float m_gainModifier = 0f;
 
-        private void Awake()
+        private void Start()
         {
             m_inventoryDataManager = GameManager.GetInventoryDataManager();
         }
@@ -35,7 +35,10 @@ namespace Canicule
 
         public float GetPlayerBalance()
         {
-            return m_inventoryDataManager.GetPlayerBalance();
+            if(m_inventoryDataManager)
+                return m_inventoryDataManager.GetPlayerBalance();
+
+            return 0.0f;
         }
 
     }
