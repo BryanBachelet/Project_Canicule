@@ -110,6 +110,7 @@ namespace Canicule
             }
 
             m_currentHour = hour;
+            m_nightTotalTimer = 0.0f;
 
         }
 
