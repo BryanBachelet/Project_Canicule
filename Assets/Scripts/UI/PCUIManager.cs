@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Canicule
@@ -8,15 +9,21 @@ namespace Canicule
     {
         #region Fields
         [SerializeField] private GameObject m_PCScreen;
+        [SerializeField] private TMP_Text m_timeText;
         [SerializeField] private List<GameObject> m_apps = new List<GameObject>();
         
         private GameObject m_activeApp;
+        private NightDayManager m_nightDayManager;
 
         public event Action OnPCOpen;
         public event Action OnPCClosed;
         #endregion
 
         #region Unity Methods
+        private void Awake()
+        {
+            m_nightDayManager = GameManager.GetNightDayManager();
+        }
         private void Start()
         {
             m_PCScreen.SetActive(false);
@@ -25,6 +32,11 @@ namespace Canicule
             {
                 app.SetActive(false);
             }
+        }
+
+        private void Update()
+        {
+            m_timeText.text = m_nightDayManager.GetDispayableHour();
         }
         #endregion
 
