@@ -668,6 +668,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 157.56982
       objectReference: {fileID: 0}
+    - target: {fileID: 5045219204794568204, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.366028
+      objectReference: {fileID: 0}
     - target: {fileID: 5083734083673018612, guid: 2aeda04e7900f174489be04f9331fcbd, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -38.34375
@@ -1039,184 +1043,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3285881632982618249, guid: 3fdb8467878377b438c8325eac29faac, type: 3}
   m_PrefabInstance: {fileID: 436185156}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &425620687
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 12
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 36
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.4600067, y: 0.4600067, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000400050005000100000001000800090009000200010002000c000d000d000300020003001000110011000000030000000600070001000a000b0002000e000f00030012001300
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 560
-    _typelessdata: 0086eb3e0086eb3e00000000000080bf000000000086ebbe0086eb3e0086ebbe0086eb3e00000000000080bf000000000086ebbe0086ebbe0086ebbe0086ebbe00000000000080bf000000000086eb3e0086ebbe0086eb3e0086ebbe00000000000080bf000000000086eb3e0086eb3e0086eb3e0086eb3e0000000000000000000000000086ebbe0086eb3e0086ebbe0086eb3e0000000000000000000000000086eb3e0086eb3e0086eb3e0086eb3e000000000000803f000000000086ebbe0086eb3e0086eb3e0086eb3e0000000000004040000000000086ebbe0086eb3e0086ebbe0086eb3e0000000000000000000000000086ebbe0086ebbe0086ebbe0086ebbe0000000000000000000000000086ebbe0086eb3e0086ebbe0086eb3e000000000000803f000000000086ebbe0086ebbe0086ebbe0086eb3e0000000000004040000000000086ebbe0086ebbe0086ebbe0086ebbe0000000000000000000000000086eb3e0086ebbe0086eb3e0086ebbe0000000000000000000000000086ebbe0086ebbe0086ebbe0086ebbe000000000000803f000000000086eb3e0086ebbe0086ebbe0086ebbe0000000000004040000000000086eb3e0086ebbe0086eb3e0086ebbe0000000000000000000000000086eb3e0086eb3e0086eb3e0086eb3e0000000000000000000000000086eb3e0086ebbe0086eb3e0086ebbe000000000000803f000000000086eb3e0086eb3e0086eb3e0086ebbe0000000000004040000000000086eb3e0086eb3e
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
-  m_MeshLodInfo:
-    serializedVersion: 2
-    m_LodSelectionCurve:
-      serializedVersion: 1
-      m_LodSlope: 0
-      m_LodBias: 0
-    m_NumLevels: 1
-    m_SubMeshes:
-    - serializedVersion: 2
-      m_Levels:
-      - serializedVersion: 1
-        m_IndexStart: 0
-        m_IndexCount: 0
 --- !u!1001 &436185156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4330,6 +4156,184 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e37937d6a5fa1dc48af597aacc1fe014, type: 3}
+--- !u!43 &1272955685
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 12
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 36
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 20
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.4600067, y: 0.4600067, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000400050005000100000001000800090009000200010002000c000d000d000300020003001000110011000000030000000600070001000a000b0002000e000f00030012001300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 20
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 560
+    _typelessdata: 0086eb3e0086eb3e00000000000080bf000000000086ebbe0086eb3e0086ebbe0086eb3e00000000000080bf000000000086ebbe0086ebbe0086ebbe0086ebbe00000000000080bf000000000086eb3e0086ebbe0086eb3e0086ebbe00000000000080bf000000000086eb3e0086eb3e0086eb3e0086eb3e0000000000000000000000000086ebbe0086eb3e0086ebbe0086eb3e0000000000000000000000000086eb3e0086eb3e0086eb3e0086eb3e000000000000803f000000000086ebbe0086eb3e0086eb3e0086eb3e0000000000004040000000000086ebbe0086eb3e0086ebbe0086eb3e0000000000000000000000000086ebbe0086ebbe0086ebbe0086ebbe0000000000000000000000000086ebbe0086eb3e0086ebbe0086eb3e000000000000803f000000000086ebbe0086ebbe0086ebbe0086eb3e0000000000004040000000000086ebbe0086ebbe0086ebbe0086ebbe0000000000000000000000000086eb3e0086ebbe0086eb3e0086ebbe0000000000000000000000000086ebbe0086ebbe0086ebbe0086ebbe000000000000803f000000000086eb3e0086ebbe0086ebbe0086ebbe0000000000004040000000000086eb3e0086ebbe0086eb3e0086ebbe0000000000000000000000000086eb3e0086eb3e0086eb3e0086eb3e0000000000000000000000000086eb3e0086ebbe0086eb3e0086ebbe000000000000803f000000000086eb3e0086eb3e0086eb3e0086ebbe0000000000004040000000000086eb3e0086eb3e
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+  m_MeshLodInfo:
+    serializedVersion: 2
+    m_LodSelectionCurve:
+      serializedVersion: 1
+      m_LodSlope: 0
+      m_LodBias: 0
+    m_NumLevels: 1
+    m_SubMeshes:
+    - serializedVersion: 2
+      m_Levels:
+      - serializedVersion: 1
+        m_IndexStart: 0
+        m_IndexCount: 0
 --- !u!1 &1328197310
 GameObject:
   m_ObjectHideFlags: 0
@@ -7547,6 +7551,1330 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_morningTemperature
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_morningTemperature
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_morningTemperature
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_morningTemperature
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_morningTemperature
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_morningTemperature
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_morningTemperature
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_morningTemperature
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_morningTemperature
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].time
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].time
+      value: 21.998678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[4].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 30.301208
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 31.792048
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 27.792048
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 35.792046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 33.093254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 31.792048
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 32.060913
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 28.075068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 36.046764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 33.35752
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 32.060913
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 30.301208
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 34.045895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 30.048304
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 38.04349
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 35.346325
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 34.045895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 37.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 33.08841
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 41.083595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 38.38643
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 37.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 37.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 33.08841
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 41.083595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 38.38643
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 37.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 40.036602
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 36.039013
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 44.0342
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 41.337032
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 40.036602
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[0].value
+      value: 44.04634
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].value
+      value: 40.04875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].value
+      value: 48.043938
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].value
+      value: 45.34677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[4].value
+      value: 44.04634
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.6749209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.65017456
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.79999983
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.6749209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6501736
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.4982307
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.7971697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.6725331
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6478758
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.6749209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.65017456
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.49969888
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.79951876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].inSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].inSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].inSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[4].inSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.6749209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.65017456
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.79999983
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.6749209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6501736
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.4982307
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.7971697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.6725331
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6478758
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.6749209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.65017456
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.49969888
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.79951876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[0].outSlope
+      value: -0.49969864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].outSlope
+      value: 0.7995186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].outSlope
+      value: -0.67451453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].outSlope
+      value: -0.6497857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[0].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[1].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[2].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[3].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[4].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[5].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[6].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[7].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394902231535143013, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_dayTemperature.Array.data[8].m_temperaturePerHour.m_Curve.Array.data[4].tangentMode
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2776669241649342489, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
       propertyPath: m_OutsideUIPhase
       value: 
@@ -7622,6 +8950,10 @@ PrefabInstance:
     - target: {fileID: 4743371100846850078, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
       propertyPath: positifHeatScoreGain
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216660736732683965, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
+      propertyPath: m_nightEndHour
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5216660736732683965, guid: 93d708efd603c4043bc562ea306c5dc9, type: 3}
       propertyPath: m_nightTotalDuration

@@ -52,5 +52,20 @@ namespace Canicule.Temperature
            
         }
 
+        #region Getter
+        public float GetEnvironmentTemperature()
+        {
+            int day = m_nightDayManager.GetDay();
+            float hourRatio = m_nightDayManager.GetHourRatio();
+            return m_dayTemperature[day].m_temperaturePerHour.Evaluate(hourRatio);
+        }
+
+        public float GetMorningTemperature()
+        {
+            int day = m_nightDayManager.GetDay();
+            return m_dayTemperature[day].m_morningTemperature;
+        }
+        #endregion
+
     }
 }

@@ -1,3 +1,4 @@
+using Canicule.Temperature;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -10,10 +11,13 @@ namespace Canicule
         #region Fields
         [SerializeField] private GameObject m_PCScreen;
         [SerializeField] private TMP_Text m_timeText;
+        [SerializeField] private TMP_Text m_weatherText;
+        [SerializeField] private string m_weatherSuffix = "°C";
         [SerializeField] private List<GameObject> m_apps = new List<GameObject>();
         
         private GameObject m_activeApp;
         private NightDayManager m_nightDayManager;
+        private EnvirommentHeatSource m_environmentHeatSource;
 
         public event Action OnPCOpen;
         public event Action OnPCClosed;
@@ -23,6 +27,7 @@ namespace Canicule
         private void Awake()
         {
             m_nightDayManager = GameManager.GetNightDayManager();
+            m_environmentHeatSource = GameManager.GetEnvirommentHeatSource();
         }
         private void Start()
         {
@@ -37,6 +42,14 @@ namespace Canicule
         private void Update()
         {
             m_timeText.text = m_nightDayManager.GetDispayableHour();
+            if (m_nightDayManager.GetIsNightActive())
+            {
+                m_weatherText.text = m_environmentHeatSource.GetEnvironmentTemperature().ToString("F0") + m_weatherSuffix;
+            }
+            else
+            {
+                m_weatherText.text = m_environmentHeatSource.GetMorningTemperature().ToString("F0") + m_weatherSuffix;
+            }
         }
         #endregion
 
