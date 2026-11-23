@@ -64,8 +64,6 @@ namespace Canicule
         public void EndOutsidePhase()
         {
             OnEndOutsidePhase?.Invoke();
-            m_outsideWorkText.gameObject.SetActive(true);
-
         }
     }
 }
