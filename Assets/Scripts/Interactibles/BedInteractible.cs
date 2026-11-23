@@ -47,7 +47,7 @@ namespace Canicule
 
         public override void LaunchInteraction(Transform actor,Interactor interactActorType)
         {
-            if (!m_sleepManager.CanSleep()) return;
+            if (!m_sleepManager.CanSleep() && m_isCooldownActive) return;
             
             base.LaunchInteraction(actor, interactActorType);
         }
