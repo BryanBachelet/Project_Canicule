@@ -40,6 +40,17 @@ namespace Canicule.Rooms
 
         #region Unity Functions
 
+        public void OnEnable()
+        {
+            GameManager.SubcribeToOnGameEventChange(OnGamePhaseChanged);
+            
+        }
+
+        public void OnDisable()
+        {
+            GameManager.UnsubcribeToOnGameEventChange(OnGamePhaseChanged);
+        }
+
         public void Start()
         {
             m_heatManager.InitHeatManager(m_roomData.m_baseTemperature, m_roomData.roomHeatResistance);
@@ -52,6 +63,8 @@ namespace Canicule.Rooms
                 roomManager.OnPlayerChangeRoom.AddListener(OnPlayerChangedRoom);
             }
 
+            
+
             InitializeWindows();
             InitializeEdgeCollider();
         }
@@ -60,8 +73,6 @@ namespace Canicule.Rooms
             if (GameManager.GetCurrentGamePhase() == GamePhase.NIGHT)
             {
                 m_heatManager.UpdateHeatManager();
-
-               
             }
 
         }
@@ -212,7 +223,6 @@ namespace Canicule.Rooms
             return null;
         }
 
-
         public bool HasDraft()
         {
             for (int i = 0; i < m_roomConnectionArray.Count; i++)
@@ -231,7 +241,7 @@ namespace Canicule.Rooms
         {
             if (phase == GamePhase.MORNING)
             {
-                m_heatManager.SetHeat(m_windowArray[0].GetHeatSource().GetTemperature());
+                m_heatManager.SetHeat(GameManager.GetEnvirommentHeatSource().GetMorningTemperature());
             }
         }
 
