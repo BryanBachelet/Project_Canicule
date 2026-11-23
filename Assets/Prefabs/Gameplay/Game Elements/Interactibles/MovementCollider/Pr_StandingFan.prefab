@@ -611,8 +611,8 @@ MonoBehaviour:
   m_sleepQualityDecreaseAmount: 0
   b_isOn: 0
   b_isInstalled: 0
-  m_lightOn: {fileID: 7458954996828191636}
-  m_lightOff: {fileID: 6081310759624362043}
+  m_lightOn: {fileID: 5562514018824521559}
+  m_lightOff: {fileID: 1963998405435650910}
 --- !u!212 &8014922307146023807 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 913001487121549254, guid: 7c73b585f6a49fc4aaf94e6ce0eff605, type: 3}
