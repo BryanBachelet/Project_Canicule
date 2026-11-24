@@ -102,7 +102,9 @@ namespace Canicule
 
         public void ChangeState(MonsterState state)
         {
-            EndState(state);
+            if (state == m_currentState) return;
+
+            EndState(m_currentState);
             Debug.Log("[Monster] Change monster state from " + m_currentState + " to " + state);
             m_currentState = state;
             StartState(state);
@@ -119,7 +121,7 @@ namespace Canicule
                 case MonsterState.APPEAR:
                     break;
                 case MonsterState.DISAPPEAR:
-                    m_navMeshAgent.isStopped = true;
+                    gameObject.SetActive(false);
                     break;
                 case MonsterState.MOVE:
                     break;

@@ -73,7 +73,7 @@ namespace Canicule
             {
                 Monster monsterCmpt = GameManager.GetMonster();
                 float distance = Vector3.Distance(transform.position, monsterCmpt.transform.position);
-                if (distance < m_radiusSafeArea)
+                if (distance < m_radiusSafeArea && monsterCmpt.GetState() != (MonsterState.DISAPPEAR)  && monsterCmpt.GetState() != (MonsterState.NONE))
                 {
                     monsterCmpt.ChangeState(MonsterState.DISAPPEAR);
                 }

@@ -26,15 +26,23 @@ namespace Canicule
         public void OnEnable()
         {
             GameManager.RegisterObject(this);
+        }
+
+        public void OnDisable()
+        {
+            GameManager.UnregisterObject(this);
+        }
+
+        public void Start()
+        {
 #if UNITY_EDITOR || UNITY_DEVELOPEMENT
             CommandsConsole.OnCommandCall += OnCommandEnter;
             CommandsConsole.RegisterCommand(m_spawnMonsterCommandStr);
 #endif
         }
 
-        public void OnDisable()
+        public void OnDestroy()
         {
-            GameManager.UnregisterObject(this);
 #if UNITY_EDITOR || UNITY_DEVELOPEMENT
             CommandsConsole.OnCommandCall -= OnCommandEnter;
 #endif
