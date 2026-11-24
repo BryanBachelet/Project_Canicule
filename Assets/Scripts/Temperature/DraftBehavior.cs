@@ -16,6 +16,7 @@ namespace Canicule
         private HeatSource m_heatSource;
         private DraftData m_draftDataA;
         private DraftData m_draftDataB;
+        private Room m_roomOwner = null;
 
         [Header("Parameters")]
         [SerializeField] private float m_draftDegreeReduction = 3.0f;
@@ -24,6 +25,7 @@ namespace Canicule
 
         private bool m_hasBeenInit = false;
         private bool m_hasStartDestroy = false;
+
 
         public void Update()
         {
@@ -42,14 +44,14 @@ namespace Canicule
 
         }
 
-        public void InitDraft(DraftData draftDataA, DraftData draftDataB)
+        public void InitDraft(DraftData draftDataA, DraftData draftDataB, Room roomOwner)
         {
             m_heatSource = GetComponent<HeatSource>();
             m_draftDataA = draftDataA;
             m_draftDataB = draftDataB;
+            m_roomOwner = roomOwner;
 
-            m_draftDataA.room.GetHeatManager().RegisterHeatSource(m_heatSource);
-            m_draftDataB.room.GetHeatManager().RegisterHeatSource(m_heatSource);
+            m_roomOwner.GetHeatManager().RegisterHeatSource(m_heatSource);
             
             m_hasBeenInit = true;
 
@@ -65,8 +67,7 @@ namespace Canicule
             OnDraftDestroy.RemoveAllListeners();
             m_hasStartDestroy = true;
 
-            m_draftDataA.room.GetHeatManager().UnregisterHeatSource(m_heatSource);
-            m_draftDataB.room.GetHeatManager().UnregisterHeatSource(m_heatSource);
+            m_roomOwner.GetHeatManager().UnregisterHeatSource(m_heatSource);
             Destroy(this.gameObject);
         }
     }
