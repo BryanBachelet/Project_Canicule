@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Canicule.Temperature;
 using System.Collections.Generic;
+using UnityEngine.Events;
 namespace Canicule.Rooms
 {
     [System.Serializable]
@@ -40,6 +41,10 @@ namespace Canicule.Rooms
         private Window[] m_windowArray;
 
         private EdgeCollider2D m_edgeCollider;
+
+        [HideInInspector] public UnityEvent OnDraftCreate;
+        [HideInInspector] public UnityEvent OnDraftDelete;
+        private bool m_isRoomVentilate;
 
         #region Unity Functions
 
@@ -238,6 +243,23 @@ namespace Canicule.Rooms
             }
 
             return false;
+        }
+
+        public bool IsRoonVentilate()
+        {
+            return m_isRoomVentilate;
+        }
+
+        public void SetRoomVentilate()
+        {
+            OnDraftCreate?.Invoke();
+            m_isRoomVentilate = true;
+        }
+
+        public void ResetRoomVentilation()
+        {
+            m_isRoomVentilate = false;
+            OnDraftDelete?.Invoke();
         }
 
         private void OnGamePhaseChanged(GamePhase phase)

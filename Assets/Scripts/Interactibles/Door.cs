@@ -58,10 +58,14 @@ namespace Canicule
         {
             m_bIsDoorOpen = false;
             m_doorGeneral.OnDoorClosed?.Invoke();
+            if (m_isDraftActive)
+            {
+                GameManager.GetDraftManager().OnDoorClosed(m_doorGeneral);
+            }
             SwitchDoorState();
         }
 
-    private void SwitchDoorState()
+        private void SwitchDoorState()
         {
             if (m_bIsDoorOpen)
             {
@@ -122,11 +126,11 @@ namespace Canicule
         {
             if (!m_isDraftActive) return;
 
-            if(m_timerDrawDraftCloseDoor.UpdateTimer())
+            if (m_timerDrawDraftCloseDoor.UpdateTimer())
             {
                 float draw = Random.Range(0.0f, 1.0f);
-                
-                if(m_rateDoorCloseOfDraft > draw)
+
+                if (m_rateDoorCloseOfDraft > draw)
                 {
                     SlamDoor();
                 }
@@ -141,7 +145,7 @@ namespace Canicule
             m_doorSlamEmitter.Play();
         }
 
-        public void CreateDraft(Room starterRoom,Room enderRoom)
+        public void CreateDraft(Room starterRoom, Room enderRoom)
         {
             GameObject draftInstance = GameObject.Instantiate(m_draftPrefab, m_doorGeneral.transform);
             DraftBehavior draftBehavior = draftInstance.GetComponent<DraftBehavior>();
@@ -155,7 +159,7 @@ namespace Canicule
             draftDataB.door = linkDoor;
             draftDataB.room = enderRoom;
 
-            draftBehavior.InitDraft(draftDataA, draftDataB,m_roomOwner);
+            draftBehavior.InitDraft(draftDataA, draftDataB, m_roomOwner);
             m_draftBehavior = draftBehavior;
             m_isDraftActive = true;
         }

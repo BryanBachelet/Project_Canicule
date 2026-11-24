@@ -30,14 +30,21 @@ namespace Canicule
         [SerializeField] private float m_radiusSafeArea = 1.0f;
         [SerializeField] private bool m_activateDebugSafeArea = false;
         private bool m_isSafeAreaActive = false;
+        [SerializeField] private GameObject m_vfxDraft;
+
 
         #region Unity Methods
         public override void Start()
         {
             base.Start();
+
             m_heatSource = GetComponent<HeatSource>();
             m_nightDayManager = GameManager.GetNightDayManager();
+
             GameManager.GetEnvirommentHeatSource()?.OnTemperatureUpdate?.AddListener(OnWindowUpdateTemperature);
+
+            m_roomOwner.OnDraftCreate.AddListener(OnDraftCreated);
+            m_roomOwner.OnDraftDelete.AddListener(OnDraftDestroy);
         }
 
         public override void OnDestroy()
@@ -52,6 +59,7 @@ namespace Canicule
             OnWindowClose += ChangeWindowSpriteToClose;
             GameManager.GetNightDayManager().OnStartNight += UpdateHeatRatio;
             GameManager.GetNightDayManager().OnEndNight += UpdateHeatRatio;
+           
         }
 
         private void OnDisable()
@@ -115,11 +123,17 @@ namespace Canicule
                     GameManager.GetDraftManager().OnWindowClosed(m_roomOwner);
                 }
                 SetHeatRatioWindowClose();
+                m_vfxDraft.SetActive(false);
             }
             else
             {
                 OnWindowOpen?.Invoke();
                 SetHeatRatioWindowOpen();
+                if(m_roomOwner.IsRoonVentilate())
+                {
+                    m_isSafeAreaActive = true;
+                    m_vfxDraft.SetActive(true);
+                }
             }
         }
         #endregion
@@ -202,6 +216,21 @@ namespace Canicule
         public HeatSource GetHeatSource() { return m_heatSource; }
 
         public bool IsOpen() { return !m_isWindowClose; }
+
+        private void OnDraftCreated()
+        {
+            if (!m_isWindowClose)
+            {
+                m_isSafeAreaActive = true;
+                m_vfxDraft.SetActive(true);
+            }
+        }
+
+        private void OnDraftDestroy()
+        {
+            m_isSafeAreaActive = false;
+            m_vfxDraft.SetActive(false);
+        }
 
         #region Debug Functions
 

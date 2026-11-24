@@ -43,6 +43,9 @@ namespace Canicule
 
             m_draftData.Add(draftData);
 
+            startRoom.SetRoomVentilate();
+            endRoom.SetRoomVentilate();
+
             foreach (RoomConnection item in draftData.m_roomConnection)
             {
                 item.teleporter.GetDoorGeneral().m_doorCmpt.CreateDraft(startRoom, endRoom);
@@ -51,6 +54,7 @@ namespace Canicule
 
         private Room _FindRoomWithAirFlow(Room starterRoom, RoomConnection[] roomConnections, ref List<RoomConnection> connectionList, ref List<Room> excludeRoom)
         {
+
             for (int i = 0; i < roomConnections.Length; i++)
             {
                 if (!roomConnections[i].IsDoorOpen() || excludeRoom.Contains(roomConnections[i].roomLink)) continue;
@@ -115,6 +119,9 @@ namespace Canicule
 
         private void DeleteDraft(DraftData draftDataTarget)
         {
+            draftDataTarget.m_roomStarter.ResetRoomVentilation();
+            draftDataTarget.m_roonEnder.ResetRoomVentilation();
+
             foreach (RoomConnection item in draftDataTarget.m_roomConnection)
             {
                 item.teleporter.GetDoorGeneral().DeleteDraft();
