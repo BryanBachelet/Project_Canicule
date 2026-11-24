@@ -155,7 +155,7 @@ namespace Canicule
             draftDataB.door = linkDoor;
             draftDataB.room = enderRoom;
 
-            draftBehavior.InitDraft(draftDataA, draftDataB);
+            draftBehavior.InitDraft(draftDataA, draftDataB,m_roomOwner);
             m_draftBehavior = draftBehavior;
             m_isDraftActive = true;
         }
