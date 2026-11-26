@@ -9,6 +9,8 @@ namespace Canicule
         private InventoryDataManager m_inventoryDataManager;
         private float m_gainModifier = 0f;
 
+        public event Action OnMoneyGained;
+
         private void Start()
         {
             m_inventoryDataManager = GameManager.GetInventoryDataManager();
@@ -23,6 +25,8 @@ namespace Canicule
             float newbalance = m_inventoryDataManager.GetPlayerBalance() + roundedRandomGain;
 
             m_inventoryDataManager.SetPlayerBalance(newbalance);
+
+            OnMoneyGained?.Invoke();
 
             //Debug.Log("gain modifier : " + m_gainModifier);
             //Debug.Log("rounded random gain : " + roundedRandomGain);
